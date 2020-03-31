@@ -8,19 +8,14 @@
 add_some <-
         function(path_to_local_repo, filenames) {
                 if (dir.exists(path_to_local_repo)) {
-                        return_msg_01 <-
-                        system(paste0("cd\n",
-                                      "cd ", path_to_local_repo,"\n"),
-                               intern = TRUE
-                               )
-
-                        return_msg_02 <- vector()
+                        return_msg_01 <- vector()
                         for (i in 1:length(filenames)) {
-                                return_msg_02[i] <-
-                                system(paste0("git add ", filenames[i]), intern = TRUE)
+                                system(paste0("cd\n",
+                                              "cd ", path_to_local_repo,"\n",
+                                      "git add ", basename(filenames[i])), intern = TRUE)
                         }
 
-                        return(paste(return_msg_01, return_msg_02, collapse = "\n"))
+                        return(return_msg_01)
                 } else {
                         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }

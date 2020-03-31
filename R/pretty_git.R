@@ -1,0 +1,9 @@
+#' Takes the command line message vector and prints a clean version in console
+#' @param glitter_output output vector from any glitter function
+#' @export
+
+
+pretty_git <-
+        function(glitter_output) {
+                cat(glitter_output, sep = "\n")
+        }

@@ -17,8 +17,9 @@ add_commit_some <-
                         return_msg_02 <- list()
                         for (i in 1:length(filenames)) {
                                 return_msg_02[i] <- system(paste0("git add ", filenames[i]), intern = TRUE)
+                                names(return_msg_02)[i] <- filenames[i]
                         }
-                        return(paste(return_msg_01, return_msg_02, collapse = "\n"))
+                        return(return_msg_02)
                 } else {
                         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }

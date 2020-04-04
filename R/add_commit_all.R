@@ -10,12 +10,12 @@ add_commit_all <-
                  commit_message,
                  description = NULL) {
 
-                return_msg_01 <- git_add_all(path_to_local_repo)
+                return_msg_01 <- add_all(path_to_local_repo)
 
-                return_msg_02 <- git_commit(path_to_local_repo,
+                return_msg_02 <- commit(path_to_local_repo,
                                         commit_message = commit_message,
                                         description = description)
 
-                return(paste(return_msg_01, return_msg_02, collapse = "\n"))
+                return(return_msg_02)
         }
 

@@ -9,10 +9,10 @@ add_commit_all_this_repo <-
         function(commit_message,
                  description = NULL) {
 
-                return_msg_01 <- git_add_all_this_repo()
-                return_msg_02 <- git_commit_this_repo(commit_message = commit_message,
+                return_msg_01 <- add_all_this_repo()
+                return_msg_02 <- commit_this_repo(commit_message = commit_message,
                                      description = description)
 
-                return(paste(return_msg_01, return_msg_02, collapse = "\n"))
+                return(return_msg_02)
         }
 

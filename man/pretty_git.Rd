@@ -2,7 +2,7 @@
 % Please edit documentation in R/pretty_git.R
 \name{pretty_git}
 \alias{pretty_git}
-\title{Takes the command line message vector and prints a clean version in console}
+\title{Takes the command line message vector and prints a clean version in console. Deprecated for pretty() function.}
 \usage{
 pretty_git(glitter_output)
 }
@@ -10,5 +10,5 @@ pretty_git(glitter_output)
 \item{glitter_output}{output vector from any glitter function}
 }
 \description{
-Takes the command line message vector and prints a clean version in console
+Takes the command line message vector and prints a clean version in console. Deprecated for pretty() function.
 }

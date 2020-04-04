@@ -4,7 +4,7 @@
 \alias{destroy}
 \title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
 \usage{
-destroy(path_to_local_repo, permanently_remove_this_file)
+destroy(path_to_local_repo, destroy_this_file)
 }
 \arguments{
 \item{permanently_remove}{filename of the file to permanently remove all traces of}

@@ -15,7 +15,7 @@ add_all_in_outside_repo <-
                                intern = TRUE
                         )
 
-                        return(x)
+                       return(x)
                 } else {
                         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }

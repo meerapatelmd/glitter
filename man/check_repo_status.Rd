@@ -6,6 +6,9 @@
 \usage{
 check_repo_status(path_to_local_repo)
 }
+\arguments{
+\item{path_to_local_repo}{path to the local repo}
+}
 \description{
 Check whether a commit is needed or not for a given repo
 }

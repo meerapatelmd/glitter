@@ -6,6 +6,9 @@
 \usage{
 untracked_files(path_to_local_repo)
 }
+\arguments{
+\item{path_to_local_repo}{path to local repo}
+}
 \description{
 Get a list of untracked files in a repo
 }

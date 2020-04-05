@@ -1,5 +1,5 @@
 #' Get a list of untracked files in a repo
-#' @param path_to_local_repo
+#' @param path_to_local_repo path to local repo
 #' @importFrom stringr str_remove_all
 #' @importFrom mirCat typewrite
 #' @export

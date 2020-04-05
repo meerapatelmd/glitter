@@ -16,7 +16,7 @@ push <-
                                       "git push ", remote_name, " ", remote_branch),
                                intern = TRUE
                         )
-                        return(x)
+                        pretty_if_exists(x)
                 } else {
                         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }

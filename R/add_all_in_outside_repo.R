@@ -8,14 +8,12 @@
 add_all_in_outside_repo <-
         function(path_to_local_repo) {
                 if (dir.exists(path_to_local_repo)) {
-                        x <-
                         system(paste0("cd\n",
                                       "cd ", path_to_local_repo,"\n",
                                       "git add ."),
                                intern = TRUE
                         )
 
-                       return(x)
                 } else {
                         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }

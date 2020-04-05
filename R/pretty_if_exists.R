@@ -2,7 +2,7 @@
 #' @param git_msg output from a glitter git command
 #' @export
 
-print_if_message_exists <-
+pretty_if_exists <-
         function(git_msg) {
                 if (length(git_msg) > 0) {
                         pretty(git_msg)

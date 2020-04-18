@@ -2,13 +2,15 @@
 % Please edit documentation in R/add_commit_all_this_repo.R
 \name{add_commit_all_this_repo}
 \alias{add_commit_all_this_repo}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Add and commit all chnages in repo belonging to the current working directory}
 \usage{
 add_commit_all_this_repo(commit_message, description = NULL)
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{commit_message}{commit message}
+
+\item{description}{description, if desired. Defaults to NULL.}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Add and commit all chnages in repo belonging to the current working directory
 }

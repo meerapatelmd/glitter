@@ -3,7 +3,7 @@
 #' @inheritParams add_commit_all_this_repo
 #' @import roxygen2
 #' @importFrom devtools document
-#' @importfrom devtools install_github
+#' @importFrom devtools install_github
 #' @export
 
 doc_push_install_package <-

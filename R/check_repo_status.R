@@ -11,5 +11,6 @@ check_repo_status <-
                 } else {
                         mirCat::typewrite("\tcommits needed:\n")
                         pretty(x)
+                        invisible(x)
                 }
         }

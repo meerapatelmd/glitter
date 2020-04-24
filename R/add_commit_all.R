@@ -1,7 +1,8 @@
-#' Push a local repo to remote MSK KMI Enterprise GitHub repository
-#' @param path_to_local_repo full path to local repository to be pushed
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
+#' Add and commit all changes in a local repo
+#' @param path_to_local_repo full path to local repository where the add and commit all will be performed
+#' @param commit_message If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"
+#' @param description additional optional description
+#' @importFrom secretary typewrite_italic
 #' @export
 
 

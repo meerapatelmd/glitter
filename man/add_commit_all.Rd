@@ -2,13 +2,17 @@
 % Please edit documentation in R/add_commit_all.R
 \name{add_commit_all}
 \alias{add_commit_all}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Add and commit all changes in a local repo}
 \usage{
-add_commit_all(path_to_local_repo, commit_message, description = NULL)
+add_commit_all(path_to_local_repo, commit_message = NULL, description = NULL)
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{path_to_local_repo}{full path to local repository where the add and commit all will be performed}
+
+\item{commit_message}{If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"}
+
+\item{description}{additional optional description}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Add and commit all changes in a local repo
 }

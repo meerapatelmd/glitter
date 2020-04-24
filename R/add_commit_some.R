@@ -1,8 +1,8 @@
 #' Push a local repo to remote GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param commit_message defaults to NULL, where the commit_message is a "modify/add {filename} in {path to present R script}"
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
+#' @importFrom secretary typewrite
+#' @importFrom crayon red
 #' @export
 
 
@@ -31,12 +31,9 @@ add_commit_some <-
                                                description = description)
                         }
 
-                        if (length(x) > 0) {
-                                pretty(x)
-                                return(x)
-                        }
+                        pretty_if_exists(x)
 
                 } else {
-                        typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
+                        secretary::typewrite(crayon::red("\tError: Local repository", path_to_local_repo, "does not exist."))
                 }
         }

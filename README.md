@@ -1,6 +1,14 @@
 2020-04-24 13:05:52 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-04-24 13:20:53
+Local R Script:	~/GitHub/Public-Packages/glitter/R/doc_push_install_package.R
+Typewrite Message:		No untracked files in this repo.
+
+Timestamp:	2020-04-24 13:20:17
+Local R Script:	~/GitHub/Public-Packages/glitter/R/doc_push_install_package.R
+Typewrite Message:		No untracked files in this repo.
+
 Timestamp:	2020-04-24 13:18:22
 Local R Script:	~/GitHub/Public-Packages/glitter/R/doc_push_install_package.R
 Typewrite Message:		No untracked files in this repo.

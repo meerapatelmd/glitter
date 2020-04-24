@@ -1,6 +1,12 @@
 2020-04-24 13:05:52 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-04-24 19:19:17
+Local R Script:	~/GitHub/Public-Packages/glitter/R/add_commit_all.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-04-24 19:18:10
+Local R Script:	~/GitHub/Public-Packages/glitter/R/files_to_commit.R
+Typewrite Message:	No deleted files in this repo.
 Timestamp:	2020-04-24 19:06:22
 Local R Script:	~/GitHub/Public-Packages/glitter/R/wd_files_to_commit.R
 Typewrite Message:	No deleted files in this repo.

@@ -1,12 +1,12 @@
-#' Get a list of both untracked and modified files in the wd only
-#' @description This function gets all the modified and untracked files from the path set by getwd() and excludes any of the files in a different path (ie "../other_wd")
+#' Get a list of both untracked and modified files a local git repo
+#' @description This function gets all the modified, untracked, and deleted files in the local repo at path_to_local_repo
 #' @export
 
-wd_files_to_commit <-
-        function() {
-                filenames <- c(modified_files(path_to_local_repo = getwd()),
-                               untracked_files(path_to_local_repo = getwd()),
-                               deleted_files(path_to_local_repo = getwd()))
+files_to_commit <-
+        function(path_to_local_repo) {
+                filenames <- c(modified_files(path_to_local_repo = path_to_local_repo),
+                               untracked_files(path_to_local_repo = path_to_local_repo),
+                               deleted_files(path_to_local_repo = path_to_local_repo))
                 filenames <- grep("^[.]{1,}", filenames, invert = TRUE, value = TRUE)
                 if (length(filenames) > 0) {
                         secretary::typewrite_bold("\nModified, Untracked, or Deleted Files:", line_number = 0, add_to_readme = FALSE)

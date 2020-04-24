@@ -1,8 +1,8 @@
-#' Push a local repo to remote GitHub repository
+#' Commit some, but not all files, in a local repo to remote GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
+#' @param filenames names of files in the local repository path to be committed
 #' @param commit_message defaults to NULL, where the commit_message is a "modify/add {filename} in {path to present R script}"
-#' @importFrom secretary typewrite
-#' @importFrom crayon red
+#' @importFrom secretary typewrite_error
 #' @export
 
 
@@ -31,9 +31,11 @@ add_commit_some <-
                                                description = description)
                         }
 
+                        secretary::typewrite_bold("\nCommit Status:", line_number = 0, add_to_readme = FALSE)
                         pretty_if_exists(x)
+                        invisible(x)
 
                 } else {
-                        secretary::typewrite(crayon::red("\tError: Local repository", path_to_local_repo, "does not exist."))
+                        secretary::typewrite_error("Local repository", path_to_local_repo, "does not exist.")
                 }
         }

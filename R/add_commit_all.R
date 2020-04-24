@@ -7,15 +7,22 @@
 
 add_commit_all <-
         function(path_to_local_repo,
-                 commit_message,
+                 commit_message = NULL,
                  description = NULL) {
 
-                return_msg_01 <- add_all(path_to_local_repo)
+                filenames <- files_to_commit(path_to_local_repo = path_to_local_repo)
 
-                return_msg_02 <- commit(path_to_local_repo,
-                                        commit_message = commit_message,
-                                        description = description)
+                add_commit_some(path_to_local_repo = path_to_local_repo,
+                                filenames = filenames,
+                                commit_message = commit_message,
+                                description = description)
 
-                return(return_msg_02)
+                # return_msg_01 <- add_all(path_to_local_repo)
+                #
+                # return_msg_02 <- commit(path_to_local_repo,
+                #                         commit_message = commit_message,
+                #                         description = description)
+                #
+                # return(return_msg_02)
         }
 

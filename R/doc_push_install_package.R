@@ -1,6 +1,5 @@
 #' Document, push changes, and install a public GitHub Package
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
-#' @inheritParams add_commit_all_this_repo
 #' @import roxygen2
 #' @importFrom devtools document
 #' @importFrom devtools install_github

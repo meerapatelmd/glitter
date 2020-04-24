@@ -7,8 +7,12 @@ wd_add_commit_all <-
         function(commit_message = NULL, description = NULL) {
                 filenames <- wd_files_to_commit()
 
+                git_message <-
                 add_commit_some(path_to_local_repo = getwd(),
                                         filenames = filenames,
                                         commit_message = commit_message,
                                         description = description)
+
+                pretty_if_exists(git_message)
+                return(git_message)
         }

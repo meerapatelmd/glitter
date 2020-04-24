@@ -17,7 +17,7 @@ doc_push_install_package <-
 
 
         #Updating and Pushing to GitHub
-        x <- add_commit_all_this_repo(commit_message = commit_message, description = description)
+        x <- wd_add_commit_all(commit_message = commit_message, description = description)
         pretty(x)
         push_this_repo()
 

@@ -9,6 +9,9 @@ modified_files(path_to_local_repo)
 \arguments{
 \item{path_to_local_repo}{path to local repo}
 }
+\value{
+The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
+}
 \description{
-Get a list of modified files in a repo
+This function takes the git status message and isolates the files that have been modified according to that message.
 }

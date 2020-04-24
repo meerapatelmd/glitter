@@ -1,11 +1,15 @@
 #' Get a list of untracked files in a repo
+#' @description This function takes the git status message and isolates the files that are new/untracked according to that message.
+#' @return The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.
 #' @param path_to_local_repo path to local repo
 #' @importFrom stringr str_remove_all
 #' @importFrom secretary typewrite_italic
+#' @importFrom secretary typewrite_bold
 #' @export
 
 untracked_files <-
         function(path_to_local_repo) {
+                secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
                 status_msg <- status(path_to_local_repo = path_to_local_repo)
 
                 if ("Untracked files:" %in% status_msg) {
@@ -31,7 +35,9 @@ untracked_files <-
                         ##Cleaning up names
                         output <- stringr::str_remove_all(output, "[\t\r\n]")
 
-                        return(output)
+                        secretary::typewrite_bold("\nUntracked Files:", line_number = 0, add_to_readme = FALSE)
+                        pretty_if_exists(output)
+                        invisible(output)
 
                 } else {
                         secretary::typewrite_italic("No untracked files in this repo.\n")

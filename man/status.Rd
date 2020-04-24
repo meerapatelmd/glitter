@@ -2,17 +2,16 @@
 % Please edit documentation in R/status.R
 \name{status}
 \alias{status}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Get the Git status of any local repo using the path}
 \usage{
 status(path_to_local_repo)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}
-
-\item{remote_name}{name of remote to push to. Defaults to "origin".}
-
-\item{remote_branch}{name of branch on the remote to push to. Defaults to "master".}
+}
+\value{
+If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Get the Git status of any local repo using the path
 }

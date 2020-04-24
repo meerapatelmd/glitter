@@ -9,6 +9,9 @@ deleted_files(path_to_local_repo)
 \arguments{
 \item{path_to_local_repo}{path to local repo}
 }
+\value{
+The Git Status message and deleted files are printed in the console while the vector of the deleted filenames are invisibly returned.
+}
 \description{
-Get a list of deleted files in a repo
+Lists all the deleted files according to the git status message returned by the status function
 }

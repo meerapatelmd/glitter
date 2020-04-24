@@ -9,6 +9,9 @@ untracked_files(path_to_local_repo)
 \arguments{
 \item{path_to_local_repo}{path to local repo}
 }
+\value{
+The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.
+}
 \description{
-Get a list of untracked files in a repo
+This function takes the git status message and isolates the files that are new/untracked according to that message.
 }

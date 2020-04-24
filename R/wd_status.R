@@ -8,6 +8,5 @@ wd_status <-
         function() {
                         x <- system("git status", intern = TRUE)
                         pretty_if_exists(x)
-                        return(x)
-
+                        invisible(x)
         }

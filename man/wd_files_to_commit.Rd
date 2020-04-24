@@ -7,5 +7,5 @@
 wd_files_to_commit()
 }
 \description{
-Get a list of both untracked and modified files in the wd only
+This function gets all the modified and untracked files from the path set by getwd() and excludes any of the files in a different path (ie "../other_wd")
 }

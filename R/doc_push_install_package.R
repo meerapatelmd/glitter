@@ -13,6 +13,9 @@ doc_push_install_package <-
         #Updating documentation
         require(roxygen2)
         require(devtools)
+
+        #Rewriting NAMESPACE
+        file.remove("NAMESPACE")
         devtools::document()
 
 

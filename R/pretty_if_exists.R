@@ -6,5 +6,6 @@ pretty_if_exists <-
         function(git_msg) {
                 if (length(git_msg) > 0) {
                         pretty(git_msg)
+                        return(git_msg)
                 }
         }

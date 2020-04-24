@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_commit.R, R/add_commit_some.R
 \name{add_commit_some}
 \alias{add_commit_some}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Push a local repo to remote GitHub repository}
 \usage{
 add_commit_some(
   path_to_local_repo,
@@ -24,7 +24,7 @@ add_commit_some(
 \item{commit_message}{defaults to NULL, where the commit_message is a "modify/add {filename} in {path to present R script}"}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Push a local repo to remote GitHub repository
 
 Push a local repo to remote GitHub repository
 }

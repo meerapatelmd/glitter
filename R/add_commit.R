@@ -1,4 +1,4 @@
-#' Push a local repo to remote MSK KMI Enterprise GitHub repository
+#' Push a local repo to remote GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @importFrom typewriteR tell_me
 #' @importFrom crayon yellow

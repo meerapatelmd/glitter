@@ -1,7 +1,7 @@
 #' Get a list of modified files in a repo
 #' @param path_to_local_repo path to local repo
 #' @importFrom stringr str_replace_all
-#' @importFrom mirCat typewrite
+#' @importFrom secretary typewrite_italic
 #' @export
 
 modified_files <-
@@ -23,7 +23,7 @@ modified_files <-
                 if (length(fns) > 0) {
                         return(fns)
                 } else {
-                        mirCat::typewrite("\tNo modified files in this repo.\n")
+                        secretary::typewrite_italic("\tNo modified files in this repo.\n")
                 }
         }
 

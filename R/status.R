@@ -2,8 +2,7 @@
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param remote_name name of remote to push to. Defaults to "origin".
 #' @param remote_branch name of branch on the remote to push to. Defaults to "master".
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
+#' @importFrom secretary typewrite_error
 #' @export
 
 
@@ -18,6 +17,6 @@ status <-
                         )
                         return(x)
                 } else {
-                        typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
+                        secretary::typewrite_error("Local repository", path_to_local_repo, "does not exist.")
                 }
         }

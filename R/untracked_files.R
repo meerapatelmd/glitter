@@ -1,7 +1,7 @@
 #' Get a list of untracked files in a repo
 #' @param path_to_local_repo path to local repo
 #' @importFrom stringr str_remove_all
-#' @importFrom mirCat typewrite
+#' @importFrom secretary typewrite_italic
 #' @export
 
 untracked_files <-
@@ -34,7 +34,7 @@ untracked_files <-
                         return(output)
 
                 } else {
-                        mirCat::typewrite("\tNo untracked files in this repo.\n")
+                        secretary::typewrite_italic("\tNo untracked files in this repo.\n")
                 }
         }
 

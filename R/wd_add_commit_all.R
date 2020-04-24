@@ -14,5 +14,5 @@ wd_add_commit_all <-
                                         description = description)
 
                 pretty_if_exists(git_message)
-                return(git_message)
+                invisible(git_message)
         }

@@ -17,15 +17,11 @@ add_commit_all <-
                                 commit_message = commit_message,
                                 description = description)
 
-                pretty_if_exists(git_message)
-                invisible(git_message)
-
-                # return_msg_01 <- add_all(path_to_local_repo)
-                #
-                # return_msg_02 <- commit(path_to_local_repo,
-                #                         commit_message = commit_message,
-                #                         description = description)
-                #
-                # return(return_msg_02)
+                if (length(git_message) > 0) {
+                        pretty_if_exists(git_message)
+                        invisible(git_message)
+                } else {
+                        secretary::typewrite_italic("Nothing to and and commit.")
+                }
         }
 

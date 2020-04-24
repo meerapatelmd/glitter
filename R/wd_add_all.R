@@ -2,9 +2,9 @@
 #' @export
 
 
-add_all_this_repo <-
+wd_add_all <-
         function() {
                         x <- system("git add .", intern = TRUE)
-                        return(x)
+                        pretty_if_exists(x)
 
         }

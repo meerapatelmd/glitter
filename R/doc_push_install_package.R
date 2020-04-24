@@ -18,9 +18,11 @@ doc_push_install_package <-
 
         #Updating and Pushing to GitHub
         x <- wd_add_commit_all(commit_message = commit_message, description = description)
-        pretty(x)
-        if (length(x) > 0) {
-                push_wd()
+        if (exists("x")) {
+                pretty(x)
+                if (length(x) > 0) {
+                        push_wd()
+                }
         }
 
         #Installing package by first getting URL of the remote

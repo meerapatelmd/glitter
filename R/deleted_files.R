@@ -23,7 +23,7 @@ deleted_files <-
                 if (length(fns) > 0) {
                         return(fns)
                 } else {
-                        secretary::typewrite_italic("No deleted files.")
+                        secretary::typewrite_italic("No deleted files in this repo.")
                 }
         }
 

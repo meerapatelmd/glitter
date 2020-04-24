@@ -23,7 +23,7 @@ modified_files <-
                 if (length(fns) > 0) {
                         return(fns)
                 } else {
-                        secretary::typewrite_italic("\tNo modified files in this repo.\n")
+                        secretary::typewrite_italic("No modified files in this repo.\n")
                 }
         }
 

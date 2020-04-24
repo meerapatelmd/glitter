@@ -34,7 +34,7 @@ untracked_files <-
                         return(output)
 
                 } else {
-                        secretary::typewrite_italic("\tNo untracked files in this repo.\n")
+                        secretary::typewrite_italic("No untracked files in this repo.\n")
                 }
         }
 

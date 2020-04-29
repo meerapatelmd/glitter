@@ -11,7 +11,7 @@ add_commit_all_deltas_in_path <-
                 all_deltas_in_path <- grep("^[.]{2}", all_deltas, invert = TRUE, value = TRUE)
 
                 git_msg <-
-                        add_commit_some(path_to_local_repo = getwd(),
+                        add_commit_some(path_to_local_repo = path,
                                         filenames = all_deltas_in_path,
                                         commit_message = commit_message)
 

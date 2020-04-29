@@ -1,6 +1,27 @@
 2020-04-24 13:05:52 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-04-29 16:23:18
+Local R Script:	~/GitHub/Public-Packages/glitter/R/deleted_files_in_wd.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-04-29 16:23:18
+Local R Script:	~/GitHub/Public-Packages/glitter/R/deleted_files_in_wd.R
+Typewrite Message:	No untracked files in this repo.
+
+Timestamp:	2020-04-29 16:17:37
+Local R Script:	~/GitHub/Public-Packages/glitter/R/untracked_files_in_wd.R
+Typewrite Message:	No modified, untracked, or deleted files in /Users/patelm9/GitHub/Public-Packages/glitter
+Timestamp:	2020-04-29 16:17:37
+Local R Script:	~/GitHub/Public-Packages/glitter/R/untracked_files_in_wd.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-04-29 16:17:37
+Local R Script:	~/GitHub/Public-Packages/glitter/R/untracked_files_in_wd.R
+Typewrite Message:	No untracked files in this repo.
+
+Timestamp:	2020-04-29 16:17:37
+Local R Script:	~/GitHub/Public-Packages/glitter/R/untracked_files_in_wd.R
+Typewrite Message:	No modified files in this repo.
+
 Timestamp:	2020-04-24 22:09:03
 Local R Script:	~/GitHub/Public-Packages/glitter/R/add_commit_all_untracked_files.R
 Typewrite Message:	No untracked files in this repo.

@@ -2,6 +2,7 @@
 
 export(add_all)
 export(add_commit_all)
+export(add_commit_all_deltas_in_path)
 export(add_commit_all_deltas_in_wd)
 export(add_commit_all_modified_files)
 export(add_commit_all_this_repo)

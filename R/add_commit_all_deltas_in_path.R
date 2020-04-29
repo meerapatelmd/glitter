@@ -8,7 +8,7 @@ add_commit_all_deltas_in_path <-
                                 untracked_files(path_to_local_repo = path),
                                 deleted_files(path_to_local_repo = path))
 
-                all_deltas_in_path <- grep("^[.]{2]", all_deltas, invert = TRUE, value = TRUE)
+                all_deltas_in_path <- grep("^[.]{2}", all_deltas, invert = TRUE, value = TRUE)
 
                 git_msg <-
                         add_commit_some(path_to_local_repo = getwd(),

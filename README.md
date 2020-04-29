@@ -1,6 +1,16 @@
 2020-04-24 13:05:52 	File Created
 
 # Typewrite Messages
+Timestamp:	2020-04-29 16:35:38
+Local R Script:	~/GitHub/Public-Packages/glitter/R/add_commit_all_deltas_in_path.R
+Typewrite Message:	No deleted files in this repo.
+Timestamp:	2020-04-29 16:35:38
+Local R Script:	~/GitHub/Public-Packages/glitter/R/add_commit_all_deltas_in_path.R
+Typewrite Message:	No untracked files in this repo.
+
+Timestamp:	2020-04-29 16:31:32
+Local R Script:	~/GitHub/Public-Packages/glitter/R/add_commit_all_deltas_in_path.R
+Typewrite Message:	No deleted files in this repo.
 Timestamp:	2020-04-29 16:23:18
 Local R Script:	~/GitHub/Public-Packages/glitter/R/deleted_files_in_wd.R
 Typewrite Message:	No deleted files in this repo.

@@ -8,7 +8,8 @@ add_commit_some(
   path_to_local_repo,
   filenames,
   commit_message = NULL,
-  description = NULL
+  description = NULL,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -16,7 +17,7 @@ add_commit_some(
 
 \item{filenames}{names of files in the local repository path to be committed}
 
-\item{commit_message}{defaults to NULL, where the commit_message is a "modify/add {filename} in {path to present R script}"}
+\item{commit_message}{defaults to NULL, where the commit_message is a "change to {filename} in {path to present R script}"}
 }
 \description{
 Commit some, but not all files, in a local repo to remote GitHub repository

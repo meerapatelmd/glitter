@@ -4,7 +4,7 @@
 \alias{untracked_files}
 \title{Get a list of untracked files in a repo}
 \usage{
-untracked_files(path_to_local_repo)
+untracked_files(path_to_local_repo, verbose = TRUE)
 }
 \arguments{
 \item{path_to_local_repo}{path to local repo}

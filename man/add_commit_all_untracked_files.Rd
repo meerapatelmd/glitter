@@ -4,7 +4,7 @@
 \alias{add_commit_all_untracked_files}
 \title{Add and Commit Untracked Files}
 \usage{
-add_commit_all_untracked_files(path_to_local_repo)
+add_commit_all_untracked_files(path_to_local_repo, verbose = TRUE)
 }
 \arguments{
 \item{path_to_local_repo}{path to local repo}

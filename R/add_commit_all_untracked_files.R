@@ -4,15 +4,19 @@
 #' @export
 
 add_commit_all_untracked_files <-
-        function(path_to_local_repo) {
-                untracked_files <- untracked_files(path_to_local_repo = path_to_local_repo)
+        function(path_to_local_repo, verbose = TRUE) {
+                untracked_files <- untracked_files(path_to_local_repo = path_to_local_repo, verbose = verbose)
                 while(length(untracked_files) > 0) {
                         fn <- untracked_files[1]
                         full_fn <- paste0(path_to_local_repo, "/", fn)
-                                pretty_if_exists(
+
+                                x <-
                                         add_commit_some(path_to_local_repo = path_to_local_repo,
                                                                  filenames = fn,
-                                                                 commit_message = paste0("new file auto-added and committed via glitter ", fn)))
+                                                                 commit_message = paste0("new file auto-added and committed via glitter ", fn))
+                                if (verbose == TRUE) {
+                                        pretty_if_exists(x)
+                                }
 
                         untracked_files <- untracked_files[-1]
                 }

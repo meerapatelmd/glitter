@@ -3,12 +3,24 @@
 #' @param filenames names of files in the local repository path to be committed
 #' @param commit_message defaults to NULL, where the commit_message is a "change to {filename} in {path to present R script}"
 #' @importFrom secretary typewrite_error
+#' @importFrom purrr keep
+#' @importFrom rubix map_names_set
 #' @export
 
 
 add_commit_some <-
         function(path_to_local_repo, filenames, commit_message = NULL, description = NULL, verbose = TRUE) {
                 if (dir.exists(path_to_local_repo)) {
+
+                        path_to_filenames <- paste0(path_to_local_repo, "/", filenames)
+
+
+                        ##Filtering for only files less than 100 MB
+                        filenames <-
+                        path_to_filenames %>%
+                                rubix::map_names_set(cave::size_in_mb) %>%
+                                purrr::keep(function(x) x < 100) %>%
+                                names()
 
                         for (i in 1:length(filenames)) {
                                 fn <- sanitize_fns_for_cli(filenames[i])
@@ -31,7 +43,7 @@ add_commit_some <-
                                                description = description)
                         }
 
-                        secretary::typewrite_bold("\nCommit Status:", line_number = 0, add_to_readme = FALSE)
+                        secretary::typewrite_bold("\nCommit Status:")
                         pretty_if_exists(x)
                         invisible(x)
 

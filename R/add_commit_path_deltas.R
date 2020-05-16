@@ -1,8 +1,9 @@
 #' Adds and commits all changed files in a given path
+#' @description This function combines outputs for
 #' @export
 
 
-add_commit_all_deltas_in_path <-
+add_commit_path_deltas <-
         function(path, commit_message = NULL, description = NULL) {
                 all_deltas <- c(modified_files(path_to_local_repo = path),
                                 untracked_files(path_to_local_repo = path),

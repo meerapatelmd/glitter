@@ -9,7 +9,7 @@ add_commit_some(
   filenames,
   commit_message = NULL,
   description = NULL,
-  verbose = TRUE
+  log = FALSE
 )
 }
 \arguments{

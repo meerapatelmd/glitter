@@ -1,7 +1,6 @@
 #' Push a local repo to remote MSK KMI Enterprise GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
+#' @importFrom secretary typewrite_error
 #' @export
 
 
@@ -16,6 +15,6 @@ add_all <-
                         )
                         return(x)
                 } else {
-                        typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
+                        secretary::typewrite_error("Local repository", path_to_local_repo, "does not exist.")
                 }
         }

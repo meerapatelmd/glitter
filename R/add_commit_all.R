@@ -11,18 +11,11 @@ add_commit_all <-
                  commit_message = NULL,
                  description = NULL) {
 
-                filenames <- files_to_commit(path_to_local_repo = path_to_local_repo)
+                add_all(path_to_local_repo)
 
-                while (length(filenames) > 0) {
-                        filename <- filenames[1]
-                        git_message <- add_commit_some(path_to_local_repo = path_to_local_repo,
-                                                       filenames = filename,
-                                                       commit_message = commit_message,
-                                                       description = description)
-
-                        pretty_if_exists(git_message)
-
-                        filenames <- filenames[-1]
-                }
+                commit(path_to_local_repo = path_to_local_repo,
+                       commit_message = commit_message,
+                       description = description
+                       )
         }
 

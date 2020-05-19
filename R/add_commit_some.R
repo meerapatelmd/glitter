@@ -8,6 +8,7 @@
 #' @importFrom crayon italic
 #' @export
 
+
 add_commit_some <-
         function(path_to_local_repo, filenames, commit_message = NULL, description = NULL, log = FALSE) {
                 if (dir.exists(path_to_local_repo)) {

@@ -4,7 +4,7 @@
 \alias{commit}
 \title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
 \usage{
-commit(path_to_local_repo, commit_message, description = NULL)
+commit(path_to_local_repo, commit_message = NULL, description = NULL)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}

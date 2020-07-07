@@ -7,11 +7,11 @@
 
 
 add_commit_all <-
-        function(path_to_local_repo,
+        function(path_to_local_repo = NULL,
                  commit_message = NULL,
                  description = NULL) {
 
-                add_all(path_to_local_repo)
+                add_all(path_to_local_repo = path_to_local_repo)
 
                 commit(path_to_local_repo = path_to_local_repo,
                        commit_message = commit_message,

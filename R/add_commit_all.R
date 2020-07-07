@@ -9,13 +9,15 @@
 add_commit_all <-
         function(path_to_local_repo = NULL,
                  commit_message = NULL,
-                 description = NULL) {
+                 description = NULL,
+                 verbose = TRUE) {
 
                 add_all(path_to_local_repo = path_to_local_repo)
 
                 commit(path_to_local_repo = path_to_local_repo,
                        commit_message = commit_message,
-                       description = description
+                       description = description,
+                       verbose = verbose
                        )
         }
 

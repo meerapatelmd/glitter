@@ -7,9 +7,22 @@
 
 
 commit <-
-        function(path_to_local_repo, commit_message = NULL, description = NULL) {
+        function(path_to_local_repo = NULL,
+                 commit_message = NULL,
+                 description = NULL,
+                 verbose = TRUE) {
+
+                if (is.null(path_to_local_repo)) {
+
+                                path_to_local_repo <- getwd()
+
+                }
+
+                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
+                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
+
                 if (is.null(description)) {
-                        if (dir.exists(path_to_local_repo)) {
+
                                 x <-
                                 system(paste0("cd\n",
                                               "cd ", path_to_local_repo,"\n",
@@ -17,24 +30,28 @@ commit <-
                                 ), intern = TRUE
                                 )
 
-                                return(x)
 
-                        } else {
-                                typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
-                        }
                 } else {
-                        if (dir.exists(path_to_local_repo)) {
                                 x <-
                                 system(paste0("cd\n",
                                               "cd ", path_to_local_repo,"\n",
                                               "git commit -m '", commit_message, "' ", "-m '", description, "'"
                                 ), intern = TRUE
                                 )
-
-                                return(x)
-
-                        } else {
-                                typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
-                        }
                 }
+
+
+                if ("no changes added to commit" %in% x) {
+
+                        stop("No changes added to commit")
+
+                }
+
+                if (verbose) {
+
+                        print_if_has_length(x)
+
+                }
+
+                invisible(x)
         }

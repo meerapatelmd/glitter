@@ -20,7 +20,6 @@ doc_push_install_package <-
 
         #Updating and Pushing to GitHub
         x <- add_commit_all(
-                path_to_local_repo = getwd(),
                 commit_message = commit_message,
                 description = description)
         if (exists("x")) {

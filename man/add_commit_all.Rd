@@ -4,7 +4,12 @@
 \alias{add_commit_all}
 \title{Add and commit all changes in a local repo}
 \usage{
-add_commit_all(path_to_local_repo, commit_message = NULL, description = NULL)
+add_commit_all(
+  path_to_local_repo = NULL,
+  commit_message = NULL,
+  description = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository where the add and commit all will be performed}

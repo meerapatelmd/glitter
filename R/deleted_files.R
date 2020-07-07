@@ -8,28 +8,28 @@
 #' @export
 
 deleted_files <-
-        function(path_to_local_repo) {
-                secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
+        function(path_to_local_repo = NULL,
+                 verbose = TRUE) {
+
+                if (is.null(path_to_local_repo)) {
+
+                        path_to_local_repo <- getwd()
+                }
+
+                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
+                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
+
+
                 status_msg <- status(path_to_local_repo = path_to_local_repo)
-                deleted_status <- grep("^\tdeleted:", status_msg, value = TRUE)
+                files <- grep("^\tdeleted:", status_msg, value = TRUE)
 
-                fns <- vector()
-                while (length(deleted_status) > 0) {
-                        deleted_file <- deleted_status[1]
-                        fn <- stringr::str_replace_all(deleted_file,
-                                                       pattern = "(^\tdeleted:[ ]*)([^ ]{1}.*$)",
-                                                       "\\2")
+                files_df <- tibble::tibble(files)
+                files_df <-
+                        files_df %>%
+                        tidyr::extract(col = files,
+                                       into = c("File Type", "File Path"),
+                                       regex = "(^.*?[:]{1}[ ]{1,})([^ ]{1}.*$)")
 
-                        fns <- c(fns, fn)
-                        deleted_status <- deleted_status[-1]
-                }
 
-                if (length(fns) > 0) {
-                        secretary::typewrite_bold("\nDeleted Files:", line_number = 0, add_to_readme = FALSE)
-                        pretty_if_exists(fns)
-                        invisible(fns)
-                } else {
-                        secretary::typewrite_italic("No deleted files in this repo.")
-                }
         }
 

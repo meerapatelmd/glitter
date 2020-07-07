@@ -6,16 +6,21 @@
 
 
 add_all <-
-        function(path_to_local_repo) {
-                if (dir.exists(path_to_local_repo)) {
-                        x <-
+        function(path_to_local_repo = NULL) {
+
+                        if (is.null(path_to_local_repo)) {
+
+                                path_to_local_repo <- getwd()
+                        }
+
+
+
+                        stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
+                        stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
+
                         system(paste0("cd\n",
-                                      "cd ", path_to_local_repo,"\n",
-                                      "git add ."),
-                               intern = TRUE
-                        )
-                        return(x)
-                } else {
-                        typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
-                }
+                                              "cd ", path_to_local_repo,"\n",
+                                              "git add ."),
+                                       intern = FALSE)
+
         }

@@ -5,31 +5,18 @@
 #' @export
 
 
-status <-
-        function(path_to_local_repo = NULL, verbose = TRUE) {
-
-                        if (is.null(path_to_local_repo)) {
-
-                                path_to_local_repo <- getwd()
-
-                        }
-
-                        stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                        stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
+status0 <-
+        function(path_to_local_repo) {
+                if (dir.exists(path_to_local_repo)) {
                         x <-
                         system(paste0("cd\n",
                                       "cd ", path_to_local_repo,"\n",
                                       "git status"),
                                intern = TRUE
                         )
-
-                        if (verbose) {
-
-                                print_if_has_length(git_msg = x)
-
-                        }
-
-                        invisible(x)
-
+                        pretty_if_exists(x)
+                        return(x)
+                } else {
+                        secretary::typewrite_error("Local repository", path_to_local_repo, "does not exist.")
+                }
         }

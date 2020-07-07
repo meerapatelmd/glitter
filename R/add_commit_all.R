@@ -11,18 +11,11 @@ add_commit_all <-
                  commit_message = NULL,
                  description = NULL) {
 
-                filenames <- files_to_commit(path_to_local_repo = path_to_local_repo)
+                add_all(path_to_local_repo)
 
-                git_message <- add_commit_some(path_to_local_repo = path_to_local_repo,
-                                filenames = filenames,
-                                commit_message = commit_message,
-                                description = description)
-
-                if (length(git_message) > 0) {
-                        pretty_if_exists(git_message)
-                        invisible(git_message)
-                } else {
-                        secretary::typewrite_italic("Nothing to and and commit.")
-                }
+                commit(path_to_local_repo = path_to_local_repo,
+                       commit_message = commit_message,
+                       description = description
+                       )
         }
 

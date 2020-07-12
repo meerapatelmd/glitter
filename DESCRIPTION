@@ -7,7 +7,7 @@ Maintainer: Meera Y. Patel, M.D. <patelmeeray@gmail.comt>
 Description: This package has various features that allow commits and pushes from the R console.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Imports: 
     secretary,
     devtools,

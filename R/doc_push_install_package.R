@@ -9,34 +9,35 @@ doc_push_install_package <-
         function (commit_message, description = NULL)
                 {
 
-        #Updating documentation
-        require(roxygen2)
-        require(devtools)
+                        #Updating documentation
+                        require(roxygen2)
+                        require(devtools)
 
-        #Rewriting NAMESPACE
-        file.remove("NAMESPACE")
-        devtools::document()
+                        #Rewriting NAMESPACE
+                        file.remove("NAMESPACE")
+                        devtools::document()
 
 
-        #Updating and Pushing to GitHub
-        x <- add_commit_all(
-                commit_message = commit_message,
-                description = description)
-        if (exists("x")) {
-                pretty(x)
-                if (length(x) > 0) {
-                        push_wd()
-                }
-        }
+                        #Updating and Pushing to GitHub
+                        x <- add_commit_all(
+                                commit_message = commit_message,
+                                description = description)
 
-        #Installing package by first getting URL of the remote
-        git_url <- remote_url()
+                        if (exists("x")) {
+                                pretty(x)
+                                if (length(x) > 0) {
+                                        push_wd()
+                                }
+                        }
 
-        #Installing it as either a public or an Enterprise GitHub repo
-        if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
-                devtools::install_github(paste0("patelm9/", basename(getwd())))
-        } else {
-                devtools::install_git(url = git_url)
-        }
+                        #Installing package by first getting URL of the remote
+                        git_url <- remote_url()
+
+                        #Installing it as either a public or an Enterprise GitHub repo
+                        if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
+                                devtools::install_github(paste0("patelm9/", basename(getwd())))
+                        } else {
+                                devtools::install_git(url = git_url)
+                        }
 
 }

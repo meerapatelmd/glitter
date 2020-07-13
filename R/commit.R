@@ -1,8 +1,6 @@
 #' Push a local repo to remote MSK KMI Enterprise GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param commit_message message to be included in the commit
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
 #' @export
 
 

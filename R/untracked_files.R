@@ -1,7 +1,7 @@
 #' List all unstaged files by File Type
 #' @importFrom tibble tibble
 #' @importFrom rubix split_deselect
-#' @importfrom Hmisc capitalize
+#' @importFrom Hmisc capitalize
 #' @import dplyr
 #' @import tidyr
 #' @export

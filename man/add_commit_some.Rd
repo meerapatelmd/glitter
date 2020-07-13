@@ -5,11 +5,11 @@
 \title{Commit some, but not all files, in a local repo to remote GitHub repository}
 \usage{
 add_commit_some(
-  path_to_local_repo,
+  path_to_local_repo = NULL,
   filenames,
   commit_message = NULL,
   description = NULL,
-  log = FALSE
+  verbose = TRUE
 )
 }
 \arguments{

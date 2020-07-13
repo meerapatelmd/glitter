@@ -1,7 +1,7 @@
 #' List all unstaged files by File Type
 #' @importFrom tibble tibble
 #' @importFrom rubix split_deselect
-#' @importfrom Hmisc capitalize
+#' @importFrom Hmisc capitalize
 #' @import dplyr
 #' @import tidyr
 #' @export
@@ -30,6 +30,8 @@ unstaged_files <-
 
 
                 files <- status_msg[!(status_msg %in% remove_lines)]
+
+
                 files_df <- tibble::tibble(files)
                 files_df <-
                         files_df %>%

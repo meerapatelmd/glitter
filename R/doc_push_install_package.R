@@ -9,12 +9,10 @@ doc_push_install_package <-
         function (commit_message, description = NULL)
                 {
 
-                        #Updating documentation
-                        require(roxygen2)
-                        require(devtools)
-
                         #Rewriting NAMESPACE
-                        file.remove("NAMESPACE")
+                        if (file.exists("NAMESPACE")) {
+                                file.remove("NAMESPACE")
+                        }
                         devtools::document()
 
 

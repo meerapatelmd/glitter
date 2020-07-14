@@ -6,7 +6,7 @@
 #' @export
 
 
-commit <-
+commit0 <-
         function(path_to_local_repo, commit_message = NULL, description = NULL) {
                 if (is.null(description)) {
                         if (dir.exists(path_to_local_repo)) {

@@ -2,12 +2,14 @@ Package: glitter
 Type: Package
 Title: Git commands from R console
 Version: 0.1.0
-Author: Meera Y. Patel, M.D.
-Maintainer: Meera Y. Patel, M.D. <patelmeeray@gmail.comt>
+Author: Meera Y. Patel, M.D. <patelmeeray@gmail.com>
 Description: This package has various features that allow commits and pushes from the R console.
 Encoding: UTF-8
 LazyData: true
+License: Apache License 2.0
 RoxygenNote: 7.1.1
 Imports: 
     devtools,
-    stringr
+    stringr,
+    dplyr,
+    purrr

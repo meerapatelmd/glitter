@@ -1,6 +1,7 @@
 #' Push a local repo to remote MSK KMI Enterprise GitHub repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @importFrom secretary typewrite_error
+#' @import dplyr
 #' @import rubix
 #' @import purrr
 #' @export

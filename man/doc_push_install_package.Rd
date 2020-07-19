@@ -5,7 +5,11 @@
 \title{Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.}
 \usage{
-doc_push_install_package(commit_message, description = NULL)
+doc_push_install_package(
+  commit_message,
+  description = NULL,
+  github_pages = TRUE
+)
 }
 \description{
 Document, push changes, and install a public GitHub Package

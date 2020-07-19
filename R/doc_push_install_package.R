@@ -2,7 +2,6 @@
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #' @import roxygen2
 #' @import pkgdown
-#' @import usethis
 #' @importFrom devtools document
 #' @importFrom devtools install_github
 #' @export
@@ -22,7 +21,6 @@ doc_push_install_package <-
                         # Add pkgdown build site of github_pages is tRUE
                         if (github_pages) {
 
-                                usethis::use_pkgdown()
                                 pkgdown::build_site()
 
                         }

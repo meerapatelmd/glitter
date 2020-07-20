@@ -1,68 +1,33 @@
 #' Document, push changes, and install a public GitHub Package
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
-#' @import roxygen2
+#' @importFrom usethis use_pkgdown
 #' @import pkgdown
 #' @importFrom devtools document
 #' @importFrom devtools install_github
 #' @export
 
-doc_push_install_package <-
-        function (commit_message,
-                  description = NULL,
-                  github_pages = TRUE)
+build_push_site <-
+        function (commit_message = "update GitHub Page")
+
                 {
 
-                        #Rewriting NAMESPACE
-                        if (file.exists("NAMESPACE")) {
-                                file.remove("NAMESPACE")
+                        # Create _pkgdown.yml file if it does not exist
+                        if (!file.exists("_pkgdown.yml")) {
+                                usethis::use_pkgdown()
                         }
 
-                        devtools::document()
+                        pkgdown::build_site()
 
 
                         #Updating and Pushing to GitHub
                         x <- add_commit_all(
-                                commit_message = commit_message,
-                                description = description)
+                                commit_message = commit_message)
 
                         if (exists("x")) {
                                 pretty(x)
                                 if (length(x) > 0) {
                                         push_wd()
                                 }
-                        }
-
-                        #Installing package by first getting URL of the remote
-                        git_url <- remote_url()
-
-                        #Installing it as either a public or an Enterprise GitHub repo
-                        if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
-                                devtools::install_github(paste0("patelm9/", basename(getwd())))
-                        } else {
-                                devtools::install_git(url = git_url)
-                        }
-
-                        # Add pkgdown build site of github_pages is tRUE
-                        if (github_pages) {
-
-                                pkgdown::build_site()
-
-                                x <- add_commit_all(
-                                        commit_message = "update docs/ after new build_site")
-
-                                if (exists("x")) {
-                                        pretty(x)
-                                        if (length(x) > 0) {
-                                                push_wd()
-                                        }
-                                }
-
-                                if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
-                                        devtools::install_github(paste0("patelm9/", basename(getwd())))
-                                } else {
-                                        devtools::install_git(url = git_url)
-                                }
-
                         }
 
 }

@@ -43,6 +43,8 @@ This function automatically documents, pushes, and installs a package, assuming 
 <meta property="og:title" content="Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink. — doc_push_install_package" />
 <meta property="og:description" content="Document, push changes, and install a public GitHub Package
+This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
+Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink." />
 
 
@@ -115,9 +117,17 @@ This function automatically documents, pushes, and installs a package, assuming 
     <div class="ref-description">
     <p>Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
+<p>Document, push changes, and install a public GitHub Package
+This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
     </div>
 
     <pre class="usage"><span class='fu'>doc_push_install_package</span>(
+  <span class='no'>commit_message</span>,
+  <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>github_pages</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)
+
+<span class='fu'>doc_push_install_package</span>(
   <span class='no'>commit_message</span>,
   <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>github_pages</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
@@ -136,7 +146,7 @@ This function automatically documents, pushes, and installs a package, assuming 
 
       <footer>
       <div class="copyright">
-  <p>Developed by Meera Y. Patel.</p>
+  <p>Developed by Meera Patel, MD.</p>
 </div>
 
 <div class="pkgdown">

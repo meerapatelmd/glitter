@@ -9,7 +9,7 @@
 doc_push_install_package <-
         function (commit_message,
                   description = NULL,
-                  github_pages = TRUE)
+                  github_pages = FALSE)
                 {
 
                         #Rewriting NAMESPACE
@@ -45,23 +45,7 @@ doc_push_install_package <-
                         # Add pkgdown build site of github_pages is tRUE
                         if (github_pages) {
 
-                                pkgdown::build_site()
-
-                                x <- add_commit_all(
-                                        commit_message = "update docs/ after new build_site")
-
-                                if (exists("x")) {
-                                        pretty(x)
-                                        if (length(x) > 0) {
-                                                push_wd()
-                                        }
-                                }
-
-                                if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
-                                        devtools::install_github(paste0("patelm9/", basename(getwd())))
-                                } else {
-                                        devtools::install_git(url = git_url)
-                                }
+                                build_push_site()
 
                         }
 

@@ -8,7 +8,7 @@ This function automatically documents, pushes, and installs a package, assuming 
 doc_push_install_package(
   commit_message,
   description = NULL,
-  github_pages = TRUE
+  github_pages = FALSE
 )
 }
 \description{

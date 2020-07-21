@@ -23,11 +23,10 @@ build_push_site <-
                         x <- add_commit_all(
                                 commit_message = commit_message)
 
-                        if (exists("x")) {
-                                pretty(x)
+                        print_if_has_length(x)
+
                                 if (length(x) > 0) {
-                                        push_wd()
+                                        push()
                                 }
-                        }
 
 }

@@ -4,7 +4,11 @@
 \alias{push}
 \title{Push a local repo to a GitHub repository}
 \usage{
-push(path_to_local_repo, remote_name = "origin", remote_branch = "master")
+push(
+  path_to_local_repo = NULL,
+  remote_name = "origin",
+  remote_branch = "master"
+)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}

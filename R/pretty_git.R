@@ -5,5 +5,6 @@
 
 pretty_git <-
         function(glitter_output) {
+                .Deprecated()
                 cat(glitter_output, sep = "\n")
         }

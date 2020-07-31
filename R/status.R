@@ -6,7 +6,8 @@
 
 
 status <-
-        function(path_to_local_repo = NULL, verbose = TRUE) {
+        function(path_to_local_repo = NULL,
+                 verbose = TRUE) {
 
                         if (is.null(path_to_local_repo)) {
 

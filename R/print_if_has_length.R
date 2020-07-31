@@ -4,7 +4,9 @@
 
 print_if_has_length <-
         function(git_msg) {
+
                 .Deprecated("printMsg")
+
                 if (length(git_msg) > 0) {
                         cat(git_msg, sep = "\n")
                 }

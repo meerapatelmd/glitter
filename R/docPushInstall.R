@@ -2,19 +2,17 @@
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #' @import roxygen2
 #' @import pkgdown
+#' @importFrom magrittr %>%
 #' @importFrom devtools document
 #' @importFrom devtools install_github
 #' @keyword internal
 #' @export
 
-doc_push_install_package <-
+docPushInstall <-
         function (commit_message,
                   description = NULL,
                   install = TRUE)
                 {
-
-
-                .Deprecated("docPushInstall")
 
                         #Rewriting NAMESPACE
                         if (file.exists("NAMESPACE")) {

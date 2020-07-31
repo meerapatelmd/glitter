@@ -5,6 +5,7 @@
 #' @importFrom devtools document
 #' @importFrom devtools install_github
 #' @importFrom magrittr %>%
+#' @import dplyr
 #' @keywords internal
 #' @export
 

@@ -2,6 +2,7 @@
 #' @description This function adds an entry to the .gitignore file in the repo. If one is not present, it is created.
 #' @importFrom readr read_lines
 #' @importFrom rlang list2
+#' @importFrom magrittr %>%
 #' @export
 
 

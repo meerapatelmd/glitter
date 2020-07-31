@@ -1,4 +1,4 @@
-#' Push a local repo to remote MSK KMI Enterprise GitHub repository
+#' Push a Local Repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param commit_message message to be included in the commit
 #' @export
@@ -39,9 +39,9 @@ commit <-
                 }
 
 
-                if ("no changes added to commit" %in% x) {
+                if ("no changes added to commit." %in% x) {
 
-                        stop("No changes added to commit")
+                        stop("No changes added to commit.")
 
                 }
 

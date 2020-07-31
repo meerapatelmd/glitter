@@ -1,4 +1,4 @@
-#' Add and commit all changes in a local repo
+#' Add and Commit All Changes in a Local Repository
 #' @param path_to_local_repo full path to local repository where the add and commit all will be performed
 #' @param commit_message If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"
 #' @param description additional optional description

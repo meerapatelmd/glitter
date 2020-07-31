@@ -1,5 +1,5 @@
-#' Push a local repo to remote MSK KMI Enterprise GitHub repository
-#' @param path_to_local_repo full path to local repository to be pushed
+#' Add All Files to a Commit in a Local GitHub Repository
+#' @param path_to_local_repo Full path to local repository. If NULL, adds all the files
 #' @importFrom secretary typewrite_error
 #' @import dplyr
 #' @import rubix

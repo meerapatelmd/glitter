@@ -5,5 +5,6 @@
 
 pretty <-
         function(glitter_output) {
+                .Deprecated(new = "print_msg")
                 cat(glitter_output, sep = "\n")
         }

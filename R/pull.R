@@ -6,7 +6,13 @@
 #' @export
 
 pull <-
-        function(path_to_local_repo) {
+        function(path_to_local_repo = NULL) {
+
+                if (is.null(path_to_local_repo)) {
+
+                        path_to_local_repo <- getwd()
+
+                }
 
                 if (dir.exists(path_to_local_repo)) {
                         x <-
@@ -17,19 +23,6 @@ pull <-
                         )
 
                         return(x)
-                } else {
-                        typewriteR::tell_me(crayon::red(path_to_local_repo, "does not exist.\n"))
-                        github_username <- readline("Enter the GitHub username that this repo belongs to: ")
-                        x <-
-                        system(paste0("cd\n",
-                                      "cd ", dirname(path_to_local_repo),"\n",
-                                      "git clone ", paste0("https://github.com/", github_username, "/",
-                                                           basename(path_to_local_repo),
-                                                           ".git"
-                                      ), "\n"
-                        ), intern = TRUE
-                        )
-
-                        return(x)
                 }
         }
+

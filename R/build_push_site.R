@@ -4,6 +4,7 @@
 #' @import pkgdown
 #' @importFrom devtools document
 #' @importFrom devtools install_github
+#' @importFrom magrittr %>%
 #' @keywords internal
 #' @export
 

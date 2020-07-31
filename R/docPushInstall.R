@@ -44,7 +44,9 @@ docPushInstall <-
                                         if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
                                                 devtools::install_github(paste0("patelm9/", basename(getwd())))
                                         } else {
+
                                                 devtools::install_git(url = git_url)
+
                                         }
 
 

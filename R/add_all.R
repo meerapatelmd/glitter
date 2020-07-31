@@ -4,6 +4,7 @@
 #' @import dplyr
 #' @import rubix
 #' @import purrr
+#' @importFrom magrittr %>%
 #' @export
 
 

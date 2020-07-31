@@ -3,7 +3,6 @@
 #' @importFrom magrittr %>%
 #' @import roxygen2
 #' @import pkgdown
-#' @importFrom magrittr %>%
 #' @importFrom devtools document
 #' @importFrom devtools install_github
 #' @keywords internal

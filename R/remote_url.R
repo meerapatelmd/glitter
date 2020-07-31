@@ -5,6 +5,5 @@
 
 remote_url <-
         function(remote_name = "origin") {
-                x <- system(paste0("git remote get-url ", remote_name), intern = TRUE)
-                return(x)
+                system(paste0("git remote get-url ", remote_name), intern = TRUE)
         }

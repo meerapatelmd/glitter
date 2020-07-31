@@ -4,7 +4,7 @@
 \alias{modified_files}
 \title{Get a list of modified files in a repo}
 \usage{
-modified_files(path_to_local_repo)
+modified_files(path_to_local_repo = NULL)
 }
 \arguments{
 \item{path_to_local_repo}{path to local repo}

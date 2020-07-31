@@ -6,6 +6,7 @@
 
 is_git_repo <-
         function(path_to_local_repo) {
+                .Deprecated("isRepo")
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
 

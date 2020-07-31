@@ -2,7 +2,7 @@
 % Please edit documentation in R/commit.R
 \name{commit}
 \alias{commit}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Push a Local Repository}
 \usage{
 commit(
   path_to_local_repo = NULL,
@@ -17,5 +17,5 @@ commit(
 \item{commit_message}{message to be included in the commit}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Push a Local Repository
 }

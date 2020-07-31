@@ -2,13 +2,13 @@
 % Please edit documentation in R/add_all.R
 \name{add_all}
 \alias{add_all}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Add All Files to a Commit in a Local GitHub Repository}
 \usage{
 add_all(path_to_local_repo = NULL)
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{path_to_local_repo}{Full path to local repository. If NULL, adds all the files}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+Add All Files to a Commit in a Local GitHub Repository
 }

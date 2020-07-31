@@ -4,7 +4,7 @@
 \alias{pull}
 \title{Pull a GitHub repo based on the path to local repo}
 \usage{
-pull(path_to_local_repo)
+pull(path_to_local_repo = NULL, verbose = TRUE)
 }
 \arguments{
 \item{path_to_local_repo}{full path to directory of the repo to be pulled. If the path does not exist, it will be cloned to the parent directory.}

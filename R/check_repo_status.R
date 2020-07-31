@@ -5,6 +5,7 @@
 
 check_repo_status <-
         function(path_to_local_repo) {
+                .Deprecated(new = "isWorkingTreeClean")
                 x <- status(path_to_local_repo = path_to_local_repo)
                 if ("nothing to commit, working tree clean" %in% x) {
                        secretary::typewrite("\tnothing to commit, working tree clean\n")

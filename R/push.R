@@ -6,7 +6,9 @@
 
 
 push <-
-        function(path_to_local_repo = NULL, remote_name = "origin", remote_branch = "master") {
+        function(path_to_local_repo = NULL,
+                 remote_name = "origin",
+                 remote_branch = "master") {
 
                 if (is.null(path_to_local_repo)) {
 

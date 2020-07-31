@@ -1,15 +1,15 @@
-Package: glitter  
-Type: Package  
-Title: Git commands from R console  
+Package: glitter
+Type: Package
+Title: Git commands from R console
 Version: 0.1.1
-Authors@R:  
+Authors@R:
     person(given = "Meera", family = "Patel, MD", role = c("aut", "cre"), email = "patelmeeray@gmail.com")
 Description: This package has various features that allow commits and pushes from the R console.  
-Encoding: UTF-8  
-LazyData: true  
-License: Apache License 2.0  
-RoxygenNote: 7.1.1  
-Imports: 
+Encoding: UTF-8
+LazyData: true
+License: Apache License 2.0
+RoxygenNote: 7.1.1
+Imports:
     devtools,
     stringr,
     dplyr,

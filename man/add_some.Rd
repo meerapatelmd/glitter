@@ -4,7 +4,7 @@
 \alias{add_some}
 \title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
 \usage{
-add_some(path_to_local_repo = NULL, filenames)
+add_some(path_to_local_repo = NULL, filenames, verbose = TRUE)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}

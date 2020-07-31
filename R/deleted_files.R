@@ -11,6 +11,8 @@ deleted_files <-
         function(path_to_local_repo = NULL,
                  verbose = TRUE) {
 
+                .Deprecated()
+
                 if (is.null(path_to_local_repo)) {
 
                         path_to_local_repo <- getwd()

@@ -4,7 +4,7 @@
 \alias{stop_if_dir_not_exist}
 \title{Stop if the directory does not exist}
 \usage{
-stop_if_dir_not_exist(path_to_local_repo)
+stop_if_dir_not_exist(path_to_local_repo = NULL)
 }
 \description{
 Stop if the directory does not exist

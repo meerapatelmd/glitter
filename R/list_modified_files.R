@@ -9,6 +9,7 @@
 
 list_modified_files <-
         function(path_to_local_repo) {
+                .Deprecated(new = "lsStagedFiles")
                 secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
 
                 status_msg <- status(path_to_local_repo = path_to_local_repo)

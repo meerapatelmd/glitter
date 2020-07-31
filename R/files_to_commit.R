@@ -4,6 +4,7 @@
 
 files_to_commit <-
         function(path_to_local_repo) {
+                .Deprecated("lsFilesToCommit")
                 filenames <- c(modified_files(path_to_local_repo = path_to_local_repo),
                                untracked_files(path_to_local_repo = path_to_local_repo),
                                deleted_files(path_to_local_repo = path_to_local_repo))

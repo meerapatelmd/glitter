@@ -47,7 +47,7 @@ commit <-
 
                 if (verbose) {
 
-                        print_if_has_length(x)
+                        printMsg(x)
 
                 }
 

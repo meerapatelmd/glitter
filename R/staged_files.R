@@ -9,6 +9,10 @@
 
 staged_files <-
         function(path_to_local_repo = NULL) {
+
+                .Deprecated(new = "lsStagedFiles")
+
+
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()
                 }

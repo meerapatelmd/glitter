@@ -6,55 +6,38 @@
 
 
 add_some <-
-        function(path_to_local_repo = NULL, filenames) {
+        function(path_to_local_repo = NULL,
+                 filenames,
+                 verbose = TRUE) {
+
                 if (is.null(path_to_local_repo)) {
+
                         path_to_local_repo <- getwd()
+
                 }
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
                 stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
 
 
-                large_files <-
-                        paste0(path_to_local_repo, "/", filenames) %>%
-                        rubix::map_names_set(cave::size_in_mb) %>%
-                        purrr::keep(function(x) x > 1) %>%
-                        names()
+                output <-
+                filenames %>%
+                        purrr::map(~add_file(path_to_local_repo = path_to_local_repo,
+                                             file = .,
+                                             verbose = TRUE)) %>%
+                        purrr::keep(~!is.null(.))
 
-                if (length(large_files) > 0) {
+
+                if (verbose) {
+
+                        printMsg(output)
+                }
 
 
-                        stop("Files greater than 100 MB found: ", paste(large_files, collapse = ", "))
+                if (length(output)) {
 
+                        invisible(output)
 
                 }
 
-                x <-
-                        filenames %>%
-                        purrr::map(format_for_cli) %>%
-                        purrr:::map(function(x) system(paste0("cd\n",
-                                                              "cd ", path_to_local_repo,"\n",
-                                                              "git add ", x),
-                                                       intern = TRUE))
-
-
-                # x %>%
-                #         purrr::keep(!is.null(.)) %>%
-                #         purrr::map(~print_if_has_length(.))
-
-
-
-                # if (dir.exists(path_to_local_repo)) {
-                #
-                #         for (i in 1:length(filenames)) {
-                #                 fn <- sanitize_fns_for_cli(filenames[i])
-                #                 x <- system(paste0("cd\n",
-                #                                                  "cd ", path_to_local_repo,"\n",
-                #                                                  "git add ", fn),
-                #                                            intern = TRUE)
-                #         }
-                #
-                # } else {
-                #         typewriteR::tell_me(crayon::yellow("\tError: Local repository", path_to_local_repo, "does not exist."))
-                # }
-        }
+}

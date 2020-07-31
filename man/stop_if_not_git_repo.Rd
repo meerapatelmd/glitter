@@ -4,7 +4,7 @@
 \alias{stop_if_not_git_repo}
 \title{Stop if not repo}
 \usage{
-stop_if_not_git_repo(path_to_local_repo)
+stop_if_not_git_repo(path_to_local_repo = NULL)
 }
 \description{
 Stop if not repo

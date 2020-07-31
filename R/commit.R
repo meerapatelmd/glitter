@@ -1,7 +1,6 @@
 #' Push a Local Repository
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param commit_message message to be included in the commit
-#' @import testthat
 #' @export
 
 commit <-

@@ -1,4 +1,4 @@
-#' Build and Push a GitHub Pages
+#' Build and Push docs/ dir For GitHub Pages
 #' @description This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #' @importFrom usethis use_pkgdown
 #' @import pkgdown

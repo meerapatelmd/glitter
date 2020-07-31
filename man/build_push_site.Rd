@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_push_site.R
 \name{build_push_site}
 \alias{build_push_site}
-\title{Build and Push a GitHub Pages}
+\title{Build and Push docs/ dir For GitHub Pages}
 \usage{
 build_push_site(commit_message = "update GitHub Page", update_gitignore = TRUE)
 }

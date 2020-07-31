@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Push a local repo to a GitHub repository — push • glitter</title>
+<title>List Unstaged Files — lsUnstagedFiles • glitter</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Push a local repo to a GitHub repository — push" />
-<meta property="og:description" content="Push a local repo to a GitHub repository" />
+<meta property="og:title" content="List Unstaged Files — lsUnstagedFiles" />
+<meta property="og:description" content="This function lists all the unstaged files in a local repo." />
 
 
 
@@ -103,38 +103,26 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Push a local repo to a GitHub repository</h1>
+    <h1>List Unstaged Files</h1>
     
-    <div class="hidden name"><code>push.Rd</code></div>
+    <div class="hidden name"><code>lsUnstagedFiles.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Push a local repo to a GitHub repository</p>
+    <p>This function lists all the unstaged files in a local repo.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>push</span>(
+    <pre class="usage"><span class='fu'>lsUnstagedFiles</span>(
   <span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>remote_name</span> <span class='kw'>=</span> <span class='st'>"origin"</span>,
-  <span class='kw'>remote_branch</span> <span class='kw'>=</span> <span class='st'>"master"</span>
+  <span class='kw'>modified</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>deleted</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
 )</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path_to_local_repo</th>
-      <td><p>full path to local repository to be pushed</p></td>
-    </tr>
-    <tr>
-      <th>remote_name</th>
-      <td><p>name of remote to push to. Defaults to "origin".</p></td>
-    </tr>
-    <tr>
-      <th>remote_branch</th>
-      <td><p>name of branch on the remote to push to. Defaults to "master".</p></td>
-    </tr>
-    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>If unstaged files exist, a vector of all the untracked file paths.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

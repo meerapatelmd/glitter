@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Push a local repo to a GitHub repository — push • glitter</title>
+<title>Clone a Git Repository — clone • glitter</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Push a local repo to a GitHub repository — push" />
-<meta property="og:description" content="Push a local repo to a GitHub repository" />
+<meta property="og:title" content="Clone a Git Repository — clone" />
+<meta property="og:description" content="Clone a Git Repository" />
 
 
 
@@ -103,38 +103,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Push a local repo to a GitHub repository</h1>
+    <h1>Clone a Git Repository</h1>
     
-    <div class="hidden name"><code>push.Rd</code></div>
+    <div class="hidden name"><code>clone.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Push a local repo to a GitHub repository</p>
+    <p>Clone a Git Repository</p>
     </div>
 
-    <pre class="usage"><span class='fu'>push</span>(
-  <span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>remote_name</span> <span class='kw'>=</span> <span class='st'>"origin"</span>,
-  <span class='kw'>remote_branch</span> <span class='kw'>=</span> <span class='st'>"master"</span>
-)</pre>
+    <pre class="usage"><span class='fu'>clone</span>(<span class='no'>remote_url</span>, <span class='no'>destination_path</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path_to_local_repo</th>
-      <td><p>full path to local repository to be pushed</p></td>
+      <th>remote_url</th>
+      <td><p>Web url of repository to clone</p></td>
     </tr>
     <tr>
-      <th>remote_name</th>
-      <td><p>name of remote to push to. Defaults to "origin".</p></td>
-    </tr>
-    <tr>
-      <th>remote_branch</th>
-      <td><p>name of branch on the remote to push to. Defaults to "master".</p></td>
+      <th>destination_path</th>
+      <td><p>Path of the destination directory to which the repo will be cloned.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Cloned repo in the path of destination_path/repo name if the directory does not exist. Otherwise an error is thrown.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -4,7 +4,7 @@
 #' @import pkgdown
 #' @importFrom devtools document
 #' @importFrom devtools install_github
-#' @keyword internal
+#' @keywords internal
 #' @export
 
 doc_push_install_package <-

@@ -13,6 +13,12 @@ lsStagedFiles <-
                  new_file = TRUE,
                  label = FALSE) {
 
+                if (is.null(path_to_local_repo)) {
+
+                        path_to_local_repo <- getwd()
+
+                }
+
 
                 statusMessage <- status(path_to_local_repo = path_to_local_repo,
                                         verbose = FALSE)

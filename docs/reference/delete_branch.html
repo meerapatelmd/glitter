@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add and Commit All Changes in a Local Repository — add_commit_all • glitter</title>
+<title>Delete a Branch — delete_branch • glitter</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Add and Commit All Changes in a Local Repository — add_commit_all" />
-<meta property="og:description" content="Add and Commit All Changes in a Local Repository" />
+<meta property="og:title" content="Delete a Branch — delete_branch" />
+<meta property="og:description" content="Delete a branch" />
 
 
 
@@ -103,36 +103,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add and Commit All Changes in a Local Repository</h1>
+    <h1>Delete a Branch</h1>
     
-    <div class="hidden name"><code>add_commit_all.Rd</code></div>
+    <div class="hidden name"><code>delete_branch.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Add and Commit All Changes in a Local Repository</p>
+    <p>Delete a branch</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_commit_all</span>(
-  <span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>commit_message</span>,
-  <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>delete_branch</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>branch</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path_to_local_repo</th>
-      <td><p>full path to local repository where the add and commit all will be performed</p></td>
-    </tr>
-    <tr>
-      <th>commit_message</th>
-      <td><p>If NULL, automatically creates a message in the format of "add/modify filename as written in R script path"</p></td>
-    </tr>
-    <tr>
-      <th>description</th>
-      <td><p>additional optional description</p></td>
+      <th>branch</th>
+      <td><p>Name of branch to checkout</p></td>
     </tr>
     </table>
 

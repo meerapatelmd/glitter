@@ -10,27 +10,33 @@ add_file <-
         function(path_to_local_repo = NULL,
                  file,
                  verbose = TRUE) {
+
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()
                 }
+
+
+                if (!(file %in% lsUnstagedFiles(path_to_local_repo = path_to_local_repo))) {
+
+                        stop(file, " not found in ", path_to_local_repo)
+
+                }
+
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
                 stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
 
 
-                large_files <-
-                        paste0(path_to_local_repo, "/", file) %>%
-                        rubix::map_names_set(cave::size_in_mb) %>%
-                        purrr::keep(function(x) x > 1) %>%
-                        names()
-
-                if (length(large_files) > 0) {
+                file_size <- cave::size_in_mb(paste0(path_to_local_repo, "/", file)) %>%
+                                                centipede::no_na()
 
 
-                        stop("Files greater than 100 MB found: ", paste(large_files, collapse = ", "))
-
-
+                if (length(file_size)) {
+                        if (file_size > 1) {
+                                stop(file, " is greater than 100 MB.")
+                        }
                 }
+
 
                 gitMessage <-
                         file %>%

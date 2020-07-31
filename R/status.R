@@ -26,7 +26,7 @@ status <-
 
                         if (verbose) {
 
-                                print_if_has_length(git_msg = x)
+                                printMsg(git_msg = x)
 
                         }
 

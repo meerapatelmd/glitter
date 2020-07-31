@@ -12,6 +12,10 @@ add_commit_all <-
                  description = NULL,
                  verbose = TRUE) {
 
+                if (is.null(path_to_local_repo)) {
+                        path_to_local_repo <- getwd()
+                }
+
                 add_all(path_to_local_repo = path_to_local_repo)
 
                 commit(path_to_local_repo = path_to_local_repo,

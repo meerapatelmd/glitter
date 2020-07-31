@@ -12,13 +12,19 @@ add_commit_some <-
                  description = NULL,
                  verbose = TRUE) {
 
+                        if (is.null(path_to_local_repo)) {
+
+                                path_to_local_repo <- getwd()
+
+                        }
+
                         add_some(path_to_local_repo = path_to_local_repo,
-                                 filenames = filenames)
+                                                                filenames = filenames)
+
 
                         commit(path_to_local_repo = path_to_local_repo,
                                commit_message = commit_message,
                                description = description,
                                verbose = verbose
                         )
-
         }

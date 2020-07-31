@@ -1,7 +1,7 @@
 Package: glitter
 Type: Package
 Title: Git commands from R console
-Version: 0.2.1
+Version: 0.3.1
 Authors@R:
     person(given = "Meera", family = "Patel, MD", 
     role = c("aut", "cre"), 

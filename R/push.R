@@ -16,16 +16,24 @@ push <-
 
                 }
 
+
+
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
                 stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
 
 
-                x <-
-                system(paste0("cd\n",
-                              "cd ", path_to_local_repo,"\n",
-                              "git push ", remote_name, " ", remote_branch),
-                       intern = TRUE)
+                statusMessage <- status(path_to_local_repo = path_to_local_repo,
+                                        verbose = FALSE)
 
-                print_if_has_length(x)
+                if (any(grepl('use "git push" to publish your local commits', statusMessage))) {
+                        x <-
+                                system(paste0("cd\n",
+                                              "cd ", path_to_local_repo,"\n",
+                                              "git push ", remote_name, " ", remote_branch),
+                                       intern = TRUE)
+
+                        printMsg(x)
+
+                }
 
         }

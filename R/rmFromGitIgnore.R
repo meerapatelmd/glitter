@@ -1,6 +1,8 @@
 #' Remove from .gitignore
 #' @description This function remoes an entry in a .gitignore file if there is one in the repo path.
 #' @importFrom readr read_lines
+#' @importFrom rlang list2
+#' @importFrom magrittr %>%
 #' @export
 
 

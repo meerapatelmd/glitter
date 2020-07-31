@@ -13,6 +13,7 @@ add_all <-
                         if (is.null(path_to_local_repo)) {
 
                                 path_to_local_repo <- getwd()
+
                         }
 
                         stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)

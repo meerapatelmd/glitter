@@ -2,12 +2,11 @@
 % Please edit documentation in R/build_push_site.R
 \name{build_push_site}
 \alias{build_push_site}
-\title{Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.}
+\title{Build and Push a GitHub Pages}
 \usage{
-build_push_site(commit_message = "update GitHub Page")
+build_push_site(commit_message = "update GitHub Page", update_gitignore = TRUE)
 }
 \description{
-Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 }
+\keyword{internal}

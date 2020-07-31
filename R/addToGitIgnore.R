@@ -53,35 +53,27 @@ addToGitIgnore <-
                                 commit = FALSE)
 
                 if (commit) {
-                        if (".gitignore" %in% lsUnstagedFiles(path_to_local_repo = path_to_local_repo)) {
 
-                        add_file(file = ".gitignore",
-                                 path_to_local_repo = path_to_local_repo)
+                                if (".gitignore" %in% lsUnstagedFiles(path_to_local_repo = path_to_local_repo)) {
 
-                                secretary::press_enter()
-
-                        if (".gitignore" %in% lsStagedFiles(path_to_local_repo = path_to_local_repo)) {
-
-                                secretary::press_enter()
-
-                                commit(path_to_local_repo = path_to_local_repo,
-                                       commit_message = paste0("add ", paste(additions, collapse = ", "), " to .gitignore"),
-                                       verbose = FALSE)
+                                                add_file(file = ".gitignore",
+                                                         path_to_local_repo = path_to_local_repo)
 
 
-                        }
-                        }
+                                                if (".gitignore" %in% lsStagedFiles(path_to_local_repo = path_to_local_repo)) {
 
 
+                                                                commitMessage <- commit(path_to_local_repo = path_to_local_repo,
+                                                                       commit_message = paste0("add ", paste(additions, collapse = ", "), " to .gitignore"),
+                                                                       verbose = FALSE)
 
-                       # commitMessage <-
-                       # add_commit_some(path_to_local_repo = path_to_local_repo,
-                       #                  filenames = ".gitignore",
-                       #                  commit_message = paste0("add ", paste(additions, collapse = ", "), " to .gitignore"),
-                       #                  verbose = FALSE)
-                       #
-                       #
-                       #  printMsg(commitMessage)
+
+                                                                printMsg(commitMessage)
+
+
+                                                }
+
+                                }
 
                 }
 

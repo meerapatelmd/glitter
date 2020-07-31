@@ -41,7 +41,7 @@ rmFromGitIgnore <-
                         commitMessage <-
                                 add_commit_some(path_to_local_repo = path_to_local_repo,
                                                 filenames =  ".gitignore",
-                                                commit_message = paste0("remove ", remove, " from .gitignore"))
+                                                commit_message = paste0("remove ", paste(remove, collapse = ", "), " from .gitignore"))
 
                         printMsg(commitMessage)
                 }

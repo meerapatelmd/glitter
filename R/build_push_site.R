@@ -8,7 +8,8 @@
 #' @export
 
 build_push_site <-
-        function (commit_message = "update GitHub Page")
+        function (commit_message = "update GitHub Page",
+                  update_gitignore = TRUE)
 
                 {
 
@@ -17,22 +18,28 @@ build_push_site <-
                                 usethis::use_pkgdown()
                         }
 
+                        # Build pkgdown Site
                         pkgdown::build_site()
 
 
-                        gitignore <- .gitignore
+                        # Remove "docs/" from gitignore if present
+                        if (update_gitignore) {
+
+                                rmFromGitIgnore("docs/",
+                                                commit = TRUE)
+
+                        }
 
 
                         #Updating and Pushing to GitHub
-                        x <- add_commit_some(
+                        commitMessage <- add_commit_some(
                                 commit_message = commit_message,
                                 filenames = list.files(path = "docs",
                                                        full.names = TRUE))
 
-                        printMsg(x)
 
-                                if (length(x) > 0) {
-                                        push()
-                                }
+                        printMsg(commitMessage)
+
+                        push()
 
 }

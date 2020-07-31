@@ -28,7 +28,7 @@ doc_push_install_package <-
                         if (exists("x")) {
                                 pretty(x)
                                 if (length(x) > 0) {
-                                        push_wd()
+                                        push(path_to_local_repo = getwd())
                                 }
                         }
 

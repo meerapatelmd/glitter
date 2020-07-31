@@ -5,7 +5,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom devtools document
 #' @importFrom devtools install_github
-#' @keyword internal
+#' @keywords internal
 #' @export
 
 docPushInstall <-

@@ -19,5 +19,5 @@ add_commit_all(
 \item{description}{additional optional description}
 }
 \description{
-Add and Commit All Changes in a Local Repository
+This function adds all the deltas in the working directory to a commit. The commit occurs on the condition that the git status response does not indicate that the working tree is clean.
 }

@@ -1,8 +1,8 @@
 #' Add and Commit All Changes in a Local Repository
+#' @description This function adds all the deltas in the working directory to a commit. The commit occurs on the condition that the git status response does not indicate that the working tree is clean.
 #' @param path_to_local_repo full path to local repository where the add and commit all will be performed
 #' @param commit_message If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"
 #' @param description additional optional description
-#' @importFrom secretary typewrite_italic
 #' @export
 
 
@@ -18,13 +18,8 @@ add_commit_all <-
 
                 add_all(path_to_local_repo = path_to_local_repo)
 
-                statusResponse <- status(path_to_local_repo = path_to_local_repo,
-                                         verbose = FALSE)
 
-                statusResponse <- statusResponse %>%
-                                        centipede::no_blank()
-
-                if (!all(statusResponse %in% c("On branch master","Your branch is up to date with 'origin/master'.","nothing to commit, working tree clean"))) {
+                if (!isWorkingTreeClean(path_to_local_repo = path_to_local_repo)) {
 
 
                         commit(path_to_local_repo = path_to_local_repo,

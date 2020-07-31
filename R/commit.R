@@ -7,7 +7,6 @@
 commit <-
         function(path_to_local_repo = NULL,
                  commit_message,
-                 description = NULL,
                  verbose = TRUE) {
 
                 if (is.null(path_to_local_repo)) {

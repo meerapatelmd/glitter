@@ -55,7 +55,7 @@ addToGitIgnore <-
                 if (commit) {
                         if (".gitignore" %in% lsUnstagedFiles(path_to_local_repo = path_to_local_repo)) {
 
-                        add_file(filenames = ".gitignore",
+                        add_file(file = ".gitignore",
                                  path_to_local_repo = path_to_local_repo)
 
                                 secretary::press_enter()

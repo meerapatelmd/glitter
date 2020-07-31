@@ -8,6 +8,7 @@ rmFromGitIgnore <-
         function(...,
                  commit = TRUE,
                  path_to_local_repo = NULL) {
+
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()
                 }
@@ -34,16 +35,25 @@ rmFromGitIgnore <-
                         dedupeGitIgnore(path_to_local_repo = path_to_local_repo,
                                         commit = FALSE)
 
+                        if (commit) {
 
-                }
+                                if (".gitignore" %in% lsUntrackedFiles(path_to_local_repo = path_to_local_repo)) {
+                                        add_file(path_to_local_repo = path_to_local_repo,
+                                                 file = ".gitignore")
 
-                if (commit) {
-                        commitMessage <-
-                                add_commit_some(path_to_local_repo = path_to_local_repo,
-                                                filenames =  ".gitignore",
-                                                commit_message = paste0("remove ", paste(remove, collapse = ", "), " from .gitignore"))
+                                        if (".gitignore" %in% lsStagedFiles(path_to_local_repo = path_to_local_repo)) {
+                                                commitResponse <-
+                                                commit(path_to_local_repo = path_to_local_repo,
+                                                       commit_message = paste0("remove ", paste(remove, collapse = ", "), " from .gitignore"),
+                                                       verbose = FALSE)
 
-                        printMsg(commitMessage)
+                                                printMsg(commitResponse)
+
+
+                                        }
+                                }
+
+                        }
                 }
 
         }

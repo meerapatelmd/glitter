@@ -26,7 +26,8 @@ build_push_site <-
                         if (update_gitignore) {
 
                                 rmFromGitIgnore("docs/",
-                                                commit = TRUE)
+                                                commit = TRUE,
+                                                path_to_local_repo = getwd())
 
                         }
 

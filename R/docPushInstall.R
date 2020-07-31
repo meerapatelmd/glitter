@@ -13,6 +13,7 @@ docPushInstall <-
         function (commit_message,
                   description = NULL,
                   install = TRUE)
+
                 {
 
                         #Rewriting NAMESPACE

@@ -48,11 +48,15 @@ add_file <-
                                 unlist()
 
                 if (verbose) {
+
                         printMsg(gitMessage)
+
                 }
 
                 if (length(gitMessage)) {
+
                         invisible(gitMessage)
+
                 }
 
         }

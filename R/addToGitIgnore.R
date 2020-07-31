@@ -11,7 +11,9 @@ addToGitIgnore <-
                  path_to_local_repo = NULL) {
 
                 if (missing(...)) {
+
                         stop("no input")
+
                 }
 
 

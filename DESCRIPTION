@@ -1,14 +1,13 @@
 Type: Package
 Package: glitter
-Title: Git commands from R console
+Title: Send Git commands via the R Console. 
 Version: 0.4.1
 Authors@R:
     person(given = "Meera",
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com")
-Description: This package has various features that allow
-    commits and pushes from the R console.  
+Description: This package allows to perform adds, commits, and pushes directly from the R console. 
 License: Apache License 2.0
 Imports:
     cave,

@@ -3,7 +3,7 @@
 #' @export
 
 
-filesToCommit <-
+lsFilesToCommit <-
         function(path_to_local_repo = NULL,
                  label = FALSE) {
 

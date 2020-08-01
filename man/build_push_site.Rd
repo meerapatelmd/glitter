@@ -4,7 +4,14 @@
 \alias{build_push_site}
 \title{Build and Push docs/ dir For GitHub Pages}
 \usage{
-build_push_site(commit_message = "update GitHub Page", update_gitignore = TRUE)
+build_push_site(
+  commit_message = "update GitHub Page",
+  update_gitignore = TRUE,
+  lazy = TRUE,
+  preview = FALSE,
+  devel = TRUE,
+  ...
+)
 }
 \description{
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.

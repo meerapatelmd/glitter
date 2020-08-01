@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_some.R
 \name{add_some}
 \alias{add_some}
-\title{Push a local repo to remote MSK KMI Enterprise GitHub repository}
+\title{Add 1 or more files to a commit}
 \usage{
 add_some(path_to_local_repo = NULL, filenames, verbose = TRUE)
 }
@@ -10,5 +10,5 @@ add_some(path_to_local_repo = NULL, filenames, verbose = TRUE)
 \item{path_to_local_repo}{full path to local repository to be pushed}
 }
 \description{
-Push a local repo to remote MSK KMI Enterprise GitHub repository
+This function takes a vector of filenames, filters them for only the untracked and unstaged files, and adds them to a commit.
 }

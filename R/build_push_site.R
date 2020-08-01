@@ -11,7 +11,11 @@
 
 build_push_site <-
         function (commit_message = "update GitHub Page",
-                  update_gitignore = TRUE)
+                  update_gitignore = TRUE,
+                  lazy = TRUE,
+                  preview = FALSE,
+                  devel = TRUE,
+                  ...)
 
                 {
 
@@ -21,7 +25,11 @@ build_push_site <-
                         }
 
                         # Build pkgdown Site
-                        pkgdown::build_site()
+                        pkgdown::build_site(lazy = lazy,
+                                            preview = preview,
+                                            devel = devel,
+                                            ...
+                                            )
 
 
                         # Remove "docs/" from gitignore if present

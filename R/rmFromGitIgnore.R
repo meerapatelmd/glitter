@@ -21,7 +21,7 @@ rmFromGitIgnore <-
 
                 gitignore_path <- paste0(path_to_local_repo, "/.gitignore")
 
-                remove <- rlang::list2(...) %>% unlist()
+                remove <- list(...) %>% unlist()
 
                 if (file.exists(gitignore_path)) {
 

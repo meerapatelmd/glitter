@@ -22,7 +22,7 @@ addToGitIgnore <-
                         path_to_local_repo <- getwd()
                 }
 
-                additions <- rlang::list2(...) %>% unlist()
+                additions <- list(...) %>% unlist()
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
                 stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)

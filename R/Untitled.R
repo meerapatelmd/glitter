@@ -2,7 +2,7 @@
 #
 # for (file in fns) {
 #         lins <- readr::read_lines(file)
-#         if (any(grepl("list2(...)", lins))) {
+#         if (any(grepl("list2", lins))) {
 #                 print(file)
 #                 secretary::press_enter()
 #         }

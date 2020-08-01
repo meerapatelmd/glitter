@@ -4,6 +4,7 @@
 #' @import purrr
 #' @importFrom cave size_in_mb
 #' @importFrom centipede no_na
+#' @importFrom magrittr %>%
 #' @export
 
 

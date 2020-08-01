@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get a list of modified files in a repo — modified_files • glitter</title>
+<title>Git Diff — diff • glitter</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Get a list of modified files in a repo — modified_files" />
-<meta property="og:description" content="This function takes the git status message and isolates the files that have been modified according to that message." />
+<meta property="og:title" content="Git Diff — diff" />
+<meta property="og:description" content="Show unstaged changes between your index and working directory" />
 
 
 
@@ -108,29 +108,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get a list of modified files in a repo</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/modified_files.R'><code>R/modified_files.R</code></a></small>
-    <div class="hidden name"><code>modified_files.Rd</code></div>
+    <h1>Git Diff</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/diff.R'><code>R/diff.R</code></a></small>
+    <div class="hidden name"><code>diff.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function takes the git status message and isolates the files that have been modified according to that message.</p>
+    <p>Show unstaged changes between your index and working directory</p>
     </div>
 
-    <pre class="usage"><span class='fu'>modified_files</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path_to_local_repo</th>
-      <td><p>path to local repo</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -9,7 +9,8 @@ docPushBuildInstall(
   commit_message,
   description = NULL,
   install = TRUE,
-  build = TRUE
+  build = TRUE,
+  ...
 )
 }
 \description{

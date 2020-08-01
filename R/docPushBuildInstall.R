@@ -12,7 +12,8 @@ docPushBuildInstall <-
         function (commit_message,
                   description = NULL,
                   install = TRUE,
-                  build = TRUE)
+                  build = TRUE,
+                  ...)
 
                 {
 
@@ -56,7 +57,7 @@ docPushBuildInstall <-
 
                         if (build) {
 
-                                build_push_site()
+                                build_push_site(...)
 
                         }
 

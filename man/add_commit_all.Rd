@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_commit_all.R
 \name{add_commit_all}
 \alias{add_commit_all}
-\title{Add and Commit All Changes in a Local Repository}
+\title{Add and Commit All Files}
 \usage{
 add_commit_all(
   path_to_local_repo = NULL,

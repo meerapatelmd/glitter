@@ -2,7 +2,7 @@
 % Please edit documentation in R/addToGitIgnore.R
 \name{addToGitIgnore}
 \alias{addToGitIgnore}
-\title{Add .gitignore}
+\title{Add an Entry to .gitignore}
 \usage{
 addToGitIgnore(..., commit = TRUE, path_to_local_repo = NULL)
 }

@@ -9,3 +9,4 @@ unstaged_files(path_to_local_repo = NULL)
 \description{
 List all unstaged files by File Type
 }
+\keyword{internal}

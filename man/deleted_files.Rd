@@ -15,3 +15,4 @@ The Git Status message and deleted files are printed in the console while the ve
 \description{
 Lists all the deleted files according to the git status message returned by the status function
 }
+\keyword{internal}

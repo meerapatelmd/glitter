@@ -1,4 +1,4 @@
-#' Add 1 or more files to a commit
+#' Add Some Files to a Commit
 #' @description This function takes a vector of filenames, filters them for only the untracked and unstaged files, and adds them to a commit.
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @import purrr

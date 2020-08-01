@@ -1,4 +1,5 @@
 #' Deduplicate .gitignore
+#' @description This function reads the .gitignore file, removes duplicates, and overwrites the gitignore file.
 #' @importFrom readr write_lines
 #' @export
 

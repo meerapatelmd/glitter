@@ -1,4 +1,4 @@
-#' Add All Files to a Commit in a Local GitHub Repository
+#' Add All Files to a Commit
 #' @param path_to_local_repo Full path to local repository. If NULL, adds all the files
 #' @importFrom secretary typewrite_error
 #' @import dplyr

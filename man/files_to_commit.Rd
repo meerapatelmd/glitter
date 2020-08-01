@@ -9,3 +9,4 @@ files_to_commit(path_to_local_repo)
 \description{
 This function gets all the modified, untracked, and deleted files in the local repo at path_to_local_repo
 }
+\keyword{internal}

@@ -1,8 +1,9 @@
-#' Add a single file to a commit
+#' Add a Single File to a Commit
 #' @description This function is a primitive function to wrap add_some() around.
 #' @param path_to_local_repo full path to local repository to be pushed
-#' @importFrom typewriteR tell_me
-#' @importFrom crayon yellow
+#' @import purrr
+#' @importFrom cave size_in_mb
+#' @importFrom centipede no_na
 #' @export
 
 

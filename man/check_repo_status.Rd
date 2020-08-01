@@ -12,3 +12,4 @@ check_repo_status(path_to_local_repo)
 \description{
 Check whether a commit is needed or not for a given repo
 }
+\keyword{internal}

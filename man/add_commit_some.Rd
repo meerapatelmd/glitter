@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_commit_some.R
 \name{add_commit_some}
 \alias{add_commit_some}
-\title{Commit some, but not all files, in a local repo to remote GitHub repository}
+\title{Add and Commit Some Files}
 \usage{
 add_commit_some(
   path_to_local_repo = NULL,
@@ -20,5 +20,5 @@ add_commit_some(
 \item{commit_message}{defaults to NULL, where the commit_message is a "change to {filename} in {path to present R script}"}
 }
 \description{
-Commit some, but not all files, in a local repo to remote GitHub repository
+Add and Commit Some Files
 }

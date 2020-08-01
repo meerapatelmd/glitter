@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_some.R
 \name{add_some}
 \alias{add_some}
-\title{Add 1 or more files to a commit}
+\title{Add Some Files to a Commit}
 \usage{
 add_some(path_to_local_repo = NULL, filenames, verbose = TRUE)
 }

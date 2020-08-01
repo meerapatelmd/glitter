@@ -2,6 +2,7 @@
 #' @description This function lists all the untracked files in a local repo.
 #' @return If untracked files exist, a vector of all the untracked file paths.
 #' @importFrom secretary typewrite
+#' @importFrom magrittr %>%
 #' @export
 
 

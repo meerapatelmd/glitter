@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_file.R
 \name{add_file}
 \alias{add_file}
-\title{Add a single file to a commit}
+\title{Add a Single File to a Commit}
 \usage{
 add_file(path_to_local_repo = NULL, file, verbose = TRUE)
 }

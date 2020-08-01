@@ -15,3 +15,4 @@ The complete git status message and modified files are printed in the console, a
 \description{
 This function takes the git status message and isolates the files that have been modified according to that message.
 }
+\keyword{internal}

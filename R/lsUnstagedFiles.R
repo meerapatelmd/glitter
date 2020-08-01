@@ -2,6 +2,8 @@
 #' @description This function lists all the unstaged files in a local repo.
 #' @return If unstaged files exist, a vector of all the untracked file paths.
 #' @importFrom secretary typewrite
+#' @importFrom purrr keep
+#' @importFrom stringr str_replace_all
 #' @export
 
 

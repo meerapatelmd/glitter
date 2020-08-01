@@ -1,6 +1,7 @@
 #' Check whether a commit is needed or not for a given repo
 #' @param path_to_local_repo path to the local repo
 #' @importFrom secretary typewrite
+#' @keywords internal
 #' @export
 
 check_repo_status <-

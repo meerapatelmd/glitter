@@ -10,5 +10,5 @@ delete_branch(path_to_local_repo = NULL, branch)
 \item{branch}{Name of branch to checkout}
 }
 \description{
-Delete a branch
+Delete a branch.
 }

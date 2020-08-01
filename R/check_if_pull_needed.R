@@ -1,5 +1,6 @@
-#' CHeck if pull for a given repo is needed
+#' Check if pull for a given repo is needed
 #' @param path_to_local_repo path to local repo
+#' @keywords internal
 #' @export
 
 check_if_pull_needed <-

@@ -7,5 +7,5 @@
 dedupeGitIgnore(path_to_local_repo = NULL, commit = TRUE)
 }
 \description{
-Deduplicate .gitignore
+This function reads the .gitignore file, removes duplicates, and overwrites the gitignore file.
 }

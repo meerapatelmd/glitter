@@ -1,7 +1,6 @@
 #' Is the path a git repo?
 #' @return TRUE if the path has an initialized .git.
 #' @param path_to_local_repo full path to local repository to be pushed
-#' @importFrom secretary typewrite_error
 #' @export
 
 isRepo <-

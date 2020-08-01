@@ -15,3 +15,4 @@ If the git message is of a length greater than 0, it is returned as a character 
 \description{
 Is the path a git repo?
 }
+\keyword{internal}

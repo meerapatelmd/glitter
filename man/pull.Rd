@@ -2,16 +2,13 @@
 % Please edit documentation in R/pull.R
 \name{pull}
 \alias{pull}
-\title{Pull a GitHub repo based on the path to local repo}
+\title{Pull a Remote Repo}
 \usage{
 pull(path_to_local_repo = NULL, verbose = TRUE)
 }
 \arguments{
-\item{path_to_local_repo}{full path to directory of the repo to be pulled. If the path does not exist, it will be cloned to the parent directory.}
-}
-\value{
-pulled or cloned repo at the given path_to_local_repo
+\item{path_to_local_repo}{full path to directory of the repo to be pulled}
 }
 \description{
-Pull a GitHub repo based on the path to local repo
+Pull a Remote Repo
 }

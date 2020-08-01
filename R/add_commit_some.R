@@ -1,4 +1,4 @@
-#' Commit some, but not all files, in a local repo to remote GitHub repository
+#' Add and Commit Some Files
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param filenames names of files in the local repository path to be committed
 #' @param commit_message defaults to NULL, where the commit_message is a "change to {filename} in {path to present R script}"

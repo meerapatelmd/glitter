@@ -5,6 +5,7 @@
 #' @importFrom stringr str_replace_all
 #' @importFrom secretary typewrite_italic
 #' @importFrom secretary typewrite_bold
+#' @keywords internal
 #' @export
 
 deleted_files <-

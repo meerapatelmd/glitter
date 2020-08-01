@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_if_pull_needed.R
 \name{check_if_pull_needed}
 \alias{check_if_pull_needed}
-\title{CHeck if pull for a given repo is needed}
+\title{Check if pull for a given repo is needed}
 \usage{
 check_if_pull_needed(path_to_local_repo)
 }
@@ -10,5 +10,6 @@ check_if_pull_needed(path_to_local_repo)
 \item{path_to_local_repo}{path to local repo}
 }
 \description{
-CHeck if pull for a given repo is needed
+Check if pull for a given repo is needed
 }
+\keyword{internal}

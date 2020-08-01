@@ -12,3 +12,4 @@ filter_repo(path_to_local_repo_clone, destroy_this_file)
 \description{
 Destroy all traces of a file accidentally pushed to a public repo. This requires creating a fresh local clone of the repo to rewrite history. This function does not alter the repo from the command line, but rather returns the CLI commands to do so
 }
+\keyword{internal}

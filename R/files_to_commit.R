@@ -1,5 +1,6 @@
 #' Get a list of both untracked and modified files a local git repo
 #' @description This function gets all the modified, untracked, and deleted files in the local repo at path_to_local_repo
+#' @keywords internal
 #' @export
 
 files_to_commit <-

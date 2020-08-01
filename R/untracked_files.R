@@ -4,6 +4,7 @@
 #' @importFrom Hmisc capitalize
 #' @import dplyr
 #' @import tidyr
+#' @keywords internal
 #' @export
 
 

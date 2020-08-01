@@ -15,3 +15,4 @@ The complete git status message and untracked files are printed in the console, 
 \description{
 This function takes the git status message and isolates the files that are new/untracked according to that message.
 }
+\keyword{internal}

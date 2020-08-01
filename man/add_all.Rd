@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_all.R
 \name{add_all}
 \alias{add_all}
-\title{Add All Files to a Commit in a Local GitHub Repository}
+\title{Add All Files to a Commit}
 \usage{
 add_all(path_to_local_repo = NULL)
 }
@@ -10,5 +10,5 @@ add_all(path_to_local_repo = NULL)
 \item{path_to_local_repo}{Full path to local repository. If NULL, adds all the files}
 }
 \description{
-Add All Files to a Commit in a Local GitHub Repository
+Add All Files to a Commit
 }

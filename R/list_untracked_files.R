@@ -5,6 +5,7 @@
 #' @importFrom stringr str_remove_all
 #' @importFrom secretary typewrite_italic
 #' @importFrom secretary typewrite_bold
+#' @keywords internal
 #' @export
 
 list_untracked_files <-

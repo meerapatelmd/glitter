@@ -1,5 +1,6 @@
 #' Destroy all traces of a file accidentally pushed to a public repo. This requires creating a fresh local clone of the repo to rewrite history. This function does not alter the repo from the command line, but rather returns the CLI commands to do so
 #' @param path_to_local_repo_clone path to a clone of the local repo
+#' @keywords internal
 #' @export
 
 filter_repo <-

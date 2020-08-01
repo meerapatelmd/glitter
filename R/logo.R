@@ -26,6 +26,7 @@
 #        to = paste0("man/figures/", basename(list.files("pkgdown/favicon", full.names = TRUE))))
 #
 #
+
 # mapply(file.copy,
 #        from = list.files("pkgdown/favicon", full.names = TRUE),
-#        to = paste0("docs", basename(list.files("pkgdown/favicon", full.names = TRUE))))
+#        to = paste0("docs/", basename(list.files("pkgdown/favicon", full.names = TRUE))))

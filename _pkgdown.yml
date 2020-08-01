@@ -1,4 +1,50 @@
 title: glitter
+reference:
+- title: git add and commit
+  contents:
+  - '`add_all`'
+  - '`add_commit_all`'
+  - '`add_commit_some`'
+  - '`add_file`'
+  - '`add_some`'
+  - '`commit`'
+- title: git branch
+  contents:
+  - '`branch`'
+  - '`checkout`'
+  - '`delete_branch`'
+- title: git other
+  contents:
+  - '`clone`'
+  - '`diff`'
+  - '`pull`'
+  - '`push`'
+  - '`status`'
+- title: logical functions
+  contents:
+  - '`isRepo`'
+  - '`isUpToDate`'
+  - '`isWorkingTreeClean`'
+- title: list files functions
+  contents:
+  - '`lsFilesToCommit`'
+  - '`lsStagedFiles`'
+  - '`lsUnstagedFiles`'
+  - '`lsUntrackedFiles`'
+- title: helper functions
+  contents:
+  - '`parseStatusMessage`'
+  - '`printMsg`'
+  - '`formatCli`'
+  - '`remote_url`'
+  - '`stop_if_dir_not_exist`'
+  - '`stop_if_not_git_repo`'
+- title: .gitignore Manipulation
+  contents:
+  - '`addToGitIgnore`'
+  - '`readGitIgnore`'
+  - '`rmFromGitIgnore`'
+  - '`dedupeGitIgnore`'
 navbar:
   structure:
     left:

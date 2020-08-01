@@ -1,5 +1,6 @@
 #' Prints the git message in console if the message is of length greater than zero
 #' @param git_msg output from a glitter git command
+#' @keywords internal
 #' @export
 
 print_if_has_length <-

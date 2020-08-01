@@ -6,7 +6,6 @@
 #'@importFrom purrr map2
 #'@importFrom purrr keep
 #'@importFrom rubix map_names_set
-#'@export
 
 
 parseStatusMessage <-

@@ -112,7 +112,14 @@
     <p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_push_site</span>(<span class='kw'>commit_message</span> <span class='kw'>=</span> <span class='st'>"update GitHub Page"</span>, <span class='kw'>update_gitignore</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>build_push_site</span>(
+  <span class='kw'>commit_message</span> <span class='kw'>=</span> <span class='st'>"update GitHub Page"</span>,
+  <span class='kw'>update_gitignore</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lazy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>preview</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>devel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)</pre>
 
 
 

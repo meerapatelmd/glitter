@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add 1 or more files to a commit — add_some • glitter</title>
+<title>List Files To Commit — lsFilesToCommit • glitter</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Add 1 or more files to a commit — add_some" />
-<meta property="og:description" content="This function takes a vector of filenames, filters them for only the untracked and unstaged files, and adds them to a commit." />
+<meta property="og:title" content="List Files To Commit — lsFilesToCommit" />
+<meta property="og:description" content="This function combines all the Unstaged and Untracked files in a repo." />
 
 
 
@@ -103,25 +103,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add 1 or more files to a commit</h1>
+    <h1>List Files To Commit</h1>
     
-    <div class="hidden name"><code>add_some.Rd</code></div>
+    <div class="hidden name"><code>lsFilesToCommit.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function takes a vector of filenames, filters them for only the untracked and unstaged files, and adds them to a commit.</p>
+    <p>This function combines all the Unstaged and Untracked files in a repo.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_some</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>filenames</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>lsFilesToCommit</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path_to_local_repo</th>
-      <td><p>full path to local repository to be pushed</p></td>
-    </tr>
-    </table>
 
 
   </div>

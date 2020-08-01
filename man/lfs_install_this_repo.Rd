@@ -12,3 +12,4 @@ lfs_install_this_repo(large_file_extensions = c("xlsx", "csv", "RData"))
 \description{
 Push a local repo to remote MSK KMI Enterprise GitHub repository
 }
+\keyword{internal}

@@ -1,5 +1,6 @@
 #' Push a local repo to remote MSK KMI Enterprise GitHub repository
 #' @param large_file_extensions extensions of files that will be large and will need to be tracked using the lfs
+#' @keywords internal
 #' @export
 
 

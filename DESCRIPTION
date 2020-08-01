@@ -13,7 +13,6 @@ Description: This package allows to perform adds, commits, and pushes directly f
 License: Apache License 2.0
 Imports:
     cave,
-    crayon,
     devtools,
     dplyr,
     Hmisc,

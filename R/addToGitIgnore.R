@@ -1,7 +1,7 @@
 #' Add an Entry to .gitignore
 #' @description This function adds an entry to the .gitignore file in the repo. If one is not present, it is created.
 #' @importFrom readr read_lines
-#' @importFrom rlang list2
+#' @import rlang
 #' @importFrom magrittr %>%
 #' @export
 
@@ -22,8 +22,7 @@ addToGitIgnore <-
                         path_to_local_repo <- getwd()
                 }
 
-                additions <- rlang::list2(...) %>%
-                                        unlist()
+                additions <- rlang::list2(...) %>% unlist()
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
                 stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)

@@ -11,6 +11,7 @@ lsStagedFiles <-
                  modified = TRUE,
                  deleted = TRUE,
                  new_file = TRUE,
+                 renamed = TRUE,
                  label = FALSE) {
 
                 if (is.null(path_to_local_repo)) {
@@ -40,7 +41,10 @@ lsStagedFiles <-
                         parsedStatusMessage %>%
                                 purrr::keep(~((deleted == TRUE) & grepl("deleted[:]", .))),
                         parsedStatusMessage %>%
-                                purrr::keep(~((new_file == TRUE) & grepl("new file[:]", .))))
+                                purrr::keep(~((new_file == TRUE) & grepl("new file[:]", .))),
+                        parsedStatusMessage %>%
+                                purrr::keep(~((renamed == TRUE) & grepl("renamed[:]", .))) %>%
+                                purrr::map(~stringr::str_replace_all(., "(^.*?[-]{1}[>]{1} )(.*$)", "\\2")))
 
                         if (label) {
                                 return(output)

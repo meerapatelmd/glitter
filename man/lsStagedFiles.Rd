@@ -9,6 +9,7 @@ lsStagedFiles(
   modified = TRUE,
   deleted = TRUE,
   new_file = TRUE,
+  renamed = TRUE,
   label = FALSE
 )
 }

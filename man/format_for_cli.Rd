@@ -9,3 +9,4 @@ format_for_cli(vector)
 \description{
 Subsitute spaces and special characters with the backslash for a CLI command
 }
+\keyword{internal}

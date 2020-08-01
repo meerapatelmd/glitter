@@ -1,4 +1,5 @@
 #' Subsitute spaces and special characters with the backslash for a CLI command
+#' @keywords internal
 #' @export
 
 sanitize_fns_for_cli <-

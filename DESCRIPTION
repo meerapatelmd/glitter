@@ -15,4 +15,19 @@ Imports:
     devtools,
     stringr,
     dplyr,
-    purrr
+    purrr,
+    Hmisc,
+    cave,
+    crayon,
+    magrittr,
+    pkgdown,
+    readr,
+    rlang,
+    roxygen2,
+    rubix,
+    secretary,
+    tibble,
+    tidyr,
+    usethis
+    
+    

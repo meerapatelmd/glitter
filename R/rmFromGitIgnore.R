@@ -3,6 +3,7 @@
 #' @importFrom readr read_lines
 #' @importFrom rlang list2
 #' @importFrom magrittr %>%
+#' @import dplyr
 #' @export
 
 

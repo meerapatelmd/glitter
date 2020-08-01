@@ -5,15 +5,15 @@
 #
 # sticker("img/logo.jpg",
 #         package="glitter",
-#         filename="imgfile.png",
-#         s_width = 2,
-#         s_height = 2,
+#         filename="docs/logo.png",
+#         s_width = 3,
+#         s_height = 3,
 #         s_x = .5,
 #         s_y = 1.0,
 #         h_fill = "#000000",
 #         h_color = "111111",
 #         white_around_sticker=TRUE)
-#
+
 #
 # %>%
 #         geom_pkgname("glitter") %>%

@@ -12,3 +12,4 @@ pretty_git(glitter_output)
 \description{
 Takes the command line message vector and prints a clean version in console. Deprecated for pretty() function.
 }
+\keyword{internal}

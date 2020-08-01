@@ -1,5 +1,6 @@
 #' Takes the command line message vector and prints a clean version in console.
 #' @param glitter_output output vector from any glitter function
+#' @keywords internal
 #' @export
 
 

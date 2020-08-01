@@ -12,3 +12,4 @@ pretty(glitter_output)
 \description{
 Takes the command line message vector and prints a clean version in console.
 }
+\keyword{internal}

@@ -12,3 +12,4 @@ pretty_if_exists(git_msg)
 \description{
 Prints the git message in console if the message is of length greater than zero
 }
+\keyword{internal}

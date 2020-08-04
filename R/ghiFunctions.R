@@ -13,14 +13,14 @@ listOpenIssues <-
 
                 system(paste0("cd\n",
                               "cd ", repo,"\n",
-                              "ghi list"),
+                              "/usr/local/bin/ghi list"),
                        intern = FALSE)
 
 
                 output <-
                         tibble::tibble(Issues = system(paste0("cd\n",
                                                      "cd ", repo,"\n",
-                                                     "ghi list"),
+                                                     "/usr/local/bin/ghi list"),
                                                         intern = TRUE)[-1]) %>%
                         tidyr::extract(col = Issues,
                                        into = c("IssueNo",

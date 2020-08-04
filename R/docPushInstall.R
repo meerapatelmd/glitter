@@ -38,7 +38,6 @@ docPushInstall <-
 
                         if (install) {
 
-                                        invisible(.rs.restartR())
 
                                         #Installing package by first getting URL of the remote
                                         git_url <- remote_url()
@@ -68,6 +67,6 @@ docPushInstall <-
 
                         }
 
-
+                        invisible(.rs.restartR())
 
 }

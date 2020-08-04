@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Git Remote URL — remote_url • glitter</title>
+<title>Does the GitHub Repo Have a Remote? — hasRemote • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Get Git Remote URL — remote_url" />
-<meta property="og:description" content="Get Git Remote URL" />
+<meta property="og:title" content="Does the GitHub Repo Have a Remote? — hasRemote" />
+<meta property="og:description" content="Does the GitHub Repo Have a Remote?" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -119,29 +119,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Git Remote URL</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/remote_url.R'><code>R/remote_url.R</code></a></small>
-    <div class="hidden name"><code>remote_url.Rd</code></div>
+    <h1>Does the GitHub Repo Have a Remote?</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/hasRemote.R'><code>R/hasRemote.R</code></a></small>
+    <div class="hidden name"><code>hasRemote.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get Git Remote URL</p>
+    <p>Does the GitHub Repo Have a Remote?</p>
     </div>
 
-    <pre class="usage"><span class='fu'>remote_url</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>remote_name</span> <span class='kw'>=</span> <span class='st'>"origin"</span>)</pre>
+    <pre class="usage"><span class='fu'>hasRemote</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>remote_name</span> <span class='kw'>=</span> <span class='st'>"origin"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>remote_name</th>
-      <td><p>Name of the remote. Defaults to "Origin".</p></td>
+      <th>path_to_local_repo</th>
+      <td><p>full path to local repository to be pushed</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>url of the remote as a string</p>
+    <p>TRUE if the path has a remote url.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

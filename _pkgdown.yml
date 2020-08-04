@@ -1,5 +1,12 @@
 title: glitter
 reference:
+- title: Manage GitHub Repository Issues
+  contents:
+  - '`listOpenIssues`'
+  - '`listClosedIssues`'
+  - '`openIssue`'
+  - '`closeIssue`'
+  - '`showIssue'
 - title: git add and commit
   contents:
   - '`add_all`'

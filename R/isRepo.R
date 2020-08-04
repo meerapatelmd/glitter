@@ -14,11 +14,12 @@ isRepo <-
 
                 stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
 
-                x <- system(paste0("cd\n",
+                x <- suppressWarnings(system(paste0("cd\n",
                        "cd ", path_to_local_repo,"\n",
                        "git status"),
+                       ignore.stderr = TRUE,
                        intern = TRUE
-                )
+                ))
 
                 if (length(x) == 0) {
 

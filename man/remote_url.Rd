@@ -4,7 +4,7 @@
 \alias{remote_url}
 \title{Get Git Remote URL}
 \usage{
-remote_url(remote_name = "origin")
+remote_url(path_to_local_repo = NULL, remote_name = "origin")
 }
 \arguments{
 \item{remote_name}{Name of the remote. Defaults to "Origin".}

@@ -4,6 +4,20 @@
 #' @export
 
 remote_url <-
-        function(remote_name = "origin") {
-                system(paste0("git remote get-url ", remote_name), intern = TRUE)
+        function(path_to_local_repo = NULL,
+                 remote_name = "origin") {
+
+                if (is.null(path_to_local_repo)) {
+
+                        path_to_local_repo <- getwd()
+
+                }
+
+                suppressWarnings(
+                system(paste0("cd\n",
+                              "cd ", path_to_local_repo,"\n",
+                              "git remote get-url ", remote_name),
+                       ignore.stderr = TRUE,
+                       intern = TRUE)
+                )
         }

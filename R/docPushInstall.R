@@ -54,7 +54,4 @@ docPushInstall <-
 
                         }
 
-
-                        invisible(.rs.restartR())
-
 }

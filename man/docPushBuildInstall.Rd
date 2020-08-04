@@ -10,6 +10,7 @@ docPushBuildInstall(
   description = NULL,
   install = TRUE,
   build = TRUE,
+  verbose = TRUE,
   ...
 )
 }

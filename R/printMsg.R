@@ -1,6 +1,7 @@
 #' Print the Command Line Response
 #' @description This function prints any command line response from a glitter function if the response is of length greater than 0.
 #' @param git_msg Output from a glitter function.
+#' @export
 
 
 printMsg <-

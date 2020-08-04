@@ -6,7 +6,7 @@ reference:
   - '`listClosedIssues`'
   - '`openIssue`'
   - '`closeIssue`'
-  - '`showIssue'
+  - '`showIssue`'
 - title: git add and commit
   contents:
   - '`add_all`'

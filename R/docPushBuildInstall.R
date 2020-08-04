@@ -33,7 +33,7 @@ docPushBuildInstall <-
                         if (exists("x")) {
                                 printMsg(x)
                                 if (length(x) > 0) {
-                                        push(path_to_local_repo = getwd())
+                                        push()
                                 }
                         }
 
@@ -56,6 +56,8 @@ docPushBuildInstall <-
                         }
 
                         if (build) {
+
+                                require(tidyverse)
 
                                 build_push_site(...)
 

@@ -11,6 +11,7 @@
 
 add_all <-
         function(path_to_local_repo = NULL) {
+                        require(tidyverse)
 
                         if (is.null(path_to_local_repo)) {
 

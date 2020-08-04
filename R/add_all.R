@@ -1,10 +1,11 @@
 #' Add All Files to a Commit
 #' @param path_to_local_repo Full path to local repository. If NULL, adds all the files
 #' @importFrom secretary typewrite_error
+#' @importFrom magrittr %>%
+#' @importFrom cave size_in_mb
 #' @import dplyr
 #' @import rubix
 #' @import purrr
-#' @importFrom magrittr %>%
 #' @export
 
 

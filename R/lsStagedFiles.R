@@ -2,6 +2,7 @@
 #' @description This function lists all the staged files in a local repo.
 #' @return If staged files exist, a vector of all the staged file paths.
 #' @param label If TRUE, returns the results with prefix of "modified:|deleted:|new file: {file path}"
+#' @importFrom magrittr %>%
 #' @importFrom secretary typewrite
 #' @export
 

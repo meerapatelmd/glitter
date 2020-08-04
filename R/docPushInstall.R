@@ -54,19 +54,6 @@ docPushInstall <-
 
                         }
 
-                        if (!isWorkingTreeClean()) {
-
-                                commitResponse <- add_commit_all(commit_message = "add additional file changes")
-
-                                if (verbose) {
-
-                                        printMsg(commitResponse)
-
-                                }
-
-                                push()
-
-                        }
 
                         invisible(.rs.restartR())
 

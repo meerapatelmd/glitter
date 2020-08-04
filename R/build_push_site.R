@@ -44,9 +44,10 @@ build_push_site <-
 
                         # Updating and Pushing to GitHub
                         commitMessage <- add_commit_some(
-                                commit_message = commit_message,
-                                filenames = list.files(path = "docs",
-                                                       full.names = TRUE))
+                                                commit_message = commit_message,
+                                                filenames = list.files(path = "docs",
+                                                                       full.names = TRUE)
+                                                )
 
 
                         printMsg(commitMessage)

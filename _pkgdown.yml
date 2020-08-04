@@ -29,6 +29,7 @@ reference:
   - '`status`'
 - title: logical functions
   contents:
+  - '`hasRemote`'
   - '`isRepo`'
   - '`isUpToDate`'
   - '`isWorkingTreeClean`'

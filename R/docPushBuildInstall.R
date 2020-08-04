@@ -40,6 +40,8 @@ docPushBuildInstall <-
 
                         if (install) {
 
+                                        invisible(.rs.restartR())
+
                                         #Installing package by first getting URL of the remote
                                         git_url <- remote_url()
 
@@ -61,7 +63,19 @@ docPushBuildInstall <-
 
                                 build_push_site(...)
 
-                        }
+                                if (!isWorkingTreeClean()) {
 
+                                        commitResponse <- add_commit_all(commit_message = "final file commits after build site")
+                                        if (verbose) {
+
+                                                printMsg(commitResponse)
+
+                                        }
+
+                                        push()
+
+                                }
+
+                        }
 
 }

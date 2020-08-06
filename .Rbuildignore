@@ -5,3 +5,5 @@
 ^pkgdown$
 pkgdown/
 
+^doc$
+^Meta$

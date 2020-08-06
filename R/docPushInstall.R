@@ -21,13 +21,14 @@ docPushInstall <-
                                 file.remove("NAMESPACE")
                         }
 
+
+                        devtools::document()
+
                         if (has_vignettes) {
 
                                 devtools::build()
 
                         }
-
-                        devtools::document()
 
 
 

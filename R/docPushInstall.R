@@ -26,7 +26,8 @@ docPushInstall <-
 
                         if (has_vignettes) {
 
-                                devtools::build()
+                                devtools::build_vignettes()
+                                rmFromGitIgnore("doc", "doc/")
 
                         }
 

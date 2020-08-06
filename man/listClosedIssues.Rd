@@ -2,10 +2,10 @@
 % Please edit documentation in R/ghiFunctions.R
 \name{listClosedIssues}
 \alias{listClosedIssues}
-\title{GitHub Issues}
+\title{List Closed Issues}
 \usage{
 listClosedIssues(repo = NULL)
 }
 \description{
-https://github.com/stephencelis/ghi
+List Closed Issues
 }

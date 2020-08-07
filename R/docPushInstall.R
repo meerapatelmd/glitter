@@ -25,6 +25,8 @@ docPushInstall <-
 
                 {
 
+                suppressPackageStartupMessages(require(tidyverse))
+
                         #Rewriting NAMESPACE
                         if (file.exists("NAMESPACE")) {
                                 file.remove("NAMESPACE")

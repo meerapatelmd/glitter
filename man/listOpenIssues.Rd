@@ -6,6 +6,21 @@
 \usage{
 listOpenIssues(repo = NULL)
 }
+\arguments{
+\item{repo}{path to the local repo targeted by the function call. If NULL, the function is executed on the working directory}
+}
+\value{
+The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.
+}
 \description{
 All GitHub Issues functions in this package requires downloading and setting up authorization for \href{https://github.com/stephencelis/ghi}{GHI}.
+}
+\details{
+DETAILS
+}
+\seealso{
+\code{\link[tibble]{tibble}}
+ \code{\link[rubix]{filter_at_grepl}}
+ \code{\link[tidyr]{extract}}
+ \code{\link[dplyr]{filter}}
 }

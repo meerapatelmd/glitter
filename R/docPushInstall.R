@@ -1,12 +1,21 @@
-#' Document, push changes, and install a public GitHub Package
+#' @title Document, Push, and Install a GitHub Package
+#' @description
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
-#' @importFrom magrittr %>%
-#' @import roxygen2
-#' @import pkgdown
-#' @importFrom devtools document
-#' @importFrom devtools install_github
+#'
+#' @param commit_message        commit message
+#' @param description           description to extend the commit message if desired, Default: NULL
+#' @param install               If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE
+#' @param has_vignettes         If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE
+#'
+#' @return
+#' A freshly packed local package committed to the remote that is by default also installed with vignettes, if applicable.
+#'
+#' @seealso
+#'  \code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}
+#' @rdname docPushInstall
 #' @keywords internal
 #' @export
+#' @importFrom devtools document build_vignettes install_github install_git
 
 docPushInstall <-
         function (commit_message,
@@ -41,7 +50,7 @@ docPushInstall <-
                         if (exists("x")) {
                                 printMsg(x)
                                 if (length(x) > 0) {
-                                        push(path_to_local_repo = getwd())
+                                        push()
                                 }
                         }
 

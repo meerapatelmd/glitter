@@ -14,6 +14,14 @@ lsStagedFiles(
 )
 }
 \arguments{
+\item{modified}{PARAM_DESCRIPTION, Default: TRUE}
+
+\item{deleted}{PARAM_DESCRIPTION, Default: TRUE}
+
+\item{new_file}{PARAM_DESCRIPTION, Default: TRUE}
+
+\item{renamed}{PARAM_DESCRIPTION, Default: TRUE}
+
 \item{label}{If TRUE, returns the results with prefix of "modified:|deleted:|new file: {file path}"}
 }
 \value{
@@ -21,4 +29,9 @@ If staged files exist, a vector of all the staged file paths.
 }
 \description{
 This function lists all the staged files in a local repo.
+}
+\seealso{
+\code{\link[purrr]{keep}},\code{\link[purrr]{map}}
+ \code{\link[stringr]{str_replace}}
+ \code{\link[secretary]{typewrite}}
 }

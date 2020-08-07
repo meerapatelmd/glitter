@@ -1,13 +1,14 @@
-#' Push a Local Repository
+#' Perform a Git Commit
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @param commit_message message to be included in the commit
+#' @rdname commit
 #' @export
 
 commit <-
-        function(path_to_local_repo = NULL,
-                 commit_message,
+        function(commit_message,
                  description = NULL,
-                 verbose = TRUE) {
+                 verbose = TRUE,
+                 path_to_local_repo = NULL) {
 
                 if (is.null(path_to_local_repo)) {
 

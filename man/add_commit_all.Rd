@@ -17,6 +17,8 @@ add_commit_all(
 \item{commit_message}{If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"}
 
 \item{description}{additional optional description}
+
+\item{verbose}{If TRUE, the function prints back the commit response message, Default: TRUE}
 }
 \description{
 This function adds all the deltas in the working directory to a commit. The commit occurs on the condition that the git status response does not indicate that the working tree is clean.

@@ -2,8 +2,7 @@
 % Please edit documentation in R/docPushInstall.R
 \name{docPushInstall}
 \alias{docPushInstall}
-\title{Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.}
+\title{Document, Push, and Install a GitHub Package}
 \usage{
 docPushInstall(
   commit_message,
@@ -12,8 +11,22 @@ docPushInstall(
   has_vignettes = TRUE
 )
 }
+\arguments{
+\item{commit_message}{commit message}
+
+\item{description}{description to extend the commit message if desired, Default: NULL}
+
+\item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
+
+\item{has_vignettes}{If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE}
+}
+\value{
+A freshly packed local package committed to the remote that is by default also installed with vignettes, if applicable.
+}
 \description{
-Document, push changes, and install a public GitHub Package
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
+}
+\seealso{
+\code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}
 }
 \keyword{internal}

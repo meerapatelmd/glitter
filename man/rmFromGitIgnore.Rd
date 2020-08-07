@@ -2,10 +2,17 @@
 % Please edit documentation in R/rmFromGitIgnore.R
 \name{rmFromGitIgnore}
 \alias{rmFromGitIgnore}
-\title{Remove from .gitignore}
+\title{Remove lines from .gitignore}
 \usage{
 rmFromGitIgnore(..., commit = TRUE, path_to_local_repo = NULL)
 }
+\arguments{
+\item{...}{Lines to remove}
+
+\item{commit}{If TRUE, will commit changes to .gitignore, Default: TRUE}
+
+\item{path_to_local_repo}{Path to the local repository where the .gitignore file is located. If NULL, the function defers to using the current working directory, Default: NULL}
+}
 \description{
-This function remoes an entry in a .gitignore file if there is one in the repo path.
+This function removes an entry in a .gitignore file if there is one in the repo path.
 }

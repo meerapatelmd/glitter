@@ -1,8 +1,11 @@
-#' Remove from .gitignore
-#' @description This function remoes an entry in a .gitignore file if there is one in the repo path.
-#' @importFrom readr read_lines
-#' @importFrom magrittr %>%
-#' @import dplyr
+#' @title Remove lines from .gitignore
+#' @description
+#' This function removes an entry in a .gitignore file if there is one in the repo path.
+#'
+#' @param ...                   Lines to remove
+#' @param commit                If TRUE, will commit changes to .gitignore, Default: TRUE
+#' @param path_to_local_repo    Path to the local repository where the .gitignore file is located. If NULL, the function defers to using the current working directory, Default: NULL
+#' @rdname rmFromGitIgnore
 #' @export
 
 
@@ -20,12 +23,11 @@ rmFromGitIgnore <-
 
                 gitignore_path <- paste0(path_to_local_repo, "/.gitignore")
 
-                remove <- list(...) %>% unlist()
+                remove <- unlist(list(...))
 
                 if (file.exists(gitignore_path)) {
 
-                        gitignore <- readGitIgnore(path_to_local_repo = path_to_local_repo) %>%
-                                                unique()
+                        gitignore <- unique(readGitIgnore(path_to_local_repo = path_to_local_repo))
 
                         gitignore <- gitignore[!(gitignore %in% remove)]
 

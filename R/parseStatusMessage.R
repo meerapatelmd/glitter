@@ -1,11 +1,13 @@
 #' Parse Status Message
-#'@description This function parses the status message returned as a vector when calling the status() function
-#'@return A list of vectors that has split on the following headers: "On branch","Changes to be committed:", "Changes not staged for commit:", "Untracked files:" with headers removed.
-#'@importFrom magrittr %>%
-#'@importFrom purrr map
-#'@importFrom purrr map2
-#'@importFrom purrr keep
-#'@importFrom rubix map_names_set
+#' @description This function parses the status message returned as a vector when calling the status() function
+#' @return A list of vectors that has split on the following headers: "On branch","Changes to be committed:", "Changes not staged for commit:", "Untracked files:" with headers removed.
+#' @seealso
+#'  \code{\link[purrr]{keep}},\code{\link[purrr]{map}},\code{\link[purrr]{map2}}
+#'  \code{\link[rubix]{map_names_set}}
+#' @rdname parseStatusMessage
+#' @importFrom magrittr %>%
+#' @importFrom purrr keep map map2
+#' @importFrom rubix map_names_set
 
 
 parseStatusMessage <-

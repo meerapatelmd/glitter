@@ -12,3 +12,7 @@ A list of vectors that has split on the following headers: "On branch","Changes 
 \description{
 This function parses the status message returned as a vector when calling the status() function
 }
+\seealso{
+\code{\link[purrr]{keep}},\code{\link[purrr]{map}},\code{\link[purrr]{map2}}
+ \code{\link[rubix]{map_names_set}}
+}

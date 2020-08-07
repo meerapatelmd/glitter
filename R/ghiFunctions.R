@@ -1,7 +1,23 @@
-#' List Open GitHub Issues
+#' @title List Open GitHub Issues
 #' @description
 #' All GitHub Issues functions in this package requires downloading and setting up authorization for \href{https://github.com/stephencelis/ghi}{GHI}.
+#' @param repo path to the local repo targeted by the function call. If NULL, the function is executed on the working directory
+#' @return The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.
+#' @details DETAILS
+#' @seealso
+#'  \code{\link[tibble]{tibble}}
+#'  \code{\link[rubix]{filter_at_grepl}}
+#'  \code{\link[tidyr]{extract}}
+#'  \code{\link[dplyr]{filter}}
+#' @rdname listOpenIssues
+#' @importFrom tibble tibble
+#' @importFrom rubix filter_at_grepl
+#' @importFrom tidyr extract
+#' @importFrom dplyr filter
+#' @importFrom magrittr %>%
 #' @export
+
+
 
 listOpenIssues <-
         function(repo = NULL) {
@@ -31,7 +47,9 @@ listOpenIssues <-
                         tidyr::extract(col = Issues,
                                        into = c("IssueNo",
                                                 "OpenIssue"),
-                                       regex = "^[ ]+?([0-9]+?)[ ]+?([^ ]{1}.*$)")
+                                       regex = "^[ ]+?([0-9]+?)[ ]+?([^ ]{1}.*$)") %>%
+                        #Filter out all NA
+                        dplyr::filter(!is.na(IssueNo))
 
                 invisible(output)
 

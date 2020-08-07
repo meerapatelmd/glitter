@@ -1,8 +1,12 @@
-#' Add and Commit All Files
-#' @description This function adds all the deltas in the working directory to a commit. The commit occurs on the condition that the git status response does not indicate that the working tree is clean.
-#' @param path_to_local_repo full path to local repository where the add and commit all will be performed
-#' @param commit_message If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"
-#' @param description additional optional description
+#' @title Add and Commit All Files
+#' @description
+#' This function adds all the deltas in the working directory to a commit. The commit occurs on the condition that the git status response does not indicate that the working tree is clean.
+#'
+#' @param path_to_local_repo    full path to local repository where the add and commit all will be performed
+#' @param commit_message        If NULL, automatically creates a message in the format of "add/modify {filename} as written in {R script path}"
+#' @param description           additional optional description
+#' @param verbose               If TRUE, the function prints back the commit response message, Default: TRUE
+#' @rdname add_commit_all
 #' @export
 
 

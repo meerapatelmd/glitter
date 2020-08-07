@@ -2,20 +2,20 @@
 % Please edit documentation in R/commit.R
 \name{commit}
 \alias{commit}
-\title{Push a Local Repository}
+\title{Perform a Git Commit}
 \usage{
 commit(
-  path_to_local_repo = NULL,
   commit_message,
   description = NULL,
-  verbose = TRUE
+  verbose = TRUE,
+  path_to_local_repo = NULL
 )
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
-
 \item{commit_message}{message to be included in the commit}
+
+\item{path_to_local_repo}{full path to local repository to be pushed}
 }
 \description{
-Push a Local Repository
+Perform a Git Commit
 }

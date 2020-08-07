@@ -1,11 +1,23 @@
 #' List Staged Files
-#' @description This function lists all the staged files in a local repo.
-#' @return If staged files exist, a vector of all the staged file paths.
-#' @param label If TRUE, returns the results with prefix of "modified:|deleted:|new file: {file path}"
-#' @importFrom magrittr %>%
-#' @importFrom secretary typewrite
+#' @description
+#' This function lists all the staged files in a local repo.
+#' @return
+#' If staged files exist, a vector of all the staged file paths.
+#' @param modified      PARAM_DESCRIPTION, Default: TRUE
+#' @param deleted       PARAM_DESCRIPTION, Default: TRUE
+#' @param new_file      PARAM_DESCRIPTION, Default: TRUE
+#' @param renamed       PARAM_DESCRIPTION, Default: TRUE
+#' @param label         If TRUE, returns the results with prefix of "modified:|deleted:|new file: {file path}"
+#' @seealso
+#'  \code{\link[purrr]{keep}},\code{\link[purrr]{map}}
+#'  \code{\link[stringr]{str_replace}}
+#'  \code{\link[secretary]{typewrite}}
+#' @rdname lsStagedFiles
 #' @export
-
+#' @importFrom magrittr %>%
+#' @importFrom purrr keep map
+#' @importFrom stringr str_replace_all
+#' @importFrom secretary typewrite
 
 lsStagedFiles <-
         function(path_to_local_repo = NULL,

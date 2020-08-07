@@ -7,9 +7,10 @@
 
 
 add_some <-
-        function(path_to_local_repo = NULL,
+        function(
                  filenames,
-                 verbose = TRUE) {
+                 verbose = TRUE,
+                 path_to_local_repo = NULL) {
 
                 if (is.null(path_to_local_repo)) {
 

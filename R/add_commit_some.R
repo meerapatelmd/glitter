@@ -6,11 +6,12 @@
 
 
 add_commit_some <-
-        function(path_to_local_repo = NULL,
+        function(
                  filenames,
                  commit_message = NULL,
                  description = NULL,
-                 verbose = TRUE) {
+                 verbose = TRUE,
+                 path_to_local_repo = NULL) {
 
                         if (is.null(path_to_local_repo)) {
 

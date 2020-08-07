@@ -1,5 +1,6 @@
-#' Git Diff
-#' @description Show unstaged changes between your index and working directory
+#' @title Git Diff
+#' @description
+#' Show unstaged changes between your index and working directory
 #' @export
 
 

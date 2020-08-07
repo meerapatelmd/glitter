@@ -2,10 +2,14 @@
 % Please edit documentation in R/dedupeGitIgnore.R
 \name{dedupeGitIgnore}
 \alias{dedupeGitIgnore}
-\title{Deduplicate .gitignore}
+\title{Remove duplicates from .gitignore}
 \usage{
-dedupeGitIgnore(path_to_local_repo = NULL, commit = TRUE)
+dedupeGitIgnore(commit = TRUE, path_to_local_repo = NULL)
 }
 \description{
 This function reads the .gitignore file, removes duplicates, and overwrites the gitignore file.
 }
+\seealso{
+\code{\link[readr]{read_lines}}
+}
+\keyword{internal}

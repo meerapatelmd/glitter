@@ -7,7 +7,7 @@
 delete_branch(path_to_local_repo = NULL, branch)
 }
 \arguments{
-\item{branch}{Name of branch to checkout}
+\item{branch}{Name of branch to delete}
 }
 \description{
 Delete a branch.

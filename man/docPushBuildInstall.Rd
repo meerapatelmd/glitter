@@ -2,8 +2,7 @@
 % Please edit documentation in R/docPushBuildInstall.R
 \name{docPushBuildInstall}
 \alias{docPushBuildInstall}
-\title{Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.}
+\title{Document, Push, Install, and Build a Site}
 \usage{
 docPushBuildInstall(
   commit_message,
@@ -15,7 +14,9 @@ docPushBuildInstall(
 )
 }
 \description{
-Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
+Document, Push, Install, and Build a Site
+}
+\seealso{
+\code{\link[devtools]{document}},\code{\link[devtools]{remote-reexports}}
 }
 \keyword{internal}

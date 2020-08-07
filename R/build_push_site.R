@@ -1,13 +1,14 @@
 #' Build and Push docs/ dir For GitHub Pages
-#' @description This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
-#' @importFrom usethis use_pkgdown
-#' @import pkgdown
-#' @importFrom devtools document
-#' @importFrom devtools install_github
-#' @importFrom magrittr %>%
-#' @import dplyr
+#' @description
+#' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
+#' @seealso
+#'  \code{\link[usethis]{use_pkgdown}}
+#'  \code{\link[pkgdown]{build_site}}
+#' @rdname build_push_site
 #' @keywords internal
 #' @export
+#' @importFrom usethis use_pkgdown
+#' @importFrom pkgdown build_site
 
 build_push_site <-
         function (commit_message = "update GitHub Page",

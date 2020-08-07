@@ -2,16 +2,17 @@
 #' @description This function is a primitive function to wrap add_some() around.
 #' @param path_to_local_repo full path to local repository to be pushed
 #' @import purrr
+#' @importFrom magrittr %>%
 #' @importFrom cave size_in_mb
 #' @importFrom centipede no_na
-#' @importFrom magrittr %>%
 #' @export
 
 
 add_file <-
-        function(path_to_local_repo = NULL,
+        function(
                  file,
-                 verbose = TRUE) {
+                 verbose = TRUE,
+                 path_to_local_repo = NULL) {
 
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()

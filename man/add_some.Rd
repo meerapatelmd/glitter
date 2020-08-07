@@ -4,7 +4,7 @@
 \alias{add_some}
 \title{Add Some Files to a Commit}
 \usage{
-add_some(path_to_local_repo = NULL, filenames, verbose = TRUE)
+add_some(filenames, verbose = TRUE, path_to_local_repo = NULL)
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}

@@ -1,6 +1,6 @@
 #' Delete a Branch
 #' @description Delete a branch.
-#' @param branch Name of branch to checkout
+#' @param branch Name of branch to delete
 #' @export
 
 

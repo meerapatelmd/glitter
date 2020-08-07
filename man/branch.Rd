@@ -2,9 +2,9 @@
 % Please edit documentation in R/branch.R
 \name{branch}
 \alias{branch}
-\title{Branch}
+\title{Git Branch}
 \usage{
-branch(path_to_local_repo = NULL)
+branch(verbose = TRUE, path_to_local_repo = NULL)
 }
 \description{
 Print all the branches and the current branch in a GitHub repository

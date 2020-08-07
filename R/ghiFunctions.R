@@ -57,6 +57,10 @@ listOpenIssues <-
 
 #' List Closed Issues
 #' @export
+#' @importFrom magrittr %>%
+#' @importFrom tibble tibble
+#' @importFrom tidyr extract
+#' @importFrom dplyr mutate_all
 
 listClosedIssues <-
         function(repo = NULL) {

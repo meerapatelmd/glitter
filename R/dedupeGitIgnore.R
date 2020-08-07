@@ -1,12 +1,16 @@
-#' Deduplicate .gitignore
-#' @description This function reads the .gitignore file, removes duplicates, and overwrites the gitignore file.
-#' @importFrom readr write_lines
+#' @title Remove duplicates from .gitignore
+#' @description
+#' This function reads the .gitignore file, removes duplicates, and overwrites the gitignore file.
+#' @seealso
+#'  \code{\link[readr]{read_lines}}
+#' @rdname dedupeGitIgnore
+#' @keywords internal
 #' @export
-
+#' @importFrom readr write_lines
 
 dedupeGitIgnore <-
-        function(path_to_local_repo = NULL,
-                 commit = TRUE) {
+        function(commit = TRUE,
+                 path_to_local_repo = NULL) {
 
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()

@@ -5,19 +5,19 @@
 \title{Add and Commit Some Files}
 \usage{
 add_commit_some(
-  path_to_local_repo = NULL,
   filenames,
   commit_message = NULL,
   description = NULL,
-  verbose = TRUE
+  verbose = TRUE,
+  path_to_local_repo = NULL
 )
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
-
 \item{filenames}{names of files in the local repository path to be committed}
 
 \item{commit_message}{defaults to NULL, where the commit_message is a "change to {filename} in {path to present R script}"}
+
+\item{path_to_local_repo}{full path to local repository to be pushed}
 }
 \description{
 Add and Commit Some Files

@@ -16,4 +16,8 @@ build_push_site(
 \description{
 This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 }
+\seealso{
+\code{\link[usethis]{use_pkgdown}}
+ \code{\link[pkgdown]{build_site}}
+}
 \keyword{internal}

@@ -1,12 +1,16 @@
 #' List Unstaged Files
 #' @description This function lists all the unstaged files in a local repo.
 #' @return If unstaged files exist, a vector of all the untracked file paths.
+#' @seealso
+#'  \code{\link[purrr]{keep}}
+#'  \code{\link[stringr]{str_replace}}
+#'  \code{\link[secretary]{typewrite}}
+#' @rdname lsUnstagedFiles
+#' @export
 #' @importFrom magrittr %>%
-#' @importFrom secretary typewrite
 #' @importFrom purrr keep
 #' @importFrom stringr str_replace_all
-#' @export
-
+#' @importFrom secretary typewrite
 
 lsUnstagedFiles <-
         function(path_to_local_repo = NULL,

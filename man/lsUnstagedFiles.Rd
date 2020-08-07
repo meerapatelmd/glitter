@@ -17,3 +17,8 @@ If unstaged files exist, a vector of all the untracked file paths.
 \description{
 This function lists all the unstaged files in a local repo.
 }
+\seealso{
+\code{\link[purrr]{keep}}
+ \code{\link[stringr]{str_replace}}
+ \code{\link[secretary]{typewrite}}
+}

@@ -1,11 +1,15 @@
-#' Clone a Git Repository
-#' @param remote_url Web url of repository to clone
-#' @param destination_path Path of the destination directory to which the repo will be cloned.
-#' @return Cloned repo in the path of {destination_path/repo name} if the directory does not exist. Otherwise an error is thrown.
-#' @importFrom magrittr %>%
-#' @importFrom cave strip_fn
-#' @importFrom purrr map
+#' @title Clone a Git Repository
+#'
+#' @param remote_url            Web url of repository to clone
+#' @param destination_path      Path of the destination directory to which the repo will be cloned.
+#'
+#' @return
+#' Cloned repo in the path of {destination_path/repo name} if the directory does not exist. Otherwise an error is thrown.
+#'
 #' @export
+#' @importFrom cave strip_fn
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
 
 clone <-
         function(remote_url, destination_path) {

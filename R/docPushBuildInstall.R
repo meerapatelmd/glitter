@@ -1,12 +1,10 @@
-#' Document, push changes, and install a public GitHub Package
-#' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
-#' @importFrom magrittr %>%
-#' @import roxygen2
-#' @import pkgdown
-#' @importFrom devtools document
-#' @importFrom devtools install_github
+#' @title Document, Push, Install, and Build a Site
+#' @seealso
+#'  \code{\link[devtools]{document}},\code{\link[devtools]{remote-reexports}}
+#' @rdname docPushBuildInstall
 #' @keywords internal
 #' @export
+#' @importFrom devtools document install_github install_git
 
 docPushBuildInstall <-
         function (commit_message,

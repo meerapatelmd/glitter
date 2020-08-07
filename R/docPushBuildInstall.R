@@ -1,6 +1,6 @@
 #' @title Document, Push, Install, and Build a Site
 #' @seealso
-#'  \code{\link[devtools]{document}},\code{\link[devtools]{remote-reexports}}
+#'  \code{\link[devtools]{document}}, \code{\link[devtools]{remote-reexports}}
 #' @rdname docPushBuildInstall
 #' @keywords internal
 #' @export

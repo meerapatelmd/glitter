@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink. — docPushInstall • glitter</title>
+<title>Document, Push, and Install a GitHub Package — docPushInstall • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -47,10 +46,8 @@ This function automatically documents, pushes, and installs a package, assuming 
 
 
 
-<meta property="og:title" content="Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink. — docPushInstall" />
-<meta property="og:description" content="Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink." />
+<meta property="og:title" content="Document, Push, and Install a GitHub Package — docPushInstall" />
+<meta property="og:description" content="This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -83,7 +80,7 @@ This function automatically documents, pushes, and installs a package, assuming 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -97,6 +94,21 @@ This function automatically documents, pushes, and installs a package, assuming 
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/fileretrieval.html">File Retrieval</a>
+    </li>
+    <li>
+      <a href="../articles/github-issue-tracking.html">GitHub Issue Tracking</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -122,20 +134,49 @@ This function automatically documents, pushes, and installs a package, assuming 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</h1>
+    <h1>Document, Push, and Install a GitHub Package</h1>
     <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/docPushInstall.R'><code>R/docPushInstall.R</code></a></small>
     <div class="hidden name"><code>docPushInstall.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Document, push changes, and install a public GitHub Package
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
+    <p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>docPushInstall</span>(<span class='no'>commit_message</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>install</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>docPushInstall</span>(
+  <span class='no'>commit_message</span>,
+  <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>install</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>has_vignettes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>commit_message</th>
+      <td><p>commit message</p></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><p>description to extend the commit message if desired, Default: NULL</p></td>
+    </tr>
+    <tr>
+      <th>install</th>
+      <td><p>If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE</p></td>
+    </tr>
+    <tr>
+      <th>has_vignettes</th>
+      <td><p>If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A freshly packed local package committed to the remote that is by default also installed with vignettes, if applicable.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://devtools.r-lib.org//reference/document.html'>document</a></code>,<code><a href='https://devtools.r-lib.org//reference/build_vignettes.html'>build_vignettes</a></code>,<code><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>remote-reexports</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

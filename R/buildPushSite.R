@@ -10,7 +10,7 @@
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site
 
-build_push_site <-
+buildPushSite <-
         function (commit_message = "update GitHub Page",
                   update_gitignore = TRUE,
                   lazy = TRUE,
@@ -19,7 +19,7 @@ build_push_site <-
                   ...)
 
                 {
-                .Deprecated()
+
 
                         # Create _pkgdown.yml file if it does not exist
                         if (!file.exists("_pkgdown.yml")) {
@@ -38,8 +38,7 @@ build_push_site <-
                         if (update_gitignore) {
 
                                 rmFromGitIgnore("docs/",
-                                                commit = TRUE,
-                                                path_to_local_repo = getwd())
+                                                commit = TRUE)
 
                         }
 
@@ -48,7 +47,7 @@ build_push_site <-
                         commitMessage <- add_commit_some(
                                                 commit_message = commit_message,
                                                 filenames = list.files(path = "docs",
-                                                                       full.names = TRUE)
+                                                                       full.names = F)
                                                 )
 
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List Staged Files — lsStagedFiles • glitter</title>
+<title>Search Deleted File — deletedFileHistory • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="List Staged Files — lsStagedFiles" />
-<meta property="og:description" content="This function lists all the staged files in a local repo." />
+<meta property="og:title" content="Search Deleted File — deletedFileHistory" />
+<meta property="og:description" content="Search Deleted File" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,57 +134,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List Staged Files</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/lsStagedFiles.R'><code>R/lsStagedFiles.R</code></a></small>
-    <div class="hidden name"><code>lsStagedFiles.Rd</code></div>
+    <h1>Search Deleted File</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/logFunctions.R'><code>R/logFunctions.R</code></a></small>
+    <div class="hidden name"><code>deletedFileHistory.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function lists all the staged files in a local repo.</p>
+    <p>Search Deleted File</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lsStagedFiles</span>(
-  <span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>modified</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>deleted</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>new_file</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>renamed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre>
+    <pre class="usage"><span class='fu'>deletedFileHistory</span>(<span class='kw'>repo_path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>modified</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>deleted</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>new_file</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>renamed</th>
-      <td><p>PARAM_DESCRIPTION, Default: TRUE</p></td>
-    </tr>
-    <tr>
-      <th>label</th>
-      <td><p>If TRUE, returns the results with prefix of "modified:|deleted:|new file: file path"</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>If staged files exist, a vector of all the staged file paths.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://purrr.tidyverse.org/reference/keep.html'>keep</a></code>,<code><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></code>
- <code><a href='https://stringr.tidyverse.org/reference/str_replace.html'>str_replace</a></code>
- <code><a href='https://rdrr.io/pkg/secretary/man/typewrite.html'>typewrite</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

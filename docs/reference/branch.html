@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Branch — branch • glitter</title>
+<title>Git Branch — branch • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,7 @@
 
 
 
-<meta property="og:title" content="Branch — branch" />
+<meta property="og:title" content="Git Branch — branch" />
 <meta property="og:description" content="Print all the branches and the current branch in a GitHub repository" />
 <meta property="og:image" content="/logo.png" />
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.4.1</span>
       </span>
     </div>
 
@@ -94,6 +94,21 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/fileretrieval.html">File Retrieval</a>
+    </li>
+    <li>
+      <a href="../articles/github-issue-tracking.html">GitHub Issue Tracking</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -119,7 +134,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Branch</h1>
+    <h1>Git Branch</h1>
     <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/branch.R'><code>R/branch.R</code></a></small>
     <div class="hidden name"><code>branch.Rd</code></div>
     </div>
@@ -128,7 +143,7 @@
     <p>Print all the branches and the current branch in a GitHub repository</p>
     </div>
 
-    <pre class="usage"><span class='fu'>branch</span>(<span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>branch</span>(<span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>path_to_local_repo</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
 
 

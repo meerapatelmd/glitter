@@ -35,12 +35,12 @@ buildPushSite <-
 
 
                         # Remove "docs/" from gitignore if present
-                        if (update_gitignore) {
-
-                                rmFromGitIgnore("docs/",
-                                                commit = TRUE)
-
-                        }
+                        # if (update_gitignore) {
+                        #
+                        #         rmFromGitIgnore("docs/",
+                        #                         commit = TRUE)
+                        #
+                        # }
 
 
                         # Updating and Pushing to GitHub

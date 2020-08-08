@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Build and Push docs/ dir For GitHub Pages — build_push_site • glitter</title>
+<title>Build and Push docs/ dir For GitHub Pages — buildPushSite • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,9 @@
 
 
 
-<meta property="og:title" content="Build and Push docs/ dir For GitHub Pages — build_push_site" />
-<meta property="og:description" content="This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink." />
+<meta property="og:title" content="Build and Push docs/ dir For GitHub Pages — buildPushSite" />
+<meta property="og:description" content="This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to an Enterprise GitHub Repository, the package is instead installed using a Git hyperlink.
+This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to an Enterprise GitHub Repository, the package is instead installed using a Git hyperlink." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -135,15 +136,25 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Build and Push docs/ dir For GitHub Pages</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/build_push_site.R'><code>R/build_push_site.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/buildPushSite.R'><code>R/buildPushSite.R</code></a>, <a href='https://github.com/patelm9/glitter/blob/master/R/build_push_site.R'><code>R/build_push_site.R</code></a></small>
     <div class="hidden name"><code>build_push_site.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
+    <p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to an Enterprise GitHub Repository, the package is instead installed using a Git hyperlink.</p>
+<p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to an Enterprise GitHub Repository, the package is instead installed using a Git hyperlink.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>build_push_site</span>(
+    <pre class="usage"><span class='fu'>buildPushSite</span>(
+  <span class='kw'>commit_message</span> <span class='kw'>=</span> <span class='st'>"update GitHub Page"</span>,
+  <span class='kw'>update_gitignore</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>lazy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>preview</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>devel</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='no'>...</span>
+)
+
+<span class='fu'>build_push_site</span>(
   <span class='kw'>commit_message</span> <span class='kw'>=</span> <span class='st'>"update GitHub Page"</span>,
   <span class='kw'>update_gitignore</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>lazy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
@@ -156,6 +167,8 @@
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://usethis.r-lib.org/reference/use_pkgdown.html'>use_pkgdown</a></code>
+ <code><a href='https://pkgdown.r-lib.org/reference/build_site.html'>build_site</a></code></p>
+<p><code><a href='https://usethis.r-lib.org/reference/use_pkgdown.html'>use_pkgdown</a></code>
  <code><a href='https://pkgdown.r-lib.org/reference/build_site.html'>build_site</a></code></p></div>
 
   </div>

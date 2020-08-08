@@ -29,8 +29,8 @@ parseStatusMessage <-
                           "Changes to be committed:",
                           "Changes not staged for commit:",
                           "Untracked files:") %>%
-                                                purrr::keep(~any(grepl(., statusMessage))) %>%
-                                                unlist()
+                        purrr::keep(~any(grepl(., statusMessage))) %>%
+                        unlist()
 
 
                 starting_indices <-

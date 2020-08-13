@@ -26,7 +26,7 @@ add_all <-
                         large_files <-
                         list.files(path_to_local_repo, full.names = TRUE) %>%
                                 rubix::map_names_set(cave::size_in_mb) %>%
-                                purrr::keep(function(x) x > 1) %>%
+                                purrr::keep(function(x) x > 10) %>%
                                 names()
 
                         if (length(large_files) > 0) {

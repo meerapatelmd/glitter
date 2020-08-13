@@ -35,7 +35,7 @@ add_file <-
 
 
                 if (length(file_size)) {
-                        if (file_size > 1) {
+                        if (file_size > 10) {
                                 stop(file, " is greater than 100 MB.")
                         }
                 }

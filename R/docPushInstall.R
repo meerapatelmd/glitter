@@ -64,17 +64,20 @@ docPushInstall <-
                                 git_url <- remote_url()
 
 
+                                devtools::install_git(url = git_url,
+                                                      build_vignettes = has_vignettes)
 
-                                #Installing it as either a public or an Enterprise GitHub repo
-                                if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
-                                        devtools::install_github(paste0("patelm9/", basename(getwd())),
-                                                                 build_vignettes = has_vignettes)
-                                } else {
 
-                                        devtools::install_git(url = git_url,
-                                                              build_vignettes = has_vignettes)
-
-                                }
+                                # #Installing it as either a public or an Enterprise GitHub repo
+                                # if (grepl("github.com/patelm9", git_url, ignore.case = TRUE) == TRUE) {
+                                #         devtools::install_github(paste0("patelm9/", basename(getwd())),
+                                #                                  build_vignettes = has_vignettes)
+                                # } else {
+                                #
+                                #         devtools::install_git(url = git_url,
+                                #                               build_vignettes = has_vignettes)
+                                #
+                                # }
 
 
                         }

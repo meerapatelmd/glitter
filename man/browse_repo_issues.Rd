@@ -14,7 +14,7 @@ browse_repo_issues(github_username, repo)
 \item{repo}{Repository belonging to the GitHub user}
 }
 \description{
-
+These functions open up GitHub urls related to a repo in the browser returned by \code{\link{get_remote_urls}}.
 }
 \seealso{
 \code{\link[utils]{browseURL}}

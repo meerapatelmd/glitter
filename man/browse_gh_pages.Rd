@@ -15,7 +15,7 @@ browse_gh_pages(github_username, repo)
 If a GitHub Page exists, it is opened in the browser. Otherwise, a message is returned in the console that states that a GitHub Page does not exist.
 }
 \description{
-
+These functions open up GitHub urls related to a repo in the browser returned by \code{\link{get_remote_urls}}.
 }
 \details{
 This function opens the GitHub Page URL returned by \code{\link{get_remote_urls}} if a GitHub Page exists for the repo.

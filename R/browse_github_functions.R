@@ -2,7 +2,7 @@
 #' Browse GitHub Functions
 #'
 #' @description
-#' These functions open up GitHub urls related to a repo in the browser returned by \code{\link{get_remote_urls}.
+#' These functions open up GitHub urls related to a repo in the browser returned by \code{\link{get_remote_urls}}.
 #'
 #' @param github_username       GitHub username
 #' @param repo                  Repository belonging to the GitHub user

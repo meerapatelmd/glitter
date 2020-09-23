@@ -5,6 +5,7 @@
 #' @param path_to_local_repo PARAM_DESCRIPTION, Default: NULL
 #' @param commit_message PARAM_DESCRIPTION
 #' @rdname push_all_if_needed
+#'
 #' @export
 
 

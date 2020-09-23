@@ -23,7 +23,7 @@ docPushInstall <-
                   commit_message,
                   description = NULL,
                   install = TRUE,
-                  reset = TRUE,
+                  reset = FALSE,
                   has_vignettes = FALSE)
 
                 {

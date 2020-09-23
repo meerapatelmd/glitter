@@ -19,7 +19,8 @@
 #' @importFrom devtools document build_vignettes install_github install_git
 
 docPushInstall <-
-        function (commit_message,
+        function (
+                  commit_message,
                   description = NULL,
                   install = TRUE,
                   reset = TRUE,
@@ -27,8 +28,8 @@ docPushInstall <-
 
                 {
 
-                suppressPackageStartupMessages(require(tidyverse))
-                suppressPackageStartupMessages(require(rlang))
+                        #suppressPackageStartupMessages(require(tidyverse))
+                        suppressPackageStartupMessages(require(rlang))
 
                         #Rewriting NAMESPACE
                         if (file.exists("NAMESPACE")) {
@@ -51,12 +52,17 @@ docPushInstall <-
                         #Updating and Pushing to GitHub
                         x <- add_commit_all(
                                 commit_message = commit_message,
-                                description = description)
+                                description = description
+                                )
 
                         if (exists("x")) {
+
                                 printMsg(x)
+
                                 if (length(x) > 0) {
+
                                         push()
+
                                 }
                         }
 

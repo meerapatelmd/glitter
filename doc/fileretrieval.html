@@ -14,29 +14,13 @@
 
 <title>File Retrieval</title>
 
-<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
-// v0.0.1
-// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
-
-document.addEventListener('DOMContentLoaded', function() {
-  const codeList = document.getElementsByClassName("sourceCode");
-  for (var i = 0; i < codeList.length; i++) {
-    var linkList = codeList[i].getElementsByTagName('a');
-    for (var j = 0; j < linkList.length; j++) {
-      if (linkList[j].innerHTML === "") {
-        linkList[j].setAttribute('aria-hidden', 'true');
-      }
-    }
-  }
-});
-</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -46,16 +30,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -64,9 +46,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -223,7 +205,7 @@ pre, code {
 background-color: #f7f7f7;
 border-radius: 3px;
 color: #333;
-white-space: pre-wrap; 
+white-space: pre-wrap;
 }
 pre {
 border-radius: 3px;
@@ -291,18 +273,18 @@ text-decoration: underline; }
 a[href^="https:"] {
 text-decoration: underline; }
 
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; } 
-code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.kw { color: #555; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #d14; }
+code > span.fl { color: #d14; }
+code > span.ch { color: #d14; }
+code > span.st { color: #d14; }
+code > span.co { color: #888888; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #900; font-weight: bold; }
+code > span.er { color: #a61717; background-color: #e3d2d2; }
 </style>
 
 
@@ -316,6 +298,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">File Retrieval</h1>
+
 
 
 
@@ -476,43 +459,175 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb2-128"><a href="#cb2-128"></a><span class="co">#&gt;  delete mode 100644 man/add_commit_all_outside_repo.Rd</span></span>
 <span id="cb2-129"><a href="#cb2-129"></a><span class="co">#&gt;  delete mode 100644 R/destroy.R</span></span>
 <span id="cb2-130"><a href="#cb2-130"></a><span class="co">#&gt;  delete mode 100644 man/destroy.Rd</span></span></code></pre></div>
+=======
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(glitter)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; Attaching package: 'glitter'</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; The following objects are masked from 'package:base':</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">#&gt;     diff, log</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">#&gt; ── Attaching packages ────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">#&gt; ✓ ggplot2 3.3.2     ✓ purrr   0.3.4</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">#&gt; ✓ tibble  3.0.3     ✓ dplyr   1.0.2</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">#&gt; ✓ tidyr   1.1.2     ✓ stringr 1.4.0</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">#&gt; ✓ readr   1.3.1     ✓ forcats 0.5.0</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">#&gt; ── Conflicts ───────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; x dplyr::pull()   masks glitter::pull()</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="kw">library</span>(rlang)</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; Attaching package: 'rlang'</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; The following objects are masked from 'package:purrr':</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">#&gt;     %@%, as_function, flatten, flatten_chr, flatten_dbl, flatten_int,</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">#&gt;     flatten_lgl, flatten_raw, invoke, list_along, modify, prepend,</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="co">#&gt;     splice</span></a></code></pre></div>
+<div id="help" class="section level1">
+<h1>HELP!</h1>
+<p>I lost a file my repo but I forgot what I called it so I get a list of all the files ever deleted in the repo.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">deletedFileHistory</span>()</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;  delete mode 100644 R/pretty.R</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;  delete mode 100644 R/pretty_git.R</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;  delete mode 100644 R/pretty_if_exists.R</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;  delete mode 100644 R/print_if_has_length.R</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  delete mode 100644 man/pretty.Rd</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  delete mode 100644 man/pretty_git.Rd</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  delete mode 100644 man/pretty_if_exists.Rd</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  delete mode 100644 man/print_if_has_length.Rd</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  delete mode 100644 R/check_if_pull_needed.R</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  delete mode 100644 R/check_repo_status.R</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  delete mode 100644 R/deleted_files.R</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  delete mode 100644 R/files_to_commit.R</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  delete mode 100644 R/format_for_cli.R</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt;  delete mode 100644 R/sanitize_fns_for_cli.R</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt;  delete mode 100644 man/check_if_pull_needed.Rd</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt;  delete mode 100644 man/check_repo_status.Rd</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt;  delete mode 100644 man/deleted_files.Rd</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;  delete mode 100644 man/files_to_commit.Rd</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt;  delete mode 100644 man/format_for_cli.Rd</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt;  delete mode 100644 man/sanitize_fns_for_cli.Rd</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt;  delete mode 100644 R/listOpenIssues.R</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt;  delete mode 100644 R/is_git_repo.R</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt;  delete mode 100644 man/is_git_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt;  delete mode 100644 Rplots.pdf</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">#&gt;  delete mode 100644 R/logo.R</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon-120x120.png</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon-152x152.png</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon-180x180.png</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon-60x60.png</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon-76x76.png</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="co">#&gt;  delete mode 100644 docsapple-touch-icon.png</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">#&gt;  delete mode 100644 docsfavicon-16x16.png</span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">#&gt;  delete mode 100644 docsfavicon-32x32.png</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"><span class="co">#&gt;  delete mode 100644 docsfavicon.ico</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">#&gt;  delete mode 100644 R/Untitled.R</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">#&gt;  delete mode 100644 R/doc_push_install_package.R</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">#&gt;  delete mode 100644 R/staged_files.R</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">#&gt;  delete mode 100644 man/doc_push_install_package.Rd</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"><span class="co">#&gt;  delete mode 100644 man/staged_files.Rd</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">#&gt;     delete .gitignore</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">#&gt;  delete mode 100644 .gitignore</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">#&gt;  delete mode 100644 R/Untitled.R</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">#&gt;  delete mode 100644 R/push_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46"><span class="co">#&gt;  delete mode 100644 man/push_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-47" data-line-number="47"><span class="co">#&gt;  delete mode 100644 R/add_commit_all_deltas_in_wd.R</span></a>
+<a class="sourceLine" id="cb2-48" data-line-number="48"><span class="co">#&gt;  delete mode 100644 R/add_commit_all_modified_files.R</span></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49"><span class="co">#&gt;  delete mode 100644 R/add_commit_all_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-50" data-line-number="50"><span class="co">#&gt;  delete mode 100644 R/add_commit_all_untracked_files.R</span></a>
+<a class="sourceLine" id="cb2-51" data-line-number="51"><span class="co">#&gt;  delete mode 100644 R/add_commit_path_deltas.R</span></a>
+<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="co">#&gt;  delete mode 100644 R/add_commit_some_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-53" data-line-number="53"><span class="co">#&gt;  delete mode 100644 R/add_some_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-54" data-line-number="54"><span class="co">#&gt;  delete mode 100644 R/add_some_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-55" data-line-number="55"><span class="co">#&gt;  delete mode 100644 R/commit_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-56" data-line-number="56"><span class="co">#&gt;  delete mode 100644 R/commit_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-57" data-line-number="57"><span class="co">#&gt;  delete mode 100644 R/getUntrackedFiles.R</span></a>
+<a class="sourceLine" id="cb2-58" data-line-number="58"><span class="co">#&gt;  delete mode 100644 R/modified_files_in_wd.R</span></a>
+<a class="sourceLine" id="cb2-59" data-line-number="59"><span class="co">#&gt;  delete mode 100644 R/pull_wd.R</span></a>
+<a class="sourceLine" id="cb2-60" data-line-number="60"><span class="co">#&gt;  delete mode 100644 R/untracked_files_in_wd.R</span></a>
+<a class="sourceLine" id="cb2-61" data-line-number="61"><span class="co">#&gt;  delete mode 100644 R/wd_add_commit_all.R</span></a>
+<a class="sourceLine" id="cb2-62" data-line-number="62"><span class="co">#&gt;  delete mode 100644 R/wd_add_commit_some.R</span></a>
+<a class="sourceLine" id="cb2-63" data-line-number="63"><span class="co">#&gt;  delete mode 100644 R/wd_files_to_commit.R</span></a>
+<a class="sourceLine" id="cb2-64" data-line-number="64"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_deltas_in_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-65" data-line-number="65"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_modified_files.Rd</span></a>
+<a class="sourceLine" id="cb2-66" data-line-number="66"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-67" data-line-number="67"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_untracked_files.Rd</span></a>
+<a class="sourceLine" id="cb2-68" data-line-number="68"><span class="co">#&gt;  delete mode 100644 man/add_commit_path_deltas.Rd</span></a>
+<a class="sourceLine" id="cb2-69" data-line-number="69"><span class="co">#&gt;  delete mode 100644 man/add_commit_some_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-70" data-line-number="70"><span class="co">#&gt;  delete mode 100644 man/add_some_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-71" data-line-number="71"><span class="co">#&gt;  delete mode 100644 man/add_some_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-72" data-line-number="72"><span class="co">#&gt;  delete mode 100644 man/all_file_deltas_in_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-73" data-line-number="73"><span class="co">#&gt;  delete mode 100644 man/commit_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-74" data-line-number="74"><span class="co">#&gt;  delete mode 100644 man/commit_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-75" data-line-number="75"><span class="co">#&gt;  delete mode 100644 man/deleted_files0.Rd</span></a>
+<a class="sourceLine" id="cb2-76" data-line-number="76"><span class="co">#&gt;  delete mode 100644 man/deleted_files_in_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-77" data-line-number="77"><span class="co">#&gt;  delete mode 100644 man/modified_files_in_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-78" data-line-number="78"><span class="co">#&gt;  delete mode 100644 man/pull_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-79" data-line-number="79"><span class="co">#&gt;  delete mode 100644 man/push_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-80" data-line-number="80"><span class="co">#&gt;  delete mode 100644 man/status0.Rd</span></a>
+<a class="sourceLine" id="cb2-81" data-line-number="81"><span class="co">#&gt;  delete mode 100644 man/untracked_files0.Rd</span></a>
+<a class="sourceLine" id="cb2-82" data-line-number="82"><span class="co">#&gt;  delete mode 100644 man/untracked_files_in_wd.Rd</span></a>
+<a class="sourceLine" id="cb2-83" data-line-number="83"><span class="co">#&gt;  delete mode 100644 man/wd_add_commit_all.Rd</span></a>
+<a class="sourceLine" id="cb2-84" data-line-number="84"><span class="co">#&gt;  delete mode 100644 man/wd_add_commit_some.Rd</span></a>
+<a class="sourceLine" id="cb2-85" data-line-number="85"><span class="co">#&gt;  delete mode 100644 man/wd_files_to_commit.Rd</span></a>
+<a class="sourceLine" id="cb2-86" data-line-number="86"><span class="co">#&gt;  delete mode 100644 man/wd_status.Rd</span></a>
+<a class="sourceLine" id="cb2-87" data-line-number="87"><span class="co">#&gt;  delete mode 100644 R/all_file_deltas_in_wd.R</span></a>
+<a class="sourceLine" id="cb2-88" data-line-number="88"><span class="co">#&gt;  delete mode 100644 R/deleted_files0.R</span></a>
+<a class="sourceLine" id="cb2-89" data-line-number="89"><span class="co">#&gt;  delete mode 100644 R/deleted_files_in_wd.R</span></a>
+<a class="sourceLine" id="cb2-90" data-line-number="90"><span class="co">#&gt;  delete mode 100644 R/push_wd.R</span></a>
+<a class="sourceLine" id="cb2-91" data-line-number="91"><span class="co">#&gt;  delete mode 100644 R/status0.R</span></a>
+<a class="sourceLine" id="cb2-92" data-line-number="92"><span class="co">#&gt;  delete mode 100644 R/untracked_files0.R</span></a>
+<a class="sourceLine" id="cb2-93" data-line-number="93"><span class="co">#&gt;  delete mode 100644 R/wd_status.R</span></a>
+<a class="sourceLine" id="cb2-94" data-line-number="94"><span class="co">#&gt;  delete mode 100644 R/ignore_lfs_in_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-95" data-line-number="95"><span class="co">#&gt;  delete mode 100644 man/ignore_lfs_in_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-96" data-line-number="96"><span class="co">#&gt;  delete mode 100644 R/add_all0.R</span></a>
+<a class="sourceLine" id="cb2-97" data-line-number="97"><span class="co">#&gt;  delete mode 100644 R/commit0.R</span></a>
+<a class="sourceLine" id="cb2-98" data-line-number="98"><span class="co">#&gt;  delete mode 100644 man/add_all0.Rd</span></a>
+<a class="sourceLine" id="cb2-99" data-line-number="99"><span class="co">#&gt;  delete mode 100644 man/commit0.Rd</span></a>
+<a class="sourceLine" id="cb2-100" data-line-number="100"><span class="co">#&gt;  delete mode 100644 README.md</span></a>
+<a class="sourceLine" id="cb2-101" data-line-number="101"><span class="co">#&gt;  delete mode 100644 man/cd_local_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-102" data-line-number="102"><span class="co">#&gt;  delete mode 100644 R/cd_local_repo.R</span></a>
+<a class="sourceLine" id="cb2-103" data-line-number="103"><span class="co">#&gt;  delete mode 100644 R/add_commit_some_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-104" data-line-number="104"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_deltas_in_path.Rd</span></a>
+<a class="sourceLine" id="cb2-105" data-line-number="105"><span class="co">#&gt;  delete mode 100644 man/add_commit_some_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-106" data-line-number="106"><span class="co">#&gt;  delete mode 100644 R/CopyOfadd_some.R</span></a>
+<a class="sourceLine" id="cb2-107" data-line-number="107"><span class="co">#&gt;  delete mode 100644 R/pull_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-108" data-line-number="108"><span class="co">#&gt;  delete mode 100644 R/pull_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-109" data-line-number="109"><span class="co">#&gt;  delete mode 100644 R/push_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-110" data-line-number="110"><span class="co">#&gt;  delete mode 100644 man/pull_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-111" data-line-number="111"><span class="co">#&gt;  delete mode 100644 man/pull_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-112" data-line-number="112"><span class="co">#&gt;  delete mode 100644 man/push_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-113" data-line-number="113"><span class="co">#&gt;  delete mode 100644 R/add_commit.R</span></a>
+<a class="sourceLine" id="cb2-114" data-line-number="114"><span class="co">#&gt;     delete stale functions, modify outputs from files functions</span></a>
+<a class="sourceLine" id="cb2-115" data-line-number="115"><span class="co">#&gt;  delete mode 100644 R/status_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-116" data-line-number="116"><span class="co">#&gt;  delete mode 100644 R/status_this_repo.R</span></a>
+<a class="sourceLine" id="cb2-117" data-line-number="117"><span class="co">#&gt;  delete mode 100644 R/wd_add_all.R</span></a>
+<a class="sourceLine" id="cb2-118" data-line-number="118"><span class="co">#&gt;  delete mode 100644 man/status_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-119" data-line-number="119"><span class="co">#&gt;  delete mode 100644 man/status_this_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-120" data-line-number="120"><span class="co">#&gt;  delete mode 100644 man/wd_add_all.Rd</span></a>
+<a class="sourceLine" id="cb2-121" data-line-number="121"><span class="co">#&gt;     delete test files</span></a>
+<a class="sourceLine" id="cb2-122" data-line-number="122"><span class="co">#&gt;  delete mode 100644 R/CopyOftest.R</span></a>
+<a class="sourceLine" id="cb2-123" data-line-number="123"><span class="co">#&gt;  delete mode 100644 R/test.R</span></a>
+<a class="sourceLine" id="cb2-124" data-line-number="124"><span class="co">#&gt;  delete mode 100644 R/add_all_in_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-125" data-line-number="125"><span class="co">#&gt;  delete mode 100644 R/add_commit_all_outside_repo.R</span></a>
+<a class="sourceLine" id="cb2-126" data-line-number="126"><span class="co">#&gt;  delete mode 100644 man/add_all_in_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-127" data-line-number="127"><span class="co">#&gt;  delete mode 100644 man/add_commit_all_outside_repo.Rd</span></a>
+<a class="sourceLine" id="cb2-128" data-line-number="128"><span class="co">#&gt;  delete mode 100644 R/destroy.R</span></a>
+<a class="sourceLine" id="cb2-129" data-line-number="129"><span class="co">#&gt;  delete mode 100644 man/destroy.Rd</span></a></code></pre></div>
+>>>>>>> 757225da47a4f50bcc91246ceb233d28153a6ae7
 <p>I find my long lost file on the list as <code>R/logo.R</code>. I then get the commit history of that file using the full path.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">fileCommitHistory</span>(<span class="dt">filePath =</span> <span class="st">&quot;R/logo.R&quot;</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>                  <span class="dt">repo_path =</span> <span class="st">&quot;~/GitHub/Public-Packages/glitter/&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; commit 1b9ac7e47fc77f12c21ed2447a71ae8d77a0f37c</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; Date:   Tue Aug 4 10:37:11 2020 -0400</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; </span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;     move logo.R as GitHub Issue #1 for patelm9/cave package</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; </span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; commit b1541d73a36e20876d83e7430d72e030d64372e9</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; Date:   Tue Aug 4 10:35:54 2020 -0400</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt; </span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt;     update logo.R</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; </span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; commit 7c33e4daefbe9ab192ddd62715de7c072bbe2248</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Date:   Sat Aug 1 01:15:00 2020 -0400</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt; </span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt;     add files</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; </span></span>
-<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; commit 6653c8f65d56cc0bc5c486dbe7ee0d5030f7e1d0</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; Date:   Sat Aug 1 00:49:05 2020 -0400</span></span>
-<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt; </span></span>
-<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt;     update files</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; </span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; commit 864b6437e497755b3de6ec1a219567038c60c75e</span></span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt; Date:   Sat Aug 1 00:25:00 2020 -0400</span></span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt; </span></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt;     add logo</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">fileCommitHistory</span>(<span class="dt">filePath =</span> <span class="st">&quot;R/logo.R&quot;</span>,</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">                  <span class="dt">repo_path =</span> <span class="st">&quot;~/GitHub/Public-Packages/glitter/&quot;</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, repo_path, &quot;\ngit log --all -- &quot;, filePath), : running command 'cd</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; cd ~/GitHub/Public-Packages/glitter/</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; git log --all -- /Users/meerapatel/GitHub/Public-Packages/glitter//R/logo.R' had status 128</span></a></code></pre></div>
 <p>I find the commit SHA where I deleted the file. Using the SHA and path, I am able to retrieve the file.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">retrieveLostFile</span>(<span class="dt">sha =</span> <span class="st">&quot;1b9ac7e47fc77f12c21ed2447a71ae8d77a0f37c&quot;</span>,</span>
-<span id="cb4-2"><a href="#cb4-2"></a>                 <span class="dt">filePath =</span> <span class="st">&quot;R/logo.R&quot;</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>                 <span class="dt">repo_path =</span> <span class="st">&quot;~/GitHub/Public-Packages/glitter&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">retrieveLostFile</span>(<span class="dt">sha =</span> <span class="st">&quot;1b9ac7e47fc77f12c21ed2447a71ae8d77a0f37c&quot;</span>,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">                 <span class="dt">filePath =</span> <span class="st">&quot;R/logo.R&quot;</span>,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">                 <span class="dt">repo_path =</span> <span class="st">&quot;~/GitHub/Public-Packages/glitter&quot;</span>)</a></code></pre></div>
 </div>
 
 

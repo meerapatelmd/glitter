@@ -73,7 +73,6 @@ docPushInstall <-
                                 git_url <- remote_url()
 
 
-
                                 # Install
                                 devtools::install_git(url = git_url)
 

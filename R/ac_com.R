@@ -21,6 +21,7 @@ com <-
                                intern = TRUE)
 
                 if (verbose) {
+                        secretary::typewrite_bold(secretary::yellowTxt("Commit"))
                         cat(commit_response, sep = "\n")
                 }
 

@@ -24,20 +24,8 @@ push <-
                                   paste0("git push ", remote_name, " ", remote_branch)) %>%
                                 paste(collapse = "\n")
 
-                        push_response <-
-                                capture.output(
-                                system(command = command,
-                                       intern = TRUE),
-                                type = "message")
-
-                        if (verbose) {
-                                cat("\n")
-                                secretary::typewrite_bold(secretary::silverTxt("\tPush Response:"))
-                                cat(paste0("\t\t", push_response), sep = "\n")
-                                cat("\n")
-                        }
-
-                        invisible(push_response)
+                        system(command = command,
+                               intern = TRUE)
 
                 }
 

@@ -20,6 +20,7 @@
 #' @importFrom purrr map
 #' @importFrom dplyr bind_rows mutate select everything distinct
 #' @importFrom rubix normalize_all_to_na deselect_if_all_same
+#' @importFrom tibble as_tibble_row
 
 
 get_remote_repos <-
@@ -33,7 +34,7 @@ get_remote_repos <-
                 resp %>%
                         httr::content(type = "application/json", as = "parsed") %>%
                         purrr::map(unlist) %>%
-                        purrr::map(as_tibble_row) %>%
+                        purrr::map(tibble::as_tibble_row) %>%
                         dplyr::bind_rows() %>%
                         rubix::normalize_all_to_na() %>%
                         dplyr::mutate(issues_page_url = paste0("https://github.com/", github_username, "/", name, "/issues")) %>%

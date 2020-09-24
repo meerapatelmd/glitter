@@ -25,7 +25,7 @@ push <-
                                 paste(collapse = "\n")
 
                         system(command = command,
-                               intern = TRUE)
+                               intern = FALSE)
 
                 }
 

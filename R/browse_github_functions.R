@@ -116,7 +116,7 @@ browse_repo_issues <-
 #' @export
 #' @importFrom utils browseURL
 
-browse_repo_issues <-
+browse_repo <-
         function(github_username,
                  repo) {
 

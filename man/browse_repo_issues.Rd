@@ -2,11 +2,12 @@
 % Please edit documentation in R/browse_github_functions.R
 \name{browse_repo_issues}
 \alias{browse_repo_issues}
+\alias{browse_repo}
 \title{Open a GitHub Repo URL in a Browser}
 \usage{
 browse_repo_issues(github_username, repo)
 
-browse_repo_issues(github_username, repo)
+browse_repo(github_username, repo)
 }
 \arguments{
 \item{github_username}{GitHub username}

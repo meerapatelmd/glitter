@@ -9,12 +9,10 @@
 #' @export
 
 
-rmFromGitIgnore <-
+gitignore_rm <-
         function(...,
                  commit = TRUE,
                  path_to_local_repo = NULL) {
-
-                .Deprecated("rm_gitignore")
 
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()

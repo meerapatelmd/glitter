@@ -1,11 +1,9 @@
 #' See the history of your commits in a graph
 #' @export
 
-commitHistoryGraph <-
+commit_graph <-
         function(path_to_local_repo = NULL,
                  verbose = TRUE) {
-
-                .Deprecated("commit_graph")
 
                 if (is.null(path_to_local_repo)) {
                         path_to_local_repo <- getwd()

@@ -37,7 +37,8 @@ add <-
 
                         files <-
                                 list.files(path_to_local_repo,
-                                           recursive = TRUE)
+                                           recursive = TRUE,
+                                           all.files = TRUE)
 
                         file_mb <- file.info(files)$size/(10^6)
 
@@ -82,11 +83,13 @@ add <-
                 Args <- unlist(list(...))
                 Args <- paste(Args, collapse = "|")
 
+                #print(Args)
 
                 files <-
                 list.files(path_to_local_repo,
                            pattern = Args,
-                           recursive = TRUE)
+                           recursive = TRUE,
+                           all.files = TRUE)
 
 
                 file_mb <- file.info(files)$size/(10^6)

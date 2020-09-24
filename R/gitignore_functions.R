@@ -71,7 +71,7 @@ add_commit_gitignore <-
                 mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
 
-                ac("^.gitignore$",
+                ac(".gitignore$",
                    commit_msg = "update .gitignore",
                    path_to_local_repo = path_to_local_repo)
 

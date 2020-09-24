@@ -6,33 +6,38 @@
 
 
 push <-
-        function(path_to_local_repo = NULL,
-                 remote_name = "origin",
-                 remote_branch = "master") {
+        function(remote_name = "origin",
+                 remote_branch = "master",
+                 path_to_local_repo = NULL,
+                 verbose = TRUE) {
 
-                if (is.null(path_to_local_repo)) {
-
-                        path_to_local_repo <- getwd()
-
-                }
+                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
 
+                status_response <- status(path_to_local_repo = path_to_local_repo,
+                                          verbose = FALSE)
 
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
+                if (any(grepl('use "git push" to publish your local commits', status_response))) {
 
+                        command <-
+                                c(starting_command(path_to_local_repo = path_to_local_repo),
+                                  paste0("git push ", remote_name, " ", remote_branch)) %>%
+                                paste(collapse = "\n")
 
-                statusMessage <- status(path_to_local_repo = path_to_local_repo,
-                                        verbose = FALSE)
+                        push_response <-
+                                capture.output(
+                                system(command = command,
+                                       intern = TRUE),
+                                type = "message")
 
-                if (any(grepl('use "git push" to publish your local commits', statusMessage))) {
-                        x <-
-                                system(paste0("cd\n",
-                                              "cd ", path_to_local_repo,"\n",
-                                              "git push ", remote_name, " ", remote_branch),
-                                       intern = TRUE)
+                        if (verbose) {
+                                cat("\n")
+                                secretary::typewrite_bold(secretary::silverTxt("\tPush Response:"))
+                                cat(paste0("\t\t", push_response), sep = "\n")
+                                cat("\n")
+                        }
 
-                        printMsg(x)
+                        invisible(push_response)
 
                 }
 

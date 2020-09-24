@@ -6,27 +6,25 @@ pull <-
         function(path_to_local_repo = NULL,
                  verbose = TRUE) {
 
-                if (is.null(path_to_local_repo)) {
+                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
-                        path_to_local_repo <- getwd()
+                command <-
+                        c(starting_command(path_to_local_repo = path_to_local_repo),
+                          "git pull") %>%
+                        paste(collapse = "\n")
 
-                }
-
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
-                pullMessage <-
-                system(paste0("cd\n",
-                              "cd ", path_to_local_repo,"\n",
-                              "git pull"
-                ), intern = TRUE
-                )
+                pull_response <-
+                        system(command = command,
+                               intern = TRUE)
 
                 if (verbose) {
-                        printMsg(pullMessage)
+                        cat("\n")
+                        secretary::typewrite_bold(secretary::magentaTxt("\tPull Response:"))
+                        cat(paste0("\t\t", pull_response), sep = "\n")
+                        cat("\n")
                 }
 
-                invisible(pullMessage)
+                invisible(pull_response)
 
         }
 

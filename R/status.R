@@ -9,28 +9,24 @@ status <-
         function(path_to_local_repo = NULL,
                  verbose = TRUE) {
 
-                        if (is.null(path_to_local_repo)) {
+                        mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
-                                path_to_local_repo <- getwd()
+                        command <-
+                                c(starting_command(path_to_local_repo = path_to_local_repo),
+                                  "git status") %>%
+                                paste(collapse = "\n")
 
-                        }
-
-                        stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                        stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
-                        x <-
-                        system(paste0("cd\n",
-                                      "cd ", path_to_local_repo,"\n",
-                                      "git status"),
-                               intern = TRUE
-                        )
+                        status_response <-
+                                system(command = command,
+                                       intern = TRUE)
 
                         if (verbose) {
-
-                                printMsg(git_msg = x)
-
+                                cat("\n")
+                                secretary::typewrite_bold(secretary::greenTxt("\tStatus Response:"))
+                                cat(paste0("\t\t", status_response), sep = "\n")
+                                cat("\n")
                         }
 
-                        invisible(x)
+                        invisible(status_response)
 
         }

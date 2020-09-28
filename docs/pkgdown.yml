@@ -1,0 +1,8 @@
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  fileretrieval: fileretrieval.html
+  github-issue-tracking: github-issue-tracking.html
+last_built: 2020-09-28T06:07Z
+

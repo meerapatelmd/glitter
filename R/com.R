@@ -1,8 +1,21 @@
-
-
-
-
-
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param commit_msg PARAM_DESCRIPTION
+#' @param path_to_local_repo PARAM_DESCRIPTION, Default: NULL
+#' @param verbose PARAM_DESCRIPTION, Default: TRUE
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso
+#'  \code{\link[secretary]{typewrite_bold}},\code{\link[secretary]{character(0)}},\code{\link[secretary]{typewrite_italic}}
+#' @rdname com
+#' @export
+#' @importFrom secretary typewrite_bold yellowTxt typewrite_italic redTxt
 
 com <-
         function(commit_msg,
@@ -18,8 +31,8 @@ com <-
 
                 commit_response <-
                         suppressWarnings(
-                        system(command = command,
-                               intern = TRUE))
+                                system(command = command,
+                                       intern = TRUE))
 
                 if (verbose) {
                         cat("\n")
@@ -35,32 +48,4 @@ com <-
                 }
 
                 invisible(commit_response)
-        }
-
-
-
-
-ac <-
-        function(...,
-                 all = FALSE,
-                 commit_msg,
-                 path_to_local_repo = NULL,
-                 verbose = TRUE,
-                 max_mb = 50)
-
-                {
-
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
-
-                add(...,
-                    all = all,
-                    path_to_local_repo = path_to_local_repo,
-                    max_mb = max_mb)
-
-
-                com(commit_msg = commit_msg,
-                    path_to_local_repo = path_to_local_repo,
-                    verbose = verbose)
-
-
         }

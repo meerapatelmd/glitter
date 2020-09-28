@@ -34,7 +34,7 @@ build_push_site <-
 
                         devtools::document()
                         add(all = TRUE)
-                        com(msg = "refresh Rds before updating GitHub Pages")
+                        com(commit_msg = "refresh Rds before updating GitHub Pages")
                         push()
 
 
@@ -45,7 +45,7 @@ build_push_site <-
                                             ...
                                             )
                         add(all = TRUE)
-                        com(msg = "update GH Pages")
+                        com(commit_msg = "update GH Pages")
                         push()
 
 }

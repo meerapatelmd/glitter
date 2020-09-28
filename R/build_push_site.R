@@ -1,11 +1,13 @@
-#' Build and Push docs/ dir For GitHub Pages
+#' @title
+#' Re-Build and Push GitHub Pages
+#'
 #' @description
-#' This function automatically documents, pushes, and installs a package.
+#' This unlinks the docs subdirectory, runs devtools document function, and writes a new docs/ directory using the pkgdown build_site function.
+#'
 #' @seealso
 #'  \code{\link[usethis]{use_pkgdown}}
 #'  \code{\link[pkgdown]{build_site}}
 #' @rdname build_push_site
-#' @keywords internal
 #' @export
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site

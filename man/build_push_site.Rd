@@ -2,7 +2,7 @@
 % Please edit documentation in R/build_push_site.R
 \name{build_push_site}
 \alias{build_push_site}
-\title{Build and Push docs/ dir For GitHub Pages}
+\title{Re-Build and Push GitHub Pages}
 \usage{
 build_push_site(
   commit_message = "update GitHub Page",
@@ -13,10 +13,9 @@ build_push_site(
 )
 }
 \description{
-This function automatically documents, pushes, and installs a package.
+This unlinks the docs subdirectory, runs devtools document function, and writes a new docs/ directory using the pkgdown build_site function.
 }
 \seealso{
 \code{\link[usethis]{use_pkgdown}}
  \code{\link[pkgdown]{build_site}}
 }
-\keyword{internal}

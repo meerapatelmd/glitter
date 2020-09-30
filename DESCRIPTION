@@ -1,7 +1,7 @@
 Type: Package
 Package: glitter
 Title: Send Git commands via the R Console. 
-Version: 1.5.1
+Version: 0.5.1
 URL: https://patelm9.github.io/glitter/, https://github.com/patelm9/glitter/
 BugReports: https://github.com/patelm9/glitter/issues/ 
 Authors@R:

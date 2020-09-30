@@ -1,6 +1,6 @@
 Type: Package
 Package: glitter
-Title: Send Git commands via the R Console. 
+Title: Send Git commands via the R Console 
 Version: 0.5.1
 URL: https://patelm9.github.io/glitter/, https://github.com/patelm9/glitter/
 BugReports: https://github.com/patelm9/glitter/issues/ 
@@ -9,10 +9,9 @@ Authors@R:
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com")
-Description: This package allows to perform adds, commits, and pushes directly from the R console. 
+Description: This package contains convenience functions to perform basic adds, commits, and pushes directly from the R console. 
 License: Apache License 2.0
 Imports:
-    cave,
     devtools,
     dplyr,
     Hmisc,

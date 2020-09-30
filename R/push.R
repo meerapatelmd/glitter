@@ -17,7 +17,7 @@ push <-
                 status_response <- status(path_to_local_repo = path_to_local_repo,
                                           verbose = FALSE)
 
-                if (any(grepl('use "git push" to publish your local commits', status_response))) {
+                #if (any(grepl('use "git push" to publish your local commits', status_response))) {
 
                         command <-
                                 c(starting_command(path_to_local_repo = path_to_local_repo),
@@ -27,6 +27,6 @@ push <-
                         system(command = command,
                                intern = FALSE)
 
-                }
+                #}
 
         }

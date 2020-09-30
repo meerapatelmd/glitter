@@ -8,27 +8,20 @@ branch <-
         function(verbose = TRUE,
                  path_to_local_repo = NULL) {
 
-                if (is.null(path_to_local_repo)) {
+                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
-                        path_to_local_repo <- getwd()
-
-                }
-
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
-                branchResponse <-
-                system(paste0("cd\n",
-                              "cd ", path_to_local_repo,"\n",
-                              "git branch"),
-                       intern = TRUE)
+                branch_response <-
+                        system(paste0("cd\n",
+                                      "cd ", path_to_local_repo,"\n",
+                                      "git branch"),
+                               intern = TRUE)
 
 
                 if (verbose) {
-                        printMsg(branchResponse)
+                        cat("\n")
+                        secretary::typewrite_bold(secretary::redTxt("\tBranches:"))
+                        cat(paste0("\t\t", branch_response), sep = "\n")
+                        cat("\n")
                 }
-
-                invisible(branchResponse)
-
 
         }

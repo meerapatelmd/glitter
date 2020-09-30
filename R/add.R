@@ -25,12 +25,15 @@
 
 add <-
         function(...,
-                 all = FALSE,
+                 all = TRUE,
                  path_to_local_repo = NULL,
                  max_mb = 50) {
 
+
                 mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
+                secretary::typewrite_bold(secretary::magentaTxt("\n  Before:"))
+                status(path_to_local_repo = path_to_local_repo)
 
                 if (all) {
 
@@ -113,5 +116,8 @@ add <-
                 system(command = command)
 
                 }
+
+                secretary::typewrite_bold(secretary::magentaTxt("  After:"))
+                status(path_to_local_repo = path_to_local_repo)
 
         }

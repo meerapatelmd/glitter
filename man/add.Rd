@@ -4,7 +4,7 @@
 \alias{add}
 \title{FUNCTION_TITLE}
 \usage{
-add(..., all = FALSE, path_to_local_repo = NULL, max_mb = 50)
+add(..., all = TRUE, path_to_local_repo = NULL, max_mb = 50)
 }
 \arguments{
 \item{...}{PARAM_DESCRIPTION}

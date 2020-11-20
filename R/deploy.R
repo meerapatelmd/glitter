@@ -53,7 +53,7 @@ deploy_all <-
 
                 push(path = path_to_root)
 
-                devtools::install_git(url = remote_url(path_to_root))
+                devtools::install_git(url = remote_url(path_to_root), upgrade = "never")
 
         }
 

@@ -32,9 +32,9 @@ ac <-
                         max_mb = max_mb
                 )
 
-                com(commit_msg = commit_msg,
-                    path = path,
-                    verbose = verbose)
+                commit(commit_msg = commit_msg,
+                       path = path,
+                       verbose = verbose)
 
 
         }

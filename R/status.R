@@ -7,7 +7,8 @@
 
 status <-
         function(path_to_local_repo = NULL,
-                 verbose = TRUE) {
+                 verbose = TRUE,
+                 header = "Status Response") {
 
                         mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
@@ -22,7 +23,7 @@ status <-
 
                         if (verbose) {
                                 cli::cat_line()
-                                cli::cat_rule(secretary::greenTxt("\tStatus Response:"))
+                                cli::cat_rule(secretary::greenTxt(header))
                                 cat(paste0("\t\t", status_response), sep = "\n")
                                 cli::cat_line()
                         }

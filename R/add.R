@@ -41,7 +41,6 @@ add <-
                 cli::cat_line()
                 status(path = path)
 
-
                 big_files <- list_big_files(mb_threshold = max_mb)
                 if (length(big_files)) {
 
@@ -61,14 +60,14 @@ add <-
                 } else {
 
                         files_to_add <-
-                        list.files(path = path_to_root,
-                                   pattern = pattern,
-                                   all.files = all.files,
-                                   full.names = TRUE,
-                                   recursive = recursive,
-                                   ignore.case = ignore.case,
-                                   include.dirs = include.dirs,
-                                   no.. = no..)
+                                list.files(path = path,
+                                           pattern = pattern,
+                                           all.files = all.files,
+                                           full.names = TRUE,
+                                           recursive = recursive,
+                                           ignore.case = ignore.case,
+                                           include.dirs = include.dirs,
+                                           no.. = no..)
 
 
                 }
@@ -80,8 +79,11 @@ add <-
                                   unlist()) %>%
                         paste(collapse = "\n")
 
-                system(command = command)
+                system(command = command,
+                       intern = TRUE)
 
-                status(path = path)
+
+                # status(path = path,
+                #        header = "Updated Status Response")
 
         }

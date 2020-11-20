@@ -2,7 +2,7 @@
 #' @description FUNCTION_DESCRIPTION
 #' @param ... PARAM_DESCRIPTION
 #' @param all PARAM_DESCRIPTION, Default: FALSE
-#' @param path_to_local_repo PARAM_DESCRIPTION, Default: NULL
+#' @param path PARAM_DESCRIPTION, Default: NULL
 #' @param max_mb PARAM_DESCRIPTION, Default: 50
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
@@ -25,99 +25,63 @@
 
 add <-
         function(...,
-                 all = TRUE,
-                 path_to_local_repo = NULL,
+                 path = getwd(),
+                 pattern = NULL,
+                 all.files = FALSE,
+                 recursive = FALSE,
+                 ignore.case = FALSE,
+                 include.dirs = FALSE,
+                 no.. = FALSE,
                  max_mb = 50) {
 
 
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
+                path <- normalizePath(path.expand(path = path), mustWork = TRUE)
+                path_to_root <- root(path = path)
 
-                secretary::typewrite_bold(secretary::magentaTxt("\n  Before:"))
-                status(path_to_local_repo = path_to_local_repo)
-
-                if (all) {
-
-
-                        files <-
-                                list.files(path_to_local_repo,
-                                           recursive = TRUE,
-                                           all.files = TRUE)
-
-                        file_mb <- file.info(files)$size/(10^6)
-
-                        big_files <-
-                                tibble::tibble(files = files,
-                                               file_mb = file_mb) %>%
-                                dplyr::filter(file_mb >= max_mb) %>%
-                                dplyr::select(files) %>%
-                                unlist() %>%
-                                unname()
-
-                        if (length(big_files)) {
-
-                                files <- files[!(files %in% big_files)]
-
-                                command <-
-                                        c(starting_command(path_to_local_repo = path_to_local_repo),
-                                          files %>%
-                                                  purrr::map(~paste0("git add ", .)) %>%
-                                                  unlist()) %>%
-                                        paste(collapse = "\n")
-
-                                system(command = command)
+                cli::cat_line()
+                status(path = path)
 
 
-                        } else {
+                big_files <- list_big_files(mb_threshold = max_mb)
+                if (length(big_files)) {
 
+                        cli::cat_rule(secretary::magentaTxt(sprintf("Files Greater Than %s MB", max_mb)))
+                        cli::cat_bullet(big_files,
+                                        bullet = "line")
 
-                                command <-
-                                        c(starting_command(path_to_local_repo = path_to_local_repo),
-                                          "git add .") %>%
-                                        paste(collapse = "\n")
+                        secretary::press_enter()
 
+                }
 
-                                system(command = command)
+                if (!missing(...)) {
 
-                        }
-
+                        files_to_add <- rlang::list2(...)
+                        files_to_add <- file.path(path, unlist(files_to_add))
 
                 } else {
 
-                Args <- unlist(list(...))
-                Args <- paste(Args, collapse = "|")
+                        files_to_add <-
+                        list.files(path = path_to_root,
+                                   pattern = pattern,
+                                   all.files = all.files,
+                                   full.names = TRUE,
+                                   recursive = recursive,
+                                   ignore.case = ignore.case,
+                                   include.dirs = include.dirs,
+                                   no.. = no..)
 
-                #print(Args)
 
-                files <-
-                list.files(path_to_local_repo,
-                           pattern = Args,
-                           recursive = TRUE,
-                           all.files = TRUE)
-
-
-                file_mb <- file.info(files)$size/(10^6)
-
-                files <-
-                        tibble::tibble(files = files,
-                                       file_mb = file_mb) %>%
-                        dplyr::filter(file_mb < max_mb) %>%
-                        dplyr::select(files) %>%
-                        unlist() %>%
-                        unname()
-
+                }
 
                 command <-
-                        c(starting_command(path_to_local_repo = path_to_local_repo),
-                          files %>%
-                                  purrr::map(~paste0("git add ", .)) %>%
+                        c(starting_command(path = path_to_root),
+                          files_to_add %>%
+                                  purrr::map(~ sprintf("git add %s", .)) %>%
                                   unlist()) %>%
                         paste(collapse = "\n")
 
                 system(command = command)
 
-                }
-
-                secretary::typewrite_bold(secretary::magentaTxt("  After:"))
-                status(path_to_local_repo = path_to_local_repo)
+                status(path = path)
 
         }

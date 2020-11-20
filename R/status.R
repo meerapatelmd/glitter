@@ -21,10 +21,10 @@ status <-
                                        intern = TRUE)
 
                         if (verbose) {
-                                cat("\n")
-                                secretary::typewrite_bold(secretary::greenTxt("\tStatus Response:"))
+                                cli::cat_line()
+                                cli::cat_rule(secretary::greenTxt("\tStatus Response:"))
                                 cat(paste0("\t\t", status_response), sep = "\n")
-                                cat("\n")
+                                cli::cat_line()
                         }
 
                         invisible(status_response)

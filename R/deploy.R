@@ -7,7 +7,7 @@
 #' @seealso
 #'  \code{\link[usethis]{use_pkgdown}}
 #'  \code{\link[pkgdown]{build_site}}
-#' @rdname deploy_gh_pages
+#' @rdname deploy_all
 #' @export
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site

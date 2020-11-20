@@ -2,6 +2,7 @@
 
 export("%>%")
 export(ac)
+export(ac_gitignore)
 export(add)
 export(addToGitIgnore)
 export(add_all)

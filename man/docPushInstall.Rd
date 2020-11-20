@@ -5,7 +5,7 @@
 \title{Document, Push, and Install a GitHub Package}
 \usage{
 docPushInstall(
-  commit_message,
+  commit_message = "update documentation",
   description = NULL,
   install = TRUE,
   reset = FALSE,

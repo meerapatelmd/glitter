@@ -97,7 +97,7 @@ docPushBuildInstall <-
 
 docPushInstall <-
         function (
-                  commit_message,
+                  commit_message = "update documentation",
                   description = NULL,
                   install = TRUE,
                   reset = FALSE,

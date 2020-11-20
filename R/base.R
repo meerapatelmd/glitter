@@ -149,11 +149,13 @@ commit <-
 root <-
         function(path = getwd()) {
 
-                if (is.null(path)) {
+                path <- normalizePath(path.expand(path = path), mustWork = TRUE)
 
-                        path <- getwd()
-
+                if (!(file.info(path)$isdir)) {
+                        path <- dirname(path)
                 }
+
+
 
                 command <-
                         c("cd",
@@ -173,17 +175,9 @@ root <-
                         system(command = command,
                                intern = TRUE)
 
-                } else {
-
-                        secretary::typewrite_warning("No git root dir found.")
-                        invisible(NULL)
                 }
 
         }
-
-
-
-
 
 
 

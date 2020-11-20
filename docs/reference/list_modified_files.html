@@ -47,7 +47,8 @@
 
 
 <meta property="og:title" content="Get a list of modified files in a repo — list_modified_files" />
-<meta property="og:description" content="This function takes the git status message and isolates the files that have been modified according to that message." />
+<meta property="og:description" content="This function takes the git status message and isolates the files that have been modified according to that message.
+This function takes the git status message and isolates the files that have been modified according to that message." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.1</span>
       </span>
     </div>
 
@@ -135,15 +136,18 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get a list of modified files in a repo</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/list_modified_files.R'><code>R/list_modified_files.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/base.R'><code>R/base.R</code></a>, <a href='https://github.com/patelm9/glitter/blob/master/R/list.R'><code>R/list.R</code></a></small>
     <div class="hidden name"><code>list_modified_files.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function takes the git status message and isolates the files that have been modified according to that message.</p>
+<p>This function takes the git status message and isolates the files that have been modified according to that message.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_modified_files</span><span class='op'>(</span><span class='va'>path_to_local_repo</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>list_modified_files</span><span class='op'>(</span><span class='va'>path_to_local_repo</span><span class='op'>)</span>
+
+<span class='fu'>list_modified_files</span><span class='op'>(</span><span class='va'>path_to_local_repo</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,11 +156,16 @@
       <th>path_to_local_repo</th>
       <td><p>path to local repo</p></td>
     </tr>
+    <tr>
+      <th>path</th>
+      <td><p>path to local repo</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.</p>
+<p>The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

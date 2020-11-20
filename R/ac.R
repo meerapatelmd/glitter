@@ -13,7 +13,8 @@ ac <-
                  ignore.case = FALSE,
                  include.dirs = FALSE,
                  no.. = FALSE,
-                 max_mb = 50)
+                 max_mb = 50,
+                 verbose = TRUE)
 
                 {
 

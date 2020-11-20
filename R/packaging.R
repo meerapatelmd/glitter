@@ -111,8 +111,6 @@ docPushInstall <-
                         if (file.exists("NAMESPACE")) {
                                 file.remove("NAMESPACE")
                         }
-
-
                         devtools::document()
 
 

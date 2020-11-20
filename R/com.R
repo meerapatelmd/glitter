@@ -1,7 +1,7 @@
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
 #' @param commit_msg PARAM_DESCRIPTION
-#' @param path_to_local_repo PARAM_DESCRIPTION, Default: NULL
+#' @param path PARAM_DESCRIPTION, Default: NULL
 #' @param verbose PARAM_DESCRIPTION, Default: TRUE
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
@@ -19,13 +19,12 @@
 
 com <-
         function(commit_msg,
-                 path_to_local_repo = NULL,
+                 path = getwd(),
                  verbose = TRUE) {
 
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
 
                 command <-
-                        c(starting_command(path_to_local_repo = path_to_local_repo),
+                        c(starting_command(path = path),
                           paste0("git commit -m '", commit_msg, "'")) %>%
                         paste(collapse = "\n")
 
@@ -35,8 +34,9 @@ com <-
                                        intern = TRUE))
 
                 if (verbose) {
-                        cat("\n")
-                        secretary::typewrite_bold(secretary::yellowTxt("\tCommit Response:"))
+
+                        cli::cat_line()
+                        cli::cat_rule(secretary::yellowTxt("Commit Response"))
 
                         if ("no changes added to commit" %in% commit_response) {
                                 secretary::typewrite_italic(secretary::redTxt("\tNo changes added to the commit."))
@@ -44,7 +44,7 @@ com <-
 
                         cat(paste0("\t\t", commit_response), sep = "\n")
 
-                        cat("\n")
+                        cli::cat_line()
                 }
 
                 invisible(commit_response)

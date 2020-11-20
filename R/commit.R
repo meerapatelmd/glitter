@@ -1,46 +1,37 @@
-#' Perform a Git Commit
-#' @param path_to_local_repo full path to local repository to be pushed
-#' @param commit_message message to be included in the commit
+#' @title
+#' Commit
 #' @rdname commit
 #' @export
 
 commit <-
-        function(commit_message,
-                 description = NULL,
-                 verbose = TRUE,
-                 path_to_local_repo = NULL) {
+        function(commit_msg,
+                 path = getwd(),
+                 verbose = TRUE) {
 
-                if (is.null(path_to_local_repo)) {
 
-                                path_to_local_repo <- getwd()
+                command <-
+                        c(starting_command(path = path),
+                          paste0("git commit -m '", commit_msg, "'")) %>%
+                        paste(collapse = "\n")
 
+                commit_response <-
+                        suppressWarnings(
+                                system(command = command,
+                                       intern = TRUE))
+
+                if (verbose) {
+
+                        cli::cat_line()
+                        cli::cat_rule(secretary::yellowTxt("Commit Response"))
+
+                        if ("no changes added to commit" %in% commit_response) {
+                                secretary::typewrite_italic(secretary::redTxt("\tNo changes added to the commit."))
+                        }
+
+                        cat(paste0("\t\t", commit_response), sep = "\n")
+
+                        cli::cat_line()
                 }
 
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
-
-                stagedFiles <- lsStagedFiles(path_to_local_repo = path_to_local_repo)
-
-                if (length(stagedFiles) > 0) {
-
-
-                                x <-
-                                        suppressWarnings(
-                                        system(paste0("cd\n",
-                                                      "cd ", path_to_local_repo,"\n",
-                                                      "git commit -m '", commit_message, "'"
-                                        ), intern = TRUE
-                                        ))
-
-
-                                if (verbose) {
-
-                                        printMsg(x)
-
-                                }
-
-                                invisible(x)
-                }
-
+                invisible(commit_response)
         }

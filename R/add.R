@@ -1,25 +1,15 @@
-#' @title FUNCTION_TITLE
-#' @description FUNCTION_DESCRIPTION
-#' @param ... PARAM_DESCRIPTION
-#' @param all PARAM_DESCRIPTION, Default: FALSE
-#' @param path PARAM_DESCRIPTION, Default: NULL
-#' @param max_mb PARAM_DESCRIPTION, Default: 50
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' @title
+#' Add Files
 #' @seealso
-#'  \code{\link[tibble]{tibble}}
-#'  \code{\link[dplyr]{filter}},\code{\link[dplyr]{select}}
+#'  \code{\link[cli]{cat_line}}
+#'  \code{\link[secretary]{character(0)}},\code{\link[secretary]{press_enter}}
+#'  \code{\link[rlang]{list2}}
 #'  \code{\link[purrr]{map}}
 #' @rdname add
 #' @export
-#' @importFrom tibble tibble
-#' @importFrom dplyr filter select
+#' @importFrom cli cat_line cat_rule cat_bullet
+#' @importFrom secretary magentaTxt press_enter
+#' @importFrom rlang list2
 #' @importFrom purrr map
 
 
@@ -77,13 +67,11 @@ add <-
                           files_to_add %>%
                                   purrr::map(~ sprintf("git add %s", .)) %>%
                                   unlist()) %>%
-                        paste(collapse = "\n")
-
-                system(command = command,
-                       intern = TRUE)
+                                paste(collapse = "\n")
+                system(command = command)
 
 
-                # status(path = path,
-                #        header = "Updated Status Response")
+                status(path = path,
+                       header = "Updated Status Response")
 
         }

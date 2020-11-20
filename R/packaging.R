@@ -149,7 +149,8 @@ docPushInstall <-
 
 
                                 # Install
-                                devtools::install_git(url = git_url)
+                                devtools::install_git(url = git_url,
+                                                      upgrade = "never")
 
 
                         }

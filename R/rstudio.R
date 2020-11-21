@@ -3,9 +3,7 @@
 
 
 
-
-
-
+#' @export
 
 
 commit_on_close <-

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • glitter</title>
+<title>Open a GitHub Page in a Browser — browse_gh_pages2 • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Open a GitHub Page in a Browser — browse_gh_pages2" />
+<meta property="og:description" content="Open a GitHub Page in a Browser" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +67,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -133,25 +134,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/patelm9/glitter/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Open a GitHub Page in a Browser</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/deprec-browse_github_functions.R'><code>R/deprec-browse_github_functions.R</code></a></small>
+    <div class="hidden name"><code>browse_gh_pages2.Rd</code></div>
     </div>
 
-    <div id="version-061" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.1">
-<a href="#version-061" class="anchor"></a>Version 0.6.1</h1>
-<ul>
-<li>First Release</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Open a GitHub Page in a Browser</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>browse_gh_pages2</span><span class='op'>(</span><span class='va'>github_username</span>, <span class='va'>repo</span><span class='op'>)</span></pre>
+
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>If a GitHub Page exists, it is opened in the browser. Otherwise, a message is returned in the console that states that a GitHub Page does not exist.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This function opens the GitHub Page URL returned by <code>get_remote_urls</code> if a GitHub Page exists for the repo.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></code>
+ <code><a href='https://rdrr.io/pkg/secretary/man/typewrite.html'>typewrite</a></code>
+ <code><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></code></p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

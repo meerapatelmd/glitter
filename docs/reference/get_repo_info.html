@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make an API Call to Get Repository Information — get_repo_info • glitter</title>
+<title>Get Information about GitHub Repository — get_repo_info • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Make an API Call to Get Repository Information — get_repo_info" />
-<meta property="og:description" content="This function makes an API call to the GitHub to retrieve all the repository information for a given GitHub User. All native fields in the JSON response are preserved with the additions &quot;pages_url&quot; and &quot;issues_page_url&quot; fields. The &quot;pages_url&quot; field is where a URL to the GitHub Pages for the repo is derived from the `name` field if the `has_pages` field is TRUE after the response is parsed into a dataframe. The same is done with the &quot;issues_page_url&quot; path except that no logic is applied since all GitHub repos will have an Issues page by default." />
+<meta property="og:title" content="Get Information about GitHub Repository — get_repo_info" />
+<meta property="og:description" content="Filter the output of `get_repos()` for a specific repository by name." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,41 +134,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make an API Call to Get Repository Information</h1>
+    <h1>Get Information about GitHub Repository</h1>
     <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/github_api_functions.R'><code>R/github_api_functions.R</code></a></small>
     <div class="hidden name"><code>get_repo_info.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function makes an API call to the GitHub to retrieve all the repository information for a given GitHub User. All native fields in the JSON response are preserved with the additions "pages_url" and "issues_page_url" fields. The "pages_url" field is where a URL to the GitHub Pages for the repo is derived from the `name` field if the `has_pages` field is TRUE after the response is parsed into a dataframe. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
+    <p>Filter the output of `get_repos()` for a specific repository by name.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_repo_info</span><span class='op'>(</span><span class='va'>github_username</span>, <span class='va'>repo</span>, as_list <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_repo_info</span><span class='op'>(</span><span class='va'>github_user</span>, <span class='va'>repo</span>, as_list <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>github_username</th>
+      <th>github_user</th>
       <td><p>GitHub username. Enterprise GitHub is not supported.</p></td>
     </tr>
     <tr>
       <th>repo</th>
-      <td><p>Repository belonging to the GitHub user</p></td>
+      <td><p>Repository name as a string (case insensitive).</p></td>
     </tr>
     <tr>
       <th>as_list</th>
-      <td><p>Return the repository information as a list object as opposed to a 1-row dataframe. This allows to easily view all the repository information in the R console, Default: FALSE</p></td>
+      <td><p>If TRUE, the repository information is returned as a list object instead of a single row tibble.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A dataframe or if `as_list` is set to `TRUE`, a list object.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://purrr.tidyverse.org/reference/pluck.html'>pluck</a></code>
- <code><a href='https://rdrr.io/pkg/rubix/man/filter_for.html'>filter_for</a></code></p></div>
+    <p>A tibble or if `as_list` is set to `TRUE`, a list object.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

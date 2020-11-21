@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make an API Call for a GitHub User's Remote Repositories — get_remote_repos • glitter</title>
+<title>Browse GitHub — browse_github • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Make an API Call for a GitHub User's Remote Repositories — get_remote_repos" />
-<meta property="og:description" content="This function makes an API call to the GitHub to retrieve all the repository information for a given GitHub User. All native fields in the JSON response are preserved with the additions &quot;pages_url&quot; and &quot;issues_page_url&quot; fields. The &quot;pages_url&quot; field is where a URL to the GitHub Pages for the repo is derived from the `name` field if the `has_pages` field is TRUE after the response is parsed into a dataframe. The same is done with the &quot;issues_page_url&quot; path except that no logic is applied since all GitHub repos will have an Issues page by default." />
+<meta property="og:title" content="Browse GitHub — browse_github" />
+<meta property="og:description" content="Browse GitHub" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,35 +134,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make an API Call for a GitHub User's Remote Repositories</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/github_api_functions.R'><code>R/github_api_functions.R</code></a></small>
-    <div class="hidden name"><code>get_remote_repos.Rd</code></div>
+    <h1>Browse GitHub</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/browse_gh.R'><code>R/browse_gh.R</code></a></small>
+    <div class="hidden name"><code>browse_github.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function makes an API call to the GitHub to retrieve all the repository information for a given GitHub User. All native fields in the JSON response are preserved with the additions "pages_url" and "issues_page_url" fields. The "pages_url" field is where a URL to the GitHub Pages for the repo is derived from the `name` field if the `has_pages` field is TRUE after the response is parsed into a dataframe. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
+    <p>Browse GitHub</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_remote_repos</span><span class='op'>(</span><span class='va'>github_username</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>github_username</th>
-      <td><p>GitHub username. Enterprise GitHub is not supported.</p></td>
+      <th>github_user</th>
+      <td><p>GitHub username</p></td>
+    </tr>
+    <tr>
+      <th>repo</th>
+      <td><p>Repository belonging to the GitHub user</p></td>
+    </tr>
+    <tr>
+      <th>issue_no</th>
+      <td><p>Issue Number</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>A list of length 2. List `SETTINGS` is a list of all the values in the parsed dataframe that remained constant in all rows such as all username-related (aka `owner`) fields. All other fields are maintained in the dataframe format and returned in `REPOS`.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code>,<code><a href='https://httr.r-lib.org/reference/content.html'>content</a></code>
- <code><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></code>
- <code><a href='https://dplyr.tidyverse.org/reference/bind.html'>bind</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></code>,<code>reexports</code>,<code><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></code>
- <code><a href='https://rdrr.io/pkg/rubix/man/normalize_all_to_na.html'>normalize_all_to_na</a></code>,<code><a href='https://rdrr.io/pkg/rubix/man/deselect_if_all_same.html'>deselect_if_all_same</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

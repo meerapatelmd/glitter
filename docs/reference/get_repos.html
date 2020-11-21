@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Open a GitHub Page in a Browser — browse_gh_pages • glitter</title>
+<title>Make an API Call for a GitHub User's Remote Repositories — get_repos • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Open a GitHub Page in a Browser — browse_gh_pages" />
-<meta property="og:description" content="These functions open up GitHub urls related to a repo in the browser returned by get_remote_urls." />
+<meta property="og:title" content="Make an API Call for a GitHub User's Remote Repositories — get_repos" />
+<meta property="og:description" content="Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as &quot;/id&quot; are mutated with a corresponding &quot;page&quot; field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an &quot;issues_page_url&quot; and a &quot;pages_url&quot; fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the &quot;issues_page_url&quot; path except that no logic is applied since all GitHub repos will have an Issues page by default." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,43 +134,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Open a GitHub Page in a Browser</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/browse_github_functions.R'><code>R/browse_github_functions.R</code></a></small>
-    <div class="hidden name"><code>browse_gh_pages.Rd</code></div>
+    <h1>Make an API Call for a GitHub User's Remote Repositories</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/github_api_functions.R'><code>R/github_api_functions.R</code></a></small>
+    <div class="hidden name"><code>get_repos.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These functions open up GitHub urls related to a repo in the browser returned by <code>get_remote_urls</code>.</p>
+    <p>Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "/id" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>browse_gh_pages</span><span class='op'>(</span><span class='va'>github_username</span>, <span class='va'>repo</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_repos</span><span class='op'>(</span><span class='va'>github_user</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>github_username</th>
-      <td><p>GitHub username</p></td>
-    </tr>
-    <tr>
-      <th>repo</th>
-      <td><p>Repository belonging to the GitHub user</p></td>
+      <th>github_user</th>
+      <td><p>GitHub username. Enterprise GitHub is not supported.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If a GitHub Page exists, it is opened in the browser. Otherwise, a message is returned in the console that states that a GitHub Page does not exist.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>This function opens the GitHub Page URL returned by <code>get_remote_urls</code> if a GitHub Page exists for the repo.</p>
+    <p>JSON response parsed into a tibble.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></code>
- <code><a href='https://rdrr.io/pkg/secretary/man/typewrite.html'>typewrite</a></code>
- <code><a href='https://rdrr.io/r/utils/browseURL.html'>browseURL</a></code></p>
-<p>Other browse github: 
-<code><a href='browse_repo_issues.html'>browse_repo_issues</a>()</code></p></div>
+    <div class='dont-index'><p><code><a href='https://httr.r-lib.org/reference/GET.html'>GET</a></code>,<code><a href='https://httr.r-lib.org/reference/http_error.html'>http_error</a></code>,<code><a href='https://httr.r-lib.org/reference/status_code.html'>status_code</a></code>,<code><a href='https://httr.r-lib.org/reference/content.html'>content</a></code>
+ <code><a href='https://rdrr.io/pkg/jsonlite/man/fromJSON.html'>toJSON, fromJSON</a></code>
+ <code><a href='https://tibble.tidyverse.org/reference/rownames.html'>rownames</a></code>,<code><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></code>
+ <code><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></code>,<code>reexports</code>,<code><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_all</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/vars.html'>vars</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/select_all.html'>select_all</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>mutate-joins</a></code>,<code><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></code>
+ <code><a href='https://stringr.tidyverse.org/reference/str_replace.html'>str_replace</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -524,7 +524,29 @@ com <-
 
 
 
+#' Commit History of a File
+#' @description This function can be especially useful in cases where a deleted files is being tracked down.
+#' @export
 
+fileCommitHistory <-
+        function(filePath,
+                 path,
+                 verbose = TRUE) {
+
+                .Deprecated(new = "list_file_commits")
+
+                filePath <- path.expand(paste0(path, "/", filePath))
+
+                logResponse <-
+                        system(paste0("cd\ncd ", path, "\ngit log --all -- ", filePath),
+                               intern = TRUE)
+
+                if (verbose) {
+                        printMsg(logResponse)
+                }
+
+                invisible(logResponse)
+        }
 
 
 

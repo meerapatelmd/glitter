@@ -472,7 +472,28 @@ remote_url <-
                 )
         }
 
+#' Git Log
+#' @export
 
+log <-
+        function(repo_path = NULL,
+                 verbose = TRUE) {
+
+                if (is.null(repo_path)) {
+                        repo_path <- getwd()
+                }
+
+                logResponse <-
+                        system(
+                                paste0("cd\ncd ", repo_path,"\n", "git log"),
+                                intern = TRUE)
+
+                if (verbose) {
+                        printMsg(logResponse)
+                }
+
+                invisible(logResponse)
+        }
 
 
 

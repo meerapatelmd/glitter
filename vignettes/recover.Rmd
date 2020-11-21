@@ -1,0 +1,79 @@
+---
+title: "Recover a Lost File"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Recover a Lost File}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(glitter)
+```
+
+ 
+A list of all the files ever deleted in the repository can be retrieved. 
+
+```{r, eval=TRUE}
+
+deleted_files <- list_deleted_files(path = getwd())
+head(deleted_files)
+
+```
+
+I find my long lost file on the list as `R/destroy.R`. I then get the commit history of that file using the full path. 
+
+```{r, eval=TRUE}
+
+list_file_commits(file = "R/destroy.R",
+                  path = getwd())
+
+```
+
+By default, this file can be recovered using the most recent commit automatically.
+
+I first check to make sure this file does not already exist. 
+
+```{r}
+file.exists("R/destroy.R")
+```
+
+
+```{r}
+recover_lost_file(file = "R/destroy.R",
+                  path = getwd())
+```
+
+```{r}
+file.exists("R/destroy.R")
+```
+
+However, a version of the file from a commit before the most recent one is desired, the SHA can be entered to retrieve that version instead. 
+
+```{r}
+file.remove("R/destroy.R")
+file.exists("R/destroy.R")
+```
+
+```{r}
+recover_lost_file(file = "R/destroy.R",
+                  path = getwd(), 
+                  sha = "aa448c7de4ead65905dfb3133ec42ac8a6f332fc")
+```
+
+
+```{r}
+file.exists("R/destroy.R")
+```
+
+```{r,echo=FALSE,eval=TRUE}
+file.remove("R/destroy.R")
+```
+

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Git Diff — diff • glitter</title>
+<title>Deploy a Package — deploy_pkg • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Git Diff — diff" />
-<meta property="og:description" content="Show unstaged changes between your index and working directory" />
+<meta property="og:title" content="Deploy a Package — deploy_pkg" />
+<meta property="og:description" content="This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,18 +131,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Git Diff</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/diff.R'><code>R/diff.R</code></a></small>
-    <div class="hidden name"><code>diff.Rd</code></div>
+    <h1>Deploy a Package</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/deploy.R'><code>R/deploy.R</code></a></small>
+    <div class="hidden name"><code>deploy_pkg.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Show unstaged changes between your index and working directory</p>
+    <p>This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/repo. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>diff</span><span class='op'>(</span>path_to_local_repo <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>deploy_pkg</span><span class='op'>(</span>
+  commit_message <span class='op'>=</span> <span class='st'>"update documentation"</span>,
+  install <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  reset <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  has_vignettes <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>commit_message</th>
+      <td><p>commit message</p></td>
+    </tr>
+    <tr>
+      <th>install</th>
+      <td><p>If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE</p></td>
+    </tr>
+    <tr>
+      <th>reset</th>
+      <td><p>If TRUE, restart R after installation is complete. Default: TRUE.</p></td>
+    </tr>
+    <tr>
+      <th>has_vignettes</th>
+      <td><p>If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE</p></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><p>description to extend the commit message if desired, Default: NULL</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A freshly packed local package committed to the remote that is by default also installed with vignettes, if applicable.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://devtools.r-lib.org//reference/document.html'>document</a></code>,<code><a href='https://devtools.r-lib.org//reference/build_vignettes.html'>build_vignettes</a></code>,<code><a href='https://devtools.r-lib.org//reference/remote-reexports.html'>remote-reexports</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

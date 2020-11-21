@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Git Diff — diff • glitter</title>
+<title>Commit History of a File — list_file_commits • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Git Diff — diff" />
-<meta property="og:description" content="Show unstaged changes between your index and working directory" />
+<meta property="og:title" content="Commit History of a File — list_file_commits" />
+<meta property="og:description" content="This function can be especially useful in cases where a deleted files is being tracked down." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,16 +131,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Git Diff</h1>
-    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/diff.R'><code>R/diff.R</code></a></small>
-    <div class="hidden name"><code>diff.Rd</code></div>
+    <h1>Commit History of a File</h1>
+    <small class="dont-index">Source: <a href='https://github.com/patelm9/glitter/blob/master/R/file_tracking.R'><code>R/file_tracking.R</code></a></small>
+    <div class="hidden name"><code>list_file_commits.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Show unstaged changes between your index and working directory</p>
+    <p>This function can be especially useful in cases where a deleted files is being tracked down.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>diff</span><span class='op'>(</span>path_to_local_repo <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>list_file_commits</span><span class='op'>(</span><span class='va'>file</span>, path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
 
 

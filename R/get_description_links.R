@@ -1,6 +1,6 @@
 #' @title FUNCTION_TITLE
 #' @description FUNCTION_DESCRIPTION
-#' @param github_username PARAM_DESCRIPTION
+#' @param github_user PARAM_DESCRIPTION
 #' @param repo PARAM_DESCRIPTION
 #' @return OUTPUT_DESCRIPTION
 #' @details DETAILS
@@ -9,11 +9,11 @@
 
 
 get_description_links <-
-        function(github_username,
+        function(github_user,
                  repo) {
 
 
-                repo_attributes <- get_repo_info(github_username = github_username,
+                repo_attributes <- get_repo_info(github_user = github_user,
                                                  repo = repo,
                                                  as_list = TRUE)
 

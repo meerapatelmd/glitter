@@ -103,8 +103,8 @@ unstaged_files <-
                         dplyr::mutate_at(vars(`File Type`),
                                          function(x) Hmisc::capitalize(x))
 
-                rubix::split_deselect(files_df,
-                                      "File Type")
+                split(files_df, files_df$`File Type`) %>%
+                        purrr::map(~ function(x) x %>% dplyr::select(-`File Type`))
 
         }
 

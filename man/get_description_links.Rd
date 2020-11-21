@@ -4,10 +4,10 @@
 \alias{get_description_links}
 \title{FUNCTION_TITLE}
 \usage{
-get_description_links(github_username, repo)
+get_description_links(github_user, repo)
 }
 \arguments{
-\item{github_username}{PARAM_DESCRIPTION}
+\item{github_user}{PARAM_DESCRIPTION}
 
 \item{repo}{PARAM_DESCRIPTION}
 }

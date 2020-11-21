@@ -2,24 +2,20 @@
 % Please edit documentation in R/github_api_functions.R
 \name{get_repo_info}
 \alias{get_repo_info}
-\title{Make an API Call to Get Repository Information}
+\title{Get Information about GitHub Repository}
 \usage{
-get_repo_info(github_username, repo, as_list = FALSE)
+get_repo_info(github_user, repo, as_list = FALSE)
 }
 \arguments{
-\item{github_username}{GitHub username. Enterprise GitHub is not supported.}
+\item{github_user}{GitHub username. Enterprise GitHub is not supported.}
 
-\item{repo}{Repository belonging to the GitHub user}
+\item{repo}{Repository name as a string (case insensitive).}
 
-\item{as_list}{Return the repository information as a list object as opposed to a 1-row dataframe. This allows to easily view all the repository information in the R console, Default: FALSE}
+\item{as_list}{If TRUE, the repository information is returned as a list object instead of a single row tibble.}
 }
 \value{
-A dataframe or if `as_list` is set to `TRUE`, a list object.
+A tibble or if `as_list` is set to `TRUE`, a list object.
 }
 \description{
-This function makes an API call to the GitHub to retrieve all the repository information for a given GitHub User. All native fields in the JSON response are preserved with the additions "pages_url" and "issues_page_url" fields. The "pages_url" field is where a URL to the GitHub Pages for the repo is derived from the `name` field if the `has_pages` field is TRUE after the response is parsed into a dataframe. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.
-}
-\seealso{
-\code{\link[purrr]{pluck}}
- \code{\link[rubix]{filter_for}}
+Filter the output of `get_repos()` for a specific repository by name.
 }

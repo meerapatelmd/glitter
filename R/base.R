@@ -400,3 +400,79 @@ ac_gitignore <-
                     path = path_to_root,
                     commit_msg = "update .gitignore")
         }
+
+
+
+
+
+#' @title Get the Git status of any local repo using the path
+#' @return
+#' If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console
+#' @param path_to_local_repo full path to local repository to be pushed
+#' @export
+
+
+status <-
+        function(path_to_local_repo = NULL,
+                 verbose = TRUE,
+                 header = "Status Response") {
+
+                        mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
+
+                        command <-
+                                c(starting_command(path_to_local_repo = path_to_local_repo),
+                                  "git status") %>%
+                                paste(collapse = "\n")
+
+                        status_response <-
+                                system(command = command,
+                                       intern = TRUE)
+
+                        if (verbose) {
+                                cli::cat_line()
+                                cli::cat_rule(secretary::greenTxt(header))
+                                cat(paste0("\t\t", status_response), sep = "\n")
+                                cli::cat_line()
+                        }
+
+                        invisible(status_response)
+
+        }
+
+
+
+
+
+
+
+
+
+
+#' Get Git Remote URL
+#' @param remote_name Name of the remote. Defaults to "Origin".
+#' @return url of the remote as a string
+#' @export
+
+remote_url <-
+        function(path_to_local_repo = NULL,
+                 remote_name = "origin") {
+
+                if (is.null(path_to_local_repo)) {
+
+                        path_to_local_repo <- getwd()
+
+                }
+
+                suppressWarnings(
+                system(paste0("cd\n",
+                              "cd ", path_to_local_repo,"\n",
+                              "git remote get-url ", remote_name),
+                       ignore.stderr = TRUE,
+                       intern = TRUE)
+                )
+        }
+
+
+
+
+

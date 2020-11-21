@@ -23,7 +23,7 @@ A list of all the files ever deleted in the repository can be retrieved.
 
 ```{r, eval=TRUE}
 
-deleted_files <- list_deleted_files(path = getwd())
+deleted_files <- list_deleted_files(path = "/Users/meerapatel/GitHub/glitter")
 head(deleted_files)
 
 ```
@@ -33,7 +33,7 @@ I find my long lost file on the list as `R/destroy.R`. I then get the commit his
 ```{r, eval=TRUE}
 
 list_file_commits(file = "R/destroy.R",
-                  path = getwd())
+                  path = "/Users/meerapatel/GitHub/glitter")
 
 ```
 
@@ -48,7 +48,7 @@ file.exists("R/destroy.R")
 
 ```{r}
 recover_lost_file(file = "R/destroy.R",
-                  path = getwd())
+                  path = "/Users/meerapatel/GitHub/glitter")
 ```
 
 ```{r}
@@ -64,7 +64,7 @@ file.exists("R/destroy.R")
 
 ```{r}
 recover_lost_file(file = "R/destroy.R",
-                  path = getwd(), 
+                  path = "/Users/meerapatel/GitHub/glitter", 
                   sha = "aa448c7de4ead65905dfb3133ec42ac8a6f332fc")
 ```
 

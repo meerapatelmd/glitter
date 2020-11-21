@@ -213,6 +213,9 @@ deploy_gh_pages <-
                            recursive = TRUE,
                            commit_msg = "update GitHub Page")
 
+                        ac("_pkgdown.yml",
+                           commit_msg = "update file")
+
                         push(path = path_to_root)
 
 }

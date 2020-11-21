@@ -283,10 +283,11 @@ clone <-
         function(remote_url, destination_path) {
 
                 local_repo_path <-
-                remote_url %>%
-                        cave::strip_fn() %>%
-                        purrr::map(~paste0(destination_path, "/", .)) %>%
-                        unlist()
+                        basename(remote_url) %>%
+                                stringr::str_replace_all(pattern = "(^.*)([.]{1}[a-zA-Z]{1,}$)",
+                                                         replacement = "\\1") %>%
+                                purrr::map(~paste0(destination_path, "/", .)) %>%
+                                unlist()
 
                 if (!dir.exists(local_repo_path)) {
 

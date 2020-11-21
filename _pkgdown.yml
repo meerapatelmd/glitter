@@ -23,5 +23,13 @@ navbar:
       icon: fab fa-github fa-lg
       href: https://github.com/patelm9/glitter/
 
+reference:
+    - title: Deployment
+      desc: >
+        Deploy the repo as a package, GitHub Page, or both.
+      contents:
+        - deploy_all
+        - deploy_gh_pages
+        - deploy_pkg
 
 

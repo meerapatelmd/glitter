@@ -102,7 +102,6 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patelm9.github.io/glitter/">glitter</a></span><span class="op">)</span>
-<span class="co">#&gt; Welcome to Glitter!</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'glitter'</span>
 <span class="co">#&gt; The following objects are masked from 'package:base':</span>
@@ -111,7 +110,9 @@
 <p>A list of all the files ever deleted in the repository can be retrieved.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">deleted_files</span> <span class="op">&lt;-</span> <span class="fu">list_deleted_files</span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="va">deleted_files</span> <span class="op">&lt;-</span> <span class="fu">list_deleted_files</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span><span class="op">)</span>
+<span class="co">#&gt;  delete mode 100644 docs/reference/deletedFileHistory.html</span>
+<span class="co">#&gt;  delete mode 100644 docs/reference/retrieveLostFile.html</span>
 <span class="co">#&gt;  delete mode 100644 man/deletedFileHistory.Rd</span>
 <span class="co">#&gt;  delete mode 100644 man/retrieveLostFile.Rd</span>
 <span class="co">#&gt;  delete mode 100644 R/logFunctions.R</span>
@@ -458,17 +459,40 @@
 <span class="co">#&gt;  delete mode 100644 R/destroy.R</span>
 <span class="co">#&gt;  delete mode 100644 man/destroy.Rd</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">deleted_files</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/Users/meerapatel/GitHub/glitter/vignettes/man/deletedFileHistory.Rd"          </span>
-<span class="co">#&gt; [2] "/Users/meerapatel/GitHub/glitter/vignettes/man/retrieveLostFile.Rd"            </span>
-<span class="co">#&gt; [3] "/Users/meerapatel/GitHub/glitter/vignettes/R/logFunctions.R"                   </span>
-<span class="co">#&gt; [4] "/Users/meerapatel/GitHub/glitter/vignettes/vignettes/fileretrieval.Rmd"        </span>
-<span class="co">#&gt; [5] "/Users/meerapatel/GitHub/glitter/vignettes/vignettes/github-issue-tracking.Rmd"</span>
-<span class="co">#&gt; [6] "/Users/meerapatel/GitHub/glitter/vignettes/R/remote_url.R"</span></code></pre></div>
+<span class="co">#&gt; [1] "/Users/meerapatel/GitHub/glitter/docs/reference/deletedFileHistory.html"</span>
+<span class="co">#&gt; [2] "/Users/meerapatel/GitHub/glitter/docs/reference/retrieveLostFile.html"  </span>
+<span class="co">#&gt; [3] "/Users/meerapatel/GitHub/glitter/man/deletedFileHistory.Rd"             </span>
+<span class="co">#&gt; [4] "/Users/meerapatel/GitHub/glitter/man/retrieveLostFile.Rd"               </span>
+<span class="co">#&gt; [5] "/Users/meerapatel/GitHub/glitter/R/logFunctions.R"                      </span>
+<span class="co">#&gt; [6] "/Users/meerapatel/GitHub/glitter/vignettes/fileretrieval.Rmd"</span></code></pre></div>
 <p>I find my long lost file on the list as <code>R/destroy.R</code>. I then get the commit history of that file using the full path.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="../reference/list_file_commits.html">list_file_commits</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"R/destroy.R"</span>,
-                  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                  path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span><span class="op">)</span>
+<span class="co">#&gt; commit ed999d9d11220e4cfcdd9cc18cab5c4d4520f244</span>
+<span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span>
+<span class="co">#&gt; Date:   Fri Nov 20 20:03:02 2020 -0500</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     remove stale vignettes, add file recovery vignette</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; commit 3efedc648e40534927d68b66d8840156abbc6a27</span>
+<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
+<span class="co">#&gt; Date:   Sat Apr 4 22:13:35 2020 -0400</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     add filter_repo function, fix bugs for add_some scripts</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; commit aa448c7de4ead65905dfb3133ec42ac8a6f332fc</span>
+<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
+<span class="co">#&gt; Date:   Sat Apr 4 18:09:40 2020 -0400</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     add pretty functions</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; commit 5387519e5d65d8399a56008a385d58cbcf1a6e11</span>
+<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
+<span class="co">#&gt; Date:   Tue Mar 24 02:01:38 2020 -0400</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     +: initial commit</span></code></pre></div>
 <p>By default, this file can be recovered using the most recent commit automatically.</p>
 <p>I first check to make sure this file does not already exist.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -476,10 +500,10 @@
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/recover_lost_file.html">recover_lost_file</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"R/destroy.R"</span>,
-                  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+                  path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span><span class="op">)</span>
 <span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit checkout ", sha, "^ -- ", : running command 'cd</span>
-<span class="co">#&gt; cd /Users/meerapatel/GitHub/glitter/vignettes</span>
-<span class="co">#&gt; git checkout NA^ -- R/destroy.R' had status 128</span></code></pre></div>
+<span class="co">#&gt; cd /Users/meerapatel/GitHub/glitter</span>
+<span class="co">#&gt; git checkout ed999d9d11220e4cfcdd9cc18cab5c4d4520f244^ -- R/destroy.R' had status 1</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"R/destroy.R"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
@@ -493,11 +517,8 @@
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/recover_lost_file.html">recover_lost_file</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"R/destroy.R"</span>,
-                  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>, 
-                  sha <span class="op">=</span> <span class="st">"aa448c7de4ead65905dfb3133ec42ac8a6f332fc"</span><span class="op">)</span>
-<span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit checkout ", sha, "^ -- ", : running command 'cd</span>
-<span class="co">#&gt; cd /Users/meerapatel/GitHub/glitter/vignettes</span>
-<span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- R/destroy.R' had status 1</span></code></pre></div>
+                  path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span>, 
+                  sha <span class="op">=</span> <span class="st">"aa448c7de4ead65905dfb3133ec42ac8a6f332fc"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="st">"R/destroy.R"</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span></code></pre></div>

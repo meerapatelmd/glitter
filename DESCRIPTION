@@ -11,21 +11,11 @@ Authors@R:
            email = "patelmeeray@gmail.com")
 Description: This package contains convenience functions to perform basic adds, commits, and pushes directly from the R console. 
 License: Apache License 2.0
-Imports:
-    devtools,
-    dplyr,
-    Hmisc,
-    magrittr,
-    pkgdown,
-    purrr,
-    readr,
-    roxygen2,
-    rubix,
-    secretary,
-    stringr,
-    tibble,
-    tidyr,
-    usethis
+Imports:     Hmisc,    cave,    cli,    devtools,    dplyr,    httr,    jsonlite,    magrittr,    pkgdown,    purrr,    readr,    rlang,    rubix,    secretary,    stringr,    tibble,    tidyr,    usethis,    utils
+Remotes: 
+    meerapatelmd/cave,
+    meerapatelmd/rubix,
+    meerapatelmd/secretary
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

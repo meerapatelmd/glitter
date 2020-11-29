@@ -2,10 +2,12 @@
 #' Make an API Call for a GitHub User's Remote Repositories
 #'
 #' @description
-#' Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "{/id}" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.
+#' Make an API call to the GitHub API to retrieve all the repository information for a GitHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "{/id}" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.
 #'
 #' @param github_user       GitHub username. Enterprise GitHub is not supported.
-#'
+#' @param user_only             If true, filters out any repos that were forked from another repo before returning value.
+#' @param per_page              Query parameter.
+#' @param page                  Query parameter.
 #' @return
 #' JSON response parsed into a tibble.
 #'
@@ -27,6 +29,7 @@
 
 get_repos <-
         function(github_user,
+                 user_only = TRUE,
                  per_page = 100,
                  page = 1) {
 
@@ -73,9 +76,7 @@ get_repos <-
                 output <-
                         output %>%
                         dplyr::left_join(output_b,  by = "rowid") %>%
-                        dplyr::select(-rowid)
-
-                output %>%
+                        dplyr::select(-rowid) %>%
                         dplyr::mutate(issues_page_url = paste0("https://github.com/", github_user, "/", name, "/issues")) %>%
                         dplyr::mutate(pages_url = NA) %>%
                         dplyr::mutate(pages_url = ifelse(has_pages == "TRUE",
@@ -84,7 +85,26 @@ get_repos <-
                         dplyr::select(name, full_name, pages_url, html_url, clone_url, issues_page_url, homepage, url, dplyr::everything()) %>%
                         tibble::as_tibble()
 
+
+                if (user_only) {
+
+                        return(output %>%
+                                       dplyr::filter(fork == FALSE))
+
+                } else {
+
+                        output
+                }
+
         }
+
+
+
+
+
+
+
+
 
 
 #' @title

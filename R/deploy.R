@@ -178,8 +178,7 @@ deploy_gh_pages <-
 
 
                         add(path = "docs",
-                            recursive = TRUE,
-                            include.dirs = TRUE)
+                            recursive = TRUE)
 
                         add("_pkgdown.yml")
 

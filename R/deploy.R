@@ -232,11 +232,11 @@ deploy_gh_pages <-
                         gi_rm("docs")
 
 
-                        #Rewriting NAMESPACE
-                        if (file.exists("NAMESPACE")) {
-                                file.remove("NAMESPACE")
-                        }
-                        devtools::document()
+                        # #Rewriting NAMESPACE
+                        # if (file.exists("NAMESPACE")) {
+                        #         file.remove("NAMESPACE")
+                        # }
+                        # devtools::document()
 
 
                         # Build pkgdown Site

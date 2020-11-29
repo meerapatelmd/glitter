@@ -26,11 +26,15 @@
 
 
 get_repos <-
-        function(github_user) {
+        function(github_user,
+                 per_page = 100,
+                 page = 1) {
 
                 github_url <- sprintf("https://api.github.com/users/%s/repos", github_user)
 
-                resp <- httr::GET(github_url)
+                resp <- httr::GET(github_url,
+                                  query = list(per_page = per_page,
+                                               page = page))
 
 
                 if (httr::http_error(resp)) {

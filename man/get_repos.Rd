@@ -4,7 +4,7 @@
 \alias{get_repos}
 \title{Make an API Call for a GitHub User's Remote Repositories}
 \usage{
-get_repos(github_user)
+get_repos(github_user, per_page = 100, page = 1)
 }
 \arguments{
 \item{github_user}{GitHub username. Enterprise GitHub is not supported.}

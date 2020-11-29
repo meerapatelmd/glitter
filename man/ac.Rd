@@ -5,10 +5,10 @@
 \title{Add and Commit}
 \usage{
 ac(
+  commit_msg,
   ...,
   path = getwd(),
   pattern = NULL,
-  commit_msg,
   all.files = FALSE,
   recursive = FALSE,
   ignore.case = FALSE,

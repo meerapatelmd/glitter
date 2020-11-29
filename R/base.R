@@ -31,16 +31,6 @@ add <-
                 cli::cat_line()
                 status(path = path)
 
-                big_files <- list_big_files(mb_threshold = max_mb)
-                if (length(big_files)) {
-
-                        cli::cat_rule(secretary::magentaTxt(sprintf("Files Greater Than %s MB", max_mb)))
-                        cli::cat_bullet(big_files,
-                                        bullet = "line")
-
-                        secretary::press_enter()
-
-                }
 
                 if (!missing(...)) {
 
@@ -62,17 +52,32 @@ add <-
 
                 }
 
-                command <-
-                        c(starting_command(path = path_to_root),
-                          files_to_add %>%
-                                  purrr::map(~ sprintf("git add %s", .)) %>%
-                                  unlist()) %>%
-                                paste(collapse = "\n")
-                system(command = command)
+                big_files <- list_big_files(mb_threshold = max_mb, path = path_to_root)
+                files_to_add_big <- big_files[big_files %in% files_to_add]
+
+                if (length(files_to_add_big) > 0) {
+
+                        cli::cat_rule(secretary::magentaTxt(sprintf("Files Greater Than %s MB", max_mb)))
+                        cli::cat_bullet(big_files,
+                                        bullet = "line")
+
+                        cli::cli_alert(text = "No files are added.")
+
+                } else {
+
+                        command <-
+                                c(starting_command(path = path_to_root),
+                                  files_to_add %>%
+                                          purrr::map(~ sprintf("git add %s", .)) %>%
+                                          unlist()) %>%
+                                        paste(collapse = "\n")
+                        system(command = command)
 
 
-                status(path = path,
-                       header = "Updated Status Response")
+                        status(path = path,
+                               header = "Updated Status Response")
+
+                }
 
         }
 
@@ -368,10 +373,10 @@ list_modified_files <-
 #' @export
 
 ac <-
-        function(...,
+        function(commit_msg,
+                 ...,
                  path = getwd(),
                  pattern = NULL,
-                 commit_msg,
                  all.files = FALSE,
                  recursive = FALSE,
                  ignore.case = FALSE,

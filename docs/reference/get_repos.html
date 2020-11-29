@@ -140,7 +140,7 @@
     <p>Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "/id" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_repos</span><span class='op'>(</span><span class='va'>github_user</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_repos</span><span class='op'>(</span><span class='va'>github_user</span>, per_page <span class='op'>=</span> <span class='fl'>100</span>, page <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

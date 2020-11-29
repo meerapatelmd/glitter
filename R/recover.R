@@ -8,7 +8,7 @@ NULL
 #' @export
 
 
-list_deleted_files <-
+list_all_deleted_files <-
         function(path = getwd(),
                  verbose = TRUE) {
 

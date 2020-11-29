@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup,message=FALSE}
 library(glitter)
+setwd("/Users/meerapatel/GitHub/packages/glitter")
 ```
 
 
@@ -23,8 +24,7 @@ My long lost file from the working directory is `R/destroy.R`. I then get the co
 
 ```{r, eval=TRUE}
 
-list_file_commits(file = "R/destroy.R",
-                  path = getwd())
+list_file_commits(file = "R/destroy.R")
 
 ```
 
@@ -46,8 +46,7 @@ file.exists("R/destroy.R")
 I recover the lost file:  
 
 ```{r}
-recover_lost_file(file = "R/destroy.R",
-                  path = getwd())
+recover_lost_file(file = "R/destroy.R")
 ```
 
 QA to make sure that the file now is present:  
@@ -63,8 +62,7 @@ file.remove("R/destroy.R")
 ```
 
 ```{r}
-recover_lost_file(file = "R/destroy.R",
-                  path = getwd(), 
+recover_lost_file(file = "R/destroy.R", 
                   sha = "aa448c7de4ead65905dfb3133ec42ac8a6f332fc")
 ```
 

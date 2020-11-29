@@ -4,7 +4,7 @@ This package allows to perform simple adds, commits, and pushes directly from th
 ## Installation  
 ```
 library(devtools)  
-devtools::install_git("patelm9/glitter")  
+devtools::install_git("meerapatelmd/glitter")  
 ```  
 
 

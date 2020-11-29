@@ -74,7 +74,7 @@ checkout_branch <-
 
 
                 command <-
-                        c(starting_command(path_to_local_repo = path_to_local_repo),
+                        c(starting_command(path = path),
                           paste0("git checkout ", branch)) %>%
                         paste(collapse = "\n")
 
@@ -103,7 +103,7 @@ checkout_new_branch <-
 
 
                 command <-
-                        c(starting_command(path_to_local_repo = path_to_local_repo),
+                        c(starting_command(path = path),
                           paste0("git checkout -b ", new_branch)) %>%
                         paste(collapse = "\n")
 

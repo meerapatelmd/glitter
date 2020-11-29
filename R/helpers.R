@@ -21,10 +21,10 @@ extend_path <-
 
 
 starting_command <-
-        function(path_to_local_repo) {
+        function(path) {
 
-                c("cd",
-                  paste0("cd ", path_to_local_repo)) %>%
-                        paste(collapse = "\n")
+                sprintf("cd\n
+                        cd %s\n",
+                        path = path)
 
         }

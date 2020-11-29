@@ -110,7 +110,7 @@
 <p>A list of all the files ever deleted in the repository can be retrieved.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">deleted_files</span> <span class="op">&lt;-</span> <span class="fu">list_deleted_files</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span><span class="op">)</span>
+<span class="va">deleted_files</span> <span class="op">&lt;-</span> <span class="fu">list_all_deleted_files</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"/Users/meerapatel/GitHub/glitter"</span><span class="op">)</span>
 <span class="co">#&gt; Warning in system(command, intern = TRUE): running command 'cd</span>
 <span class="co">#&gt; cd /Users/meerapatel/GitHub/glitter</span>
 <span class="co">#&gt; git log --diff-filter=D --summary | grep delete' had status 1</span>

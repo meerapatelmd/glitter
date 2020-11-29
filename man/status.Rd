@@ -4,7 +4,7 @@
 \alias{status}
 \title{Get the Git status of any local repo using the path}
 \usage{
-status(path_to_local_repo = NULL, verbose = TRUE, header = "Status Response")
+status(path = getwd(), verbose = TRUE, header = "Status Response")
 }
 \arguments{
 \item{path_to_local_repo}{full path to local repository to be pushed}

@@ -23,7 +23,7 @@ A list of all the files ever deleted in the repository can be retrieved.
 
 ```{r, eval=TRUE}
 
-deleted_files <- list_deleted_files(path = "/Users/meerapatel/GitHub/glitter")
+deleted_files <- list_all_deleted_files(path = "/Users/meerapatel/GitHub/glitter")
 head(deleted_files)
 
 ```

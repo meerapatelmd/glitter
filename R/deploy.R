@@ -4,6 +4,7 @@
 #' @description
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #'
+#' @inheritParams devtools::install_git
 #' @param commit_message        commit message
 #' @param description           description to extend the commit message if desired, Default: NULL
 #' @param install               If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE
@@ -26,9 +27,27 @@ deploy_pkg <-
                 install = TRUE,
                 reset = FALSE,
                 has_vignettes = FALSE,
-                path = getwd())
+                path = getwd(),
+                ref = NULL,
+                branch = NULL,
+                credentials = git_credentials(),
+                git = c("auto", "git2r", "external"),
+                dependencies = NA,
+                upgrade = "never",
+                force = FALSE,
+                quiet = FALSE,
+                build = TRUE,
+                build_opts = c("--no-resave-data", "--no-manual", "--no-build-vignettes"),
+                build_manual = FALSE,
+                build_vignettes = FALSE,
+                repos = getOption("repos"),
+                type = getOption("pkgType"))
 
         {
+
+                current_wd <- getwd()
+                setwd(path)
+                on.exit(setwd(current_wd))
 
 
                 #Rewriting NAMESPACE
@@ -41,16 +60,14 @@ deploy_pkg <-
                 if (has_vignettes) {
 
                         devtools::build_vignettes()
-                        rmFromGitIgnore("doc", "doc/")
+                        gi_rm("doc", "doc/")
 
                 }
 
 
 
                 #Updating and Pushing to GitHub
-                x <- ac(commit_msg = commit_message,
-                        pattern = NULL,
-                        path = path)
+                x <- ac(commit_msg = commit_message)
 
                 if (exists("x")) {
 
@@ -72,7 +89,20 @@ deploy_pkg <-
 
                         # Install
                         devtools::install_git(url = git_url,
-                                              upgrade = "never")
+                                              ref = ref,
+                                              branch = branch,
+                                              credentials = credentials,
+                                              git = git,
+                                              dependencies = dependencies,
+                                              upgrade = upgrade,
+                                              force = force,
+                                              quiet = quiet,
+                                              build = build,
+                                              build_opts = build_opts,
+                                              build_manual = build_manual,
+                                              build_vignettes = build_vignettes,
+                                              repos = repos,
+                                              type = type)
 
 
                 }
@@ -175,23 +205,31 @@ deploy_all <-
 
 deploy_gh_pages <-
         function(path = getwd(),
-                  lazy = TRUE,
-                  preview = FALSE,
-                  devel = TRUE,
-                  ...)
+                 examples = TRUE,
+                 run_dont_run = FALSE,
+                 seed = 1014,
+                 lazy = TRUE,
+                 override = list(),
+                 preview = FALSE,
+                 devel = TRUE,
+                 new_process = !devel,
+                 install = !devel)
 
                 {
 
-                        path_to_root <- root(path = path)
+                        current_wd <- getwd()
+                        setwd(path)
+                        on.exit(setwd(current_wd))
 
                         # Create _pkgdown.yml file if it does not exist
                         if (!file.exists("_pkgdown.yml")) {
                                 usethis::use_pkgdown()
                         }
 
-                        if ("docs" %in% list.files(path = path_to_root)) {
+                        if ("docs" %in% list.files()) {
                                 unlink("docs",recursive = TRUE)
                         }
+                        gi_rm("docs")
 
 
                         #Rewriting NAMESPACE
@@ -201,21 +239,27 @@ deploy_gh_pages <-
                         devtools::document()
 
 
-
                         # Build pkgdown Site
-                        pkgdown::build_site(lazy = lazy,
+                        pkgdown::build_site(examples = examples,
+                                            run_dont_run = run_dont_run,
+                                            seed = seed,
+                                            lazy = lazy,
+                                            override = override,
                                             preview = preview,
                                             devel = devel,
-                                            ...
-                                            )
+                                            new_process = new_process,
+                                            install = install)
 
-                        ac(path = file.path(path_to_root, "docs"),
-                           recursive = TRUE,
-                           commit_msg = "update GitHub Page")
 
-                        ac("_pkgdown.yml",
-                           commit_msg = "update file")
+                        add(path = "docs",
+                            recursive = TRUE,
+                            include.dirs = TRUE)
 
-                        push(path = path_to_root)
+                        add("_pkgdown.yml")
+
+
+                        commit(commit_msg = "Deploy GitHub Pages using pkgdown")
+
+                        push()
 
 }

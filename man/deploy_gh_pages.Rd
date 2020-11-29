@@ -6,10 +6,15 @@
 \usage{
 deploy_gh_pages(
   path = getwd(),
+  examples = TRUE,
+  run_dont_run = FALSE,
+  seed = 1014,
   lazy = TRUE,
+  override = list(),
   preview = FALSE,
   devel = TRUE,
-  ...
+  new_process = !devel,
+  install = !devel
 )
 }
 \description{

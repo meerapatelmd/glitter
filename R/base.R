@@ -448,14 +448,12 @@ ac_gitignore <-
 
 
 status <-
-        function(path_to_local_repo = NULL,
+        function(path = getwd(),
                  verbose = TRUE,
                  header = "Status Response") {
 
-                        mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
-
                         command <-
-                                c(starting_command(path_to_local_repo = path_to_local_repo),
+                                c(starting_command(path = path),
                                   "git status") %>%
                                 paste(collapse = "\n")
 

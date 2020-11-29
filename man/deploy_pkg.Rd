@@ -9,7 +9,21 @@ deploy_pkg(
   install = TRUE,
   reset = FALSE,
   has_vignettes = FALSE,
-  path = getwd()
+  path = getwd(),
+  ref = NULL,
+  branch = NULL,
+  credentials = git_credentials(),
+  git = c("auto", "git2r", "external"),
+  dependencies = NA,
+  upgrade = "never",
+  force = FALSE,
+  quiet = FALSE,
+  build = TRUE,
+  build_opts = c("--no-resave-data", "--no-manual", "--no-build-vignettes"),
+  build_manual = FALSE,
+  build_vignettes = FALSE,
+  repos = getOption("repos"),
+  type = getOption("pkgType")
 )
 }
 \arguments{

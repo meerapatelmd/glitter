@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.2</span>
       </span>
     </div>
 
@@ -153,6 +153,61 @@
   install <span class='op'>=</span> <span class='op'>!</span><span class='va'>devel</span>
 <span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>examples</th>
+      <td><p>Run examples?</p></td>
+    </tr>
+    <tr>
+      <th>run_dont_run</th>
+      <td><p>Run examples that are surrounded in \dontrun?</p></td>
+    </tr>
+    <tr>
+      <th>seed</th>
+      <td><p>Seed used to initialize so that random examples are
+reproducible.</p></td>
+    </tr>
+    <tr>
+      <th>lazy</th>
+      <td><p>If <code>TRUE</code>, will only rebuild articles and reference pages
+if the source is newer than the destination.</p></td>
+    </tr>
+    <tr>
+      <th>override</th>
+      <td><p>An optional named list used to temporarily override
+values in <code>_pkgdown.yml</code></p></td>
+    </tr>
+    <tr>
+      <th>preview</th>
+      <td><p>If <code>TRUE</code>, or <code>is.na(preview) &amp;&amp; interactive()</code>, will preview
+freshly generated section in browser.</p></td>
+    </tr>
+    <tr>
+      <th>devel</th>
+      <td><p>Use development or deployment process?</p>
+<p>If <code>TRUE</code>, uses lighter-weight process suitable for rapid
+iteration; it will run examples and vignettes in the current process,
+and will load code with <code><a href='https://rdrr.io/pkg/pkgload/man/load_all.html'>pkgload::load_all()</a></code>.</p>
+<p>If <code>FALSE</code>, will first install the package to a temporary library,
+and will run all examples and vignettes in a new process.</p>
+<p><code>build_site()</code> defaults to <code>devel = FALSE</code> so that you get high fidelity
+outputs when you building the complete site; <code>build_reference()</code>,
+<code>build_home()</code> and friends default to <code>devel = TRUE</code> so that you can
+rapidly iterate during development.</p></td>
+    </tr>
+    <tr>
+      <th>new_process</th>
+      <td><p>If <code>TRUE</code>, will run <code>build_site()</code> in a separate process.
+This enhances reproducibility by ensuring nothing that you have loaded
+in the current process affects the build process.</p></td>
+    </tr>
+    <tr>
+      <th>install</th>
+      <td><p>If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

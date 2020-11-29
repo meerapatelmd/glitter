@@ -10,7 +10,7 @@ and an updated pkgdown GitHub Page. See [glitter's GitHub Page](https://meerapat
 ## Installation  
 ```
 library(devtools)  
-devtools::install_git("meerapatelmd/glitter")  
+install_github("meerapatelmd/glitter")  
 ```  
 ## Code of Conduct
 

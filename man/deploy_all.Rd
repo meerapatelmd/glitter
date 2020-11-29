@@ -9,7 +9,7 @@ deploy_all(
   commit_message = "update documentation",
   install = TRUE,
   reset = FALSE,
-  has_vignettes = FALSE,
+  has_vignettes = TRUE,
   ref = NULL,
   branch = NULL,
   examples = TRUE,

@@ -8,7 +8,7 @@ deploy_pkg(
   commit_message = "update documentation",
   install = TRUE,
   reset = FALSE,
-  has_vignettes = FALSE,
+  has_vignettes = TRUE,
   path = getwd(),
   ref = NULL,
   branch = NULL,

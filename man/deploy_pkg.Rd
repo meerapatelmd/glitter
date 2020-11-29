@@ -12,7 +12,6 @@ deploy_pkg(
   path = getwd(),
   ref = NULL,
   branch = NULL,
-  credentials = git_credentials(),
   git = c("auto", "git2r", "external"),
   dependencies = NA,
   upgrade = "never",

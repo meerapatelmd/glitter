@@ -20,7 +20,6 @@ deploy_all(
   preview = FALSE,
   devel = TRUE,
   new_process = !devel,
-  credentials = git_credentials(),
   git = c("auto", "git2r", "external"),
   dependencies = NA,
   upgrade = "never",

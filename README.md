@@ -5,7 +5,7 @@ perform basic Git commands such as add, commit, and push directly from
 the R console. A file recovery feature enables easy retrieval of a previously 
 deleted file directly from the R console. For package deployment, helper functions allow for 
 a concurrent deployment of both a new package release to a GitHub repository 
-and an updated pkgdown GitHub Page. See [glitter's GitHub Page](https://meerapatelmd.github.io/glitter/) for more information.      
+and an updated pkgdown GitHub Page.  
     
 ## Installation  
 ```

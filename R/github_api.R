@@ -105,7 +105,7 @@ get_repos <-
 #' @description
 #' Returns all the tag history for a repository. See \code{\link{is_repo_unreleased}} if you want to know whether or not a release/tag has ever been made to this repository.
 #'
-#' @importfrom httr GET content
+#' @importFrom httr GET content
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @rdname get_repo_tags
@@ -127,7 +127,7 @@ get_repo_tags <-
 #' @description
 #' Executes \code{\link{get_repo_tags}} and returns `TRUE` if the row count is 0 and `FALSE` otherwise. If all the Tag Data is desired, run \code{\link{get_repo_tags}} directly.
 #'
-#' @importfrom httr GET content
+#' @importFrom httr GET content
 #' @importFrom jsonlite fromJSON
 #' @export
 #' @rdname is_repo_unreleased

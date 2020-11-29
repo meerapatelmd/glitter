@@ -4,12 +4,14 @@
 \alias{clone}
 \title{Clone a Git Repository}
 \usage{
-clone(remote_url, destination_path)
+clone(clone_url, destination_path, ...)
 }
 \arguments{
-\item{remote_url}{Web url of repository to clone}
+\item{clone_url}{https url of repository to clone}
 
 \item{destination_path}{Path of the destination directory to which the repo will be cloned.}
+
+\item{...}{Tags that can be added to the command}
 }
 \value{
 Cloned repo in the path of {destination_path/repo name} if the directory does not exist. Otherwise an error is thrown.

@@ -9,7 +9,6 @@ Authors@R:
            email = "patelmeeray@gmail.com")
 Description: This package contains convenience functions to
     perform basic adds, commits, and pushes directly from the R console.
-    
 License: Apache License 2.0
 URL: https://patelm9.github.io/glitter/,
     https://github.com/patelm9/glitter/

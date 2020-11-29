@@ -7,7 +7,6 @@ knitr::opts_chunk$set(
 
 ## ----setup,message=FALSE------------------------------------------------------
 library(glitter)
-setwd("/Users/meerapatel/GitHub/packages/glitter")
 
 ## ---- eval=TRUE---------------------------------------------------------------
 

@@ -11,7 +11,6 @@ deploy_all(
   reset = FALSE,
   has_vignettes = TRUE,
   ref = NULL,
-  branch = NULL,
   examples = TRUE,
   run_dont_run = FALSE,
   seed = 1014,

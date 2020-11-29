@@ -99,10 +99,56 @@ get_repos <-
         }
 
 
+#' @title
+#' Get Tags/Release Data for a Repo
+#'
+#' @description
+#' Returns all the tag history for a repository. See \code{\link{is_repo_unreleased}} if you want to know whether or not a release/tag has ever been made to this repository.
+#'
+#' @importfrom httr GET content
+#' @importFrom jsonlite fromJSON
+#' @export
+#' @rdname get_repo_tags
+
+get_repo_tags <-
+        function(github_user,
+                 repo) {
+
+                httr::GET(sprintf("https://api.github.com/repos/%s/%s/tags", github_user, repo)) %>%
+                        httr::content(type = "application/json", as = "text", encoding = "UTF-8") %>%
+                        jsonlite::fromJSON()
+
+        }
 
 
+#' @title
+#' Is a Repository Unreleased?
+#'
+#' @description
+#' Executes \code{\link{get_repo_tags}} and returns `TRUE` if the row count is 0 and `FALSE` otherwise. If all the Tag Data is desired, run \code{\link{get_repo_tags}} directly.
+#'
+#' @importfrom httr GET content
+#' @importFrom jsonlite fromJSON
+#' @export
+#' @rdname is_repo_unreleased
 
+is_repo_unreleased <-
+        function(github_user,
+                 repo) {
 
+                output <- get_repo_tags(github_user = github_user,
+                                        repo = repo)
+
+                if (nrow(output) > 0) {
+
+                        FALSE
+
+                } else {
+
+                        TRUE
+                }
+
+        }
 
 
 
@@ -145,6 +191,7 @@ get_repo_info <-
         }
 
 
+#' @export
 
 browse_issues <-
         function(github_user,
@@ -171,10 +218,4 @@ browse_issues <-
 
         }
 
-# html_url main GitHub Page
-# issues_page_url Issues Page
-# events_url JSON of pushes and pulls etc...
-# deployments_url JSON of deployment history
-# branches_page JSON of all branches
-# commits_page JSON of all commits
-#
+

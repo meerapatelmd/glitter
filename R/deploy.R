@@ -17,9 +17,8 @@
 #' @seealso
 #'  \code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}
 #' @rdname deploy_pkg
-#' @keywords internal
 #' @export
-#' @importFrom devtools document build_vignettes install_github install_git
+#' @importFrom devtools document build_vignettes install_git
 
 deploy_pkg <-
         function (
@@ -116,84 +115,14 @@ deploy_pkg <-
         }
 
 
-
-
-
-
-
-#' @title
-#' Update Package and GitHub Pages
-#'
-#' @description
-#' This unlinks the docs subdirectory, runs devtools document function, and writes a new docs/ directory using the pkgdown build_site function.
-#'
-#' @seealso
-#'  \code{\link[usethis]{use_pkgdown}}
-#'  \code{\link[pkgdown]{build_site}}
-#' @rdname deploy_all
-#' @export
-#' @importFrom usethis use_pkgdown
-#' @importFrom pkgdown build_site
-#' @importFrom devtools document
-
-deploy_all <-
-        function(path = getwd(),
-                 lazy = TRUE,
-                 preview = FALSE,
-                 devel = TRUE,
-                 ...)
-
-        {
-
-                path_to_root <- root(path = path)
-
-
-                #Rewriting NAMESPACE
-                if (file.exists("NAMESPACE")) {
-                        file.remove("NAMESPACE")
-                }
-                devtools::document()
-
-
-                # Create _pkgdown.yml file if it does not exist
-                if (!file.exists("_pkgdown.yml")) {
-                        usethis::use_pkgdown()
-                }
-
-                if ("docs" %in% list.files(path = path_to_root)) {
-                        unlink("docs",recursive = TRUE)
-                }
-
-                # Build pkgdown Site
-                pkgdown::build_site(lazy = lazy,
-                                    preview = preview,
-                                    devel = devel,
-                                    ...
-                )
-
-                ac(recursive = TRUE,
-                   commit_msg = "update Package and GitHub Page")
-
-                push(path = path_to_root)
-
-                devtools::install_git(url = remote_url(path_to_root), upgrade = "never")
-
-        }
-
-
-
-
-
-
-
-
-
 #' @title
 #' Re-Build and Push GitHub Pages
 #'
 #' @description
 #' This unlinks the docs subdirectory, runs devtools document function, and writes a new docs/ directory using the pkgdown build_site function.
 #'
+#' @inheritParams deploy_pkg
+#' @inheritParams pkgdown::build_site
 #' @seealso
 #'  \code{\link[usethis]{use_pkgdown}}
 #'  \code{\link[pkgdown]{build_site}}
@@ -201,7 +130,6 @@ deploy_all <-
 #' @export
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site
-#' @importFrom devtools document
 
 deploy_gh_pages <-
         function(path = getwd(),
@@ -263,3 +191,85 @@ deploy_gh_pages <-
                         push()
 
 }
+
+
+#' @title
+#' Deploy a Package and GitHub Pages at Once
+#'
+#' @inheritParams deploy_pkg
+#' @inheritParams deploy_gh_pages
+#' @seealso
+#'  \code{\link[usethis]{use_pkgdown}}
+#'  \code{\link[pkgdown]{build_site}}
+#' @rdname deploy_all
+#' @export
+
+deploy_all <-
+        function(path = getwd(),
+                 commit_message = "update documentation",
+                 install = TRUE,
+                 reset = FALSE,
+                 has_vignettes = FALSE,
+                 ref = NULL,
+                 branch = NULL,
+                 examples = TRUE,
+                 run_dont_run = FALSE,
+                 seed = 1014,
+                 lazy = TRUE,
+                 override = list(),
+                 preview = FALSE,
+                 devel = TRUE,
+                 new_process = !devel,
+                 credentials = git_credentials(),
+                 git = c("auto", "git2r", "external"),
+                 dependencies = NA,
+                 upgrade = "never",
+                 force = FALSE,
+                 quiet = FALSE,
+                 build = TRUE,
+                 build_opts = c("--no-resave-data", "--no-manual", "--no-build-vignettes"),
+                 build_manual = FALSE,
+                 build_vignettes = FALSE,
+                 repos = getOption("repos"),
+                 type = getOption("pkgType"))
+
+        {
+
+
+                cli::cat_line()
+                cli::cat_rule("Deploying Package")
+                deploy_pkg(commit_message = commit_message,
+                           install = install,
+                           reset = reset,
+                           has_vignettes = has_vignettes,
+                           path = path,
+                           ref = ref,
+                           branch = branch,
+                           credentials = credentials,
+                           git = git,
+                           dependencies = dependencies,
+                           upgrade = upgrade,
+                           force = force,
+                           quiet = quiet,
+                           build = build,
+                           build_opts = build_opts,
+                           build_manual = build_manual,
+                           build_vignettes = build_vignettes,
+                           repos = repos,
+                           type = type)
+
+
+                cli::cat_line()
+                cli::cat_rule("Deploying GH Pages")
+                deploy_gh_pages(path = path,
+                                examples = examples,
+                                run_dont_run = run_dont_run,
+                                seed = seed,
+                                lazy = lazy,
+                                override = override,
+                                preview = preview,
+                                devel = devel,
+                                new_process = new_process,
+                                install = !devel)
+
+        }

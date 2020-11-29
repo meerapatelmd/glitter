@@ -2,12 +2,83 @@
 % Please edit documentation in R/deploy.R
 \name{deploy_all}
 \alias{deploy_all}
-\title{Update Package and GitHub Pages}
+\title{Deploy a Package and GitHub Pages at Once}
 \usage{
-deploy_all(path = getwd(), lazy = TRUE, preview = FALSE, devel = TRUE, ...)
+deploy_all(
+  path = getwd(),
+  commit_message = "update documentation",
+  install = TRUE,
+  reset = FALSE,
+  has_vignettes = FALSE,
+  ref = NULL,
+  branch = NULL,
+  examples = TRUE,
+  run_dont_run = FALSE,
+  seed = 1014,
+  lazy = TRUE,
+  override = list(),
+  preview = FALSE,
+  devel = TRUE,
+  new_process = !devel,
+  credentials = git_credentials(),
+  git = c("auto", "git2r", "external"),
+  dependencies = NA,
+  upgrade = "never",
+  force = FALSE,
+  quiet = FALSE,
+  build = TRUE,
+  build_opts = c("--no-resave-data", "--no-manual", "--no-build-vignettes"),
+  build_manual = FALSE,
+  build_vignettes = FALSE,
+  repos = getOption("repos"),
+  type = getOption("pkgType")
+)
+}
+\arguments{
+\item{commit_message}{commit message}
+
+\item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
+
+\item{reset}{If TRUE, restart R after installation is complete. Default: TRUE.}
+
+\item{has_vignettes}{If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE}
+
+\item{examples}{Run examples?}
+
+\item{run_dont_run}{Run examples that are surrounded in \\dontrun?}
+
+\item{seed}{Seed used to initialize so that random examples are
+reproducible.}
+
+\item{lazy}{If \code{TRUE}, will only rebuild articles and reference pages
+if the source is newer than the destination.}
+
+\item{override}{An optional named list used to temporarily override
+values in \verb{_pkgdown.yml}}
+
+\item{preview}{If \code{TRUE}, or \code{is.na(preview) && interactive()}, will preview
+freshly generated section in browser.}
+
+\item{devel}{Use development or deployment process?
+
+If \code{TRUE}, uses lighter-weight process suitable for rapid
+iteration; it will run examples and vignettes in the current process,
+and will load code with \code{pkgload::load_all()}.
+
+If \code{FALSE}, will first install the package to a temporary library,
+and will run all examples and vignettes in a new process.
+
+\code{build_site()} defaults to \code{devel = FALSE} so that you get high fidelity
+outputs when you building the complete site; \code{build_reference()},
+\code{build_home()} and friends default to \code{devel = TRUE} so that you can
+rapidly iterate during development.}
+
+\item{new_process}{If \code{TRUE}, will run \code{build_site()} in a separate process.
+This enhances reproducibility by ensuring nothing that you have loaded
+in the current process affects the build process.}
 }
 \description{
-This unlinks the docs subdirectory, runs devtools document function, and writes a new docs/ directory using the pkgdown build_site function.
+Deploy a Package and GitHub Pages at Once
 }
 \seealso{
 \code{\link[usethis]{use_pkgdown}}

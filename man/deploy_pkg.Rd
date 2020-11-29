@@ -46,4 +46,3 @@ This function automatically documents, pushes, and installs a package, assuming 
 \seealso{
 \code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}
 }
-\keyword{internal}

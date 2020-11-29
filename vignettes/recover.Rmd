@@ -14,30 +14,28 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup,message=FALSE}
 library(glitter)
 ```
 
- 
-A list of all the files ever deleted in the repository can be retrieved. 
 
-```{r, eval=TRUE}
-
-deleted_files <- list_all_deleted_files(path = "/Users/meerapatel/GitHub/glitter")
-head(deleted_files)
-
-```
-
-I find my long lost file on the list as `R/destroy.R`. I then get the commit history of that file using the full path. 
+My long lost file from the working directory is `R/destroy.R`. I then get the commit history of that file using the full path. 
 
 ```{r, eval=TRUE}
 
 list_file_commits(file = "R/destroy.R",
-                  path = "/Users/meerapatel/GitHub/glitter")
+                  path = getwd())
 
 ```
 
-By default, this file can be recovered using the most recent commit automatically.
+By default, this file is recovered using the most recent commit automatically.
+
+```{r,echo=FALSE,eval=TRUE}
+# QA for vignette to run correctly 
+if (file.exists("R/destroy.R")) {
+    file.remove("R/destroy.R")
+} 
+```
 
 I first check to make sure this file does not already exist. 
 
@@ -45,11 +43,14 @@ I first check to make sure this file does not already exist.
 file.exists("R/destroy.R")
 ```
 
+I recover the lost file:  
 
 ```{r}
 recover_lost_file(file = "R/destroy.R",
-                  path = "/Users/meerapatel/GitHub/glitter")
+                  path = getwd())
 ```
+
+QA to make sure that the file now is present:  
 
 ```{r}
 file.exists("R/destroy.R")
@@ -59,12 +60,11 @@ However, a version of the file from a commit before the most recent one is desir
 
 ```{r}
 file.remove("R/destroy.R")
-file.exists("R/destroy.R")
 ```
 
 ```{r}
 recover_lost_file(file = "R/destroy.R",
-                  path = "/Users/meerapatel/GitHub/glitter", 
+                  path = getwd(), 
                   sha = "aa448c7de4ead65905dfb3133ec42ac8a6f332fc")
 ```
 

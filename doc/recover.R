@@ -37,6 +37,6 @@ recover_lost_file(file = "/Users/meerapatel/GitHub/packages/glitter/R/destroy.R"
 ## -----------------------------------------------------------------------------
 file.exists("/Users/meerapatel/GitHub/packages/glitter/R/destroy.R")
 
-## ----echo=FALSE,eval=TRUE,message=FALSE---------------------------------------
+## ----echo=FALSE,eval=TRUE,message=FALSE,include=FALSE-------------------------
 file.remove("/Users/meerapatel/GitHub/packages/glitter/R/destroy.R")
 

@@ -49,7 +49,6 @@ add <-
                                            include.dirs = include.dirs,
                                            no.. = no..)
 
-
                 }
 
                 big_files <- list_big_files(mb_threshold = max_mb, path = path_to_root)
@@ -65,12 +64,27 @@ add <-
 
                 } else {
 
+                        if (missing(...) && is.null(pattern)) {
+
+                                command <-
+                                        c(starting_command(path = path_to_root),
+                                          "git add .") %>%
+                                        paste(collapse = "\n")
+
+
+                        } else {
+
                         command <-
                                 c(starting_command(path = path_to_root),
                                   files_to_add %>%
                                           purrr::map(~ sprintf("git add %s", .)) %>%
                                           unlist()) %>%
                                         paste(collapse = "\n")
+
+                        }
+
+
+
                         system(command = command)
 
 

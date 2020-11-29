@@ -268,9 +268,9 @@ push <-
 
 #' @title Clone a Git Repository
 #'
-#' @param remote_url            Web url of repository to clone
+#' @param clone_url             https url of repository to clone
 #' @param destination_path      Path of the destination directory to which the repo will be cloned.
-#'
+#' @param ...                   Tags that can be added to the command
 #' @return
 #' Cloned repo in the path of {destination_path/repo name} if the directory does not exist. Otherwise an error is thrown.
 #'
@@ -280,10 +280,21 @@ push <-
 #' @importFrom purrr map
 
 clone <-
-        function(remote_url, destination_path) {
+        function(clone_url, destination_path, ...) {
+
+                if (!missing(...)) {
+
+                        tags <- unlist(list(...))
+                        tags <- paste(tags, collapse = " ")
+
+                } else {
+
+                        tags <- NULL
+
+                }
 
                 local_repo_path <-
-                        basename(remote_url) %>%
+                        basename(clone_url) %>%
                                 stringr::str_replace_all(pattern = "(^.*)([.]{1}[a-zA-Z]{1,}$)",
                                                          replacement = "\\1") %>%
                                 purrr::map(~paste0(destination_path, "/", .)) %>%
@@ -291,10 +302,14 @@ clone <-
 
                 if (!dir.exists(local_repo_path)) {
 
-                                system(paste0("cd\n",
-                                              "cd ", destination_path,"\n",
-                                              "git clone ", remote_url, "\n"
-                                              ))
+                                system(sprintf(
+                                                "cd\n",
+                                                "cd %s\n",
+                                                "git clone %s %s\n"
+                                              ),
+                                       destination_path,
+                                       clone_url,
+                                       tags)
 
 
                 } else {

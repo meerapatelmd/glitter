@@ -1,17 +1,44 @@
 Type: Package
 Package: glitter
-Title: Send Git commands via the R Console 
+Title: Send Git commands via the R Console
 Version: 0.6.1
-URL: https://patelm9.github.io/glitter/, https://github.com/patelm9/glitter/
-BugReports: https://github.com/patelm9/glitter/issues/ 
 Authors@R:
     person(given = "Meera",
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com")
-Description: This package contains convenience functions to perform basic adds, commits, and pushes directly from the R console. 
+Description: This package contains convenience functions to
+    perform basic adds, commits, and pushes directly from the R console.
+    
 License: Apache License 2.0
-Imports:     Hmisc,    cave,    cli,    devtools,    dplyr,    httr,    jsonlite,    magrittr,    pkgdown,    purrr,    readr,    rlang,    rubix,    secretary,    stringr,    tibble,    tidyr,    usethis,    utils
+URL: https://patelm9.github.io/glitter/,
+    https://github.com/patelm9/glitter/
+BugReports: https://github.com/patelm9/glitter/issues/
+Imports: 
+    cave,
+    cli,
+    devtools,
+    dplyr,
+    Hmisc,
+    httr,
+    jsonlite,
+    magrittr,
+    pkgdown,
+    purrr,
+    readr,
+    rlang,
+    rubix,
+    secretary,
+    stringr,
+    tibble,
+    tidyr,
+    usethis,
+    utils
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: 
+    knitr
 Remotes: 
     meerapatelmd/cave,
     meerapatelmd/rubix,
@@ -19,7 +46,3 @@ Remotes:
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Suggests: 
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr

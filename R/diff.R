@@ -5,20 +5,18 @@
 
 
 diff <-
-        function(path_to_local_repo = NULL) {
+        function(path = NULL) {
 
-                if (is.null(path_to_local_repo)) {
+                if (is.null(path)) {
 
-                        path_to_local_repo <- getwd()
+                        path <- getwd()
 
                 }
 
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
 
                 diffMessage <-
                         system(paste0("cd\n",
-                                      "cd ", path_to_local_repo,"\n",
+                                      "cd ", path,"\n",
                                       "git diff"
                         ), intern = TRUE
                         )

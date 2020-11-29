@@ -4,7 +4,7 @@
 \alias{commit_graph}
 \title{See the history of your commits in a graph}
 \usage{
-commit_graph(path_to_local_repo = NULL, verbose = TRUE)
+commit_graph(path = NULL, verbose = TRUE)
 }
 \description{
 See the history of your commits in a graph

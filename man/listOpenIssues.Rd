@@ -4,7 +4,7 @@
 \alias{listOpenIssues}
 \title{List Open GitHub Issues}
 \usage{
-listOpenIssues(repo = NULL)
+listOpenIssues(path = getwd())
 }
 \arguments{
 \item{repo}{path to the local repo targeted by the function call. If NULL, the function is executed on the working directory}

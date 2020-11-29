@@ -4,7 +4,7 @@
 \alias{checkout_branch}
 \title{Checkout a Branch}
 \usage{
-checkout_branch(branch, path_to_local_repo = NULL)
+checkout_branch(branch, path = NULL)
 }
 \arguments{
 \item{branch}{Name of the new branch}

@@ -1,8 +1,3 @@
-
-
-
-
-
 mk_local_path_if_null <-
         function(path_to_local_repo) {
 

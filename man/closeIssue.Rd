@@ -4,7 +4,7 @@
 \alias{closeIssue}
 \title{Close a GitHub Issue}
 \usage{
-closeIssue(repo = NULL, issueNo, closureMsg)
+closeIssue(path = getwd(), issueNo, closureMsg)
 }
 \description{
 This function closes a GitHub Issue from the R console.

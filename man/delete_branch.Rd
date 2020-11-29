@@ -4,7 +4,7 @@
 \alias{delete_branch}
 \title{Delete a Branch}
 \usage{
-delete_branch(path_to_local_repo = NULL, branch)
+delete_branch(path = NULL, branch)
 }
 \arguments{
 \item{branch}{Name of branch to delete}

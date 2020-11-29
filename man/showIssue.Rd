@@ -4,7 +4,7 @@
 \alias{showIssue}
 \title{Show a GitHub Issue}
 \usage{
-showIssue(repo = NULL, issueNo)
+showIssue(path = getwd(), issueNo)
 }
 \description{
 This function shows a GitHub Issue from the R console.

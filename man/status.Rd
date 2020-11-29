@@ -7,7 +7,7 @@
 status(path = getwd(), verbose = TRUE, header = "Status Response")
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{path}{full path to local repository to be pushed}
 }
 \value{
 If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console

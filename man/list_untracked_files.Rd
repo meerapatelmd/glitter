@@ -4,10 +4,10 @@
 \alias{list_untracked_files}
 \title{Get a list of untracked files in a repo}
 \usage{
-list_untracked_files(path_to_local_repo, verbose = TRUE)
+list_untracked_files(path, verbose = TRUE)
 }
 \arguments{
-\item{path_to_local_repo}{path to local repo}
+\item{path}{path to local repo}
 }
 \value{
 The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.

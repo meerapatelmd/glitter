@@ -20,13 +20,8 @@
 
 
 listOpenIssues <-
-        function(repo = NULL) {
+        function(path = getwd()) {
 
-                if (is.null(repo)) {
-
-                        repo <- getwd()
-
-                }
 
                 system(paste0("cd\n",
                               "cd ", repo,"\n",
@@ -63,13 +58,8 @@ listOpenIssues <-
 #' @importFrom dplyr mutate_all
 
 listClosedIssues <-
-        function(repo = NULL) {
+        function(path = getwd()) {
 
-                if (is.null(repo)) {
-
-                        repo <- getwd()
-
-                }
 
                 system(paste0("cd\n",
                               "cd ", repo,"\n",
@@ -97,15 +87,10 @@ listClosedIssues <-
 #' @export
 
 openIssue <-
-        function(repo = NULL,
+        function(path = getwd(),
                  title,
                  description) {
 
-                if (is.null(repo)) {
-
-                        repo <- getwd()
-
-                }
 
                 prompt <-
                 paste0("cd\n",
@@ -121,15 +106,9 @@ openIssue <-
 #' @export
 
 closeIssue <-
-        function(repo = NULL,
+        function(path = getwd(),
                  issueNo,
                  closureMsg) {
-
-                if (is.null(repo)) {
-
-                        repo <- getwd()
-
-                }
 
                 prompt <-
                         paste0("cd\n",
@@ -145,14 +124,8 @@ closeIssue <-
 #' @export
 
 showIssue <-
-        function(repo = NULL,
+        function(path = getwd(),
                  issueNo) {
-
-                if (is.null(repo)) {
-
-                        repo <- getwd()
-
-                }
 
                 prompt <-
                         paste0("cd\n",

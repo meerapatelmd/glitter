@@ -4,7 +4,7 @@
 \alias{untracked_files}
 \title{List all unstaged files by File Type}
 \usage{
-untracked_files(path_to_local_repo = NULL)
+untracked_files(path = getwd())
 }
 \description{
 List all unstaged files by File Type

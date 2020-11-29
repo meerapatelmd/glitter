@@ -4,7 +4,7 @@
 \alias{unstaged_files}
 \title{List all unstaged files by File Type}
 \usage{
-unstaged_files(path_to_local_repo = NULL)
+unstaged_files(path = getwd())
 }
 \description{
 List all unstaged files by File Type

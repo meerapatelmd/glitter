@@ -6,13 +6,11 @@
 
 branch <-
         function(verbose = TRUE,
-                 path_to_local_repo = NULL) {
-
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
+                 path = NULL) {
 
                 branch_response <-
                         system(paste0("cd\n",
-                                      "cd ", path_to_local_repo,"\n",
+                                      "cd ", path,"\n",
                                       "git branch"),
                                intern = TRUE)
 
@@ -37,20 +35,17 @@ branch <-
 
 
 delete_branch <-
-        function(path_to_local_repo = NULL,
+        function(path = NULL,
                  branch) {
 
-                if (is.null(path_to_local_repo)) {
+                if (is.null(path)) {
 
-                        path_to_local_repo <- getwd()
+                        path <- getwd()
 
                 }
 
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-                stop_if_not_git_repo(path_to_local_repo = path_to_local_repo)
-
                 system(paste0("cd\n",
-                              "cd ", path_to_local_repo,"\n",
+                              "cd ", path,"\n",
                               "git checkout -d ", branch),
                        intern = FALSE)
 
@@ -68,10 +63,7 @@ delete_branch <-
 
 checkout_branch <-
         function(branch,
-                 path_to_local_repo = NULL) {
-
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
-
+                 path = NULL) {
 
                 command <-
                         c(starting_command(path = path),
@@ -97,9 +89,7 @@ checkout_branch <-
 
 checkout_new_branch <-
         function(new_branch,
-                 path_to_local_repo = NULL) {
-
-                mk_local_path_if_null(path_to_local_repo = path_to_local_repo)
+                 path = NULL) {
 
 
                 command <-

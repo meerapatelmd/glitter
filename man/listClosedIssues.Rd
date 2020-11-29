@@ -4,7 +4,7 @@
 \alias{listClosedIssues}
 \title{List Closed Issues}
 \usage{
-listClosedIssues(repo = NULL)
+listClosedIssues(path = getwd())
 }
 \description{
 List Closed Issues

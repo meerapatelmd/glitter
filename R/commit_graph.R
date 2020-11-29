@@ -2,14 +2,14 @@
 #' @export
 
 commit_graph <-
-        function(path_to_local_repo = NULL,
+        function(path = NULL,
                  verbose = TRUE) {
 
-                if (is.null(path_to_local_repo)) {
-                        path_to_local_repo <- getwd()
+                if (is.null(path)) {
+                        path <- getwd()
                 }
 
-                logResponse <- system(paste0("cd\n", "cd ", path_to_local_repo, "\n git log --oneline --graph --all"), intern = TRUE)
+                logResponse <- system(paste0("cd\n", "cd ", path, "\n git log --oneline --graph --all"), intern = TRUE)
 
                 if (verbose) {
                         printMsg(logResponse)

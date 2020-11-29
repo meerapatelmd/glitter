@@ -4,10 +4,10 @@
 \alias{modified_files}
 \title{Get a list of modified files in a repo}
 \usage{
-modified_files(path_to_local_repo = NULL)
+modified_files(path = getwd())
 }
 \arguments{
-\item{path_to_local_repo}{path to local repo}
+\item{path}{path to local repo}
 }
 \value{
 The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.

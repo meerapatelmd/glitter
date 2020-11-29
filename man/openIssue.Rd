@@ -4,7 +4,7 @@
 \alias{openIssue}
 \title{Open a GitHub Issue}
 \usage{
-openIssue(repo = NULL, title, description)
+openIssue(path = getwd(), title, description)
 }
 \description{
 This function opens a GitHub Issue from the R console.

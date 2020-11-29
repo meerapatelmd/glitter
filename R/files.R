@@ -1,7 +1,7 @@
 #' Get a list of modified files in a repo
 #' @description This function takes the git status message and isolates the files that have been modified according to that message.
 #' @return The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
-#' @param path_to_local_repo path to local repo
+#' @param path path to local repo
 #' @importFrom stringr str_replace_all
 #' @importFrom secretary typewrite_italic
 #' @importFrom secretary typewrite_bold
@@ -9,19 +9,14 @@
 #' @export
 
 modified_files <-
-        function(path_to_local_repo = NULL) {
+        function(path = getwd()) {
 
                 .Deprecated()
 
-                if (is.null(path_to_local_repo)) {
-
-                        path_to_local_repo <- getwd()
-
-                }
 
                 #secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
 
-                status_msg <- status(path_to_local_repo = path_to_local_repo)
+                status_msg <- status(path = path)
                 modified_status <- grep("^\tmodified:", status_msg, value = TRUE)
 
                 fns <- vector()
@@ -61,15 +56,12 @@ modified_files <-
 
 
 unstaged_files <-
-        function(path_to_local_repo = NULL) {
+        function(path = getwd()) {
 
                 .Deprecated("lsUnstagedFiles")
 
-                if (is.null(path_to_local_repo)) {
-                        path_to_local_repo <- getwd()
-                }
 
-                status_msg <- status(path_to_local_repo = path_to_local_repo,
+                status_msg <- status(path = path,
                                      verbose = FALSE)
 
                 start_index <- grep("Changes not staged for commit:", status_msg)
@@ -124,12 +116,10 @@ unstaged_files <-
 
 
 untracked_files <-
-        function(path_to_local_repo = NULL) {
-                if (is.null(path_to_local_repo)) {
-                        path_to_local_repo <- getwd()
-                }
+        function(path = getwd()) {
 
-                status_msg <- status(path_to_local_repo = path_to_local_repo,
+
+                status_msg <- status(path = path,
                                      verbose = FALSE)
 
                 start_index <- grep("Untracked files:", status_msg)

@@ -436,7 +436,7 @@ ac_gitignore <-
 #' @title Get the Git status of any local repo using the path
 #' @return
 #' If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console
-#' @param path_to_local_repo full path to local repository to be pushed
+#' @param path full path to local repository to be pushed
 #' @export
 
 
@@ -480,18 +480,18 @@ status <-
 #' @export
 
 remote_url <-
-        function(path_to_local_repo = NULL,
+        function(path = NULL,
                  remote_name = "origin") {
 
-                if (is.null(path_to_local_repo)) {
+                if (is.null(path)) {
 
-                        path_to_local_repo <- getwd()
+                        path <- getwd()
 
                 }
 
                 suppressWarnings(
                 system(paste0("cd\n",
-                              "cd ", path_to_local_repo,"\n",
+                              "cd ", path,"\n",
                               "git remote get-url ", remote_name),
                        ignore.stderr = TRUE,
                        intern = TRUE)

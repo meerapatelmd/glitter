@@ -16,7 +16,7 @@ list_big_files <-
 #' Get a list of modified files in a repo
 #' @description This function takes the git status message and isolates the files that have been modified according to that message.
 #' @return The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
-#' @param path_to_local_repo path to local repo
+#' @param path path to local repo
 #' @importFrom stringr str_replace_all
 #' @importFrom secretary typewrite_italic
 #' @importFrom secretary typewrite_bold
@@ -24,11 +24,11 @@ list_big_files <-
 #' @export
 
 list_modified_files <-
-        function(path_to_local_repo) {
+        function(path) {
                 .Deprecated(new = "lsStagedFiles")
                 secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
 
-                status_msg <- status(path_to_local_repo = path_to_local_repo)
+                status_msg <- status(path = path)
                 modified_status <- grep("^\tmodified:", status_msg, value = TRUE)
 
                 fns <- vector()
@@ -66,7 +66,7 @@ list_modified_files <-
 #' Get a list of untracked files in a repo
 #' @description This function takes the git status message and isolates the files that are new/untracked according to that message.
 #' @return The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.
-#' @param path_to_local_repo path to local repo
+#' @param path path to local repo
 #' @importFrom stringr str_remove_all
 #' @importFrom secretary typewrite_italic
 #' @importFrom secretary typewrite_bold
@@ -74,14 +74,14 @@ list_modified_files <-
 #' @export
 
 list_untracked_files <-
-        function(path_to_local_repo, verbose = TRUE) {
+        function(path, verbose = TRUE) {
 
                 .Deprecated(new = "lsUntrackedFiles")
 
                 if (verbose == TRUE) {
 
                         secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
-                        status_msg <- status(path_to_local_repo = path_to_local_repo)
+                        status_msg <- status(path = path)
 
                         if ("Untracked files:" %in% status_msg) {
 
@@ -114,7 +114,7 @@ list_untracked_files <-
                                 secretary::typewrite_italic("No untracked files in this repo.\n")
                         }
                 } else {
-                        status_msg <- status(path_to_local_repo = path_to_local_repo)
+                        status_msg <- status(path = path)
 
                         if ("Untracked files:" %in% status_msg) {
 

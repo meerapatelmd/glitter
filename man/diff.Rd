@@ -4,7 +4,7 @@
 \alias{diff}
 \title{Git Diff}
 \usage{
-diff(path_to_local_repo = NULL)
+diff(path = NULL)
 }
 \description{
 Show unstaged changes between your index and working directory

@@ -31,5 +31,22 @@ reference:
         - deploy_all
         - deploy_gh_pages
         - deploy_pkg
-
+    - title: Basic Commands
+      contents:
+       - status
+       - root
+       - add
+       - add_all
+       - commit
+       - ac
+       - push
+       - pull
+       - clone
+       - branch
+       - contains("checkout")
+    - title: Add and Commit Specific Files
+      contents:
+       - ac_gitignore
+       - ac_readme
+       - ac_desc
 

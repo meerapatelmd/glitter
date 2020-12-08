@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Make an API Call for a GitHub User's Remote Repositories — get_repos" />
-<meta property="og:description" content="Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as &quot;/id&quot; are mutated with a corresponding &quot;page&quot; field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an &quot;issues_page_url&quot; and a &quot;pages_url&quot; fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the &quot;issues_page_url&quot; path except that no logic is applied since all GitHub repos will have an Issues page by default." />
+<meta property="og:description" content="Make an API call to the GitHub API to retrieve all the repository information for a GitHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as &quot;/id&quot; are mutated with a corresponding &quot;page&quot; field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an &quot;issues_page_url&quot; and a &quot;pages_url&quot; fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the &quot;issues_page_url&quot; path except that no logic is applied since all GitHub repos will have an Issues page by default." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.3</span>
       </span>
     </div>
 
@@ -137,10 +137,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Make an API call to the GitHub API to retrieve all the repository information for a itHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "/id" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
+    <p>Make an API call to the GitHub API to retrieve all the repository information for a GitHub User. All native fields in the JSON response are preserved with all the url fields returned with a terminal curly bracketed field such as "/id" are mutated with a corresponding "page" field with that terminal pattern removed to directly open the path in the browser if desired. Additionally, an "issues_page_url" and a "pages_url" fields are added for a direct url to the repository's issues page and GitHub Pages site, respectively. The url to the GitHub Pages is derived on that condition that the `has_pages` field is TRUE for that repository. The value in this field is `NA` if a GitHub Page does not exist for the repo. The same is done with the "issues_page_url" path except that no logic is applied since all GitHub repos will have an Issues page by default.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_repos</span><span class='op'>(</span><span class='va'>github_user</span>, per_page <span class='op'>=</span> <span class='fl'>100</span>, page <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_repos</span><span class='op'>(</span><span class='va'>github_user</span>, user_only <span class='op'>=</span> <span class='cn'>TRUE</span>, per_page <span class='op'>=</span> <span class='fl'>100</span>, page <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,6 +148,18 @@
     <tr>
       <th>github_user</th>
       <td><p>GitHub username. Enterprise GitHub is not supported.</p></td>
+    </tr>
+    <tr>
+      <th>user_only</th>
+      <td><p>If true, filters out any repos that were forked from another repo before returning value.</p></td>
+    </tr>
+    <tr>
+      <th>per_page</th>
+      <td><p>Query parameter.</p></td>
+    </tr>
+    <tr>
+      <th>page</th>
+      <td><p>Query parameter.</p></td>
     </tr>
     </table>
 

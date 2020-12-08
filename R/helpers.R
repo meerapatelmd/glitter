@@ -1,3 +1,6 @@
+#' @keywords internal
+#' @export
+
 mk_local_path_if_null <-
         function(path_to_local_repo) {
 
@@ -6,7 +9,8 @@ mk_local_path_if_null <-
                 }
         }
 
-
+#' @keywords internal
+#' @export
 
 extend_path <-
         function(...) {
@@ -14,6 +18,8 @@ extend_path <-
                 normalizePath(path = file.path(...), mustWork = TRUE)
         }
 
+#' @keywords internal
+#' @export
 
 starting_command <-
         function(path) {

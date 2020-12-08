@@ -5,8 +5,8 @@
 \title{Deploy a Package and GitHub Pages at Once}
 \usage{
 deploy_all(
+  commit_msg = "deploy pkg and GitHub Pages using glitter",
   path = getwd(),
-  commit_message = "update documentation",
   install = TRUE,
   reset = FALSE,
   has_vignettes = TRUE,
@@ -33,7 +33,7 @@ deploy_all(
 )
 }
 \arguments{
-\item{commit_message}{commit message}
+\item{commit_msg}{commit message}
 
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 

@@ -2,7 +2,11 @@
 
 export("%>%")
 export(ac)
+export(ac_desc)
+export(ac_ff)
 export(ac_gitignore)
+export(ac_readme)
+export(acp)
 export(add)
 export(addToGitIgnore)
 export(add_all)

@@ -5,7 +5,7 @@
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #'
 #' @inheritParams devtools::install_git
-#' @param commit_message        commit message
+#' @param commit_msg        commit message
 #' @param description           description to extend the commit message if desired, Default: NULL
 #' @param install               If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE
 #' @param has_vignettes         If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE
@@ -22,7 +22,7 @@
 
 deploy_pkg <-
         function (
-                commit_message = "update documentation",
+                commit_msg = "deploy pkg using glitter",
                 install = TRUE,
                 reset = FALSE,
                 has_vignettes = TRUE,
@@ -64,7 +64,7 @@ deploy_pkg <-
 
 
                 #Updating and Pushing to GitHub
-                x <- ac(commit_msg = commit_message)
+                x <- ac(commit_msg = commit_msg)
 
                 if (exists("x")) {
 
@@ -128,7 +128,8 @@ deploy_pkg <-
 #' @importFrom pkgdown build_site
 
 deploy_gh_pages <-
-        function(path = getwd(),
+        function(commit_msg = "deploy GitHub Pages using glitter",
+                 path = getwd(),
                  examples = TRUE,
                  run_dont_run = FALSE,
                  seed = 1014,
@@ -181,7 +182,7 @@ deploy_gh_pages <-
                         add("_pkgdown.yml")
 
 
-                        commit(commit_msg = "Deploy GitHub Pages using pkgdown")
+                        commit(commit_msg = commit_msg)
 
                         push()
 
@@ -200,8 +201,8 @@ deploy_gh_pages <-
 #' @export
 
 deploy_all <-
-        function(path = getwd(),
-                 commit_message = "update documentation",
+        function(commit_msg = "deploy pkg and GitHub Pages using glitter",
+                 path = getwd(),
                  install = TRUE,
                  reset = FALSE,
                  has_vignettes = TRUE,
@@ -231,7 +232,7 @@ deploy_all <-
 
                 cli::cat_line()
                 cli::cat_rule("Deploying Package")
-                deploy_pkg(commit_message = commit_message,
+                deploy_pkg(commit_msg = commit_msg,
                            install = install,
                            reset = reset,
                            has_vignettes = has_vignettes,

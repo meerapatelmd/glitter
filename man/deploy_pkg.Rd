@@ -5,7 +5,7 @@
 \title{Deploy a Package}
 \usage{
 deploy_pkg(
-  commit_message = "update documentation",
+  commit_msg = "deploy pkg using glitter",
   install = TRUE,
   reset = FALSE,
   has_vignettes = TRUE,
@@ -25,7 +25,7 @@ deploy_pkg(
 )
 }
 \arguments{
-\item{commit_message}{commit message}
+\item{commit_msg}{commit message}
 
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 

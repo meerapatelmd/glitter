@@ -5,6 +5,7 @@
 \title{Re-Build and Push GitHub Pages}
 \usage{
 deploy_gh_pages(
+  commit_msg = "deploy GitHub Pages using glitter",
   path = getwd(),
   examples = TRUE,
   run_dont_run = FALSE,
@@ -18,6 +19,8 @@ deploy_gh_pages(
 )
 }
 \arguments{
+\item{commit_msg}{commit message}
+
 \item{examples}{Run examples?}
 
 \item{run_dont_run}{Run examples that are surrounded in \\dontrun?}

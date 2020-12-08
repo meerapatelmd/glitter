@@ -8,8 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com",
            comment = c(ORCID = "0000-0002-3401-3948"))
-Description: This package contains convenience functions to
-    perform basic Git commands such as add, commit, and push directly from
+Description: Perform basic Git commands such as add, commit, and push directly from
     the R console. A file recovery feature enables easy retrieval of a previously 
     deleted file directly from the R console. For package deployment, helper functions allow for 
     a concurrent deployment of both a new package release to a GitHub repository 

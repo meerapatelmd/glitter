@@ -9,7 +9,7 @@
 #'  \code{\link[rubix]{filter_at_grepl}}
 #'  \code{\link[tidyr]{extract}}
 #'  \code{\link[dplyr]{filter}}
-#' @rdname list_open_issues
+#' @rdname listOpenIssues
 #' @importFrom tibble tibble
 #' @importFrom rubix filter_at_grepl
 #' @importFrom tidyr extract
@@ -17,7 +17,7 @@
 #' @importFrom magrittr %>%
 #' @export
 
-list_open_issues <-
+listOpenIssues <-
         function(path = getwd()) {
 
 
@@ -38,11 +38,11 @@ list_open_issues <-
                                                grepl_phrase = "[#]{1}.*open issues$",
                                                evaluates_to = FALSE)  %>%
                         tidyr::extract(col = Issues,
-                                       into = c("issue_number",
+                                       into = c("IssueNo",
                                                 "OpenIssue"),
                                        regex = "^[ ]+?([0-9]+?)[ ]+?([^ ]{1}.*$)") %>%
                         #Filter out all NA
-                        dplyr::filter(!is.na(issue_number))
+                        dplyr::filter(!is.na(IssueNo))
 
                 invisible(output)
 
@@ -54,9 +54,8 @@ list_open_issues <-
 #' @importFrom tibble tibble
 #' @importFrom tidyr extract
 #' @importFrom dplyr mutate_all
-#' @rdname list_closed_issues
 
-list_closed_issues <-
+listClosedIssues <-
         function(path = getwd()) {
 
 
@@ -72,7 +71,7 @@ list_closed_issues <-
                                                               "ghi close --list"),
                                                        intern = TRUE)[-1]) %>%
                         tidyr::extract(col = Issues,
-                                       into = c("issue_number",
+                                       into = c("IssueNo",
                                                 "ClosedIssue"),
                                        regex = "(^[ ]{0,}[0-9]{1,}[ ]*?)([a-zA-Z]{1,}.*$)") %>%
                         dplyr::mutate_all(trimws, "both")
@@ -84,12 +83,11 @@ list_closed_issues <-
 #' Open a GitHub Issue
 #' @description This function opens a GitHub Issue from the R console.
 #' @export
-#' @rdname open_issue
 
-open_issue <-
-        function(title,
-                 description,
-                 path = getwd()) {
+openIssue <-
+        function(path = getwd(),
+                 title,
+                 description) {
 
 
                 prompt <-
@@ -104,17 +102,16 @@ open_issue <-
 #' Close a GitHub Issue
 #' @description This function closes a GitHub Issue from the R console.
 #' @export
-#' @rdname close_issue
 
-close_issue <-
-        function(issue_number,
-                 issue_message,
-                 path = getwd()) {
+closeIssue <-
+        function(path = getwd(),
+                 issueNo,
+                 closureMsg) {
 
                 prompt <-
                         paste0("cd\n",
                                "cd ", path,"\n",
-                               "ghi close -m '", issue_message, "' \ '", issue_message, "' ", issue_number)
+                               "ghi close -m '", closureMsg, "' \ '", closureMsg, "' ", issueNo)
 
                 system(prompt)
         }
@@ -123,16 +120,15 @@ close_issue <-
 #' Show a GitHub Issue
 #' @description This function shows a GitHub Issue from the R console.
 #' @export
-#' @rdname show_issue
 
-show_issue <-
-        function(issue_number,
-                 path = getwd()) {
+showIssue <-
+        function(path = getwd(),
+                 issueNo) {
 
                 prompt <-
                         paste0("cd\n",
                                "cd ", path,"\n",
-                               "ghi show ", issue_number)
+                               "ghi show ", issueNo)
 
                 system(prompt)
         }

@@ -18,25 +18,23 @@ URL: https://meerapatelmd.github.io/glitter/,
     https://github.com/meerapatelmd/glitter/
 BugReports: https://github.com/meerapatelmd/glitter/issues/
 Imports: 
+    Hmisc,
     cave,
     cli,
     devtools,
     dplyr,
-    Hmisc,
     httr,
     jsonlite,
     magrittr,
     pkgdown,
     purrr,
-    readr,
     rlang,
     rubix,
     secretary,
     stringr,
     tibble,
     tidyr,
-    usethis,
-    utils
+    usethis
 Suggests: 
     knitr,
     rmarkdown

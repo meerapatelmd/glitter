@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.4</span>
       </span>
     </div>
 
@@ -140,7 +140,7 @@
     <p>Delete a branch.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>delete_branch</span><span class='op'>(</span>path <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>branch</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>delete_branch</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>branch</span>, force <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,6 +148,10 @@
     <tr>
       <th>branch</th>
       <td><p>Name of branch to delete</p></td>
+    </tr>
+    <tr>
+      <th>force</th>
+      <td><p>If TRUE, a `-D` delete is performed in lieu of `-d`</p></td>
     </tr>
     </table>
 

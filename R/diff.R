@@ -5,14 +5,7 @@
 
 
 diff <-
-        function(path = NULL) {
-
-                if (is.null(path)) {
-
-                        path <- getwd()
-
-                }
-
+        function(path = getwd()) {
 
                 diffMessage <-
                         system(paste0("cd\n",

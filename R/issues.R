@@ -1,7 +1,7 @@
 #' @title List Open GitHub Issues
 #' @description
 #' All GitHub Issues functions in this package requires downloading and setting up authorization for \href{https://github.com/stephencelis/ghi}{GHI}.
-#' @param repo path to the local repo targeted by the function call. If NULL, the function is executed on the working directory
+#' @param path path to the local path targeted by the function call. If NULL, the function is executed on the working directory
 #' @return The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.
 #' @details DETAILS
 #' @seealso
@@ -17,14 +17,12 @@
 #' @importFrom magrittr %>%
 #' @export
 
-
-
 listOpenIssues <-
         function(path = getwd()) {
 
 
                 system(paste0("cd\n",
-                              "cd ", repo,"\n",
+                              "cd ", path,"\n",
                               "/usr/local/bin/ghi list"),
                        intern = FALSE)
 
@@ -32,7 +30,7 @@ listOpenIssues <-
                 output <-
                         # Converting the vector of issues into a dataframe
                         tibble::tibble(Issues = system(paste0("cd\n",
-                                                              "cd ", repo,"\n",
+                                                              "cd ", path,"\n",
                                                               "/usr/local/bin/ghi list"),
                                                        intern = TRUE))  %>%
                         # Removing theheader to isolate the issue number and issue name
@@ -62,14 +60,14 @@ listClosedIssues <-
 
 
                 system(paste0("cd\n",
-                              "cd ", repo,"\n",
+                              "cd ", path,"\n",
                               "ghi close --list"),
                        intern = FALSE)
 
 
                 output <-
                         tibble::tibble(Issues = system(paste0("cd\n",
-                                                              "cd ", repo,"\n",
+                                                              "cd ", path,"\n",
                                                               "ghi close --list"),
                                                        intern = TRUE)[-1]) %>%
                         tidyr::extract(col = Issues,
@@ -94,7 +92,7 @@ openIssue <-
 
                 prompt <-
                 paste0("cd\n",
-                       "cd ", repo,"\n",
+                       "cd ", path,"\n",
                        "ghi open -m '", description, "' \ '", title, "'")
 
                 system(prompt)
@@ -112,7 +110,7 @@ closeIssue <-
 
                 prompt <-
                         paste0("cd\n",
-                               "cd ", repo,"\n",
+                               "cd ", path,"\n",
                                "ghi close -m '", closureMsg, "' \ '", closureMsg, "' ", issueNo)
 
                 system(prompt)
@@ -129,7 +127,7 @@ showIssue <-
 
                 prompt <-
                         paste0("cd\n",
-                               "cd ", repo,"\n",
+                               "cd ", path,"\n",
                                "ghi show ", issueNo)
 
                 system(prompt)

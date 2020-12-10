@@ -19,9 +19,7 @@ library(glitter)
 ```
 
 ```{r}
-path <- clone(github_user = "meerapatelmd",
-              repo = "glitter",
-              destination_path = getwd())
+path <- path.expand("~/GitHub/glitter")
 ```
 
 

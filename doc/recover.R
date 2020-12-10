@@ -8,9 +8,7 @@ knitr::opts_chunk$set(
 library(glitter)
 
 ## -----------------------------------------------------------------------------
-path <- clone(github_user = "meerapatelmd",
-              repo = "glitter",
-              destination_path = getwd())
+path <- path.expand("~/GitHub/glitter")
 
 ## ---- eval=TRUE---------------------------------------------------------------
 list_file_commits(file = "R/destroy.R",

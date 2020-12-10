@@ -26,7 +26,7 @@ navbar:
 reference:
     - title: Deployment
       desc: >
-        Deploy the repo as a package, GitHub Page, or both.
+        Deploy a local repo as a package, GitHub Page, or both.
       contents:
         - deploy_all
         - deploy_gh_pages
@@ -42,6 +42,7 @@ reference:
        - push
        - pull
        - clone
+       - log
        - branch
        - contains("checkout")
     - title: Add and Commit Specific Files
@@ -49,4 +50,10 @@ reference:
        - ac_gitignore
        - ac_readme
        - ac_desc
+    - title: Issues
+      contents:
+       - contains("issue")
+    - title: File Recovery
+      contents:
+       - recover_lost_file
 

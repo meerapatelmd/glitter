@@ -287,7 +287,6 @@ push <-
 
 #' @title Clone a Git Repository
 #'
-#' @param clone_url             https url of repository to clone
 #' @param destination_path      Path of the destination directory to which the repo will be cloned.
 #' @return
 #' Cloned repo in the path of {destination_path/repo name} if the directory does not exist. Otherwise an error is thrown.
@@ -298,8 +297,9 @@ push <-
 #' @importFrom purrr map
 
 clone <-
-        function(clone_url, destination_path) {
+        function(github_user, repo, destination_path) {
 
+                clone_url <- sprintf("https://github.com/%s/%s.git", github_user, repo)
 
                 local_repo_path <-
                         basename(clone_url) %>%

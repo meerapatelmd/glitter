@@ -1,3 +1,9 @@
+# glitter 0.6.4  
+
+* Bug fix `issues` functions  
+* Change argument of `clone()` from `clone_url` to github user and repo  
+
+
 # glitter 0.6.2.9000  
 
 * Add filter to `github api` functions for only the github user's repos  

@@ -7,7 +7,7 @@
 listOpenIssues(path = getwd())
 }
 \arguments{
-\item{repo}{path to the local repo targeted by the function call. If NULL, the function is executed on the working directory}
+\item{path}{path to the local path targeted by the function call. If NULL, the function is executed on the working directory}
 }
 \value{
 The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.

@@ -4,11 +4,9 @@
 \alias{clone}
 \title{Clone a Git Repository}
 \usage{
-clone(clone_url, destination_path)
+clone(github_user, repo, destination_path)
 }
 \arguments{
-\item{clone_url}{https url of repository to clone}
-
 \item{destination_path}{Path of the destination directory to which the repo will be cloned.}
 }
 \value{

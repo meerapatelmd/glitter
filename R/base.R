@@ -517,14 +517,8 @@ status <-
 #' @export
 
 remote_url <-
-        function(path = NULL,
+        function(path = getwd(),
                  remote_name = "origin") {
-
-                if (is.null(path)) {
-
-                        path <- getwd()
-
-                }
 
                 suppressWarnings(
                 system(paste0("cd\n",
@@ -539,12 +533,9 @@ remote_url <-
 #' @export
 
 log <-
-        function(repo_path = NULL,
+        function(path = getwd(),
                  verbose = TRUE) {
 
-                if (is.null(repo_path)) {
-                        repo_path <- getwd()
-                }
 
                 logResponse <-
                         system(

@@ -6,7 +6,7 @@
 
 branch <-
         function(verbose = TRUE,
-                 path = NULL) {
+                 path = getwd()) {
 
                 branch_response <-
                         system(paste0("cd\n",
@@ -31,23 +31,32 @@ branch <-
 #' Delete a Branch
 #' @description Delete a branch.
 #' @param branch Name of branch to delete
+#' @param force If TRUE, a `-D` delete is performed in lieu of `-d`
 #' @export
 
 
 delete_branch <-
-        function(path = NULL,
-                 branch) {
+        function(path = getwd(),
+                 branch,
+                 force = FALSE) {
 
-                if (is.null(path)) {
 
-                        path <- getwd()
+                if (force) {
+
+                        system(paste0("cd\n",
+                                      "cd ", path,"\n",
+                                      "git checkout -D ", branch),
+                               intern = FALSE)
+
+
+                } else {
+
+                        system(paste0("cd\n",
+                                      "cd ", path,"\n",
+                                      "git checkout -d ", branch),
+                               intern = FALSE)
 
                 }
-
-                system(paste0("cd\n",
-                              "cd ", path,"\n",
-                              "git checkout -d ", branch),
-                       intern = FALSE)
 
 
         }
@@ -63,7 +72,7 @@ delete_branch <-
 
 checkout_branch <-
         function(branch,
-                 path = NULL) {
+                 path = getwd()) {
 
                 command <-
                         c(starting_command(path = path),
@@ -89,7 +98,7 @@ checkout_branch <-
 
 checkout_new_branch <-
         function(new_branch,
-                 path = NULL) {
+                 path = getwd()) {
 
 
                 command <-

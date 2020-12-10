@@ -4,7 +4,7 @@
 \alias{branch}
 \title{Git Branch}
 \usage{
-branch(verbose = TRUE, path = NULL)
+branch(verbose = TRUE, path = getwd())
 }
 \description{
 Print all the branches and the current branch in a GitHub repository

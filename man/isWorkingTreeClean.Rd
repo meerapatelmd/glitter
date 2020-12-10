@@ -4,10 +4,10 @@
 \alias{isWorkingTreeClean}
 \title{Check whether a commit is needed or not for a given repo}
 \usage{
-isWorkingTreeClean(path_to_local_repo = NULL)
+isWorkingTreeClean(path = getwd())
 }
 \arguments{
-\item{path_to_local_repo}{path to the local repo}
+\item{path}{path to the local repo}
 }
 \description{
 Check whether a commit is needed or not for a given repo

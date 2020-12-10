@@ -4,7 +4,7 @@
 \alias{log}
 \title{Git Log}
 \usage{
-log(repo_path = NULL, verbose = TRUE)
+log(path = getwd(), verbose = TRUE)
 }
 \description{
 Git Log

@@ -4,10 +4,10 @@
 \alias{isUpToDate}
 \title{Is The Repository Up-To-Date?}
 \usage{
-isUpToDate(path_to_local_repo = NULL)
+isUpToDate(path = getwd())
 }
 \arguments{
-\item{path_to_local_repo}{path to local repo}
+\item{path}{path to local repo}
 }
 \description{
 Is The Repository Up-To-Date?

@@ -4,10 +4,10 @@
 \alias{hasRemote}
 \title{Does the GitHub Repo Have a Remote?}
 \usage{
-hasRemote(path_to_local_repo = NULL, remote_name = "origin")
+hasRemote(path = getwd(), remote = "origin")
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{path}{full path to local repository to be pushed}
 }
 \value{
 TRUE if the path has a remote url.

@@ -4,10 +4,10 @@
 \alias{isRepo}
 \title{Is the path a git repo?}
 \usage{
-isRepo(path_to_local_repo = NULL)
+isRepo(path = getwd())
 }
 \arguments{
-\item{path_to_local_repo}{full path to local repository to be pushed}
+\item{path}{full path to local repository to be pushed}
 }
 \value{
 TRUE if the path has an initialized .git.

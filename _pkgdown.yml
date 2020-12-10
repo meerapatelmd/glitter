@@ -36,7 +36,6 @@ reference:
        - status
        - root
        - add
-       - add_all
        - commit
        - ac
        - push

@@ -2,12 +2,9 @@
 #' @export
 
 commit_graph <-
-        function(path = NULL,
+        function(path = getwd(),
                  verbose = TRUE) {
 
-                if (is.null(path)) {
-                        path <- getwd()
-                }
 
                 logResponse <- system(paste0("cd\n", "cd ", path, "\n git log --oneline --graph --all"), intern = TRUE)
 

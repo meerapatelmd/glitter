@@ -1,3 +1,7 @@
+# glitter 1.6.4  
+
+* Remove deprecated functions
+
 # glitter 0.6.4  
 
 * Bug fix `issues` functions  

@@ -322,6 +322,8 @@ clone <-
 
                                 system(command = command)
 
+                                invisible(local_repo_path)
+
 
 
                 } else {

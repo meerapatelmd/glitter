@@ -368,40 +368,77 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(glitter)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>path &lt;-<span class="st"> </span><span class="kw">clone</span>(<span class="dt">github_user =</span> <span class="st">&quot;meerapatelmd&quot;</span>,</span>
+<span id="cb2-2"><a href="#cb2-2"></a>              <span class="dt">repo =</span> <span class="st">&quot;glitter&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>              <span class="dt">destination_path =</span> <span class="kw">getwd</span>())</span></code></pre></div>
 <p>My long lost file from the working directory is <code>R/destroy.R</code>. I then get the commit history of that file using the full path.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">list_file_commits</span>(<span class="dt">file =</span> <span class="st">&quot;R/destroy.R&quot;</span>,</span>
-<span id="cb2-2"><a href="#cb2-2"></a>                  <span class="dt">path =</span> <span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit log --all -- &quot;, file), : running command &#39;cd</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; cd /Users/meerapatel/GitHub/packages/glitter</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; git log --all -- R/destroy.R&#39; had status 128</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">list_file_commits</span>(<span class="dt">file =</span> <span class="st">&quot;R/destroy.R&quot;</span>,</span>
+<span id="cb3-2"><a href="#cb3-2"></a>                  <span class="dt">path =</span> path)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; commit 497ae9652280b2e4ca66effc1c3717eb5d2b0396</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; Date:   Sat Nov 21 02:21:30 2020 -0500</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;     update documentation</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; commit c35f82d0c8f7fb694f8efe7b6b65304867b9c8ac</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; Date:   Fri Nov 20 20:34:05 2020 -0500</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; </span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co">#&gt;     update GitHub Page</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="co">#&gt; </span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">#&gt; commit b33abd4d1c1c3e848846f05588a84b80754f10e0</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Date:   Fri Nov 20 20:33:07 2020 -0500</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; </span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt;     update documentation</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; </span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="co">#&gt; commit ed999d9d11220e4cfcdd9cc18cab5c4d4520f244</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co">#&gt; Date:   Fri Nov 20 20:03:02 2020 -0500</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="co">#&gt; </span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;     remove stale vignettes, add file recovery vignette</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt; </span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; commit 3efedc648e40534927d68b66d8840156abbc6a27</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; Date:   Sat Apr 4 22:13:35 2020 -0400</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt; </span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt;     add filter_repo function, fix bugs for add_some scripts</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="co">#&gt; </span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="co">#&gt; commit aa448c7de4ead65905dfb3133ec42ac8a6f332fc</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="co">#&gt; Date:   Sat Apr 4 18:09:40 2020 -0400</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="co">#&gt; </span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="co">#&gt;     add pretty functions</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="co">#&gt; </span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="co">#&gt; commit 5387519e5d65d8399a56008a385d58cbcf1a6e11</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a><span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="co">#&gt; Date:   Tue Mar 24 02:01:38 2020 -0400</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="co">#&gt; </span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="co">#&gt;     +: initial commit</span></span></code></pre></div>
 <p>By default, this file is recovered using the most recent commit automatically.</p>
 <p>I first check to make sure this file does not already exist.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">file.exists</span>(<span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">file.exists</span>(path_to_file)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>I recover the lost file:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">recover_lost_file</span>(<span class="dt">file =</span> <span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit log --all -- &quot;, file), : running command &#39;cd</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; git log --all -- /Users/meerapatel/GitHub/packages/glitter/R/destroy.R&#39; had status 128</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command &#39;cd</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; git checkout NA^ -- /Users/meerapatel/GitHub/packages/glitter/R/destroy.R&#39; had status 128</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">recover_lost_file</span>(<span class="dt">file =</span> path_to_file)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command &#39;cd</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; git checkout NA^ -- /Users/patelm9/GitHub/glitter/vignettes/glitter/R/destroy.R&#39; had status 128</span></span></code></pre></div>
 <p>QA to make sure that the file now is present:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">file.exists</span>(<span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">file.exists</span>(path_to_file)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 <p>However, a version of the file from a commit before the most recent one is desired, the SHA can be entered to retrieve that version instead.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">file.remove</span>(<span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#&gt; Warning in file.remove(&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;):</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; cannot remove file &#39;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&#39;,</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt; reason &#39;No such file or directory&#39;</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">recover_lost_file</span>(<span class="dt">file =</span> <span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>, </span>
-<span id="cb7-2"><a href="#cb7-2"></a>                  <span class="dt">sha =</span> <span class="st">&quot;aa448c7de4ead65905dfb3133ec42ac8a6f332fc&quot;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command &#39;cd</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- /Users/meerapatel/GitHub/packages/glitter/R/destroy.R&#39; had status 128</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">file.exists</span>(<span class="st">&quot;/Users/meerapatel/GitHub/packages/glitter/R/destroy.R&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">file.remove</span>(path_to_file)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#&gt; Warning in file.remove(path_to_file): cannot remove file &#39;/Users/patelm9/GitHub/</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#&gt; glitter/vignettes/glitter/R/destroy.R&#39;, reason &#39;No such file or directory&#39;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">recover_lost_file</span>(<span class="dt">file =</span> path_to_file, </span>
+<span id="cb8-2"><a href="#cb8-2"></a>                  <span class="dt">sha =</span> <span class="st">&quot;aa448c7de4ead65905dfb3133ec42ac8a6f332fc&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command &#39;cd</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- /Users/patelm9/GitHub/glitter/vignettes/glitter/R/destroy.R&#39; had status 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">file.exists</span>(path_to_file)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#&gt; [1] FALSE</span></span></code></pre></div>
 
 
 

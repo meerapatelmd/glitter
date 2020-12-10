@@ -1,23 +1,14 @@
 #' Does the GitHub Repo Have a Remote?
 #' @return TRUE if the path has a remote url.
-#' @param path_to_local_repo full path to local repository to be pushed
+#' @param path full path to local repository to be pushed
 #' @export
 
 hasRemote <-
-        function(path_to_local_repo = NULL,
-                 remote_name = "origin") {
+        function(path = getwd(),
+                 remote = "origin") {
 
-                if (is.null(path_to_local_repo)) {
-
-                        path_to_local_repo <- getwd()
-
-                }
-
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
-
-
-                x <- remote_url(path_to_local_repo = path_to_local_repo,
-                           remote_name = remote_name)
+                x <- remote_url(path = path,
+                           remote = remote)
 
                 if (length(x) == 0) {
 
@@ -34,22 +25,14 @@ hasRemote <-
 
 #' Is the path a git repo?
 #' @return TRUE if the path has an initialized .git.
-#' @param path_to_local_repo full path to local repository to be pushed
+#' @param path full path to local repository to be pushed
 #' @export
 
 isRepo <-
-        function(path_to_local_repo = NULL) {
-
-                if (is.null(path_to_local_repo)) {
-
-                        path_to_local_repo <- getwd()
-
-                }
-
-                stop_if_dir_not_exist(path_to_local_repo = path_to_local_repo)
+        function(path = getwd()) {
 
                 x <- suppressWarnings(system(paste0("cd\n",
-                       "cd ", path_to_local_repo,"\n",
+                       "cd ", path,"\n",
                        "git status"),
                        ignore.stderr = TRUE,
                        intern = TRUE
@@ -71,12 +54,13 @@ isRepo <-
 
 
 #' Is The Repository Up-To-Date?
-#' @param path_to_local_repo path to local repo
+#' @param path path to local repo
 #' @export
 
 isUpToDate <-
-        function(path_to_local_repo = NULL) {
-                git_msg <- pull(path_to_local_repo = path_to_local_repo,
+        function(path = getwd()) {
+
+                git_msg <- pull(path = path,
                                 verbose = FALSE)
                 if ("Already up to date." %in% git_msg) {
                        TRUE
@@ -90,15 +74,15 @@ isUpToDate <-
 
 
 #' Check whether a commit is needed or not for a given repo
-#' @param path_to_local_repo path to the local repo
+#' @param path path to the local repo
 #' @importFrom secretary typewrite
 #' @export
 
 isWorkingTreeClean <-
-        function(path_to_local_repo = NULL) {
+        function(path = getwd()) {
 
 
-                gitMessage <- status(path_to_local_repo = path_to_local_repo,
+                gitMessage <- status(path = path,
                             verbose = FALSE)
 
                 if ("nothing to commit, working tree clean" %in% gitMessage) {

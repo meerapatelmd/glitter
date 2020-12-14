@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add and Commit FF — ac_ff • glitter</title>
+<title>Parse Response to Git Status — parse_status_response • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Add and Commit FF — ac_ff" />
-<meta property="og:description" content="Add and Commit FF" />
+<meta property="og:title" content="Parse Response to Git Status — parse_status_response" />
+<meta property="og:description" content="Parse the status response received when calling status to filter for new, modified, deleted, staged, and unstaged files." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,18 +131,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add and Commit FF</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/ac.R'><code>R/ac.R</code></a></small>
-    <div class="hidden name"><code>ac_ff.Rd</code></div>
+    <h1>Parse Response to Git Status</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/print.R'><code>R/print.R</code></a></small>
+    <div class="hidden name"><code>parse_status_response.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Add and Commit FF</p>
+    <p>Parse the status response received when calling <code><a href='status.html'>status</a></code> to filter for new, modified, deleted, staged, and unstaged files.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ac_ff</span><span class='op'>(</span><span class='va'>file</span>, <span class='va'>generic_commit_msg</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>parse_status_response</span><span class='op'>(</span><span class='va'>status_response</span><span class='op'>)</span></pre>
 
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of vectors that has split on the following headers: "On branch","Changes to be committed:", "Changes not staged for commit:", "Untracked files:" with headers removed.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://purrr.tidyverse.org/reference/keep.html'>keep</a></code>,<code><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></code>,<code><a href='https://purrr.tidyverse.org/reference/map2.html'>map2</a></code>
+ <code><a href='https://meerapatelmd.github.io/rubix/reference/map_names_set.html'>map_names_set</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

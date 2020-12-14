@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Push a local repo to remote MSK KMI Enterprise GitHub repository — lfs_install_this_repo • glitter</title>
+<title>Install LFS — install_lfs • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Push a local repo to remote MSK KMI Enterprise GitHub repository — lfs_install_this_repo" />
-<meta property="og:description" content="Push a local repo to remote MSK KMI Enterprise GitHub repository" />
+<meta property="og:title" content="Install LFS — install_lfs" />
+<meta property="og:description" content="Install LFS" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,7 +114,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/patelm9/glitter/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -131,22 +131,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Push a local repo to remote MSK KMI Enterprise GitHub repository</h1>
+    <h1>Install LFS</h1>
     <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/lfs.R'><code>R/lfs.R</code></a></small>
-    <div class="hidden name"><code>lfs_install_this_repo.Rd</code></div>
+    <div class="hidden name"><code>install_lfs.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Push a local repo to remote MSK KMI Enterprise GitHub repository</p>
+    <p>Install LFS</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lfs_install_this_repo</span><span class='op'>(</span>large_file_extensions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"xlsx"</span>, <span class='st'>"csv"</span>, <span class='st'>"RData"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>install_lfs</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, lfs_ext <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"xlsx"</span>, <span class='st'>"csv"</span>, <span class='st'>"RData"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>large_file_extensions</th>
+      <th>lfs_ext</th>
       <td><p>extensions of files that will be large and will need to be tracked using the lfs</p></td>
     </tr>
     </table>

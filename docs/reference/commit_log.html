@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>See the history of your commits in a graph — commit_graph • glitter</title>
+<title>See Commit Log — commit_log • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="See the history of your commits in a graph — commit_graph" />
-<meta property="og:description" content="See the history of your commits in a graph" />
+<meta property="og:title" content="See Commit Log — commit_log" />
+<meta property="og:description" content="See the history of all the commits that have been made in the console. The history is also parsed and invisibly returned as a dataframe with `sha` and `commit_msg` fields." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">glitter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.7.0</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -114,7 +114,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/patelm9/glitter/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -131,16 +131,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>See the history of your commits in a graph</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/commit_graph.R'><code>R/commit_graph.R</code></a></small>
-    <div class="hidden name"><code>commit_graph.Rd</code></div>
+    <h1>See Commit Log</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/commit_log.R'><code>R/commit_log.R</code></a></small>
+    <div class="hidden name"><code>commit_log.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See the history of your commits in a graph</p>
+    <p>See the history of all the commits that have been made in the console. The history is also parsed and invisibly returned as a dataframe with `sha` and `commit_msg` fields.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>commit_graph</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>commit_log</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, verbose <span class='op'>=</span> <span class='cn'>TRUE</span>, remove <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
 
 

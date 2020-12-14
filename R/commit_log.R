@@ -1,4 +1,10 @@
-#' See the history of your commits in a graph
+#' @title
+#' See Commit Log
+#'
+#' @description
+#' See the history of all the commits that have been made in the console. The history is also parsed and invisibly returned as a dataframe with `sha` and `commit_msg` fields.
+#'
+#' @rdname commit_log
 #' @export
 
 commit_log <-

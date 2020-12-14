@@ -19,6 +19,7 @@
 #' @rdname deploy_pkg
 #' @export
 #' @importFrom devtools document build_vignettes install_git
+#' @importFrom magrittr %>%
 
 deploy_pkg <-
         function (
@@ -126,7 +127,7 @@ deploy_pkg <-
 #' @export
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site
-
+#' @importFrom magrittr %>%
 deploy_gh_pages <-
         function(commit_msg = "deploy GitHub Pages using glitter",
                  path = getwd(),
@@ -199,7 +200,7 @@ deploy_gh_pages <-
 #'  \code{\link[pkgdown]{build_site}}
 #' @rdname deploy_all
 #' @export
-
+#' @importFrom magrittr %>%
 deploy_all <-
         function(commit_msg = "deploy pkg and GitHub Pages using glitter",
                  path = getwd(),

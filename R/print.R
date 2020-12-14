@@ -61,20 +61,37 @@ parseStatusMessage <-
 
 
 
-#' Print the Command Line Response
+#' @title
+#' (Deprecated) Print the Command Line Response
 #' @description This function prints any command line response from a glitter function if the response is of length greater than 0.
 #' @param git_msg Output from a glitter function.
-#' @export
-
+#' @noRd
 
 printMsg <-
         function(git_msg) {
+
+                .Deprecated("print_response")
                 if (length(git_msg)) {
                         cat(git_msg, sep = "\n")
                 }
         }
 
 
+#' @title
+#' Print the Command Line Response
+#' @description
+#' Print a command line response from a \code{\link{glitter}} function.
+#' @param git_response Output after a git command is sent to the command line.
+#' @export
+#' @rdname print_response
 
+print_response <-
+        function(git_response) {
+                if (length(git_response) > 0) {
+                        cat(git_response, sep = "\n")
+                } else {
+                        cat(secretary::italicize("No response present"), sep = "\n")
+                }
+        }
 
 

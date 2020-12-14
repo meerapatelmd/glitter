@@ -1,6 +1,6 @@
-#' @title List Open GitHub Issues
+#' @title (Deprecated) List Open GitHub Issues
 #' @description
-#' All GitHub Issues functions in this package requires downloading and setting up authorization for \href{https://github.com/stephencelis/ghi}{GHI}.
+#' (Deprecated) All GitHub Issues functions in this package requires downloading and setting up authorization for \href{https://github.com/stephencelis/ghi}{GHI}.
 #' @param path path to the local path targeted by the function call. If NULL, the function is executed on the working directory
 #' @return The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.
 #' @details DETAILS
@@ -20,6 +20,7 @@
 listOpenIssues <-
         function(path = getwd()) {
 
+                .Deprecated()
 
                 system(paste0("cd\n",
                               "cd ", path,"\n",
@@ -48,16 +49,19 @@ listOpenIssues <-
 
         }
 
-#' List Closed Issues
+#' (Deprecated) List Closed Issues
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom tibble tibble
 #' @importFrom tidyr extract
 #' @importFrom dplyr mutate_all
+#' @description
+#' (Deprecated)
 
 listClosedIssues <-
         function(path = getwd()) {
 
+                .Deprecated()
 
                 system(paste0("cd\n",
                               "cd ", path,"\n",
@@ -80,8 +84,8 @@ listClosedIssues <-
         }
 
 
-#' Open a GitHub Issue
-#' @description This function opens a GitHub Issue from the R console.
+#' (Deprecated) Open a GitHub Issue
+#' @description (Deprecated) This function opens a GitHub Issue from the R console.
 #' @export
 
 openIssue <-
@@ -89,6 +93,7 @@ openIssue <-
                  title,
                  description) {
 
+                .Deprecated()
 
                 prompt <-
                 paste0("cd\n",
@@ -99,14 +104,16 @@ openIssue <-
         }
 
 
-#' Close a GitHub Issue
-#' @description This function closes a GitHub Issue from the R console.
+#' (Deprecated) Close a GitHub Issue
+#' @description (Deprecated) This function closes a GitHub Issue from the R console.
 #' @export
 
 closeIssue <-
         function(path = getwd(),
                  issueNo,
                  closureMsg) {
+
+                .Deprecated()
 
                 prompt <-
                         paste0("cd\n",
@@ -117,13 +124,15 @@ closeIssue <-
         }
 
 
-#' Show a GitHub Issue
-#' @description This function shows a GitHub Issue from the R console.
+#' (Deprecated) Show a GitHub Issue
+#' @description (Deprecated) This function shows a GitHub Issue from the R console.
 #' @export
 
 showIssue <-
         function(path = getwd(),
                  issueNo) {
+
+                .Deprecated()
 
                 prompt <-
                         paste0("cd\n",

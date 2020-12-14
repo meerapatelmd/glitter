@@ -4,9 +4,9 @@
 \alias{list_modified_files}
 \title{Get a list of modified files in a repo}
 \usage{
-list_modified_files(path)
+list_modified_files(path = getwd())
 
-list_modified_files(path)
+list_modified_files(path = getwd())
 }
 \arguments{
 \item{path}{path to local repo}

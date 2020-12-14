@@ -4,13 +4,10 @@
 \alias{list_untracked_files}
 \title{Get a list of untracked files in a repo}
 \usage{
-list_untracked_files(path, verbose = TRUE)
+list_untracked_files(path = getwd(), verbose = TRUE)
 }
 \arguments{
 \item{path}{path to local repo}
-}
-\value{
-The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.
 }
 \description{
 This function takes the git status message and isolates the files that are new/untracked according to that message.

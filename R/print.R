@@ -60,9 +60,11 @@ parseStatusMessage <-
 
         }
 
-#' @title Parse Status Message
+#' @title
+#' Parse Response to Git Status
+#'
 #' @description
-#' This function parses the status message returned as a vector when calling the status() function
+#' Parse the status response received when calling \code{\link{status}} to filter for new, modified, deleted, staged, and unstaged files.
 #'
 #' @return
 #' A list of vectors that has split on the following headers: "On branch","Changes to be committed:", "Changes not staged for commit:", "Untracked files:" with headers removed.
@@ -71,7 +73,7 @@ parseStatusMessage <-
 #'  \code{\link[purrr]{keep}},\code{\link[purrr]{map}},\code{\link[purrr]{map2}}
 #'  \code{\link[rubix]{map_names_set}}
 #'
-#' @rdname parseStatusMessage
+#' @rdname parse_status_response
 #'
 #' @export
 #'
@@ -80,44 +82,61 @@ parseStatusMessage <-
 #' @importFrom rubix map_names_set
 
 
-parseStatusMessage <-
-        function(statusMessage) {
-
-                .Deprecated("parse_status_response")
-
+parse_status_response <-
+        function(status_response) {
 
                 # Subset core sections in the status message instance
                 sections <-
                         #Core Sections
-                        c("On branch",
-                          "Changes to be committed:",
-                          "Changes not staged for commit:",
-                          "Untracked files:") %>%
-                        purrr::keep(~any(grepl(., statusMessage))) %>%
+                        c("^On branch",
+                          "^Changes to be committed:$",
+                          "^Changes not staged for commit:$",
+                          "^Untracked files:$") %>%
+                        purrr::map(~ grep(pattern = .,
+                                          x = status_response)) %>%
+                        purrr::set_names(c("Branch",
+                                           "Staged",
+                                           "Unstaged",
+                                           "Untracked"))
+
+                indexes <-
+                sections %>%
+                        purrr::keep(~ length(.) > 0) %>%
                         unlist()
+                starting <- indexes
+                ending <- c(indexes[-1], length(status_response))
+                names(ending) <- names(starting)
 
+                output <- list()
+                for (i in seq_along(starting)) {
+                        nm <- names(starting)[i]
+                        start <- starting[i]
+                        end <- ending[i]
 
-                starting_indices <-
-                        sections %>%
-                        rubix::map_names_set(function(x) grep(x, statusMessage)) %>%
-                        unlist()
+                        section <- status_response[start:end]
+                        # section <- section[!(section %in%
+                        #                 c("",
+                        #                   sections,
+                        #                   "  (use \"git push\" to publish your local commits)",
+                        #                   "  (use \"git restore <file>...\" to discard changes in working directory)",
+                        #                   "  (use \"git reset HEAD <file>...\" to unstage)",
+                        #                   "  (use \"git add <file>...\" to update what will be committed)",
+                        #                   "  (use \"git add/rm <file>...\" to update what will be committed)",
+                        #                   "  (use \"git checkout -- <file>...\" to discard changes in working directory)",
+                        #                   "  (use \"git add <file>...\" to include in what will be committed)"))]
 
-                ending_indices <-
-                        c(starting_indices[2:length(starting_indices)], length(statusMessage)) %>%
-                        purrr::map(~.-1) %>%
-                        unlist()
+                        section <- grep(pattern =  '^On branch|^Changes to be committed:$|^Changes not staged for commit:$|^Untracked files:$|(use \"git .*)|^$',
+                                        x = section,
+                                        value = TRUE,
+                                        ignore.case = FALSE,
+                                        invert = TRUE)
 
-                starting_indices %>%
-                        purrr::map2(ending_indices,
-                                    function(x,y) statusMessage[x:y]) %>%
-                        purrr::map(~.[!(. %in% c("",
-                                                 sections,
-                                                 "  (use \"git reset HEAD <file>...\" to unstage)",
-                                                 "  (use \"git add <file>...\" to update what will be committed)",
-                                                 "  (use \"git add/rm <file>...\" to update what will be committed)",
-                                                 "  (use \"git checkout -- <file>...\" to discard changes in working directory)",
-                                                 "  (use \"git add <file>...\" to include in what will be committed)"))])
+                         output[[i]] <- section
+                        names(output)[i] <- nm
 
+                }
+
+                output
 
         }
 

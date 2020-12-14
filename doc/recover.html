@@ -318,7 +318,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb3-2" data-line-number="2">                  <span class="dt">path =</span> path)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit log --all -- &quot;, file), : running command 'cd</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; cd /Users/meerapatel/GitHub/glitter</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; git log --all -- R/destroy.R' had status 128</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; git log --all -- R/destroy.R' had status 128</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; No response present</span></a></code></pre></div>
 <p>By default, this file is recovered using the most recent commit automatically.</p>
 <p>I first check to make sure this file does not already exist.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">file.exists</span>(path_to_file)</a>
@@ -330,7 +331,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; git log --all -- /Users/meerapatel/GitHub/glitter/R/destroy.R' had status 128</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command 'cd</span></a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; cd /Users/meerapatel/GitHub/packages/glitter/vignettes</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; git checkout NA^ -- /Users/meerapatel/GitHub/glitter/R/destroy.R' had status 128</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; git checkout NA^ -- /Users/meerapatel/GitHub/glitter/R/destroy.R' had status 128</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; Warning: 'printMsg' is deprecated.</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; Use 'print_response' instead.</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; See help(&quot;Deprecated&quot;)</span></a></code></pre></div>
 <p>QA to make sure that the file now is present:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">file.exists</span>(path_to_file)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
@@ -343,7 +347,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb8-2" data-line-number="2">                  <span class="dt">sha =</span> <span class="st">&quot;aa448c7de4ead65905dfb3133ec42ac8a6f332fc&quot;</span>)</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; Warning in system(paste0(&quot;cd\ncd &quot;, path, &quot;\ngit checkout &quot;, sha, &quot;^ -- &quot;, : running command 'cd</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; cd /Users/meerapatel/GitHub/packages/glitter/vignettes</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- /Users/meerapatel/GitHub/glitter/R/destroy.R' had status 128</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- /Users/meerapatel/GitHub/glitter/R/destroy.R' had status 128</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt; Warning: 'printMsg' is deprecated.</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; Use 'print_response' instead.</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; See help(&quot;Deprecated&quot;)</span></a></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">file.exists</span>(path_to_file)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
 

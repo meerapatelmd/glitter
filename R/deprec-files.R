@@ -1,5 +1,5 @@
-#' Get a list of modified files in a repo
-#' @description This function takes the git status message and isolates the files that have been modified according to that message.
+#' (Deprecated) Get a list of modified files in a repo
+#' @description (Deprecated) This function takes the git status message and isolates the files that have been modified according to that message.
 #' @return The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
 #' @param path path to local repo
 #' @importFrom stringr str_replace_all
@@ -11,7 +11,7 @@
 modified_files <-
         function(path = getwd()) {
 
-                .Deprecated()
+                .Deprecated("list_modified_files")
 
 
                 #secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
@@ -45,7 +45,7 @@ modified_files <-
 
 
 
-#' List all unstaged files by File Type
+#' (Deprecated) List all unstaged files by File Type
 #' @importFrom tibble tibble
 #' @importFrom rubix split_deselect
 #' @importFrom Hmisc capitalize
@@ -58,7 +58,7 @@ modified_files <-
 unstaged_files <-
         function(path = getwd()) {
 
-                .Deprecated("lsUnstagedFiles")
+                .Deprecated("list_unstaged_files")
 
 
                 status_msg <- status(path = path,
@@ -105,7 +105,7 @@ unstaged_files <-
 
 
 
-#' List all unstaged files by File Type
+#' (Deprecated) List all unstaged files by File Type
 #' @importFrom tibble tibble
 #' @importFrom rubix split_deselect
 #' @importFrom Hmisc capitalize
@@ -118,6 +118,7 @@ unstaged_files <-
 untracked_files <-
         function(path = getwd()) {
 
+                .Deprecated("list_untracked_files")
 
                 status_msg <- status(path = path,
                                      verbose = FALSE)

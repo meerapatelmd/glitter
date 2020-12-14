@@ -2,10 +2,10 @@
 % Please edit documentation in R/file_tracking.R
 \name{last_file_commit}
 \alias{last_file_commit}
-\title{Commit History of a File}
+\title{SHA of a File's Last Commit}
 \usage{
 last_file_commit(file, path = getwd())
 }
 \description{
-This function can be especially useful in cases where a deleted files is being tracked down.
+SHA of a File's Last Commit
 }

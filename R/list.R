@@ -18,44 +18,52 @@ list_big_files <-
 #' @return The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
 #' @param path path to local repo
 #' @importFrom stringr str_replace_all
-#' @importFrom secretary typewrite_italic
-#' @importFrom secretary typewrite_bold
-#' @keywords internal
 #' @export
 
 list_modified_files <-
-        function(path) {
-                .Deprecated(new = "lsStagedFiles")
-                secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
+        function(path = getwd()) {
+                status_response <- status(path = path,
+                                          verbose = FALSE)
+                parsed <- parse_status_response(status_response)
+                parsed <- unlist(parsed[!(names(parsed) %in% "Branch")])
+                parsed <- trimws(parsed)
+                parsed <- unname(parsed)
 
-                status_msg <- status(path = path)
-                modified_status <- grep("^\tmodified:", status_msg, value = TRUE)
-
-                fns <- vector()
-                while (length(modified_status) > 0) {
-                        modified_file <- modified_status[1]
-                        fn <- stringr::str_replace_all(modified_file,
-                                                       pattern = "(^\tmodified:[ ]*)([^ ]{1}.*$)",
-                                                       "\\2")
-
-                        fns <- c(fns, fn)
-                        modified_status <- modified_status[-1]
-                }
-
-                if (length(fns) > 0) {
-                        secretary::typewrite_bold("\nModified Files:", line_number = 0, add_to_readme = FALSE)
-                        pretty_if_exists(fns)
-                        invisible(fns)
-                } else {
-                        invisible(NULL)
-                        secretary::typewrite_italic("No modified files in this repo.\n")
-                }
+                files <-
+                grep(pattern = "modified:",
+                     x = parsed,
+                     value = TRUE)
+                files <- stringr::str_replace_all(string = files,
+                                                  pattern = "(modified:)[ ]{1,}([^ ]{1,}.*$)",
+                                                  replacement = "\\2")
+                files
         }
 
 
 
 
+#' Get a list of deleted files in a repo
+#' @importFrom stringr str_replace_all
+#' @export
 
+list_deleted_files <-
+        function(path = getwd()) {
+                status_response <- status(path = path,
+                                          verbose = FALSE)
+                parsed <- parse_status_response(status_response)
+                parsed <- unlist(parsed[!(names(parsed) %in% "Branch")])
+                parsed <- trimws(parsed)
+                parsed <- unname(parsed)
+
+                files <-
+                        grep(pattern = "deleted:",
+                             x = parsed,
+                             value = TRUE)
+                files <- stringr::str_replace_all(string = files,
+                                                  pattern = "(deleted:)[ ]{1,}([^ ]{1,}.*$)",
+                                                  replacement = "\\2")
+                files
+        }
 
 
 
@@ -64,8 +72,8 @@ list_modified_files <-
 
 
 #' Get a list of untracked files in a repo
-#' @description This function takes the git status message and isolates the files that are new/untracked according to that message.
-#' @return The complete git status message and untracked files are printed in the console, and a vector of the untracked filenames is invisibly returned.
+#' @description
+#' This function takes the git status message and isolates the files that are new/untracked according to that message.
 #' @param path path to local repo
 #' @importFrom stringr str_remove_all
 #' @importFrom secretary typewrite_italic
@@ -74,82 +82,69 @@ list_modified_files <-
 #' @export
 
 list_untracked_files <-
-        function(path, verbose = TRUE) {
+        function(path = getwd(), verbose = TRUE) {
 
-                .Deprecated(new = "lsUntrackedFiles")
+                status_response <- status(path = path,
+                                          verbose = FALSE)
+                parsed <- parse_status_response(status_response = status_response)
+                output <- parsed[names(parsed) %in% "Untracked"]
 
-                if (verbose == TRUE) {
-
-                        secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
-                        status_msg <- status(path = path)
-
-                        if ("Untracked files:" %in% status_msg) {
-
-                                ##Creating a draft to string search against
-                                status_msg_draft <- status_msg
-
-                                ##Breaking the Untracked Files section into header, filenames, and footer,
-                                ##First getting header line numbers
-                                start_line <- grep("Untracked files:", status_msg_draft) ##Getting the starting line of the git untracked file message
-                                next_blank_line <- start_line + 2 #including the blank line because the next blank line will be the end
-
-                                ##Getting footer line numbers
-                                status_msg_draft <-
-                                        status_msg_draft[-(1:next_blank_line)]
-                                ending_blank_line <- grep("\t", status_msg_draft, invert = TRUE)[1] + next_blank_line
-
-                                ##Getting exclusive lines between the header and footer
-                                output <-
-                                        status_msg[(next_blank_line+1):
-                                                           (ending_blank_line-1)]
-
-                                ##Cleaning up names
-                                output <- stringr::str_remove_all(output, "[\t\r\n]")
-
-                                secretary::typewrite_bold("\nUntracked Files:", line_number = 0, add_to_readme = FALSE)
-                                pretty_if_exists(output)
-                                invisible(output)
-
-                        } else {
-                                secretary::typewrite_italic("No untracked files in this repo.\n")
-                        }
+                if (length(output) > 0) {
+                        output <- unlist(output)
+                        output <- unname(output)
+                        trimws(output)
                 } else {
-                        status_msg <- status(path = path)
-
-                        if ("Untracked files:" %in% status_msg) {
-
-                                ##Creating a draft to string search against
-                                status_msg_draft <- status_msg
-
-                                ##Breaking the Untracked Files section into header, filenames, and footer,
-                                ##First getting header line numbers
-                                start_line <- grep("Untracked files:", status_msg_draft) ##Getting the starting line of the git untracked file message
-                                next_blank_line <- start_line + 2 #including the blank line because the next blank line will be the end
-
-                                ##Getting footer line numbers
-                                status_msg_draft <-
-                                        status_msg_draft[-(1:next_blank_line)]
-                                ending_blank_line <- grep("\t", status_msg_draft, invert = TRUE)[1] + next_blank_line
-
-                                ##Getting exclusive lines between the header and footer
-                                output <-
-                                        status_msg[(next_blank_line+1):
-                                                           (ending_blank_line-1)]
-
-                                ##Cleaning up names
-                                output <- stringr::str_remove_all(output, "[\t\r\n]")
-
-                                #secretary::typewrite_bold("\nUntracked Files:", line_number = 0, add_to_readme = FALSE)
-                                #pretty_if_exists(output)
-                                return(output)
-
-                        }
-
+                        cat(secretary::italicize("No untracked files found."))
                 }
         }
 
 
 
 
+#' Get a list of unstaged files in a repo
+#' @export
 
+list_unstaged_files <-
+        function(path = getwd(), verbose = TRUE) {
 
+                status_response <- status(path = path,
+                                          verbose = FALSE)
+                parsed <- parse_status_response(status_response = status_response)
+                output <- parsed[names(parsed) %in% "Unstaged"]
+
+                if (length(output) > 0) {
+                        output <- unlist(output)
+                        output <- unname(output)
+                        output <-
+                        stringr::str_replace_all(string = output,
+                                                 pattern = "(^.*[:]{1}[ ]{1,})([^ ]{1}.*$)",
+                                                 replacement = "\\2")
+                        trimws(output)
+                } else {
+                        cat(secretary::italicize("No unstaged files found."))
+                }
+        }
+
+#' Get a list of Staged files in a repo
+#' @export
+
+list_staged_files <-
+        function(path = getwd(), verbose = TRUE) {
+
+                status_response <- status(path = path,
+                                          verbose = FALSE)
+                parsed <- parse_status_response(status_response = status_response)
+                output <- parsed[names(parsed) %in% "Staged"]
+
+                if (length(output) > 0) {
+                        output <- unlist(output)
+                        output <- unname(output)
+                        output <-
+                                stringr::str_replace_all(string = output,
+                                                         pattern = "(^.*[:]{1}[ ]{1,})([^ ]{1}.*$)",
+                                                         replacement = "\\2")
+                        trimws(output)
+                } else {
+                        cat(secretary::italicize("No staged files found."))
+                }
+        }

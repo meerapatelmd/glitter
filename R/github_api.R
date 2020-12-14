@@ -28,7 +28,7 @@
 
 
 get_repos <-
-        function(github_user,
+        function(github_user = "meerapatelmd",
                  user_only = TRUE,
                  per_page = 100,
                  page = 1) {
@@ -111,12 +111,33 @@ get_repos <-
 #' @rdname get_repo_tags
 
 get_repo_tags <-
-        function(github_user,
-                 repo) {
+        function(github_user = "meerapatelmd",
+                 repo = basename(getwd())) {
 
                 httr::GET(sprintf("https://api.github.com/repos/%s/%s/tags", github_user, repo)) %>%
                         httr::content(type = "application/json", as = "text", encoding = "UTF-8") %>%
                         jsonlite::fromJSON()
+
+        }
+
+
+#' @title
+#' List the Tagged Versions of a Repo
+#'
+#'
+#' @importFrom httr GET content
+#' @importFrom jsonlite fromJSON
+#' @export
+#' @rdname get_repo_tags
+
+list_repo_version <-
+        function(github_user = "meerapatelmd",
+                 repo = basename(getwd())) {
+
+                get_repo_tags(github_user,
+                              repo = repo) %>%
+                        dplyr::select(name) %>%
+                        unlist()
 
         }
 
@@ -133,8 +154,8 @@ get_repo_tags <-
 #' @rdname is_repo_unreleased
 
 is_repo_unreleased <-
-        function(github_user,
-                 repo) {
+        function(github_user = "meerapatelmd",
+                 repo = basename(getwd())) {
 
                 output <- get_repo_tags(github_user = github_user,
                                         repo = repo)
@@ -171,8 +192,8 @@ is_repo_unreleased <-
 #' @importFrom dplyr filter
 
 get_repo_info <-
-        function(github_user,
-                 repo,
+        function(github_user = "meerapatelmd",
+                 repo = basename(getwd()),
                  as_list = FALSE) {
 
                 output <-
@@ -194,8 +215,8 @@ get_repo_info <-
 #' @export
 
 browse_issues <-
-        function(github_user,
-                 repo,
+        function(github_user = "meerapatelmd",
+                 repo = basename(getwd()),
                  issue_no = NULL) {
 
                 if (is.null(issue_no)) {

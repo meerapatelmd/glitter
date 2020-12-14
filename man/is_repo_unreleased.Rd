@@ -4,7 +4,7 @@
 \alias{is_repo_unreleased}
 \title{Is a Repository Unreleased?}
 \usage{
-is_repo_unreleased(github_user, repo)
+is_repo_unreleased(github_user = "meerapatelmd", repo = basename(getwd()))
 }
 \description{
 Executes \code{\link{get_repo_tags}} and returns `TRUE` if the row count is 0 and `FALSE` otherwise. If all the Tag Data is desired, run \code{\link{get_repo_tags}} directly.

@@ -4,7 +4,11 @@
 \alias{get_repo_info}
 \title{Get Information about GitHub Repository}
 \usage{
-get_repo_info(github_user, repo, as_list = FALSE)
+get_repo_info(
+  github_user = "meerapatelmd",
+  repo = basename(getwd()),
+  as_list = FALSE
+)
 }
 \arguments{
 \item{github_user}{GitHub username. Enterprise GitHub is not supported.}

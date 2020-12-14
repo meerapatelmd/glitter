@@ -2,9 +2,12 @@
 % Please edit documentation in R/github_api.R
 \name{get_repo_tags}
 \alias{get_repo_tags}
+\alias{list_repo_version}
 \title{Get Tags/Release Data for a Repo}
 \usage{
-get_repo_tags(github_user, repo)
+get_repo_tags(github_user = "meerapatelmd", repo = basename(getwd()))
+
+list_repo_version(github_user = "meerapatelmd", repo = basename(getwd()))
 }
 \description{
 Returns all the tag history for a repository. See \code{\link{is_repo_unreleased}} if you want to know whether or not a release/tag has ever been made to this repository.

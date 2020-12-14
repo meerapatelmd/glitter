@@ -37,3 +37,13 @@ ac_readme <-
         ac_ff(file = "README.md",
               generic_commit_msg = "update README.md")
 
+#' @title
+#' Add and Commit Pkgdown YAML
+#'
+#' @rdname ac_pkgdown_yml
+#' @export
+
+ac_pkgdown_yml <-
+        ac_ff(file = "_pkgdown.yml",
+              generic_commit_msg = "update pkgdown yaml")
+

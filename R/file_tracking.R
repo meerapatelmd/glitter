@@ -12,14 +12,14 @@ list_file_commits <-
                                intern = TRUE)
 
                 if (verbose) {
-                        printMsg(logResponse)
+                        print_response(logResponse)
                 }
 
                 invisible(logResponse)
         }
 
-#' Commit History of a File
-#' @description This function can be especially useful in cases where a deleted files is being tracked down.
+#' @title
+#' SHA of a File's Last Commit
 #' @export
 
 last_file_commit <-

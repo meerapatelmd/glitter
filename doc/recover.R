@@ -8,7 +8,7 @@ knitr::opts_chunk$set(
 library(glitter)
 
 ## -----------------------------------------------------------------------------
-path <- path.expand("~/GitHub/glitter")
+path <- path.expand("~/GitHub/packages/glitter")
 
 ## ---- eval=TRUE---------------------------------------------------------------
 list_file_commits(file = "R/destroy.R",

@@ -19,7 +19,7 @@ library(glitter)
 ```
 
 ```{r}
-path <- path.expand("~/GitHub/glitter")
+path <- path.expand("~/GitHub/packages/glitter")
 ```
 
 

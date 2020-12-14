@@ -1,7 +1,7 @@
 Type: Package
 Package: glitter
 Title: Send Git commands via the R Console
-Version: 1.6.4
+Version: 0.7.0
 Authors@R: 
     person(given = "Meera",
            family = "Patel, MD",

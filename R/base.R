@@ -11,6 +11,7 @@
 #' @importFrom secretary magentaTxt press_enter
 #' @importFrom rlang list2
 #' @importFrom purrr map
+#' @importFrom magrittr %>%
 
 
 add <-
@@ -75,7 +76,7 @@ add <-
                         } else {
 
                         command <-
-                                c(starting_command(path = path_to_root),
+                                c(sprintf("cd\ncd %s\n",path_to_root),
                                   files_to_add %>%
                                           purrr::map(~ sprintf("git add %s", .)) %>%
                                           unlist()) %>%
@@ -477,7 +478,6 @@ ac_gitignore <-
 #' If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console
 #' @param path full path to local repository to be pushed
 #' @export
-#' @importFrom magrittr %>%
 
 
 status <-
@@ -485,10 +485,7 @@ status <-
                  verbose = TRUE,
                  header = "Status Response") {
 
-                        command <-
-                                c(starting_command(path = path),
-                                  "git status") %>%
-                                paste(collapse = "\n")
+                        command <- sprintf("cd\ncd %s\ngit status", path)
 
                         status_response <-
                                 system(command = command,

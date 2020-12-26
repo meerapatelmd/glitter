@@ -6,6 +6,8 @@
 \usage{
 deploy_pkg(
   commit_msg = "deploy pkg using glitter",
+  remote_name = "origin",
+  remote_branch = "main",
   install = TRUE,
   reset = FALSE,
   has_vignettes = TRUE,
@@ -27,11 +29,17 @@ deploy_pkg(
 \arguments{
 \item{commit_msg}{commit message}
 
+\item{remote_name}{name of remote to push to. Defaults to "origin".}
+
+\item{remote_branch}{name of branch on the remote to push to. Defaults to "master".}
+
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 
 \item{reset}{If TRUE, restart R after installation is complete. Default: TRUE.}
 
 \item{has_vignettes}{If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE}
+
+\item{path}{full path to local repository to be pushed}
 
 \item{description}{description to extend the commit message if desired, Default: NULL}
 }

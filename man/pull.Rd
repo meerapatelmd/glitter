@@ -6,9 +6,6 @@
 \usage{
 pull(path = getwd(), verbose = TRUE)
 }
-\arguments{
-\item{path}{full path to directory of the repo to be pulled}
-}
 \description{
 Pull a Remote Repo
 }

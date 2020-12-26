@@ -6,6 +6,8 @@
 \usage{
 deploy_all(
   commit_msg = "deploy pkg and GitHub Pages using glitter",
+  remote_name = "origin",
+  remote_branch = "main",
   path = getwd(),
   install = TRUE,
   reset = FALSE,
@@ -34,6 +36,12 @@ deploy_all(
 }
 \arguments{
 \item{commit_msg}{commit message}
+
+\item{remote_name}{name of remote to push to. Defaults to "origin".}
+
+\item{remote_branch}{name of branch on the remote to push to. Defaults to "master".}
+
+\item{path}{full path to local repository to be pushed}
 
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 

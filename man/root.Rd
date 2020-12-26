@@ -2,28 +2,12 @@
 % Please edit documentation in R/base.R
 \name{root}
 \alias{root}
-\title{FUNCTION_TITLE}
+\title{Git Root}
 \usage{
 root(path = getwd())
 }
-\arguments{
-\item{path}{PARAM_DESCRIPTION, Default: NULL}
-}
-\value{
-OUTPUT_DESCRIPTION
-}
 \description{
-FUNCTION_DESCRIPTION
-}
-\details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+Git Root
 }
 \seealso{
 \code{\link[secretary]{typewrite_warning}}

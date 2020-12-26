@@ -6,6 +6,8 @@
 \usage{
 deploy_gh_pages(
   commit_msg = "deploy GitHub Pages using glitter",
+  remote_name = "origin",
+  remote_branch = "main",
   path = getwd(),
   examples = TRUE,
   run_dont_run = FALSE,
@@ -20,6 +22,12 @@ deploy_gh_pages(
 }
 \arguments{
 \item{commit_msg}{commit message}
+
+\item{remote_name}{name of remote to push to. Defaults to "origin".}
+
+\item{remote_branch}{name of branch on the remote to push to. Defaults to "master".}
+
+\item{path}{full path to local repository to be pushed}
 
 \item{examples}{Run examples?}
 

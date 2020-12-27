@@ -487,8 +487,10 @@ status <-
 
                         command <-
                                 c(starting_command(path = path),
-                                  "git status") %>%
-                                paste(collapse = "\n")
+                                  "git status")
+
+                        command <-
+                                paste(command, collapse = "\n")
 
                         status_response <-
                                 system(command = command,

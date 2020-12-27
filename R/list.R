@@ -1,4 +1,7 @@
+#' @title
+#' List Big Files
 #' @export
+#' @importFrom magrittr %>%
 
 list_big_files <-
         function(mb_threshold = 50, path = getwd()) {

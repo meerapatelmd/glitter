@@ -86,7 +86,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="recover_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Recover a Lost File</h1>
@@ -107,47 +107,10 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/list_file_commits.html">list_file_commits</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"R/destroy.R"</span>,
                   path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
-<span class="co">#&gt; commit 497ae9652280b2e4ca66effc1c3717eb5d2b0396</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span>
-<span class="co">#&gt; Date:   Sat Nov 21 02:21:30 2020 -0500</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     update documentation</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit c35f82d0c8f7fb694f8efe7b6b65304867b9c8ac</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span>
-<span class="co">#&gt; Date:   Fri Nov 20 20:34:05 2020 -0500</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     update GitHub Page</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit b33abd4d1c1c3e848846f05588a84b80754f10e0</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span>
-<span class="co">#&gt; Date:   Fri Nov 20 20:33:07 2020 -0500</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     update documentation</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit ed999d9d11220e4cfcdd9cc18cab5c4d4520f244</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelmeeray@gmail.com&gt;</span>
-<span class="co">#&gt; Date:   Fri Nov 20 20:03:02 2020 -0500</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     remove stale vignettes, add file recovery vignette</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit 3efedc648e40534927d68b66d8840156abbc6a27</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
-<span class="co">#&gt; Date:   Sat Apr 4 22:13:35 2020 -0400</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     add filter_repo function, fix bugs for add_some scripts</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit aa448c7de4ead65905dfb3133ec42ac8a6f332fc</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
-<span class="co">#&gt; Date:   Sat Apr 4 18:09:40 2020 -0400</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     add pretty functions</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; commit 5387519e5d65d8399a56008a385d58cbcf1a6e11</span>
-<span class="co">#&gt; Author: Meera Patel &lt;patelm9@mskcc.org&gt;</span>
-<span class="co">#&gt; Date:   Tue Mar 24 02:01:38 2020 -0400</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     +: initial commit</span></code></pre></div>
+<span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit log --all -- ", file), : running command 'cd</span>
+<span class="co">#&gt; cd /Users/patelm9/GitHub/packages/glitter</span>
+<span class="co">#&gt; git log --all -- R/destroy.R' had status 128</span>
+<span class="co">#&gt; No response present</span></code></pre></div>
 <p>By default, this file is recovered using the most recent commit automatically.</p>
 <p>I first check to make sure this file does not already exist.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -156,26 +119,37 @@
 <p>I recover the lost file:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/recover_lost_file.html">recover_lost_file</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">path_to_file</span><span class="op">)</span>
+<span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit log --all -- ", file), : running command 'cd</span>
+<span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span>
+<span class="co">#&gt; git log --all -- /Users/patelm9/GitHub/packages/glitter/R/destroy.R' had status 128</span>
+<span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit checkout ", sha, "^ -- ", : running command 'cd</span>
+<span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span>
+<span class="co">#&gt; git checkout NA^ -- /Users/patelm9/GitHub/packages/glitter/R/destroy.R' had status 128</span>
 <span class="co">#&gt; Warning: 'printMsg' is deprecated.</span>
 <span class="co">#&gt; Use 'print_response' instead.</span>
 <span class="co">#&gt; See help("Deprecated")</span></code></pre></div>
 <p>QA to make sure that the file now is present:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="va">path_to_file</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <p>However, a version of the file from a commit before the most recent one is desired, the SHA can be entered to retrieve that version instead.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="va">path_to_file</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<span class="co">#&gt; Warning in file.remove(path_to_file): cannot remove file '/Users/patelm9/GitHub/</span>
+<span class="co">#&gt; packages/glitter/R/destroy.R', reason 'No such file or directory'</span>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/recover_lost_file.html">recover_lost_file</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">path_to_file</span>, 
                   sha <span class="op">=</span> <span class="st">"aa448c7de4ead65905dfb3133ec42ac8a6f332fc"</span><span class="op">)</span>
+<span class="co">#&gt; Warning in system(paste0("cd\ncd ", path, "\ngit checkout ", sha, "^ -- ", : running command 'cd</span>
+<span class="co">#&gt; cd /Users/patelm9/GitHub/glitter/vignettes</span>
+<span class="co">#&gt; git checkout aa448c7de4ead65905dfb3133ec42ac8a6f332fc^ -- /Users/patelm9/GitHub/packages/glitter/R/destroy.R' had status 128</span>
 <span class="co">#&gt; Warning: 'printMsg' is deprecated.</span>
 <span class="co">#&gt; Use 'print_response' instead.</span>
 <span class="co">#&gt; See help("Deprecated")</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="va">path_to_file</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<span class="co">#&gt; [1] FALSE</span></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

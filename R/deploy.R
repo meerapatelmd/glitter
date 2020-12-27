@@ -5,6 +5,7 @@
 #' This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
 #'
 #' @inheritParams devtools::install_git
+#' @inheritParams push
 #' @param commit_msg        commit message
 #' @param description           description to extend the commit message if desired, Default: NULL
 #' @param install               If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE
@@ -24,6 +25,8 @@
 deploy_pkg <-
         function (
                 commit_msg = "deploy pkg using glitter",
+                remote_name = "origin",
+                remote_branch = "main",
                 install = TRUE,
                 reset = FALSE,
                 has_vignettes = TRUE,
@@ -69,11 +72,12 @@ deploy_pkg <-
 
                 if (exists("x")) {
 
-                        printMsg(x)
+                        print_response(x)
 
                         if (length(x) > 0) {
 
-                                push()
+                                push(remote_name = remote_name,
+                                     remote_branch = remote_branch)
 
                         }
                 }
@@ -130,6 +134,8 @@ deploy_pkg <-
 #' @importFrom magrittr %>%
 deploy_gh_pages <-
         function(commit_msg = "deploy GitHub Pages using glitter",
+                 remote_name = "origin",
+                 remote_branch = "main",
                  path = getwd(),
                  examples = TRUE,
                  run_dont_run = FALSE,
@@ -158,13 +164,6 @@ deploy_gh_pages <-
                         gi_rm("docs")
 
 
-                        # #Rewriting NAMESPACE
-                        # if (file.exists("NAMESPACE")) {
-                        #         file.remove("NAMESPACE")
-                        # }
-                        # devtools::document()
-
-
                         # Build pkgdown Site
                         pkgdown::build_site(examples = examples,
                                             run_dont_run = run_dont_run,
@@ -185,7 +184,8 @@ deploy_gh_pages <-
 
                         commit(commit_msg = commit_msg)
 
-                        push()
+                        push(remote_name = remote_name,
+                             remote_branch = remote_branch)
 
 }
 
@@ -203,6 +203,8 @@ deploy_gh_pages <-
 #' @importFrom magrittr %>%
 deploy_all <-
         function(commit_msg = "deploy pkg and GitHub Pages using glitter",
+                 remote_name = "origin",
+                 remote_branch = "main",
                  path = getwd(),
                  install = TRUE,
                  reset = FALSE,
@@ -234,6 +236,8 @@ deploy_all <-
                 cli::cat_line()
                 cli::cat_rule("Deploying Package")
                 deploy_pkg(commit_msg = commit_msg,
+                           remote_name = remote_name,
+                           remote_branch = remote_branch,
                            install = install,
                            reset = reset,
                            has_vignettes = has_vignettes,
@@ -255,6 +259,8 @@ deploy_all <-
                 cli::cat_line()
                 cli::cat_rule("Deploying GH Pages")
                 deploy_gh_pages(path = path,
+                                remote_name = remote_name,
+                                remote_branch = remote_branch,
                                 examples = examples,
                                 run_dont_run = run_dont_run,
                                 seed = seed,

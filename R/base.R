@@ -11,6 +11,7 @@
 #' @importFrom secretary magentaTxt press_enter
 #' @importFrom rlang list2
 #' @importFrom purrr map
+#' @importFrom magrittr %>%
 
 
 add <-
@@ -75,7 +76,7 @@ add <-
                         } else {
 
                         command <-
-                                c(starting_command(path = path_to_root),
+                                c(sprintf("cd\ncd %s\n",path_to_root),
                                   files_to_add %>%
                                           purrr::map(~ sprintf("git add %s", .)) %>%
                                           unlist()) %>%
@@ -103,7 +104,7 @@ add <-
 #' Commit
 #' @rdname commit
 #' @export
-
+#' @importFrom magrittr %>%
 commit <-
         function(commit_msg,
                  path = getwd(),
@@ -146,24 +147,14 @@ commit <-
 
 
 
-#' @title FUNCTION_TITLE
-#' @description FUNCTION_DESCRIPTION
-#' @param path PARAM_DESCRIPTION, Default: NULL
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
-#' @examples
-#' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' @title
+#' Git Root
 #' @seealso
 #'  \code{\link[secretary]{typewrite_warning}}
 #' @rdname root
 #' @export
 #' @importFrom secretary typewrite_warning
 #' @importFrom magrittr %>%
-
 
 root <-
         function(path = getwd()) {
@@ -203,9 +194,10 @@ root <-
 
 
 
+#' @title
 #' Pull a Remote Repo
-#' @param path full path to directory of the repo to be pulled
 #' @export
+#' @importFrom magrittr %>%
 
 pull <-
         function(path = getwd(),
@@ -248,11 +240,11 @@ pull <-
 #' @param remote_name name of remote to push to. Defaults to "origin".
 #' @param remote_branch name of branch on the remote to push to. Defaults to "master".
 #' @export
-
+#' @importFrom magrittr %>%
 
 push <-
         function(remote_name = "origin",
-                 remote_branch = "master",
+                 remote_branch = "main",
                  path = getwd(),
                  verbose = TRUE) {
 
@@ -477,7 +469,6 @@ ac_gitignore <-
 #' If the git message is of a length greater than 0, it is returned as a character vector and also printed in the console
 #' @param path full path to local repository to be pushed
 #' @export
-#' @importFrom magrittr pipe
 
 
 status <-
@@ -485,12 +476,8 @@ status <-
                  verbose = TRUE,
                  header = "Status Response") {
 
-                        command <-
-                                c(starting_command(path = path),
-                                  "git status")
 
-                        command <-
-                                paste(command, collapse = "\n")
+                        command <- sprintf("cd\ncd %s\ngit status", path)
 
                         status_response <-
                                 system(command = command,

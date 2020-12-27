@@ -6,7 +6,7 @@
 \usage{
 push(
   remote_name = "origin",
-  remote_branch = "master",
+  remote_branch = "main",
   path = getwd(),
   verbose = TRUE
 )

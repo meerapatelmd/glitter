@@ -1,16 +1,13 @@
 ---
 title: "Recover a Lost File"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Recover a Lost File}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: pdf_document
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE
 )
 ```
 

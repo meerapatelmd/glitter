@@ -1,0 +1,10 @@
+\documentclass{article}
+\usepackage{pdfpages}
+%\VignetteIndexEntry{Recover a Lost File}
+%\VignettePackage{glitter}
+%\VignetteEncoding{UTF-8}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\includepdf[pages=-, fitpaper=true]{recover.pdf}
+\end{document}

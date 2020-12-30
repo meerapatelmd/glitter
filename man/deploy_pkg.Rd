@@ -21,7 +21,6 @@ deploy_pkg(
   build = TRUE,
   build_opts = c("--no-resave-data", "--no-manual", "--no-build-vignettes"),
   build_manual = FALSE,
-  build_vignettes = FALSE,
   repos = getOption("repos"),
   type = getOption("pkgType")
 )

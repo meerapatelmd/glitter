@@ -4,13 +4,13 @@
 #' @export
 
 ac_ff <-
-        function(file, generic_commit_msg) {
+        function(..., generic_commit_msg) {
 
                 function(commit_msg = eval(generic_commit_msg),
                          verbose = TRUE) {
                         path <- root(path = getwd())
                         ac(commit_msg = commit_msg,
-                           file,
+                           ...,
                            path = path,
                            verbose = verbose)
                 }
@@ -23,7 +23,7 @@ ac_ff <-
 #' @export
 
 ac_desc <-
-        ac_ff(file = "DESCRIPTION",
+        ac_ff("DESCRIPTION",
               generic_commit_msg = "update DESCRIPTION")
 
 
@@ -34,7 +34,7 @@ ac_desc <-
 #' @export
 
 ac_readme <-
-        ac_ff(file = "README.md",
+        ac_ff("README.md", "README.Rmd",
               generic_commit_msg = "update README.md")
 
 #' @title
@@ -44,6 +44,6 @@ ac_readme <-
 #' @export
 
 ac_pkgdown_yml <-
-        ac_ff(file = "_pkgdown.yml",
+        ac_ff("_pkgdown.yml",
               generic_commit_msg = "update pkgdown yaml")
 

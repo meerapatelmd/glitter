@@ -4,7 +4,7 @@
 \alias{ac_ff}
 \title{Add and Commit FF}
 \usage{
-ac_ff(file, generic_commit_msg)
+ac_ff(..., generic_commit_msg)
 }
 \description{
 Add and Commit FF

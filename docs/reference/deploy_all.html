@@ -142,6 +142,8 @@
 
     <pre class="usage"><span class='fu'>deploy_all</span><span class='op'>(</span>
   commit_msg <span class='op'>=</span> <span class='st'>"deploy pkg and GitHub Pages using glitter"</span>,
+  remote_name <span class='op'>=</span> <span class='st'>"origin"</span>,
+  remote_branch <span class='op'>=</span> <span class='st'>"main"</span>,
   path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>,
   install <span class='op'>=</span> <span class='cn'>TRUE</span>,
   reset <span class='op'>=</span> <span class='cn'>FALSE</span>,
@@ -174,6 +176,18 @@
     <tr>
       <th>commit_msg</th>
       <td><p>commit message</p></td>
+    </tr>
+    <tr>
+      <th>remote_name</th>
+      <td><p>name of remote to push to. Defaults to "origin".</p></td>
+    </tr>
+    <tr>
+      <th>remote_branch</th>
+      <td><p>name of branch on the remote to push to. Defaults to "master".</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>full path to local repository to be pushed</p></td>
     </tr>
     <tr>
       <th>install</th>

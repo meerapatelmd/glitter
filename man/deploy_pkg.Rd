@@ -7,7 +7,7 @@
 deploy_pkg(
   commit_msg = "deploy pkg using glitter",
   remote_name = "origin",
-  remote_branch = "main",
+  remote_branch = "master",
   install = TRUE,
   reset = FALSE,
   has_vignettes = TRUE,

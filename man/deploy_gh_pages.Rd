@@ -7,7 +7,7 @@
 deploy_gh_pages(
   commit_msg = "deploy GitHub Pages using glitter",
   remote_name = "origin",
-  remote_branch = "main",
+  remote_branch = "master",
   path = getwd(),
   examples = TRUE,
   run_dont_run = FALSE,

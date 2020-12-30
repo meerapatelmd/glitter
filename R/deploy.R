@@ -26,7 +26,7 @@ deploy_pkg <-
         function (
                 commit_msg = "deploy pkg using glitter",
                 remote_name = "origin",
-                remote_branch = "main",
+                remote_branch = "master",
                 install = TRUE,
                 reset = FALSE,
                 has_vignettes = TRUE,
@@ -134,7 +134,7 @@ deploy_pkg <-
 deploy_gh_pages <-
         function(commit_msg = "deploy GitHub Pages using glitter",
                  remote_name = "origin",
-                 remote_branch = "main",
+                 remote_branch = "master",
                  path = getwd(),
                  examples = TRUE,
                  run_dont_run = FALSE,
@@ -203,7 +203,7 @@ deploy_gh_pages <-
 deploy_all <-
         function(commit_msg = "deploy pkg and GitHub Pages using glitter",
                  remote_name = "origin",
-                 remote_branch = "main",
+                 remote_branch = "master",
                  path = getwd(),
                  install = TRUE,
                  reset = FALSE,

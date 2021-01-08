@@ -59,8 +59,29 @@ deploy_pkg <-
 
                 if (has_vignettes) {
 
-                        devtools::build_vignettes(clean = FALSE)
+                        devtools::build_vignettes()
                         gi_rm("doc", "doc/")
+
+                        asis_files <-
+                        list.files(path = "vignettes",
+                                   pattern = "[.]{1}asis$",
+                                   full.names = TRUE)
+
+                        if (length(asis_files) > 0) {
+
+                                for (i in seq_along(asis_files)) {
+
+                                        asis_file <- asis_files[i]
+                                        file_to_copy <- file.path("doc", stringr::str_remove(asis_file,
+                                                                                             pattern = "[.]{1}asis$"))
+                                        new_file <- file.path("vignettes", basename(file_to_copy))
+                                        file.copy(from = file_to_copy,
+                                                  to = new_file)
+
+
+                                }
+
+                        }
 
                 }
 

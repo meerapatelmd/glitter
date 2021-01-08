@@ -59,7 +59,7 @@ deploy_pkg <-
 
                 if (has_vignettes) {
 
-                        devtools::build_vignettes()
+                        devtools::build_vignettes(clean = FALSE)
                         gi_rm("doc", "doc/")
 
                 }

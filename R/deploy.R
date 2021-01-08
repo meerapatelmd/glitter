@@ -72,7 +72,7 @@ deploy_pkg <-
                                 for (i in seq_along(asis_files)) {
 
                                         asis_file <- asis_files[i]
-                                        file_to_copy <- file.path("doc", stringr::str_remove(asis_file,
+                                        file_to_copy <- file.path("doc", stringr::str_remove(basename(asis_file),
                                                                                              pattern = "[.]{1}asis$"))
                                         new_file <- file.path("vignettes", basename(file_to_copy))
                                         file.copy(from = file_to_copy,

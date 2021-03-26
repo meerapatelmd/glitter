@@ -12,9 +12,12 @@ push(
 )
 }
 \arguments{
-\item{remote_name}{name of remote to push to. Defaults to "origin".}
+\item{remote_name}{name of remote to push to. Defaults to
+"origin".}
 
-\item{remote_branch}{name of branch on the remote to push to. Defaults to "master".}
+\item{remote_branch}{name of branch on the remote to push
+to. Defaults to "master" or "main" if the cardinal branch is using
+this newer default.}
 
 \item{path}{full path to local repository to be pushed}
 }

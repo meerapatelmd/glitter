@@ -1,7 +1,8 @@
 # glitter 0.7.3  
 
 * Add `is_man()` and `is_master()`  
-* `branch()` invisibly returns branch names  
+* `branch()` invisibly returns branch names   
+* Automatically substitute `master` with `main` at `push()`  
 
 
 # glitter 0.6.4  

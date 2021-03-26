@@ -6,6 +6,9 @@
 \usage{
 branch(verbose = TRUE, path = getwd())
 }
+\value{
+Invisibly returns a vector of branch names
+}
 \description{
 Print all the branches and the current branch in a GitHub repository
 }

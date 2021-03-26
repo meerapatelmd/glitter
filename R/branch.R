@@ -2,6 +2,9 @@
 #' @description
 #' Print all the branches and the current branch in a GitHub repository
 #' @export
+#' @importFrom stringr str_remove_all
+#' @return
+#' Invisibly returns a vector of branch names
 
 
 branch <-
@@ -21,6 +24,13 @@ branch <-
                         cat(paste0("\t\t", branch_response), sep = "\n")
                         cat("\n")
                 }
+
+                branch_response2 <-
+                        branch_response %>%
+                        stringr::str_remove_all("^[*]{1}") %>%
+                        trimws(which = "both")
+
+                invisible(branch_response2)
 
         }
 

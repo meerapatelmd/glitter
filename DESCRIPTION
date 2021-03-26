@@ -1,28 +1,29 @@
 Type: Package
 Package: glitter
 Title: Send Git commands via the R Console
-Version: 0.7.1
+Version: 0.7.2
 Authors@R: 
     person(given = "Meera",
            family = "Patel, MD",
            role = c("aut", "cre"),
            email = "patelmeeray@gmail.com",
            comment = c(ORCID = "0000-0002-3401-3948"))
-Description: Perform basic Git commands such as add, commit, and push directly from
-    the R console. A file recovery feature enables easy retrieval of a previously 
-    deleted file directly from the R console. For package deployment, helper functions allow for 
-    a concurrent deployment of both a new package release to a GitHub repository 
-    and an updated pkgdown GitHub Page. 
+Description: Perform basic Git commands such as add, commit, and
+    push directly from the R console. A file recovery feature enables easy
+    retrieval of a previously deleted file directly from the R console.
+    For package deployment, helper functions allow for a concurrent
+    deployment of both a new package release to a GitHub repository and an
+    updated pkgdown GitHub Page.
 License: Apache License 2.0
 URL: https://meerapatelmd.github.io/glitter/,
     https://github.com/meerapatelmd/glitter/
 BugReports: https://github.com/meerapatelmd/glitter/issues/
 Imports: 
-    Hmisc,
     cave,
     cli,
     devtools,
     dplyr,
+    Hmisc,
     httr,
     jsonlite,
     magrittr,

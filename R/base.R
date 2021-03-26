@@ -237,8 +237,11 @@ pull <-
 
 #' Push a local repo to a GitHub repository
 #' @param path full path to local repository to be pushed
-#' @param remote_name name of remote to push to. Defaults to "origin".
-#' @param remote_branch name of branch on the remote to push to. Defaults to "master".
+#' @param remote_name name of remote to push to. Defaults to
+#' "origin".
+#' @param remote_branch name of branch on the remote to push
+#' to. Defaults to "master" or "main" if the cardinal branch is using
+#' this newer default.
 #' @export
 #' @importFrom magrittr %>%
 
@@ -247,6 +250,11 @@ push <-
                  remote_branch = "master",
                  path = getwd(),
                  verbose = TRUE) {
+
+
+                if (remote_branch == "master" && is_main(path = path)) {
+                        remote_branch <- "main"
+                }
 
 
 

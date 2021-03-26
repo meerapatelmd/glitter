@@ -1,8 +1,8 @@
-
-
-
-
-
+#' @title
+#' Is the cardinal branch called `main`?
+#'
+#' @rdname is_main
+#' @export
 is_main <-
         function(path = getwd()) {
 
@@ -14,10 +14,11 @@ is_main <-
                 "main" %in% repo_branches
         }
 
-
-
-
-
+#' @title
+#' Is the cardinal branch called `master`?
+#'
+#' @rdname is_master
+#' @export
 is_master <-
         function(path = getwd()) {
 

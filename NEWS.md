@@ -1,6 +1,7 @@
 # glitter 0.7.3.9000  
 
 * Add `copy_branch()`  
+* Fixed bug in `delete_branch()`  
 
 
 # glitter 0.7.3  

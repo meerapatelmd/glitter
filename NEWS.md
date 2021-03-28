@@ -2,6 +2,8 @@
 
 * Add `copy_branch()`  
 * Fixed bug in `delete_branch()`  
+* Add magrittr package dependency to import pipe on load  
+* Converted to tidy style  
 
 
 # glitter 0.7.3  

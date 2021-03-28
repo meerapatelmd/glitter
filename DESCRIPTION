@@ -18,6 +18,8 @@ License: Apache License 2.0
 URL: https://meerapatelmd.github.io/glitter/,
     https://github.com/meerapatelmd/glitter/
 BugReports: https://github.com/meerapatelmd/glitter/issues/
+Depends:  
+    magrittr
 Imports: 
     cave,
     cli,

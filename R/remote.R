@@ -8,11 +8,11 @@
 
 
 delete_remote_branch <-
-        function(path = getwd(),
-                 remote_branch) {
+  function(path = getwd(),
+           remote_branch) {
+    if (missing(remote_branch)) {
+      stop("'remote_branch' is missing.")
+    }
 
-                if (missing(remote_branch)) {stop("'remote_branch' is missing.")}
-
-                system(command = sprintf("git push origin --delete %s", remote_branch))
-
-        }
+    system(command = sprintf("git push origin --delete %s", remote_branch))
+  }

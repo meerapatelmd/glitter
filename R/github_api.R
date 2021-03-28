@@ -28,75 +28,79 @@
 
 
 get_repos <-
-        function(github_user = "meerapatelmd",
-                 user_only = TRUE,
-                 per_page = 100,
-                 page = 1) {
+  function(github_user = "meerapatelmd",
+           user_only = TRUE,
+           per_page = 100,
+           page = 1) {
+    github_url <- sprintf("https://api.github.com/users/%s/repos", github_user)
 
-                github_url <- sprintf("https://api.github.com/users/%s/repos", github_user)
-
-                resp <- httr::GET(github_url,
-                                  query = list(per_page = per_page,
-                                               page = page))
-
-
-                if (httr::http_error(resp)) {
-
-                        parsed <- httr::content(resp, type = "application/json")
-                        stop(
-                                sprintf(
-                                        "GitHub API request failed [%s]\n%s\n<%s>",
-                                        httr::status_code(resp),
-                                        parsed$message,
-                                        parsed$documentation_url
-                                ),
-                                call. = FALSE
-                        )
-                }
-
-                parsed <- httr::content(resp, type = "application/json", as = "text", encoding = "UTF-8")
-                output <- jsonlite::fromJSON(txt = parsed)
-
-                # add row identifier to do a join with modified fields
-                output <-
-                        output %>%
-                        tibble::rowid_to_column(var = "rowid")
-
-                # Create Page HTML Paths from the `url fields` that can be opened in the browser
-                output_b <-
-                output %>%
-                        dplyr::select(rowid, dplyr::ends_with("_url")) %>%
-                        dplyr::mutate_at(dplyr::vars(!rowid), ~ stringr::str_replace_all(string = .,
-                                                                                         pattern = "(^.*?)([{]{1}.*$)",
-                                                                                         replacement = "\\1")) %>%
-                        dplyr::rename_at(dplyr::vars(!rowid), function(x) stringr::str_replace_all(string = x,
-                                                                                                   pattern = "_url",
-                                                                                                   replacement = "_page"))
-
-                output <-
-                        output %>%
-                        dplyr::left_join(output_b,  by = "rowid") %>%
-                        dplyr::select(-rowid) %>%
-                        dplyr::mutate(issues_page_url = paste0("https://github.com/", github_user, "/", name, "/issues")) %>%
-                        dplyr::mutate(pages_url = NA) %>%
-                        dplyr::mutate(pages_url = ifelse(has_pages == "TRUE",
-                                                         paste0("https://", github_user, ".github.io/", name, "/"),
-                                                         pages_url)) %>%
-                        dplyr::select(name, full_name, pages_url, html_url, clone_url, issues_page_url, homepage, url, dplyr::everything()) %>%
-                        tibble::as_tibble()
+    resp <- httr::GET(github_url,
+      query = list(
+        per_page = per_page,
+        page = page
+      )
+    )
 
 
-                if (user_only) {
+    if (httr::http_error(resp)) {
+      parsed <- httr::content(resp, type = "application/json")
+      stop(
+        sprintf(
+          "GitHub API request failed [%s]\n%s\n<%s>",
+          httr::status_code(resp),
+          parsed$message,
+          parsed$documentation_url
+        ),
+        call. = FALSE
+      )
+    }
 
-                        return(output %>%
-                                       dplyr::filter(fork == FALSE))
+    parsed <- httr::content(resp, type = "application/json", as = "text", encoding = "UTF-8")
+    output <- jsonlite::fromJSON(txt = parsed)
 
-                } else {
+    # add row identifier to do a join with modified fields
+    output <-
+      output %>%
+      tibble::rowid_to_column(var = "rowid")
 
-                        output
-                }
+    # Create Page HTML Paths from the `url fields` that can be opened in the browser
+    output_b <-
+      output %>%
+      dplyr::select(rowid, dplyr::ends_with("_url")) %>%
+      dplyr::mutate_at(dplyr::vars(!rowid), ~ stringr::str_replace_all(
+        string = .,
+        pattern = "(^.*?)([{]{1}.*$)",
+        replacement = "\\1"
+      )) %>%
+      dplyr::rename_at(dplyr::vars(!rowid), function(x) {
+        stringr::str_replace_all(
+          string = x,
+          pattern = "_url",
+          replacement = "_page"
+        )
+      })
 
-        }
+    output <-
+      output %>%
+      dplyr::left_join(output_b, by = "rowid") %>%
+      dplyr::select(-rowid) %>%
+      dplyr::mutate(issues_page_url = paste0("https://github.com/", github_user, "/", name, "/issues")) %>%
+      dplyr::mutate(pages_url = NA) %>%
+      dplyr::mutate(pages_url = ifelse(has_pages == "TRUE",
+        paste0("https://", github_user, ".github.io/", name, "/"),
+        pages_url
+      )) %>%
+      dplyr::select(name, full_name, pages_url, html_url, clone_url, issues_page_url, homepage, url, dplyr::everything()) %>%
+      tibble::as_tibble()
+
+
+    if (user_only) {
+      return(output %>%
+        dplyr::filter(fork == FALSE))
+    } else {
+      output
+    }
+  }
 
 
 #' @title
@@ -111,14 +115,12 @@ get_repos <-
 #' @rdname get_repo_tags
 
 get_repo_tags <-
-        function(github_user = "meerapatelmd",
-                 repo = basename(getwd())) {
-
-                httr::GET(sprintf("https://api.github.com/repos/%s/%s/tags", github_user, repo)) %>%
-                        httr::content(type = "application/json", as = "text", encoding = "UTF-8") %>%
-                        jsonlite::fromJSON()
-
-        }
+  function(github_user = "meerapatelmd",
+           repo = basename(getwd())) {
+    httr::GET(sprintf("https://api.github.com/repos/%s/%s/tags", github_user, repo)) %>%
+      httr::content(type = "application/json", as = "text", encoding = "UTF-8") %>%
+      jsonlite::fromJSON()
+  }
 
 
 #' @title
@@ -131,15 +133,14 @@ get_repo_tags <-
 #' @rdname get_repo_tags
 
 list_repo_version <-
-        function(github_user = "meerapatelmd",
-                 repo = basename(getwd())) {
-
-                get_repo_tags(github_user,
-                              repo = repo) %>%
-                        dplyr::select(name) %>%
-                        unlist()
-
-        }
+  function(github_user = "meerapatelmd",
+           repo = basename(getwd())) {
+    get_repo_tags(github_user,
+      repo = repo
+    ) %>%
+      dplyr::select(name) %>%
+      unlist()
+  }
 
 
 #' @title
@@ -154,22 +155,19 @@ list_repo_version <-
 #' @rdname is_repo_unreleased
 
 is_repo_unreleased <-
-        function(github_user = "meerapatelmd",
-                 repo = basename(getwd())) {
+  function(github_user = "meerapatelmd",
+           repo = basename(getwd())) {
+    output <- get_repo_tags(
+      github_user = github_user,
+      repo = repo
+    )
 
-                output <- get_repo_tags(github_user = github_user,
-                                        repo = repo)
-
-                if (nrow(output) > 0) {
-
-                        FALSE
-
-                } else {
-
-                        TRUE
-                }
-
-        }
+    if (nrow(output) > 0) {
+      FALSE
+    } else {
+      TRUE
+    }
+  }
 
 
 
@@ -192,51 +190,41 @@ is_repo_unreleased <-
 #' @importFrom dplyr filter
 
 get_repo_info <-
-        function(github_user = "meerapatelmd",
-                 repo = basename(getwd()),
-                 as_list = FALSE) {
+  function(github_user = "meerapatelmd",
+           repo = basename(getwd()),
+           as_list = FALSE) {
+    output <-
+      get_repos(github_user = github_user) %>%
+      dplyr::filter(tolower(name) %in% tolower(repo))
 
-                output <-
-                        get_repos(github_user = github_user) %>%
-                        dplyr::filter(tolower(name) %in% tolower(repo))
-
-                if (as_list) {
-
-                        as.list(output)
-
-                } else {
-
-                        output
-
-                }
-        }
+    if (as_list) {
+      as.list(output)
+    } else {
+      output
+    }
+  }
 
 
 #' @export
 
 browse_issues <-
-        function(github_user = "meerapatelmd",
-                 repo = basename(getwd()),
-                 issue_no = NULL) {
+  function(github_user = "meerapatelmd",
+           repo = basename(getwd()),
+           issue_no = NULL) {
+    if (is.null(issue_no)) {
+      issues_page_url <- sprintf(
+        "https://github.com/%s/%s/issues",
+        github_user,
+        repo
+      )
+    } else {
+      issues_page_url <- sprintf(
+        "https://github.com/%s/%s/issues/%s",
+        github_user,
+        repo,
+        issue_no
+      )
+    }
 
-                if (is.null(issue_no)) {
-
-                        issues_page_url <- sprintf("https://github.com/%s/%s/issues",
-                                                                        github_user,
-                                                                        repo)
-
-                } else {
-
-
-                        issues_page_url <- sprintf("https://github.com/%s/%s/issues/%s",
-                                                   github_user,
-                                                   repo,
-                                                   issue_no)
-
-                }
-
-                browseURL(issues_page_url)
-
-        }
-
-
+    browseURL(issues_page_url)
+  }

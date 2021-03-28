@@ -5,15 +5,13 @@
 
 
 diff <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    diffMessage <-
+      system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "git diff"
+      ), intern = TRUE)
 
-                diffMessage <-
-                        system(paste0("cd\n",
-                                      "cd ", path,"\n",
-                                      "git diff"
-                        ), intern = TRUE
-                        )
-
-                printMsg(diffMessage)
-
-        }
+    printMsg(diffMessage)
+  }

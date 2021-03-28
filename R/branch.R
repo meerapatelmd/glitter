@@ -8,31 +8,32 @@
 
 
 branch <-
-        function(verbose = TRUE,
-                 path = getwd()) {
+  function(verbose = TRUE,
+           path = getwd()) {
+    branch_response <-
+      system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "git branch"
+      ),
+      intern = TRUE
+      )
 
-                branch_response <-
-                        system(paste0("cd\n",
-                                      "cd ", path,"\n",
-                                      "git branch"),
-                               intern = TRUE)
 
+    if (verbose) {
+      cat("\n")
+      secretary::typewrite_bold(secretary::redTxt("\tBranches:"))
+      cat(paste0("\t\t", branch_response), sep = "\n")
+      cat("\n")
+    }
 
-                if (verbose) {
-                        cat("\n")
-                        secretary::typewrite_bold(secretary::redTxt("\tBranches:"))
-                        cat(paste0("\t\t", branch_response), sep = "\n")
-                        cat("\n")
-                }
+    branch_response2 <-
+      branch_response %>%
+      stringr::str_remove_all("^[*]{1}") %>%
+      trimws(which = "both")
 
-                branch_response2 <-
-                        branch_response %>%
-                        stringr::str_remove_all("^[*]{1}") %>%
-                        trimws(which = "both")
-
-                invisible(branch_response2)
-
-        }
+    invisible(branch_response2)
+  }
 
 
 
@@ -46,30 +47,27 @@ branch <-
 
 
 delete_branch <-
-        function(path = getwd(),
-                 branch,
-                 force = FALSE) {
-
-
-                if (force) {
-
-                        system(paste0("cd\n",
-                                      "cd ", path,"\n",
-                                      "git branch -D ", branch),
-                               intern = FALSE)
-
-
-                } else {
-
-                        system(paste0("cd\n",
-                                      "cd ", path,"\n",
-                                      "git branch -d ", branch),
-                               intern = FALSE)
-
-                }
-
-
-        }
+  function(path = getwd(),
+           branch,
+           force = FALSE) {
+    if (force) {
+      system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "git branch -D ", branch
+      ),
+      intern = FALSE
+      )
+    } else {
+      system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "git branch -d ", branch
+      ),
+      intern = FALSE
+      )
+    }
+  }
 
 
 #' @title
@@ -81,19 +79,21 @@ delete_branch <-
 
 
 checkout_branch <-
-        function(branch,
-                 path = getwd()) {
+  function(branch,
+           path = getwd()) {
+    command <-
+      c(
+        starting_command(path = path),
+        paste0("git checkout ", branch)
+      ) %>%
+      paste(collapse = "\n")
 
-                command <-
-                        c(starting_command(path = path),
-                          paste0("git checkout ", branch)) %>%
-                        paste(collapse = "\n")
 
-
-                system(command = command,
-                       intern = FALSE)
-
-        }
+    system(
+      command = command,
+      intern = FALSE
+    )
+  }
 
 #' @title
 #' Checkout a New Branch
@@ -107,28 +107,18 @@ checkout_branch <-
 
 
 checkout_new_branch <-
-        function(new_branch,
-                 path = getwd()) {
+  function(new_branch,
+           path = getwd()) {
+    command <-
+      c(
+        starting_command(path = path),
+        paste0("git checkout -b ", new_branch)
+      ) %>%
+      paste(collapse = "\n")
 
 
-                command <-
-                        c(starting_command(path = path),
-                          paste0("git checkout -b ", new_branch)) %>%
-                        paste(collapse = "\n")
-
-
-                system(command = command,
-                       intern = FALSE)
-
-        }
-
-
-
-
-
-
-
-
-
-
-
+    system(
+      command = command,
+      intern = FALSE
+    )
+  }

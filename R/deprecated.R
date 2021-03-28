@@ -18,36 +18,45 @@
 #' @export
 
 listOpenIssues <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    .Deprecated()
 
-                .Deprecated()
+    system(paste0(
+      "cd\n",
+      "cd ", path, "\n",
+      "/usr/local/bin/ghi list"
+    ),
+    intern = FALSE
+    )
 
-                system(paste0("cd\n",
-                              "cd ", path,"\n",
-                              "/usr/local/bin/ghi list"),
-                       intern = FALSE)
 
+    output <-
+      # Converting the vector of issues into a dataframe
+      tibble::tibble(Issues = system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "/usr/local/bin/ghi list"
+      ),
+      intern = TRUE
+      )) %>%
+      # Removing theheader to isolate the issue number and issue name
+      rubix::filter_at_grepl(Issues,
+        grepl_phrase = "[#]{1}.*open issues$",
+        evaluates_to = FALSE
+      ) %>%
+      tidyr::extract(
+        col = Issues,
+        into = c(
+          "IssueNo",
+          "OpenIssue"
+        ),
+        regex = "^[ ]+?([0-9]+?)[ ]+?([^ ]{1}.*$)"
+      ) %>%
+      # Filter out all NA
+      dplyr::filter(!is.na(IssueNo))
 
-                output <-
-                        # Converting the vector of issues into a dataframe
-                        tibble::tibble(Issues = system(paste0("cd\n",
-                                                              "cd ", path,"\n",
-                                                              "/usr/local/bin/ghi list"),
-                                                       intern = TRUE))  %>%
-                        # Removing theheader to isolate the issue number and issue name
-                        rubix::filter_at_grepl(Issues,
-                                               grepl_phrase = "[#]{1}.*open issues$",
-                                               evaluates_to = FALSE)  %>%
-                        tidyr::extract(col = Issues,
-                                       into = c("IssueNo",
-                                                "OpenIssue"),
-                                       regex = "^[ ]+?([0-9]+?)[ ]+?([^ ]{1}.*$)") %>%
-                        #Filter out all NA
-                        dplyr::filter(!is.na(IssueNo))
-
-                invisible(output)
-
-        }
+    invisible(output)
+  }
 
 #' (Deprecated) List Closed Issues
 #' @export
@@ -59,29 +68,38 @@ listOpenIssues <-
 #' (Deprecated)
 
 listClosedIssues <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    .Deprecated()
 
-                .Deprecated()
+    system(paste0(
+      "cd\n",
+      "cd ", path, "\n",
+      "ghi close --list"
+    ),
+    intern = FALSE
+    )
 
-                system(paste0("cd\n",
-                              "cd ", path,"\n",
-                              "ghi close --list"),
-                       intern = FALSE)
 
+    output <-
+      tibble::tibble(Issues = system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "ghi close --list"
+      ),
+      intern = TRUE
+      )[-1]) %>%
+      tidyr::extract(
+        col = Issues,
+        into = c(
+          "IssueNo",
+          "ClosedIssue"
+        ),
+        regex = "(^[ ]{0,}[0-9]{1,}[ ]*?)([a-zA-Z]{1,}.*$)"
+      ) %>%
+      dplyr::mutate_all(trimws, "both")
 
-                output <-
-                        tibble::tibble(Issues = system(paste0("cd\n",
-                                                              "cd ", path,"\n",
-                                                              "ghi close --list"),
-                                                       intern = TRUE)[-1]) %>%
-                        tidyr::extract(col = Issues,
-                                       into = c("IssueNo",
-                                                "ClosedIssue"),
-                                       regex = "(^[ ]{0,}[0-9]{1,}[ ]*?)([a-zA-Z]{1,}.*$)") %>%
-                        dplyr::mutate_all(trimws, "both")
-
-                invisible(output)
-        }
+    invisible(output)
+  }
 
 
 #' (Deprecated) Open a GitHub Issue
@@ -89,19 +107,20 @@ listClosedIssues <-
 #' @export
 
 openIssue <-
-        function(path = getwd(),
-                 title,
-                 description) {
+  function(path = getwd(),
+           title,
+           description) {
+    .Deprecated()
 
-                .Deprecated()
+    prompt <-
+      paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "ghi open -m '", description, "' \ '", title, "'"
+      )
 
-                prompt <-
-                paste0("cd\n",
-                       "cd ", path,"\n",
-                       "ghi open -m '", description, "' \ '", title, "'")
-
-                system(prompt)
-        }
+    system(prompt)
+  }
 
 
 #' (Deprecated) Close a GitHub Issue
@@ -109,19 +128,20 @@ openIssue <-
 #' @export
 
 closeIssue <-
-        function(path = getwd(),
-                 issueNo,
-                 closureMsg) {
+  function(path = getwd(),
+           issueNo,
+           closureMsg) {
+    .Deprecated()
 
-                .Deprecated()
+    prompt <-
+      paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "ghi close -m '", closureMsg, "' \ '", closureMsg, "' ", issueNo
+      )
 
-                prompt <-
-                        paste0("cd\n",
-                               "cd ", path,"\n",
-                               "ghi close -m '", closureMsg, "' \ '", closureMsg, "' ", issueNo)
-
-                system(prompt)
-        }
+    system(prompt)
+  }
 
 
 #' (Deprecated) Show a GitHub Issue
@@ -129,15 +149,16 @@ closeIssue <-
 #' @export
 
 showIssue <-
-        function(path = getwd(),
-                 issueNo) {
+  function(path = getwd(),
+           issueNo) {
+    .Deprecated()
 
-                .Deprecated()
+    prompt <-
+      paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "ghi show ", issueNo
+      )
 
-                prompt <-
-                        paste0("cd\n",
-                               "cd ", path,"\n",
-                               "ghi show ", issueNo)
-
-                system(prompt)
-        }
+    system(prompt)
+  }

@@ -4,20 +4,19 @@
 #' @export
 
 hasRemote <-
-        function(path = getwd(),
-                 remote = "origin") {
+  function(path = getwd(),
+           remote = "origin") {
+    x <- remote_url(
+      path = path,
+      remote = remote
+    )
 
-                x <- remote_url(path = path,
-                           remote = remote)
-
-                if (length(x) == 0) {
-
-                        FALSE
-
-                } else {
-                        TRUE
-                }
-        }
+    if (length(x) == 0) {
+      FALSE
+    } else {
+      TRUE
+    }
+  }
 
 
 
@@ -29,23 +28,22 @@ hasRemote <-
 #' @export
 
 isRepo <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    x <- suppressWarnings(system(paste0(
+      "cd\n",
+      "cd ", path, "\n",
+      "git status"
+    ),
+    ignore.stderr = TRUE,
+    intern = TRUE
+    ))
 
-                x <- suppressWarnings(system(paste0("cd\n",
-                       "cd ", path,"\n",
-                       "git status"),
-                       ignore.stderr = TRUE,
-                       intern = TRUE
-                ))
-
-                if (length(x) == 0) {
-
-                        FALSE
-
-                } else {
-                        TRUE
-                }
-        }
+    if (length(x) == 0) {
+      FALSE
+    } else {
+      TRUE
+    }
+  }
 
 
 
@@ -58,16 +56,17 @@ isRepo <-
 #' @export
 
 isUpToDate <-
-        function(path = getwd()) {
-
-                git_msg <- pull(path = path,
-                                verbose = FALSE)
-                if ("Already up to date." %in% git_msg) {
-                       TRUE
-                } else {
-                       FALSE
-                }
-        }
+  function(path = getwd()) {
+    git_msg <- pull(
+      path = path,
+      verbose = FALSE
+    )
+    if ("Already up to date." %in% git_msg) {
+      TRUE
+    } else {
+      FALSE
+    }
+  }
 
 
 
@@ -79,20 +78,15 @@ isUpToDate <-
 #' @export
 
 isWorkingTreeClean <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    gitMessage <- status(
+      path = path,
+      verbose = FALSE
+    )
 
-
-                gitMessage <- status(path = path,
-                            verbose = FALSE)
-
-                if ("nothing to commit, working tree clean" %in% gitMessage) {
-                       TRUE
-                } else {
-                       FALSE
-                }
-        }
-
-
-
-
-
+    if ("nothing to commit, working tree clean" %in% gitMessage) {
+      TRUE
+    } else {
+      FALSE
+    }
+  }

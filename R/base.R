@@ -15,86 +15,79 @@
 
 
 add <-
-        function(...,
-                 path = getwd(),
-                 pattern = NULL,
-                 all.files = FALSE,
-                 recursive = FALSE,
-                 ignore.case = FALSE,
-                 include.dirs = FALSE,
-                 no.. = FALSE,
-                 max_mb = 50) {
+  function(...,
+           path = getwd(),
+           pattern = NULL,
+           all.files = FALSE,
+           recursive = FALSE,
+           ignore.case = FALSE,
+           include.dirs = FALSE,
+           no.. = FALSE,
+           max_mb = 50) {
+    path <- normalizePath(path.expand(path = path), mustWork = TRUE)
+    path_to_root <- root(path = path)
+
+    cli::cat_line()
+    status(path = path)
 
 
-                path <- normalizePath(path.expand(path = path), mustWork = TRUE)
-                path_to_root <- root(path = path)
+    if (!missing(...)) {
+      files_to_add <- rlang::list2(...)
+      files_to_add <- file.path(path, unlist(files_to_add))
+    } else {
+      files_to_add <-
+        list.files(
+          path = path,
+          pattern = pattern,
+          all.files = all.files,
+          full.names = TRUE,
+          recursive = recursive,
+          ignore.case = ignore.case,
+          include.dirs = include.dirs,
+          no.. = no..
+        )
+    }
 
-                cli::cat_line()
-                status(path = path)
+    big_files <- list_big_files(mb_threshold = max_mb, path = path_to_root)
+    files_to_add_big <- big_files[big_files %in% files_to_add]
 
+    if (length(files_to_add_big) > 0) {
+      cli::cat_rule(secretary::magentaTxt(sprintf("Files Greater Than %s MB", max_mb)))
+      cli::cat_bullet(big_files,
+        bullet = "line"
+      )
 
-                if (!missing(...)) {
-
-                        files_to_add <- rlang::list2(...)
-                        files_to_add <- file.path(path, unlist(files_to_add))
-
-                } else {
-
-                        files_to_add <-
-                                list.files(path = path,
-                                           pattern = pattern,
-                                           all.files = all.files,
-                                           full.names = TRUE,
-                                           recursive = recursive,
-                                           ignore.case = ignore.case,
-                                           include.dirs = include.dirs,
-                                           no.. = no..)
-
-                }
-
-                big_files <- list_big_files(mb_threshold = max_mb, path = path_to_root)
-                files_to_add_big <- big_files[big_files %in% files_to_add]
-
-                if (length(files_to_add_big) > 0) {
-
-                        cli::cat_rule(secretary::magentaTxt(sprintf("Files Greater Than %s MB", max_mb)))
-                        cli::cat_bullet(big_files,
-                                        bullet = "line")
-
-                        cli::cli_alert(text = "No files are added.")
-
-                } else {
-
-                        if (missing(...) && is.null(pattern)) {
-
-                                command <-
-                                        c(starting_command(path = path_to_root),
-                                          "git add .") %>%
-                                        paste(collapse = "\n")
-
-
-                        } else {
-
-                        command <-
-                                c(sprintf("cd\ncd %s\n",path_to_root),
-                                  files_to_add %>%
-                                          purrr::map(~ sprintf("git add %s", .)) %>%
-                                          unlist()) %>%
-                                        paste(collapse = "\n")
-
-                        }
+      cli::cli_alert(text = "No files are added.")
+    } else {
+      if (missing(...) && is.null(pattern)) {
+        command <-
+          c(
+            starting_command(path = path_to_root),
+            "git add ."
+          ) %>%
+          paste(collapse = "\n")
+      } else {
+        command <-
+          c(
+            sprintf("cd\ncd %s\n", path_to_root),
+            files_to_add %>%
+              purrr::map(~ sprintf("git add %s", .)) %>%
+              unlist()
+          ) %>%
+          paste(collapse = "\n")
+      }
 
 
 
-                        system(command = command)
+      system(command = command)
 
 
-                        status(path = path,
-                               header = "Updated Status Response")
-
-                }
-
-        }
+      status(
+        path = path,
+        header = "Updated Status Response"
+      )
+    }
+  }
 
 
 
@@ -106,37 +99,39 @@ add <-
 #' @export
 #' @importFrom magrittr %>%
 commit <-
-        function(commit_msg,
-                 path = getwd(),
-                 verbose = TRUE) {
+  function(commit_msg,
+           path = getwd(),
+           verbose = TRUE) {
+    command <-
+      c(
+        starting_command(path = path),
+        paste0("git commit -m '", commit_msg, "'")
+      ) %>%
+      paste(collapse = "\n")
 
+    commit_response <-
+      suppressWarnings(
+        system(
+          command = command,
+          intern = TRUE
+        )
+      )
 
-                command <-
-                        c(starting_command(path = path),
-                          paste0("git commit -m '", commit_msg, "'")) %>%
-                        paste(collapse = "\n")
+    if (verbose) {
+      cli::cat_line()
+      cli::cat_rule(secretary::yellowTxt("Commit Response"))
 
-                commit_response <-
-                        suppressWarnings(
-                                system(command = command,
-                                       intern = TRUE))
+      if ("no changes added to commit" %in% commit_response) {
+        secretary::typewrite_italic(secretary::redTxt("\tNo changes added to the commit."))
+      }
 
-                if (verbose) {
+      cat(paste0("\t\t", commit_response), sep = "\n")
 
-                        cli::cat_line()
-                        cli::cat_rule(secretary::yellowTxt("Commit Response"))
+      cli::cat_line()
+    }
 
-                        if ("no changes added to commit" %in% commit_response) {
-                                secretary::typewrite_italic(secretary::redTxt("\tNo changes added to the commit."))
-                        }
-
-                        cat(paste0("\t\t", commit_response), sep = "\n")
-
-                        cli::cat_line()
-                }
-
-                invisible(commit_response)
-        }
+    invisible(commit_response)
+  }
 
 
 
@@ -157,37 +152,39 @@ commit <-
 #' @importFrom magrittr %>%
 
 root <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    path <- normalizePath(path.expand(path = path), mustWork = TRUE)
 
-                path <- normalizePath(path.expand(path = path), mustWork = TRUE)
-
-                if (!(file.info(path)$isdir)) {
-                        path <- dirname(path)
-                }
-
+    if (!(file.info(path)$isdir)) {
+      path <- dirname(path)
+    }
 
 
-                command <-
-                        c("cd",
-                          paste0("cd ", path),
-                          "git rev-parse --show-toplevel")
 
-                command <- paste(command, collapse = "\n")
+    command <-
+      c(
+        "cd",
+        paste0("cd ", path),
+        "git rev-parse --show-toplevel"
+      )
 
-                output <-
-                        system(command = command,
-                               intern = FALSE,
-                               ignore.stdout = TRUE,
-                               ignore.stderr = TRUE)
+    command <- paste(command, collapse = "\n")
 
-                if (output == 0) {
+    output <-
+      system(
+        command = command,
+        intern = FALSE,
+        ignore.stdout = TRUE,
+        ignore.stderr = TRUE
+      )
 
-                        system(command = command,
-                               intern = TRUE)
-
-                }
-
-        }
+    if (output == 0) {
+      system(
+        command = command,
+        intern = TRUE
+      )
+    }
+  }
 
 
 
@@ -200,30 +197,30 @@ root <-
 #' @importFrom magrittr %>%
 
 pull <-
-        function(path = getwd(),
-                 verbose = TRUE) {
+  function(path = getwd(),
+           verbose = TRUE) {
+    command <-
+      c(
+        starting_command(path = path),
+        "git pull"
+      ) %>%
+      paste(collapse = "\n")
 
+    pull_response <-
+      system(
+        command = command,
+        intern = TRUE
+      )
 
+    if (verbose) {
+      cat("\n")
+      secretary::typewrite_bold(secretary::magentaTxt("\tPull Response:"))
+      cat(paste0("\t\t", pull_response), sep = "\n")
+      cat("\n")
+    }
 
-                command <-
-                        c(starting_command(path = path),
-                          "git pull") %>%
-                        paste(collapse = "\n")
-
-                pull_response <-
-                        system(command = command,
-                               intern = TRUE)
-
-                if (verbose) {
-                        cat("\n")
-                        secretary::typewrite_bold(secretary::magentaTxt("\tPull Response:"))
-                        cat(paste0("\t\t", pull_response), sep = "\n")
-                        cat("\n")
-                }
-
-                invisible(pull_response)
-
-        }
+    invisible(pull_response)
+  }
 
 
 
@@ -246,35 +243,38 @@ pull <-
 #' @importFrom magrittr %>%
 
 push <-
-        function(remote_name = "origin",
-                 remote_branch = "master",
-                 path = getwd(),
-                 verbose = TRUE) {
-
-
-                if (remote_branch == "master" && is_main(path = path)) {
-                        remote_branch <- "main"
-                }
+  function(remote_name = "origin",
+           remote_branch = "master",
+           path = getwd(),
+           verbose = TRUE) {
+    if (remote_branch == "master" && is_main(path = path)) {
+      remote_branch <- "main"
+    }
 
 
 
 
-                status_response <- status(path = path,
-                                          verbose = FALSE)
+    status_response <- status(
+      path = path,
+      verbose = FALSE
+    )
 
-                #if (any(grepl('use "git push" to publish your local commits', status_response))) {
+    # if (any(grepl('use "git push" to publish your local commits', status_response))) {
 
-                        command <-
-                                c(starting_command(path = path),
-                                  paste0("git push ", remote_name, " ", remote_branch)) %>%
-                                paste(collapse = "\n")
+    command <-
+      c(
+        starting_command(path = path),
+        paste0("git push ", remote_name, " ", remote_branch)
+      ) %>%
+      paste(collapse = "\n")
 
-                        system(command = command,
-                               intern = FALSE)
+    system(
+      command = command,
+      intern = FALSE
+    )
 
-                #}
-
-        }
+    # }
+  }
 
 
 
@@ -297,41 +297,37 @@ push <-
 #' @importFrom purrr map
 
 clone <-
-        function(github_user, repo, destination_path) {
+  function(github_user, repo, destination_path) {
+    clone_url <- sprintf("https://github.com/%s/%s.git", github_user, repo)
 
-                clone_url <- sprintf("https://github.com/%s/%s.git", github_user, repo)
+    local_repo_path <-
+      basename(clone_url) %>%
+      stringr::str_replace_all(
+        pattern = "(^.*)([.]{1}[a-zA-Z]{1,}$)",
+        replacement = "\\1"
+      ) %>%
+      purrr::map(~ paste0(destination_path, "/", .)) %>%
+      unlist()
 
-                local_repo_path <-
-                        basename(clone_url) %>%
-                                stringr::str_replace_all(pattern = "(^.*)([.]{1}[a-zA-Z]{1,}$)",
-                                                         replacement = "\\1") %>%
-                                purrr::map(~paste0(destination_path, "/", .)) %>%
-                                unlist()
-
-                if (!dir.exists(local_repo_path)) {
-                        command <-
-                        sprintf(
-                                "cd\n
+    if (!dir.exists(local_repo_path)) {
+      command <-
+        sprintf(
+          "cd\n
                                 cd %s\n
-                                git clone %s\n"
-                                ,
-                                destination_path,
-                                clone_url)
+                                git clone %s\n",
+          destination_path,
+          clone_url
+        )
 
 
 
-                                system(command = command)
+      system(command = command)
 
-                                invisible(local_repo_path)
-
-
-
-                } else {
-
-                                stop(local_repo_path, " already exists")
-
-                }
-        }
+      invisible(local_repo_path)
+    } else {
+      stop(local_repo_path, " already exists")
+    }
+  }
 
 
 
@@ -346,33 +342,34 @@ clone <-
 #' @export
 
 list_modified_files <-
-        function(path) {
-                .Deprecated(new = "lsStagedFiles")
-                secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
+  function(path) {
+    .Deprecated(new = "lsStagedFiles")
+    secretary::typewrite_bold("Git Status:", line_number = 0, add_to_readme = FALSE)
 
-                status_msg <- status(path = path)
-                modified_status <- grep("^\tmodified:", status_msg, value = TRUE)
+    status_msg <- status(path = path)
+    modified_status <- grep("^\tmodified:", status_msg, value = TRUE)
 
-                fns <- vector()
-                while (length(modified_status) > 0) {
-                        modified_file <- modified_status[1]
-                        fn <- stringr::str_replace_all(modified_file,
-                                                       pattern = "(^\tmodified:[ ]*)([^ ]{1}.*$)",
-                                                       "\\2")
+    fns <- vector()
+    while (length(modified_status) > 0) {
+      modified_file <- modified_status[1]
+      fn <- stringr::str_replace_all(modified_file,
+        pattern = "(^\tmodified:[ ]*)([^ ]{1}.*$)",
+        "\\2"
+      )
 
-                        fns <- c(fns, fn)
-                        modified_status <- modified_status[-1]
-                }
+      fns <- c(fns, fn)
+      modified_status <- modified_status[-1]
+    }
 
-                if (length(fns) > 0) {
-                        secretary::typewrite_bold("\nModified Files:", line_number = 0, add_to_readme = FALSE)
-                        pretty_if_exists(fns)
-                        invisible(fns)
-                } else {
-                        invisible(NULL)
-                        secretary::typewrite_italic("No modified files in this repo.\n")
-                }
-        }
+    if (length(fns) > 0) {
+      secretary::typewrite_bold("\nModified Files:", line_number = 0, add_to_readme = FALSE)
+      pretty_if_exists(fns)
+      invisible(fns)
+    } else {
+      invisible(NULL)
+      secretary::typewrite_italic("No modified files in this repo.\n")
+    }
+  }
 
 
 
@@ -382,40 +379,37 @@ list_modified_files <-
 #' @export
 
 ac <-
-        function(commit_msg,
-                 ...,
-                 path = getwd(),
-                 pattern = NULL,
-                 all.files = FALSE,
-                 recursive = FALSE,
-                 ignore.case = FALSE,
-                 include.dirs = FALSE,
-                 no.. = FALSE,
-                 max_mb = 50,
-                 verbose = TRUE)
+  function(commit_msg,
+           ...,
+           path = getwd(),
+           pattern = NULL,
+           all.files = FALSE,
+           recursive = FALSE,
+           ignore.case = FALSE,
+           include.dirs = FALSE,
+           no.. = FALSE,
+           max_mb = 50,
+           verbose = TRUE) {
+    stopifnot(!missing(commit_msg))
 
-        {
+    add(
+      ...,
+      path = path,
+      pattern = pattern,
+      all.files = all.files,
+      recursive = recursive,
+      ignore.case = ignore.case,
+      include.dirs = include.dirs,
+      no.. = no..,
+      max_mb = max_mb
+    )
 
-                stopifnot(!missing(commit_msg))
-
-                add(
-                        ...,
-                        path = path,
-                        pattern = pattern,
-                        all.files = all.files,
-                        recursive = recursive,
-                        ignore.case = ignore.case,
-                        include.dirs = include.dirs,
-                        no.. = no..,
-                        max_mb = max_mb
-                )
-
-                commit(commit_msg = commit_msg,
-                       path = path,
-                       verbose = verbose)
-
-
-        }
+    commit(
+      commit_msg = commit_msg,
+      path = path,
+      verbose = verbose
+    )
+  }
 
 
 
@@ -426,50 +420,53 @@ ac <-
 #' @export
 
 acp <-
-        function(commit_msg,
-                 ...,
-                 path = getwd(),
-                 pattern = NULL,
-                 all.files = FALSE,
-                 recursive = FALSE,
-                 ignore.case = FALSE,
-                 include.dirs = FALSE,
-                 no.. = FALSE,
-                 max_mb = 50,
-                 remote_name = "origin",
-                 remote_branch = "master",
-                 verbose = TRUE) {
+  function(commit_msg,
+           ...,
+           path = getwd(),
+           pattern = NULL,
+           all.files = FALSE,
+           recursive = FALSE,
+           ignore.case = FALSE,
+           include.dirs = FALSE,
+           no.. = FALSE,
+           max_mb = 50,
+           remote_name = "origin",
+           remote_branch = "master",
+           verbose = TRUE) {
+    ac(
+      commit_msg = commit_msg,
+      path = path,
+      pattern = pattern,
+      all.files = all.files,
+      recursive = recursive,
+      ignore.case = ignore.case,
+      include.dirs = include.dirs,
+      no.. = no..,
+      max_mb = max_mb,
+      verbose = verbose
+    )
 
-                ac(commit_msg = commit_msg,
-                   path = path,
-                   pattern = pattern,
-                   all.files = all.files,
-                   recursive = recursive,
-                   ignore.case = ignore.case,
-                   include.dirs = include.dirs,
-                   no.. = no..,
-                   max_mb = max_mb,
-                   verbose = verbose)
-
-                push(remote_name = remote_name,
-                     remote_branch = remote_branch,
-                     path = path,
-                     verbose = verbose)
-        }
+    push(
+      remote_name = remote_name,
+      remote_branch = remote_branch,
+      path = path,
+      verbose = verbose
+    )
+  }
 
 #' @title
 #' Add and commit .gitignore
 #' @export
 
 ac_gitignore <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    path_to_root <- root(path = path)
 
-                path_to_root <- root(path = path)
-
-                ac(".gitignore",
-                    path = path_to_root,
-                    commit_msg = "update .gitignore")
-        }
+    ac(".gitignore",
+      path = path_to_root,
+      commit_msg = "update .gitignore"
+    )
+  }
 
 
 #' @title Get the Git status of any local repo using the path
@@ -480,27 +477,26 @@ ac_gitignore <-
 
 
 status <-
-        function(path = getwd(),
-                 verbose = TRUE,
-                 header = "Status Response") {
+  function(path = getwd(),
+           verbose = TRUE,
+           header = "Status Response") {
+    command <- sprintf("cd\ncd %s\ngit status", path)
 
+    status_response <-
+      system(
+        command = command,
+        intern = TRUE
+      )
 
-                        command <- sprintf("cd\ncd %s\ngit status", path)
+    if (verbose) {
+      cli::cat_line()
+      cli::cat_rule(secretary::greenTxt(header))
+      cat(paste0("\t\t", status_response), sep = "\n")
+      cli::cat_line()
+    }
 
-                        status_response <-
-                                system(command = command,
-                                       intern = TRUE)
-
-                        if (verbose) {
-                                cli::cat_line()
-                                cli::cat_rule(secretary::greenTxt(header))
-                                cat(paste0("\t\t", status_response), sep = "\n")
-                                cli::cat_line()
-                        }
-
-                        invisible(status_response)
-
-        }
+    invisible(status_response)
+  }
 
 
 
@@ -517,57 +513,58 @@ status <-
 #' @export
 
 remote_url <-
-        function(path = getwd(),
-                 remote_name = "origin") {
-
-                suppressWarnings(
-                system(paste0("cd\n",
-                              "cd ", path,"\n",
-                              "git remote get-url ", remote_name),
-                       ignore.stderr = TRUE,
-                       intern = TRUE)
-                )
-        }
+  function(path = getwd(),
+           remote_name = "origin") {
+    suppressWarnings(
+      system(paste0(
+        "cd\n",
+        "cd ", path, "\n",
+        "git remote get-url ", remote_name
+      ),
+      ignore.stderr = TRUE,
+      intern = TRUE
+      )
+    )
+  }
 
 #' Git Log
 #' @export
 
 log <-
-        function(path = getwd(),
-                 verbose = TRUE) {
+  function(path = getwd(),
+           verbose = TRUE) {
+    logResponse <-
+      system(
+        paste0("cd\ncd ", repo_path, "\n", "git log"),
+        intern = TRUE
+      )
 
+    if (verbose) {
+      printMsg(logResponse)
+    }
 
-                logResponse <-
-                        system(
-                                paste0("cd\ncd ", repo_path,"\n", "git log"),
-                                intern = TRUE)
-
-                if (verbose) {
-                        printMsg(logResponse)
-                }
-
-                invisible(logResponse)
-        }
+    invisible(logResponse)
+  }
 
 
 
 #' @export
 
 set_upstream_tracking <-
-        function(path = getwd(),
-                 remote = "origin",
-                 branch = "master",
-                 local_branch = "master") {
-
-
-                command <-
-                sprintf("cd\n
+  function(path = getwd(),
+           remote = "origin",
+           branch = "master",
+           local_branch = "master") {
+    command <-
+      sprintf(
+        "cd\n
                         cd %s\n
                         git branch --set-upstream-to=%s/%s %s\n",
-                                path,
-                                remote,
-                                branch,
-                                local_branch)
+        path,
+        remote,
+        branch,
+        local_branch
+      )
 
-                system(command = command)
-        }
+    system(command = command)
+  }

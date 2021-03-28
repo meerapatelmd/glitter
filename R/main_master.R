@@ -4,15 +4,16 @@
 #' @rdname is_main
 #' @export
 is_main <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    repo_branches <-
+      branch(
+        verbose = FALSE,
+        path = path
+      )
 
-                repo_branches <-
-                        branch(verbose = FALSE,
-                               path = path)
 
-
-                "main" %in% repo_branches
-        }
+    "main" %in% repo_branches
+  }
 
 #' @title
 #' Is the cardinal branch called `master`?
@@ -20,15 +21,16 @@ is_main <-
 #' @rdname is_master
 #' @export
 is_master <-
-        function(path = getwd()) {
+  function(path = getwd()) {
+    repo_branches <-
+      branch(
+        verbose = FALSE,
+        path = path
+      )
 
-                repo_branches <-
-                        branch(verbose = FALSE,
-                               path = path)
 
-
-                "master" %in% repo_branches
-        }
+    "master" %in% repo_branches
+  }
 
 
 
@@ -50,31 +52,32 @@ is_master <-
 #' @export
 
 copy_branch <-
-        function(path = getwd(),
-                 branch,
-                 new_branch_name,
-                 remote_branch = "origin") {
+  function(path = getwd(),
+           branch,
+           new_branch_name,
+           remote_branch = "origin") {
+    path <- normalizePath(
+      path.expand(path = path),
+      mustWork = TRUE
+    )
 
 
-        path <- normalizePath(
-                  path.expand(path = path),
-                  mustWork = TRUE)
+    command <-
+      c(
+        "cd",
+        sprintf("cd %s", path),
+        sprintf(
+          "git branch -m %s %s",
+          branch,
+          new_branch_name
+        ),
+        sprintf(
+          "git push -u %s %s",
+          remote_branch,
+          new_branch_name
+        )
+      ) %>%
+      paste(collapse = "\n")
 
-
-        command <-
-                c("cd",
-                sprintf("cd %s", path),
-                sprintf("git branch -m %s %s",
-                        branch,
-                        new_branch_name),
-                sprintf("git push -u %s %s",
-                        remote_branch,
-                        new_branch_name)) %>%
-                paste(collapse = "\n")
-
-        system(command = command)
-
-
-
-
-        }
+    system(command = command)
+  }

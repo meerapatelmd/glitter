@@ -55,7 +55,7 @@ delete_branch <-
 
                         system(paste0("cd\n",
                                       "cd ", path,"\n",
-                                      "git checkout -D ", branch),
+                                      "git branch -D ", branch),
                                intern = FALSE)
 
 
@@ -63,7 +63,7 @@ delete_branch <-
 
                         system(paste0("cd\n",
                                       "cd ", path,"\n",
-                                      "git checkout -d ", branch),
+                                      "git branch -d ", branch),
                                intern = FALSE)
 
                 }

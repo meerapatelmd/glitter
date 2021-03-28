@@ -1,3 +1,8 @@
+# glitter 0.7.3.9000  
+
+* Add `copy_branch()`  
+
+
 # glitter 0.7.3  
 
 * Add `is_man()` and `is_master()`  

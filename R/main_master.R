@@ -47,9 +47,7 @@ is_master <-
 #' See
 #' \href{https://www.git-tower.com/learn/git/faq/git-rename-master-to-main/}{Git Tower FAQ: Rename Master to Main}
 #' for full details.  .
-#'
-#'
-#'
+#' @export
 
 copy_branch <-
         function(path = getwd(),

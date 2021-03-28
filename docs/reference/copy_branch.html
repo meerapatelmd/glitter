@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>List Open GitHub Issues — list_open_issues • glitter</title>
+<title>Copy Branch — copy_branch • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,18 @@
 
 
 
-<meta property="og:title" content="List Open GitHub Issues — list_open_issues" />
-<meta property="og:description" content="All GitHub Issues functions in this package requires downloading and setting up authorization for GHI." />
+<meta property="og:title" content="Copy Branch — copy_branch" />
+<meta property="og:description" content="Copy an existing branch to a new branch with the provided
+name. To rename default branches, such as  `main` to
+`master`, this function is run followed by pointing the
+repo to the new branch as the default before deleting the
+original `main` branch with:
+```
+git push origin --delete main
+```
+See
+Git Tower FAQ: Rename Master to Main
+for full details.  ." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,38 +141,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>List Open GitHub Issues</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/issues.R'><code>R/issues.R</code></a></small>
-    <div class="hidden name"><code>list_open_issues.Rd</code></div>
+    <h1>Copy Branch</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/main_master.R'><code>R/main_master.R</code></a></small>
+    <div class="hidden name"><code>copy_branch.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>All GitHub Issues functions in this package requires downloading and setting up authorization for <a href='https://github.com/stephencelis/ghi'>GHI</a>.</p>
+    <p>Copy an existing branch to a new branch with the provided
+name. To rename default branches, such as  `main` to
+`master`, this function is run followed by pointing the
+repo to the new branch as the default before deleting the
+original `main` branch with:
+```
+git push origin --delete main
+```
+See
+<a href='https://www.git-tower.com/learn/git/faq/git-rename-master-to-main/'>Git Tower FAQ: Rename Master to Main</a>
+for full details.  .</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_open_issues</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>copy_branch</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>branch</span>, <span class='va'>new_branch_name</span>, remote_branch <span class='op'>=</span> <span class='st'>"origin"</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>path</th>
-      <td><p>path to the local path targeted by the function call. If NULL, the function is executed on the working directory</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The system command stdout is printed in the R console and a dataframe from that same data is returned invisibly.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>DETAILS</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></code>
- <code><a href='https://meerapatelmd.github.io/rubix/reference/filter_at_grepl.html'>filter_at_grepl</a></code>
- <code><a href='https://tidyr.tidyverse.org/reference/extract.html'>extract</a></code>
- <code><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></code></p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

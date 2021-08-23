@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • glitter</title>
+<title>List Tags — list_tags • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="List Tags — list_tags" />
+<meta property="og:description" content="List Tags" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +67,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -130,79 +131,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>List Tags</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/tags.R'><code>R/tags.R</code></a></small>
+    <div class="hidden name"><code>list_tags.Rd</code></div>
     </div>
 
-    <div id="glitter-0739000" class="section level1">
-<h1 class="page-header" data-toc-text="0.7.3.9000">
-<a href="#glitter-0739000" class="anchor"></a>glitter 0.7.3.9000</h1>
-<ul>
-<li>Add <code><a href="../reference/copy_branch.html">copy_branch()</a></code><br>
-</li>
-<li>Fixed bug in <code><a href="../reference/delete_branch.html">delete_branch()</a></code>, changed <code>has_vignettes</code> argument in <code>deploy_*</code> packages to <code>build_vignettes</code>. Vignettes can be knit separatedly using the new <code>knit_vignettes</code> function prior to deployment.<br>
-</li>
-<li>Add magrittr package dependency to import pipe on load<br>
-</li>
-<li>Converted to tidy style</li>
-</ul>
-</div>
-    <div id="glitter-073" class="section level1">
-<h1 class="page-header" data-toc-text="0.7.3">
-<a href="#glitter-073" class="anchor"></a>glitter 0.7.3</h1>
-<ul>
-<li>Add <code>is_man()</code> and <code><a href="../reference/is_master.html">is_master()</a></code><br>
-</li>
-<li>
-<code><a href="../reference/branch.html">branch()</a></code> invisibly returns branch names<br>
-</li>
-<li>Automatically substitute <code>master</code> with <code>main</code> at <code><a href="../reference/push.html">push()</a></code>
-</li>
-</ul>
-</div>
-    <div id="glitter-064" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.4">
-<a href="#glitter-064" class="anchor"></a>glitter 0.6.4</h1>
-<ul>
-<li>Remove deprecated functions</li>
-</ul>
-</div>
-    <div id="glitter-064-1" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.4">
-<a href="#glitter-064-1" class="anchor"></a>glitter 0.6.4</h1>
-<ul>
-<li>Bug fix <code>issues</code> functions<br>
-</li>
-<li>Change argument of <code><a href="../reference/clone.html">clone()</a></code> from <code>clone_url</code> to github user and repo</li>
-</ul>
-</div>
-    <div id="glitter-0629000" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.2.9000">
-<a href="#glitter-0629000" class="anchor"></a>glitter 0.6.2.9000</h1>
-<ul>
-<li>Add filter to <code>github api</code> functions for only the github user’s repos<br>
-</li>
-<li>Add function that retrieves tag/release history for a github user’s repo<br>
-</li>
-<li>Rename <code>path_to_local_repo</code> arguments to <code>path</code>
-</li>
-</ul>
-</div>
-    <div id="glitter-061" class="section level1">
-<h1 class="page-header" data-toc-text="0.6.1">
-<a href="#glitter-061" class="anchor"></a>glitter 0.6.1</h1>
-<ul>
-<li>First Release</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>List Tags</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>list_tags</span><span class='op'>(</span>path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://docs.ropensci.org/git2r/reference/tags.html'>tags</a></code></p></div>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

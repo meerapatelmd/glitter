@@ -34,7 +34,7 @@ deploy_pkg <-
            reset = FALSE,
            build_vignettes = FALSE,
            path = getwd(),
-           ref = NULL,
+           ref = "HEAD",
            git = c("auto", "git2r", "external"),
            dependencies = NA,
            upgrade = "never",
@@ -106,7 +106,60 @@ deploy_pkg <-
 
       # Installing package by first getting URL of the remote
       git_url <- remote_url()
+      if (grepl("git[@]{1}.*?[:]{1}.*[.]{1}git$", git_url)) {
+        repo <-
+        stringr::str_replace_all(
+          string = git_url,
+          pattern = "(^git[@]{1}.*?):(.*?)/(.*?).git$",
+          replacement = "\\2/\\3"
+        )
 
+        # Install
+        devtools::install_github(
+          remote = remote,
+          ref = ref,
+          git = git,
+          dependencies = dependencies,
+          upgrade = upgrade,
+          force = force,
+          quiet = quiet,
+          build = build,
+          build_opts = build_opts,
+          build_manual = build_manual,
+          build_vignettes = build_vignettes,
+          repos = repos,
+          type = type
+        )
+
+      } else if (grepl("https[:]{1}[/]{1}[/]{1}github[.]{1}com[/]{1}.*[/]{1}.*[.]{1}git$",
+                       git_url)) {
+        repo <-
+          stringr::str_replace_all(
+            string = git_url,
+            pattern = "https[:]{1}[/]{1}[/]{1}github[.]{1}com[/]{1}(.*?)[/]{1}(.*?)[.]{1}git$",
+            replacement = "\\1/\\2"
+          )
+        # Install
+        devtools::install_github(
+          remote = remote,
+          ref = ref,
+          git = git,
+          dependencies = dependencies,
+          upgrade = upgrade,
+          force = force,
+          quiet = quiet,
+          build = build,
+          build_opts = build_opts,
+          build_manual = build_manual,
+          build_vignettes = build_vignettes,
+          repos = repos,
+          type = type
+        )
+
+
+
+
+      } else {
 
       # Install
       devtools::install_git(
@@ -124,12 +177,14 @@ deploy_pkg <-
         repos = repos,
         type = type
       )
+      }
     }
 
     if (reset) {
       invisible(.rs.restartR())
     }
-  }
+    }
+
 
 
 #' @title

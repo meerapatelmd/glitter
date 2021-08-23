@@ -13,7 +13,7 @@ deploy_pkg(
   reset = FALSE,
   build_vignettes = FALSE,
   path = getwd(),
-  ref = NULL,
+  ref = "HEAD",
   git = c("auto", "git2r", "external"),
   dependencies = NA,
   upgrade = "never",

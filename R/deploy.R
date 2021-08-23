@@ -126,6 +126,8 @@ deploy_pkg <-
           replacement = "\\2/\\3"
         )
 
+        secretary::typewrite(glue::glue("   Git URL: {git_url}\n  Git Repo: {repo}\n"))
+
         # Install
         devtools::install_github(
           repo = repo,
@@ -151,6 +153,8 @@ deploy_pkg <-
             pattern = "https[:]{1}[/]{1}[/]{1}github[.]{1}com[/]{1}(.*?)[/]{1}(.*?)[.]{1}git$",
             replacement = "\\1/\\2"
           )
+
+        secretary::typewrite(glue::glue("   Git URL: {git_url}\n  Git Repo: {repo}\n"))
         # Install
         devtools::install_github(
           repo   = repo,
@@ -172,6 +176,8 @@ deploy_pkg <-
 
 
       } else {
+
+        secretary::typewrite(glue::glue("   Git URL: {git_url}\n  Git Repo: Not Discovered\n"))
 
       # Install
       devtools::install_git(

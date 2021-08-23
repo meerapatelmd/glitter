@@ -280,8 +280,10 @@ deploy_gh_pages <-
     commit(commit_msg = commit_msg)
 
     push(
+      path = path,
       remote_name = remote_name,
-      remote_branch = remote_branch
+      remote_branch = remote_branch,
+      verbose = TRUE
     )
   }
 

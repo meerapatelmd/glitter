@@ -1,6 +1,10 @@
 # glitter 0.7.3.9000  
 
 * Add `copy_branch()`  
+* Added ability to add command line arguments to `pull()` and 
+`push()`.  
+* Added features that assist in versioning across NEWS.md, 
+DESCRIPTION, and the repo tag.  
 * Fixed bug in `delete_branch()`, changed `has_vignettes` 
 argument in `deploy_*` packages to `build_vignettes`. Vignettes 
 can be knit separatedly using the new `knit_vignettes` function 
@@ -8,6 +12,10 @@ prior to deployment.
 * Add magrittr package dependency to import pipe on load  
 * Converted to tidy style  
 
+## Issues  
+
+* How can a release automatically be made in GitHub with each new version?  
+* Move the mparse function to rubix    
 
 # glitter 0.7.3  
 

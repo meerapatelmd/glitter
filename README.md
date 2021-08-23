@@ -1,5 +1,9 @@
 # glitter <img src="man/figures/logo.png" align="right" alt="" width="120" />  
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/meerapatelmd/glitter/workflows/R-CMD-check/badge.svg)](https://github.com/meerapatelmd/glitter/actions)
+<!-- badges: end -->  
+
 This package contains convenience functions to
 perform basic Git commands such as add, commit, and push directly from
 the R console. A file recovery feature enables easy retrieval of a previously 

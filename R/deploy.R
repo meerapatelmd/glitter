@@ -45,6 +45,7 @@ deploy_pkg <-
            build_manual = FALSE,
            repos = getOption("repos"),
            type = getOption("pkgType")) {
+
     current_wd <- getwd()
     setwd(path)
     on.exit(setwd(current_wd))
@@ -77,6 +78,14 @@ deploy_pkg <-
       secretary::press_enter()
 
     }
+
+    if (!is.null(tag)) {
+
+    git2r::tag(object = path,
+               name = tag)
+
+    }
+
 
 
     # Rewriting NAMESPACE
@@ -116,6 +125,7 @@ deploy_pkg <-
 
         # Install
         devtools::install_github(
+          repo = repo,
           remote = remote,
           ref = ref,
           git = git,
@@ -141,6 +151,7 @@ deploy_pkg <-
           )
         # Install
         devtools::install_github(
+          repo   = repo,
           remote = remote,
           ref = ref,
           git = git,

@@ -1,7 +1,10 @@
 # glitter 0.7.3.9000  
 
 * Add `copy_branch()`  
-* Fixed bug in `delete_branch()`  
+* Fixed bug in `delete_branch()`, changed `has_vignettes` 
+argument in `deploy_*` packages to `build_vignettes`. Vignettes 
+can be knit separatedly using the new `knit_vignettes` function 
+prior to deployment.  
 * Add magrittr package dependency to import pipe on load  
 * Converted to tidy style  
 

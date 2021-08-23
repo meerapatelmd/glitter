@@ -25,6 +25,7 @@ Imports:
     cli,
     devtools,
     dplyr,
+    git2r,
     Hmisc,
     httr,
     jsonlite,

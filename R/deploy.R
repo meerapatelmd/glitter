@@ -24,6 +24,7 @@
 deploy_pkg <-
   function(
            commit_msg = "deploy pkg using glitter",
+           tag = NULL,
            remote_name = "origin",
            remote_branch = "master",
            install = TRUE,
@@ -44,6 +45,26 @@ deploy_pkg <-
     current_wd <- getwd()
     setwd(path)
     on.exit(setwd(current_wd))
+
+
+    tags_list <- list_tags(path = path)
+
+    if (is.null(tag)) {
+
+      secretary::typewrite(glue::glue("No tag provided. Continue? "))
+      secretary::press_enter()
+
+    } else if  (tag %in% names(tags_list)) {
+
+      secretary::typewrite(glue::glue("Tag '{tag}' has already been used. Continue? "))
+      secretary::press_enter()
+
+    } else {
+
+      secretary::typewrite(glue::glue("New tag '{tag}'"))
+
+
+    }
 
 
     # Rewriting NAMESPACE

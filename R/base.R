@@ -255,6 +255,7 @@ pull <-
 #' this newer default.
 #' @export
 #' @importFrom magrittr %>%
+#' @importFrom rlang list2
 
 push <-
   function(path = getwd(),
@@ -285,7 +286,7 @@ push <-
 
       command <-
         c(command,
-          paste(unlist(rlang2::list2(...)),
+          paste(unlist(rlang::list2(...)),
                 collapse = " ")) %>%
         paste(collapse = "\n")
 

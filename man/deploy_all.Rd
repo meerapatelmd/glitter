@@ -11,7 +11,7 @@ deploy_all(
   path = getwd(),
   install = TRUE,
   reset = FALSE,
-  has_vignettes = TRUE,
+  build_vignettes = FALSE,
   ref = NULL,
   examples = TRUE,
   run_dont_run = FALSE,
@@ -48,8 +48,6 @@ this newer default.}
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 
 \item{reset}{If TRUE, restart R after installation is complete. Default: TRUE.}
-
-\item{has_vignettes}{If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE}
 
 \item{examples}{Run examples?}
 

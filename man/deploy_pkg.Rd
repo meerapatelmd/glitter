@@ -10,7 +10,7 @@ deploy_pkg(
   remote_branch = "master",
   install = TRUE,
   reset = FALSE,
-  has_vignettes = TRUE,
+  build_vignettes = FALSE,
   path = getwd(),
   ref = NULL,
   git = c("auto", "git2r", "external"),
@@ -38,8 +38,6 @@ this newer default.}
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 
 \item{reset}{If TRUE, restart R after installation is complete. Default: TRUE.}
-
-\item{has_vignettes}{If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE}
 
 \item{path}{full path to local repository to be pushed}
 

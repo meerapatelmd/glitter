@@ -9,7 +9,6 @@
 #' @param commit_msg        commit message
 #' @param description           description to extend the commit message if desired, Default: NULL
 #' @param install               If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE
-#' @param has_vignettes         If TRUE, vignettes in the vignette/ subdir are built, pushed, and also built upon installation. Default: TRUE
 #' @param reset                 If TRUE, restart R after installation is complete. Default: TRUE.
 #'
 #' @return
@@ -29,7 +28,7 @@ deploy_pkg <-
            remote_branch = "master",
            install = TRUE,
            reset = FALSE,
-           has_vignettes = TRUE,
+           build_vignettes = FALSE,
            path = getwd(),
            ref = NULL,
            git = c("auto", "git2r", "external"),
@@ -52,33 +51,6 @@ deploy_pkg <-
       file.remove("NAMESPACE")
     }
     devtools::document()
-
-
-    if (has_vignettes) {
-      devtools::build_vignettes()
-      gi_rm("doc", "doc/")
-
-      asis_files <-
-        list.files(
-          path = "vignettes",
-          pattern = "[.]{1}asis$",
-          full.names = TRUE
-        )
-
-      if (length(asis_files) > 0) {
-        for (i in seq_along(asis_files)) {
-          asis_file <- asis_files[i]
-          file_to_copy <- file.path("doc", stringr::str_remove(basename(asis_file),
-            pattern = "[.]{1}asis$"
-          ))
-          new_file <- file.path("vignettes", basename(file_to_copy))
-          file.copy(
-            from = file_to_copy,
-            to = new_file
-          )
-        }
-      }
-    }
 
 
 
@@ -115,7 +87,7 @@ deploy_pkg <-
         build = build,
         build_opts = build_opts,
         build_manual = build_manual,
-        build_vignettes = has_vignettes,
+        build_vignettes = build_vignettes,
         repos = repos,
         type = type
       )
@@ -221,7 +193,7 @@ deploy_all <-
            path = getwd(),
            install = TRUE,
            reset = FALSE,
-           has_vignettes = TRUE,
+           build_vignettes = FALSE,
            ref = NULL,
            examples = TRUE,
            run_dont_run = FALSE,
@@ -249,7 +221,7 @@ deploy_all <-
       remote_branch = remote_branch,
       install = install,
       reset = reset,
-      has_vignettes = has_vignettes,
+      build_vignettes = build_vignettes,
       path = path,
       ref = ref,
       git = git,

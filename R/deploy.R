@@ -107,8 +107,10 @@ deploy_pkg <-
       print_response(x)
 
         push(
+          path = path,
           remote_name = remote_name,
           remote_branch = remote_branch,
+          verbose = TRUE,
           tag
         )
     }

@@ -6,6 +6,7 @@
 \usage{
 deploy_pkg(
   commit_msg = "deploy pkg using glitter",
+  tag = NULL,
   remote_name = "origin",
   remote_branch = "master",
   install = TRUE,

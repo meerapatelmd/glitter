@@ -20,6 +20,9 @@
 #' @export
 #' @importFrom devtools document build_vignettes install_git
 #' @importFrom magrittr %>%
+#' @importfrom desc desc_get_version
+#' @import secretary
+#' @import glue
 
 deploy_pkg <-
   function(
@@ -47,22 +50,31 @@ deploy_pkg <-
     on.exit(setwd(current_wd))
 
 
+    # Getting Version from the DESCRIPTION.
+    # Desc::desc_get_version() returns a hidden list and it is
+    # converted to character
+    version_in_desc <-
+      as.character(desc::desc_get_version())
+
+
     tags_list <- list_tags(path = path)
+    most_recent_tag <- names(tags_list)[length(tags_list)]
 
     if (is.null(tag)) {
 
-      secretary::typewrite(glue::glue("No tag provided. Continue? "))
+      secretary::typewrite(glue::glue("   No tag provided.\n  Version in DESCRIPTION is '{version_in_desc}'.\n  Latest tag is '{most_recent_tag}'.\n  Continue? "),
+                           timepunched = FALSE)
       secretary::press_enter()
 
     } else if  (tag %in% names(tags_list)) {
 
-      secretary::typewrite(glue::glue("Tag '{tag}' has already been used. Continue? "))
+      secretary::typewrite(glue::glue("   Tag '{tag}' has already been used.\n  Version in DESCRIPTION is '{version_in_desc}'.\n  Latest tag is '{most_recent_tag}'.\n  Continue? "), timepunched = FALSE)
       secretary::press_enter()
 
     } else {
 
-      secretary::typewrite(glue::glue("New tag '{tag}'"))
-
+      secretary::typewrite(glue::glue("   Tag '{tag}' is new.\n  Version in DESCRIPTION is '{version_in_desc}'.\n  Latest tag is '{most_recent_tag}'.\n  Continue? "), timepunched = FALSE)
+      secretary::press_enter()
 
     }
 

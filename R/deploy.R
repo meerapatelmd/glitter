@@ -69,11 +69,11 @@ deploy_pkg <-
 
     } else if  (tag %in% names(tags_list)) {
 
-      secretary::typewrite(glue::glue("   Tag '{tag}' has already been used and will be ignored.\n  Version in DESCRIPTION is '{version_in_desc}'.\n  Latest tag is '{most_recent_tag}'.\n  Continue? "), timepunched = FALSE)
-
-      tag <- NULL
-
+      secretary::typewrite(glue::glue("   Tag '{tag}' has already been used and will be updated to this commit.\n  Version in DESCRIPTION is '{version_in_desc}'.\n  Latest tag is '{most_recent_tag}'.\n  Continue? "), timepunched = FALSE)
       secretary::press_enter()
+
+      git2r::tag_delete(object = path,
+                        name   = tag)
 
     } else {
 

@@ -6,6 +6,7 @@
 \usage{
 deploy_all(
   commit_msg = "deploy pkg and GitHub Pages using glitter",
+  tag = NULL,
   remote_name = "origin",
   remote_branch = "master",
   path = getwd(),

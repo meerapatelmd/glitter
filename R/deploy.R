@@ -221,6 +221,7 @@ deploy_gh_pages <-
 #' @importFrom magrittr %>%
 deploy_all <-
   function(commit_msg = "deploy pkg and GitHub Pages using glitter",
+           tag = NULL,
            remote_name = "origin",
            remote_branch = "master",
            path = getwd(),
@@ -250,6 +251,7 @@ deploy_all <-
     cli::cat_rule("Deploying Package")
     deploy_pkg(
       commit_msg = commit_msg,
+      tag = tag,
       remote_name = remote_name,
       remote_branch = remote_branch,
       install = install,

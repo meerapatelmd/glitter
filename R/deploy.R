@@ -20,9 +20,10 @@
 #' @export
 #' @importFrom devtools document build_vignettes install_git
 #' @importFrom magrittr %>%
-#' @importfrom desc desc_get_version
+#' @importFrom desc desc_get_version
 #' @import secretary
 #' @import glue
+#' @import git2r
 
 deploy_pkg <-
   function(
@@ -105,12 +106,11 @@ deploy_pkg <-
     if (exists("x")) {
       print_response(x)
 
-      if (length(x) > 0) {
         push(
           remote_name = remote_name,
-          remote_branch = remote_branch
+          remote_branch = remote_branch,
+          tag
         )
-      }
     }
 
 

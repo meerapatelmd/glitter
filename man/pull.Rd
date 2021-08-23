@@ -4,7 +4,7 @@
 \alias{pull}
 \title{Pull a Remote Repo}
 \usage{
-pull(path = getwd(), verbose = TRUE)
+pull(path = getwd(), verbose = TRUE, ...)
 }
 \description{
 Pull a Remote Repo

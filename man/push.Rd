@@ -5,21 +5,22 @@
 \title{Push a local repo to a GitHub repository}
 \usage{
 push(
+  path = getwd(),
   remote_name = "origin",
   remote_branch = "master",
-  path = getwd(),
-  verbose = TRUE
+  verbose = TRUE,
+  ...
 )
 }
 \arguments{
+\item{path}{full path to local repository to be pushed}
+
 \item{remote_name}{name of remote to push to. Defaults to
 "origin".}
 
 \item{remote_branch}{name of branch on the remote to push
 to. Defaults to "master" or "main" if the cardinal branch is using
 this newer default.}
-
-\item{path}{full path to local repository to be pushed}
 }
 \description{
 Push a local repo to a GitHub repository

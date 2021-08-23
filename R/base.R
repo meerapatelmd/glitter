@@ -198,13 +198,27 @@ root <-
 
 pull <-
   function(path = getwd(),
-           verbose = TRUE) {
-    command <-
-      c(
-        starting_command(path = path),
-        "git pull"
-      ) %>%
-      paste(collapse = "\n")
+           verbose = TRUE,
+           ...) {
+
+
+      command <-
+        c(
+          starting_command(path = path),
+          "git pull"
+        ) %>%
+        paste(collapse = "\n")
+
+
+      if (!missing(...)) {
+
+        command <-
+        c(command,
+          paste(unlist(rlang2::list2(...)),
+                collapse = " ")) %>%
+          paste(collapse = "\n")
+
+    }
 
     pull_response <-
       system(
@@ -243,10 +257,11 @@ pull <-
 #' @importFrom magrittr %>%
 
 push <-
-  function(remote_name = "origin",
+  function(path = getwd(),
+           remote_name = "origin",
            remote_branch = "master",
-           path = getwd(),
-           verbose = TRUE) {
+           verbose = TRUE,
+           ...) {
     if (remote_branch == "master" && is_main(path = path)) {
       remote_branch <- "main"
     }
@@ -259,8 +274,6 @@ push <-
       verbose = FALSE
     )
 
-    # if (any(grepl('use "git push" to publish your local commits', status_response))) {
-
     command <-
       c(
         starting_command(path = path),
@@ -268,12 +281,21 @@ push <-
       ) %>%
       paste(collapse = "\n")
 
+    if (!missing(...)) {
+
+      command <-
+        c(command,
+          paste(unlist(rlang2::list2(...)),
+                collapse = " ")) %>%
+        paste(collapse = "\n")
+
+    }
+
     system(
       command = command,
       intern = FALSE
     )
 
-    # }
   }
 
 

@@ -29,18 +29,9 @@ deploy_pkg(
 \arguments{
 \item{commit_msg}{commit message}
 
-\item{remote_name}{name of remote to push to. Defaults to
-"origin".}
-
-\item{remote_branch}{name of branch on the remote to push
-to. Defaults to "master" or "main" if the cardinal branch is using
-this newer default.}
-
 \item{install}{If TRUE, installs the package after the changes are pushed to the remote, Default: TRUE}
 
 \item{reset}{If TRUE, restart R after installation is complete. Default: TRUE.}
-
-\item{path}{full path to local repository to be pushed}
 
 \item{description}{description to extend the commit message if desired, Default: NULL}
 }

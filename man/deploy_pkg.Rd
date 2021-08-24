@@ -48,7 +48,7 @@ this newer default.}
 A freshly packed local package committed to the remote that is by default also installed with vignettes, if applicable.
 }
 \description{
-This function automatically documents, pushes, and installs a package, assuming that the basename fo the working directory is the same as the repo as in patelm9/{repo}. If the URL of the GitHub remote belongs to MSKCC, the package is instead installed using a Git hyperlink.
+Deploy a Package
 }
 \seealso{
 \code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}

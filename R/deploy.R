@@ -107,7 +107,8 @@ deploy_pkg <-
 
 
     # Updating and Pushing to GitHub
-    x <- ac(commit_msg = commit_msg)
+    x <- ac(path = path,
+            commit_msg = commit_msg)
 
     if (exists("x")) {
       print_response(x)
@@ -124,7 +125,9 @@ deploy_pkg <-
     if (install) {
 
       # Installing package by first getting URL of the remote
-      git_url <- remote_url()
+      git_url <- remote_url(path = path,
+                            remote_name = remote_name)
+
       if (grepl("git[@]{1}.*?[:]{1}.*[.]{1}git$", git_url)) {
         repo <-
         stringr::str_replace_all(

@@ -128,7 +128,7 @@ deploy_pkg <-
           replacement = "\\2/\\3"
         )
 
-        secretary::typewrite(glue::glue(" Git URL: {git_url}\n Git Repo: {repo}\n"),
+        secretary::typewrite(glue::glue("\nGit URL: {git_url}\nGit Repo: {repo}\n"),
                              timepunched = F)
 
         # Install
@@ -157,7 +157,7 @@ deploy_pkg <-
             replacement = "\\2/\\3"
           )
 
-        secretary::typewrite(glue::glue(" Git URL: {git_url}\n  Git Repo: {repo}\n"),
+        secretary::typewrite(glue::glue("\nGit URL: {git_url}\nGit Repo: {repo}\n"),
                              timepunched = F)
         # Install
         devtools::install_github(
@@ -187,7 +187,7 @@ deploy_pkg <-
             replacement = "\\2/\\3"
           )
 
-        secretary::typewrite(glue::glue(" Git URL: {git_url}\n  Git Repo: {repo}\n"),
+        secretary::typewrite(glue::glue("\nGit URL: {git_url}\nGit Repo: {repo}\n"),
                              timepunched = F)
         # Install
         devtools::install_github(
@@ -209,7 +209,7 @@ deploy_pkg <-
 
       } else {
 
-        secretary::typewrite(glue::glue(" Git URL: {git_url}\n Git Repo: Not Discovered\n"),
+        secretary::typewrite(glue::glue("\nGit URL: {git_url}\nGit Repo: Not Discovered\n"),
                              timepunched = F)
 
       # Install

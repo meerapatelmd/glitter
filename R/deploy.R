@@ -153,7 +153,7 @@ deploy_pkg <-
         repo <-
           stringr::str_replace_all(
             string = git_url,
-            pattern = "https[:]{1}[/]{1}[/]{1}github[.]{1}com[/]{1}(.*?)[/]{1}(.*?)[.]{0,1}.*$",
+            pattern = "https://github.com/(.*?)/(.*?).*$",
             replacement = "\\1/\\2"
           )
 

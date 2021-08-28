@@ -1,5 +1,6 @@
 # glitter 0.7.3.9000  
 
+* Added `tag` features to assist in versioning.  
 * Add `copy_branch()`  
 * Added ability to add command line arguments to `pull()` and 
 `push()`.  

@@ -5,12 +5,23 @@
 remote_url <-
   function(path = getwd(),
            remote_name = "origin") {
+
+
+    command <-
+      as.character(
+        glue::glue(
+          "cd",
+          "cd {path}",
+          "git remote get-url {remote_name}",
+          .sep = "\n"
+        )
+      )
+
+
+
+
     suppressWarnings(
-      system(paste0(
-        "cd\n",
-        "cd ", path, "\n",
-        "git remote get-url ", remote_name
-      ),
+      system(command = command,
       ignore.stderr = TRUE,
       intern = TRUE
       )

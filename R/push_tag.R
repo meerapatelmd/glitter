@@ -45,8 +45,6 @@ push_tag <-
 
     }
 
-    print(command)
-
     system(
       command = command,
       intern = FALSE

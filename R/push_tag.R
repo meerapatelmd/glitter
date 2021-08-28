@@ -13,8 +13,7 @@ push_tag <-
   function(path = getwd(),
            remote_name = "origin",
            remote_branch = "master",
-           verbose = TRUE,
-           ...) {
+           verbose = TRUE) {
     if (remote_branch == "master" && is_main(path = path)) {
       remote_branch <- "main"
     }
@@ -35,15 +34,6 @@ push_tag <-
         "git push {remote_name} {remote_branch} --tag",
         .sep = "\n"))
 
-
-    if (!missing(...)) {
-
-      command <-
-        c(command,
-          glue::glue_collapse(unlist(rlang::list2(...)),
-                              sep = " "))
-
-    }
 
     system(
       command = command,

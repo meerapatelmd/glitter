@@ -8,8 +8,7 @@ push_tag(
   path = getwd(),
   remote_name = "origin",
   remote_branch = "master",
-  verbose = TRUE,
-  ...
+  verbose = TRUE
 )
 }
 \arguments{

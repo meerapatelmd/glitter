@@ -153,8 +153,8 @@ deploy_pkg <-
         repo <-
           stringr::str_replace_all(
             string = git_url,
-            pattern = "https://github.com/(.*?)/(.*$)",
-            replacement = "\\1/\\2"
+            pattern = "(^https://github.com)/(.*?)/(.*?)([.]{1}git$)",
+            replacement = "\\2/\\3"
           )
 
         secretary::typewrite(glue::glue(" Git URL: {git_url}\n  Git Repo: {repo}\n"),
@@ -177,11 +177,39 @@ deploy_pkg <-
         )
 
 
+      } else if (grepl("https[:]{1}[/]{1}[/]{1}github[.]{1}com[/]{1}.*[/]{1}.*$",
+                      git_url)) {
+
+        repo <-
+          stringr::str_replace_all(
+            string = git_url,
+            pattern = "(^https://github.com)/(.*?)/(.*$)",
+            replacement = "\\2/\\3"
+          )
+
+        secretary::typewrite(glue::glue(" Git URL: {git_url}\n  Git Repo: {repo}\n"),
+                             timepunched = F)
+        # Install
+        devtools::install_github(
+          repo   = repo,
+          ref = ref,
+          git = git,
+          dependencies = dependencies,
+          upgrade = upgrade,
+          force = force,
+          quiet = quiet,
+          build = build,
+          build_opts = build_opts,
+          build_manual = build_manual,
+          build_vignettes = build_vignettes,
+          repos = repos,
+          type = type
+        )
 
 
       } else {
 
-        secretary::typewrite(glue::glue("   Git URL: {git_url}\n  Git Repo: Not Discovered\n"),
+        secretary::typewrite(glue::glue(" Git URL: {git_url}\n Git Repo: Not Discovered\n"),
                              timepunched = F)
 
       # Install

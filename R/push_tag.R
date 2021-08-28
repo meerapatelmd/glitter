@@ -6,10 +6,10 @@
 #' to. Defaults to "master" or "main" if the cardinal branch is using
 #' this newer default.
 #' @export
-#' @rdname push_ff
+#' @rdname push_tag
 #' @importFrom magrittr %>%
 #' @importFrom rlang list2
-push_ff <-
+push_tag <-
   function(path = getwd(),
            remote_name = "origin",
            remote_branch = "master",
@@ -28,21 +28,24 @@ push_ff <-
     )
 
     command <-
-      c(
-        starting_command(path = path),
-        paste0("git push ", remote_name, " ", remote_branch)
-      ) %>%
-      paste(collapse = "\n")
+      as.character(
+      glue::glue(
+        "cd",
+        "cd {path}",
+        "git push {remote_name} {remote_branch} --tag",
+        .sep = "\n"))
+
 
     if (!missing(...)) {
 
       command <-
         c(command,
-          paste(unlist(rlang::list2(...)),
-                collapse = " ")) %>%
-        paste(collapse = "\n")
+          glue::glue_collapse(unlist(rlang::list2(...)),
+                              sep = " "))
 
     }
+
+    print(command)
 
     system(
       command = command,

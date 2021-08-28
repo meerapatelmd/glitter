@@ -106,12 +106,11 @@ deploy_pkg <-
     if (exists("x")) {
       print_response(x)
 
-        push(
+        push_tag(
           path = path,
           remote_name = remote_name,
           remote_branch = remote_branch,
-          verbose = TRUE,
-          tag
+          verbose = TRUE
         )
     }
 

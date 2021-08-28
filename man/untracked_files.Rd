@@ -9,4 +9,3 @@ untracked_files(path = getwd())
 \description{
 (Deprecated) List all unstaged files by File Type
 }
-\keyword{internal}

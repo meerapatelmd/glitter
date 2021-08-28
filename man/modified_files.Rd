@@ -15,4 +15,3 @@ The complete git status message and modified files are printed in the console, a
 \description{
 (Deprecated) This function takes the git status message and isolates the files that have been modified according to that message.
 }
-\keyword{internal}

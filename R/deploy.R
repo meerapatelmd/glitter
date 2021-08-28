@@ -15,12 +15,15 @@
 #'  \code{\link[devtools]{document}},\code{\link[devtools]{build_vignettes}},\code{\link[devtools]{remote-reexports}}
 #' @rdname deploy_pkg
 #' @export
-#' @importFrom devtools document build_vignettes install_git
-#' @importFrom magrittr %>%
 #' @importFrom desc desc_get_version
-#' @import secretary
-#' @import glue
-#' @import git2r
+#' @importFrom secretary typewrite press_enter
+#' @importFrom glue glue
+#' @importFrom git2r tag_delete tag
+#' @importFrom devtools document install_github install_git
+#' @importFrom stringr str_replace_all
+#' @importFrom usethis use_pkgdown
+#' @importFrom pkgdown build_site
+#' @importFrom cli cat_line cat_rule
 
 deploy_pkg <-
   function(
@@ -220,9 +223,15 @@ deploy_pkg <-
 #'  \code{\link[pkgdown]{build_site}}
 #' @rdname deploy_gh_pages
 #' @export
+#' @importFrom desc desc_get_version
+#' @importFrom secretary typewrite press_enter
+#' @importFrom glue glue
+#' @importFrom git2r tag_delete tag
+#' @importFrom devtools document install_github install_git
+#' @importFrom stringr str_replace_all
 #' @importFrom usethis use_pkgdown
 #' @importFrom pkgdown build_site
-#' @importFrom magrittr %>%
+#' @importFrom cli cat_line cat_rule
 deploy_gh_pages <-
   function(commit_msg = "deploy GitHub Pages using glitter",
            remote_name = "origin",
@@ -295,7 +304,15 @@ deploy_gh_pages <-
 #'  \code{\link[pkgdown]{build_site}}
 #' @rdname deploy_all
 #' @export
-#' @importFrom magrittr %>%
+#' @importFrom desc desc_get_version
+#' @importFrom secretary typewrite press_enter
+#' @importFrom glue glue
+#' @importFrom git2r tag_delete tag
+#' @importFrom devtools document install_github install_git
+#' @importFrom stringr str_replace_all
+#' @importFrom usethis use_pkgdown
+#' @importFrom pkgdown build_site
+#' @importFrom cli cat_line cat_rule
 deploy_all <-
   function(commit_msg = "deploy pkg and GitHub Pages using glitter",
            tag = NULL,

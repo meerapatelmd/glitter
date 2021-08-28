@@ -2,10 +2,13 @@
 #' @description (Deprecated) This function takes the git status message and isolates the files that have been modified according to that message.
 #' @return The complete git status message and modified files are printed in the console, and a vector of the modified filenames is invisibly returned.
 #' @param path path to local repo
-#' @importFrom stringr str_replace_all
-#' @importFrom secretary typewrite_italic
-#' @importFrom secretary typewrite_bold
-#' @keywords internal
+#' @importFrom stringr str_replace_all str_remove_all
+#' @importFrom secretary typewrite_bold typewrite_italic
+#' @importFrom tibble tibble
+#' @importFrom tidyr extract
+#' @importFrom dplyr mutate_all mutate_at select
+#' @importFrom Hmisc capitalize
+#' @importFrom purrr map
 #' @export
 
 modified_files <-
@@ -45,13 +48,14 @@ modified_files <-
 
 
 
-#' (Deprecated) List all unstaged files by File Type
+#' @title (Deprecated) List all unstaged files by File Type
+#' @importFrom stringr str_replace_all str_remove_all
+#' @importFrom secretary typewrite_bold typewrite_italic
 #' @importFrom tibble tibble
-#' @importFrom rubix split_deselect
+#' @importFrom tidyr extract
+#' @importFrom dplyr mutate_all mutate_at select
 #' @importFrom Hmisc capitalize
-#' @import dplyr
-#' @import tidyr
-#' @keywords internal
+#' @importFrom purrr map
 #' @export
 
 
@@ -113,13 +117,14 @@ unstaged_files <-
 
 
 
-#' (Deprecated) List all unstaged files by File Type
+#' @title (Deprecated) List all unstaged files by File Type
+#' @importFrom stringr str_replace_all str_remove_all
+#' @importFrom secretary typewrite_bold typewrite_italic
 #' @importFrom tibble tibble
-#' @importFrom rubix split_deselect
+#' @importFrom tidyr extract
+#' @importFrom dplyr mutate_all mutate_at select
 #' @importFrom Hmisc capitalize
-#' @import dplyr
-#' @import tidyr
-#' @keywords internal
+#' @importFrom purrr map
 #' @export
 
 

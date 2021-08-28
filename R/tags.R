@@ -31,3 +31,37 @@ list_tags <-
 
 
         }
+
+
+
+
+
+delete_local_tag <-
+        function(path = getwd(),
+                 tag) {
+
+                git2r::tag_delete(object = path,
+                                  name   = tag)
+        }
+
+
+
+delete_remote_tag <-
+        function(path = getwd(),
+                 tag,
+                 remote_name = 'origin') {
+
+                command <-
+                as.character(
+                        glue::glue(
+                                "cd",
+                                "cd {path}",
+                                "git push --delete {remote_name} {tag}",
+                                .sep = "\n"
+                        )
+                )
+
+                system(command = command)
+
+
+        }

@@ -7,7 +7,7 @@
 list_tags(path = getwd())
 }
 \description{
-List Tags
+`git2r::tags()` ordered by date.
 }
 \seealso{
 \code{\link[git2r]{tags}}

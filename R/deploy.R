@@ -60,7 +60,7 @@ deploy_pkg <-
 
 
     tags_list <- list_tags(path = path)
-    most_recent_tag <- names(tags_list)[length(tags_list)]
+    most_recent_tag <- names(tags_list)[1]
 
     if (is.null(tag)) {
 

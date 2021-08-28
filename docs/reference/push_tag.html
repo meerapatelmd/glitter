@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add and Commit FF — ac_ff • glitter</title>
+<title>Push a local repo to a GitHub repository — push_tag • glitter</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Add and Commit FF — ac_ff" />
-<meta property="og:description" content="Add and Commit FF" />
+<meta property="og:title" content="Push a local repo to a GitHub repository — push_tag" />
+<meta property="og:description" content="Push a local repo to a GitHub repository" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -131,17 +131,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add and Commit FF</h1>
-    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/ac.R'><code>R/ac.R</code></a></small>
-    <div class="hidden name"><code>ac_ff.Rd</code></div>
+    <h1>Push a local repo to a GitHub repository</h1>
+    <small class="dont-index">Source: <a href='https://github.com/meerapatelmd/glitter/blob/master/R/push_tag.R'><code>R/push_tag.R</code></a></small>
+    <div class="hidden name"><code>push_tag.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Add and Commit FF</p>
+    <p>Push a local repo to a GitHub repository</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ac_ff</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>generic_commit_msg</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>push_tag</span><span class='op'>(</span>
+  path <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>,
+  remote_name <span class='op'>=</span> <span class='st'>"origin"</span>,
+  remote_branch <span class='op'>=</span> <span class='st'>"master"</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>full path to local repository to be pushed</p></td>
+    </tr>
+    <tr>
+      <th>remote_name</th>
+      <td><p>name of remote to push to. Defaults to
+"origin".</p></td>
+    </tr>
+    <tr>
+      <th>remote_branch</th>
+      <td><p>name of branch on the remote to push
+to. Defaults to "master" or "main" if the cardinal branch is using
+this newer default.</p></td>
+    </tr>
+    </table>
 
 
   </div>

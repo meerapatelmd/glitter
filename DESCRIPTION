@@ -23,9 +23,11 @@ Depends:
 Imports: 
     cave,
     cli,
+    desc,
     devtools,
     dplyr,
     git2r,
+    glue,
     Hmisc,
     httr,
     jsonlite,
@@ -38,7 +40,8 @@ Imports:
     stringr,
     tibble,
     tidyr,
-    usethis
+    usethis,
+    xfun
 Suggests: 
     knitr,
     rmarkdown

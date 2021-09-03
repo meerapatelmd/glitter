@@ -310,7 +310,6 @@ deploy_gh_pages <-
       path = "docs",
       recursive = TRUE
     )
-
     add("_pkgdown.yml")
 
 

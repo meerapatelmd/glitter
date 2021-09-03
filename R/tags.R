@@ -1,15 +1,26 @@
-#' @title List Tags
-#' @description
-#' `git2r::tags()` ordered by date.
-#' @seealso
+
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param path PARAM_DESCRIPTION, Default: getwd()
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
 #'  \code{\link[git2r]{tags}}
+#'  \code{\link[purrr]{map}}
+#'  \code{\link[tibble]{as_tibble}}
+#'  \code{\link[dplyr]{bind}},\code{\link[dplyr]{arrange}},\code{\link[dplyr]{desc}},\code{\link[dplyr]{mutate_all}},\code{\link[dplyr]{vars}}
 #' @rdname list_tags
-#' @export
+#' @export 
 #' @importFrom git2r tags
 #' @importFrom purrr map
 #' @importFrom tibble as_tibble_col
 #' @importFrom dplyr bind_rows arrange desc mutate_at vars
-
 list_tags <-
         function(path = getwd()) {
 
@@ -36,6 +47,23 @@ list_tags <-
 
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param path PARAM_DESCRIPTION, Default: getwd()
+#' @param tag PARAM_DESCRIPTION
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[git2r]{tag_delete}}
+#' @rdname delete_local_tag
+#' @export 
+#' @importFrom git2r tag_delete
 delete_local_tag <-
         function(path = getwd(),
                  tag) {
@@ -46,6 +74,24 @@ delete_local_tag <-
 
 
 
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param path PARAM_DESCRIPTION, Default: getwd()
+#' @param tag PARAM_DESCRIPTION
+#' @param remote_name PARAM_DESCRIPTION, Default: 'origin'
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[glue]{glue}}
+#' @rdname delete_remote_tag
+#' @export 
+#' @importFrom glue glue
 delete_remote_tag <-
         function(path = getwd(),
                  tag,

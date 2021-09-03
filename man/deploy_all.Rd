@@ -22,7 +22,6 @@ deploy_all(
   preview = FALSE,
   devel = TRUE,
   new_process = !devel,
-  git = c("auto", "git2r", "external"),
   dependencies = NA,
   upgrade = "never",
   force = FALSE,

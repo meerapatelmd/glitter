@@ -14,7 +14,6 @@ deploy_pkg(
   build_vignettes = FALSE,
   path = getwd(),
   ref = "HEAD",
-  git = c("auto", "git2r", "external"),
   dependencies = NA,
   upgrade = "never",
   force = FALSE,

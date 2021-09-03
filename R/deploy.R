@@ -36,7 +36,6 @@ deploy_pkg <-
            build_vignettes = FALSE,
            path = getwd(),
            ref = "HEAD",
-           git = c("auto", "git2r", "external"),
            dependencies = NA,
            upgrade = "never",
            force = FALSE,
@@ -143,7 +142,6 @@ deploy_pkg <-
         devtools::install_github(
           repo = repo,
           ref = ref,
-          git = git,
           dependencies = dependencies,
           upgrade = upgrade,
           force = force,
@@ -171,7 +169,6 @@ deploy_pkg <-
         devtools::install_github(
           repo   = repo,
           ref = ref,
-          git = git,
           dependencies = dependencies,
           upgrade = upgrade,
           force = force,
@@ -201,7 +198,6 @@ deploy_pkg <-
         devtools::install_github(
           repo   = repo,
           ref = ref,
-          git = git,
           dependencies = dependencies,
           upgrade = upgrade,
           force = force,
@@ -224,7 +220,6 @@ deploy_pkg <-
       devtools::install_git(
         url = git_url,
         ref = ref,
-        git = git,
         dependencies = dependencies,
         upgrade = upgrade,
         force = force,
